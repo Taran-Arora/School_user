@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { NavLink, Outlet } from 'react-router-dom';
 import Register from './Components/Register';
+import './Style/Style.scss';
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
       {/* <Register /> */}
       <Outlet />
       <NavLink to='./register'> Regiser form </NavLink>
+      <br />
+      <br />
+      <NavLink to="./login"> Login page form </NavLink>
     </>
 
   );
