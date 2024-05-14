@@ -4,7 +4,7 @@ export default function Register() {
   return (
     <div className="container">
     <div className="login_box">
-      <h1>Register</h1>
+      <h1 className='login-reg-heading'>Register</h1>
       <div className="input_box">
         <input type="text" required />
         <label htmlFor="">School Name</label>
