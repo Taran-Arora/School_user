@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './Components/Login';
+import Links from './Components/Links';
 
 import {
   createBrowserRouter,
@@ -17,6 +18,7 @@ import Register from './Components/Register';
 const router = createBrowserRouter (
   createRoutesFromElements (
     <Route path='/' element={<App/>}>
+      <Route index element={<Links/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}></Route>
     </Route>

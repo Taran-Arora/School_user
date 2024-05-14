@@ -9,7 +9,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url("../Images/degree.jpg");
+	background-image: url("../Images/admin.jpeg");
 	// background: url('../Images/book.jpg');
 	// background:
     //     rgba(0, 0, 0, .55)
@@ -31,7 +31,7 @@
 	  /* filter: blur(8px); */
 	  backdrop-filter: blur(4px);
   
-	  h1 {
+	 .login-reg-heading {
 		text-align: center;
 		margin-bottom: 20px;
 		font-size: 40px;
@@ -122,20 +122,26 @@
 		}
 	  }
   
-	  .reg {
-		display: flex;
-		justify-content: center;
-		margin-top: 20px;
-		font-size: 14px;
-		color: #ffff;
+	//   .reg-log {
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	margin-top: 20px;
+	// 	font-size: 14px;
+	// 	color: #ffff;
+
+	// 	span {
+	// 		color: #fff;
+	// 		font-weight: 600s;
+	// 		text-decoration: underline;
+	// 	}
   
-		a {
-		  text-decoration: none;
-		  margin-left: 5px;
-		  color: #fff;
-		  font-weight: bold;
-		}
-	  }
+	// 	a {
+	// 	  text-decoration: none;
+	// 	  margin-left: 5px;
+	// 	  color: #fff;
+	// 	  font-weight: bold;
+	// 	}
+	//   }
   
 	  .input_box input:focus ~ label,
 	  .input_box input:valid ~ label {
@@ -143,4 +149,3 @@
 	  }
 	}
   }
-  
