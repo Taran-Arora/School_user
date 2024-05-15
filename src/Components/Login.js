@@ -20,17 +20,17 @@ export default function Login() {
                 <div className="login_box">
                     <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
-                        <input type="text"  required />
-                        <label htmlFor="">Email</label>
+                        <input type="Email" placeholder='Email' required />
                         <MailIcon className="icon" />
                     </div>
+
                     <div className="input_box">
                         <input
                             type={showPassword ? "text" : "password"}
                             required
                             maxLength={8} // Adding maxLength to enforce 8-character limit
+                            placeholder='Password'
                         />
-                        <label>Password</label>
                         {showPassword ? (
                             <RemoveRedEyeIcon className="icon" onClick={togglePasswordVisibility} />
                         ) : (
@@ -38,12 +38,13 @@ export default function Login() {
                         )}
                     </div>
                     <div className="login">
-                        <a href='#' className='sign-log-button'>Login</a>
+                        <button className='sign-log-button'>Login</button>
                     </div>
                     <div>
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }

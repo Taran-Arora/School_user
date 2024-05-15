@@ -47,24 +47,21 @@ export default function Register() {
       <div className="login_box">
         <h1 className='login-reg-heading'> School Register</h1>
         <div className="input_box">
-          <input id="schoolName" type="text" required />
-          <label htmlFor="schoolName">School Name</label>
+          <input id="schoolName" type="text"  placeholder='School Name'required />
         </div>
         <div className="input_box">
-          <input id="schoolId" type="text" required />
-          <label htmlFor="schoolId">School Id</label>
+          <input id="schoolId" type="text" placeholder='School Id' required />
         </div>
         {/* Other input fields */}
         <div className="input_box">
-          <input type="password" required />
-          <label htmlFor="">Password</label>
+          <input type="password" placeholder='Password' required />
         </div>
         <div className="input_box">
-          <input type="password" required />
-          <label htmlFor=""> Confirm password</label>
+          <input type="password" placeholder=' Confirm Password'  required />
+
         </div>
         <div className="login">
-          <a href='#' className='sign-log-button'>Register</a>
+          <button className='sign-log-button'>Register</button>
         </div>
       </div>
     </div>
