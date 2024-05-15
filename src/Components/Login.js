@@ -4,9 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from '../../src/config/toast';
+import MailIcon from '@mui/icons-material/Mail';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Login() {
     const navigate = useNavigate();
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
 
     const [allFields, setAllFields] = useState({
         'username': '',
@@ -37,23 +46,28 @@ export default function Login() {
         <div>
             <div className="container">
                 <div className="login_box">
-                    <h1>Login</h1>
+                    <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
                         <input type="text" required name='username' onChange={inputFieldsData} value={allFields?.username}  />
                         <label htmlFor="">Email</label>
-                        <ion-icon className="icon" name="mail-outline"></ion-icon>
+                        <MailIcon className="icon"/>
                     </div>
                     <div className="input_box">
-                        <input type="password" required value={allFields?.password} name='password' onChange={inputFieldsData}/>
-                        <label htmlFor="">password</label>
-                        <ion-icon className="icon" name="lock-closed-outline"></ion-icon>
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            required name='password' onChange={inputFieldsData} value={allFields?.password} 
+                        />
+                        <label>Password</label>
+                        {showPassword ? (
+                            <RemoveRedEyeIcon className="icon" onClick={togglePasswordVisibility} />
+                        ) : (
+                            <VisibilityOffIcon className="icon" onClick={togglePasswordVisibility} />
+                        )}
                     </div>
-     
                     <div className="login">
                         <button type='button' onClick={loginSubmit}>Login</button>
                     </div>
                     <div>
-
                     </div>
                 </div>
             </div>
