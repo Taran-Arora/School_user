@@ -20,7 +20,7 @@ export default function Login() {
                 <div className="login_box">
                     <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
-                        <input type="text" placeholder='email' required />
+                        <input type="text"  required />
                         <label htmlFor="">Email</label>
                         <MailIcon className="icon" />
                     </div>
