@@ -1,44 +1,72 @@
+// import React from 'react';
+
+// export default function Register() {
+//   return (
+//     <div className="form-container">
+//       <div className="login_box">
+//         <h1 className='login-reg-heading'> School Register</h1>
+//         <div className="input_box">
+//           <input type="text" required />
+//           <label htmlFor="">School Name</label>
+//         </div>
+//         <div className="input_box">
+//           <input type="text" required />
+//           <label htmlFor="">School Id</label>
+//         </div>
+//         {/* <div className="input_box">
+//           <input type="text" required />
+//           <label htmlFor="">Email</label>
+//           <ion-icon className="icon" name="mail-outline"></ion-icon>
+//         </div> */}
+//         <div className="input_box">
+//           <input type="password" required />
+//           <label htmlFor="">Password</label>
+//         </div>
+//         <div className="input_box">
+//           <input type="password" required />
+//           <label htmlFor=""> Confirm password</label>
+//         </div>
+//         <div className="login">
+//           <a href='#' className='sign-log-button'>Register</a>
+//         </div>
+//         <div>
+//         </div>
+//       </div>
+//     </div>
+
+//   )
+// }
+
+
 import React from 'react';
+
 
 export default function Register() {
   return (
-    <div className="container">
+    <div className="form-container">
       <div className="login_box">
         <h1 className='login-reg-heading'> School Register</h1>
         <div className="input_box">
-          <input type="text" required />
-          <label htmlFor="">School Name</label>
-          <ion-icon className="icon" name="mail-outline"></ion-icon>
+          <input id="schoolName" type="text" required />
+          <label htmlFor="schoolName">School Name</label>
         </div>
         <div className="input_box">
-          <input type="text" required />
-          <label htmlFor="">School Id</label>
-          <ion-icon className="icon" name="mail-outline"></ion-icon>
+          <input id="schoolId" type="text" required />
+          <label htmlFor="schoolId">School Id</label>
         </div>
-        {/* <div className="input_box">
-          <input type="text" required />
-          <label htmlFor="">Email</label>
-          <ion-icon className="icon" name="mail-outline"></ion-icon>
-        </div> */}
+        {/* Other input fields */}
         <div className="input_box">
           <input type="password" required />
           <label htmlFor="">Password</label>
-          <ion-icon className="icon" name="lock-closed-outline"></ion-icon>
         </div>
         <div className="input_box">
           <input type="password" required />
           <label htmlFor=""> Confirm password</label>
-          <ion-icon className="icon" name="lock-closed-outline"></ion-icon>
         </div>
         <div className="login">
-          <button>Register</button>
-        </div>
-      
-        <div>
-
+          <button type='button' className='sign-log-button'>Register</button>
         </div>
       </div>
     </div>
-
-  )
+  );
 }

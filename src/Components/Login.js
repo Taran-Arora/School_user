@@ -14,7 +14,7 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
-      setShowPassword(!showPassword);
+        setShowPassword(!showPassword);
     };
 
     const [allFields, setAllFields] = useState({
@@ -44,18 +44,19 @@ export default function Login() {
 
     return (
         <div>
-            <div className="container">
+            <div className="form-container">
                 <div className="login_box">
                     <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
                         <input type="text" required name='username' onChange={inputFieldsData} value={allFields?.username}  />
                         <label htmlFor="">Email</label>
-                        <MailIcon className="icon"/>
+                        <MailIcon className="icon" />
                     </div>
                     <div className="input_box">
                         <input
                             type={showPassword ? "text" : "password"}
-                            required name='password' onChange={inputFieldsData} value={allFields?.password} 
+                            required name='password' onChange={inputFieldsData} value={allFields?.password}
+                            maxLength={8}
                         />
                         <label>Password</label>
                         {showPassword ? (
@@ -65,7 +66,7 @@ export default function Login() {
                         )}
                     </div>
                     <div className="login">
-                        <button type='button' onClick={loginSubmit}>Login</button>
+                        <button type='button' className='sign-log-button' onClick={loginSubmit}>Login</button>
                     </div>
                     <div>
                     </div>
