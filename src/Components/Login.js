@@ -11,23 +11,24 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
-      setShowPassword(!showPassword);
+        setShowPassword(!showPassword);
     };
 
     return (
         <div>
-            <div className="container">
+            <div className="form-container">
                 <div className="login_box">
                     <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
-                        <input type="text" required />
+                        <input type="text" placeholder='email' required />
                         <label htmlFor="">Email</label>
-                        <MailIcon className="icon"/>
+                        <MailIcon className="icon" />
                     </div>
                     <div className="input_box">
                         <input
                             type={showPassword ? "text" : "password"}
                             required
+                            maxLength={8} // Adding maxLength to enforce 8-character limit
                         />
                         <label>Password</label>
                         {showPassword ? (
@@ -37,7 +38,7 @@ export default function Login() {
                         )}
                     </div>
                     <div className="login">
-                        <button>Login</button>
+                        <a href='#' className='sign-log-button'>Login</a>
                     </div>
                     <div>
                     </div>
