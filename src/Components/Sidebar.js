@@ -15,17 +15,14 @@ const Sidebar = () => {
       <hr className='text-dark'/>
       <div className='list-group list-group-flush max-vh-100'>
         <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
-            {/* <i className='bi bi-speedometer2 fs-5 me-2'></i> */}
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
         </a>
         <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
-            {/* <i className='speedometer2 fs-4 me-2'></i> */}
             <SchoolIcon className='fs-4 me-2'></SchoolIcon>
             <span className='fs-5'>All Schools</span>
         </a>
         <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
-            {/* <i className='speedometer2 fs-4 me-2'></i> */}
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
         </a>

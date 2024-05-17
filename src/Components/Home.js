@@ -1,5 +1,9 @@
 import React from 'react'
 import Nav from './Nav'
+import Students from '../assets/Images/graduation.png'
+import Parents from '../assets/Images/parents.png'
+import Teacher from '../assets/Images/teacher.png'
+import Earning from '../assets/Images/salary.png'
 
 const Home = ({Toggle}) => {
     return (
@@ -13,7 +17,7 @@ const Home = ({Toggle}) => {
                                 <h3 className='fs-2'>15000</h3>
                                 <p className='fs-5'>Students</p>
                             </div>
-                            <i></i>
+                            <img src={Students} alt="" className='img-fluid'/>
                         </div>
                     </div>
                     <div className="col-md-3 p-1">
@@ -22,7 +26,7 @@ const Home = ({Toggle}) => {
                                 <h3 className='fs-2'>2250</h3>
                                 <p className='fs-5'>Teachers</p>
                             </div>
-                            <i></i>
+                            <img src={Teacher} alt="" className='img-fluid'/>
                         </div>
                     </div>
                     <div className="col-md-3 p-1">
@@ -31,7 +35,7 @@ const Home = ({Toggle}) => {
                                 <h3 className='fs-2'>5900</h3>
                                 <p className='fs-5'>Parents</p>
                             </div>
-                            <i></i>
+                            <img src={Parents} alt="" className='img-fluid'/>
                         </div>
                     </div>
                     <div className="col-md-3 p-1">
@@ -40,7 +44,7 @@ const Home = ({Toggle}) => {
                                 <h3 className='fs-2'>$232323</h3>
                                 <p className='fs-5'>Earning</p>
                             </div>
-                            <i></i>
+                            <img src={Earning} alt="" className='img-fluid'/>
                         </div>
                     </div>
                 </div>

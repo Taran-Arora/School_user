@@ -7,6 +7,9 @@ export default function Links() {
       <br />
       <br />
       <NavLink to="./login"> Login page form </NavLink>
+      <br />
+      <br />
+      <NavLink to="./dashboard"> Dashboard </NavLink>
     </div>
   )
 }
