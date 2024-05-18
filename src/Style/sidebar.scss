@@ -1,0 +1,13 @@
+.sidebar{
+    
+    .list-group {
+        a{
+            cursor: pointer;
+            &:hover{
+                background-color: #ffa901;
+                color: #fff;
+                border-radius: 8px;
+            }
+        }
+    }
+}
