@@ -48,17 +48,16 @@ export default function Login() {
                 <div className="login_box">
                     <h1 className='login-reg-heading '> Admin Login</h1>
                     <div className="input_box">
-                        <input type="text" required name='username' onChange={inputFieldsData} value={allFields?.username}  />
-                        <label htmlFor="">Email</label>
+                        <input type="Email" placeholder='Email' required name='username' onChange={inputFieldsData} value={allFields?.username}  />
                         <MailIcon className="icon" />
                     </div>
+
                     <div className="input_box">
                         <input
                             type={showPassword ? "text" : "password"}
                             required name='password' onChange={inputFieldsData} value={allFields?.password}
-                            maxLength={8}
+                            maxLength={8} placeholder='Password'
                         />
-                        <label>Password</label>
                         {showPassword ? (
                             <RemoveRedEyeIcon className="icon" onClick={togglePasswordVisibility} />
                         ) : (
@@ -73,5 +72,6 @@ export default function Login() {
                 </div>
             </div>
         </div>
+
     )
 }
