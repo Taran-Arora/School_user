@@ -65,9 +65,9 @@ const Home = ({ Toggle }) => {
                             <td>Mark</td>
                             <td>School@gmail.com</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                         <tr>
@@ -75,9 +75,9 @@ const Home = ({ Toggle }) => {
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                         <tr>
@@ -85,9 +85,9 @@ const Home = ({ Toggle }) => {
                             <td>Larry the Bird</td>
                             <td>School@gmail.com</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                         <tr>
@@ -95,9 +95,9 @@ const Home = ({ Toggle }) => {
                             <td>Larry the Bird</td>
                             <td>School@gmail.com</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                         <tr>
@@ -105,9 +105,9 @@ const Home = ({ Toggle }) => {
                             <td>Larry the Bird</td>
                             <td>School@gmail.com</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                         <tr>
@@ -115,9 +115,9 @@ const Home = ({ Toggle }) => {
                             <td>Larry the Bird</td>
                             <td>School@gmail.com</td>
                             <td className='d-flex justify-content-evenly'>
-                                <a href="" className='btn btn-login'>Login</a>
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>Block</a>
+                                <a href="" className='btn-login'>Login</a>
+                                <a href="" className='btn-view'>View</a>
+                                <a href="" className='btn-block'>Block</a>
                             </td>
                         </tr>
                     </tbody>

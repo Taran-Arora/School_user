@@ -26,7 +26,7 @@ const Sidebar = () => {
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
         </a>
-        <a href="" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center">
+        <a href="" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
         </a>

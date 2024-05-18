@@ -1,13 +1,17 @@
-.sidebar{
-    
+.sidebar {
+
     .list-group {
-        a{
+        a {
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-color: #ffa901;
                 color: #fff;
                 border-radius: 8px;
             }
         }
+    }
+    .logout-btn{
+        width: 88%;
     }
 }
