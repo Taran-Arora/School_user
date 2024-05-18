@@ -4,6 +4,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -14,22 +15,26 @@ const Sidebar = () => {
       </div>
       <hr className='text-dark'/>
       <div className='list-group list-group-flush max-vh-100'>
-        <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
+        <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
-        </a>
-        <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
+        </Link>
+        <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
             <SchoolIcon className='fs-4 me-2'></SchoolIcon>
             <span className='fs-5'>All Schools</span>
-        </a>
-        <a href="" className="list-group-item py-2 d-flex align-items-center my-2">
+        </Link>
+        <Link to="/students" className="list-group-item py-2 d-flex align-items-center my-2">
+            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+            <span className='fs-5'>Student Details</span>
+        </Link>
+        <Link to="/myaccount" className="list-group-item py-2 d-flex align-items-center my-2">
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
-        </a>
-        <a href="" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center">
+        </Link>
+        <Link to="/" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
-        </a>
+        </Link>
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ import Parents from '../assets/Images/parents.png'
 import Teacher from '../assets/Images/teacher.png'
 import Earning from '../assets/Images/salary.png'
 
-const Home = ({ Toggle }) => {
+const AllSchool = ({ Toggle }) => {
     return (
         <div className='px-3'>
             <Nav Toggle={Toggle} />
@@ -128,4 +128,4 @@ const Home = ({ Toggle }) => {
     )
 }
 
-export default Home
+export default AllSchool; 

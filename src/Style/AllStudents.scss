@@ -1,0 +1,19 @@
+.custom-search-bar {
+    margin-left: 25px;
+    border-radius: 8px !important;
+    outline:  none;
+    box-shadow: none;
+    position: relative;
+    &:focus {
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+}
+.students-search {
+    position: absolute;
+    top: 119px;
+    right: 80%;
+    font-size: 28px !important;
+}
+
