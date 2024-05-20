@@ -3,6 +3,22 @@
     padding: 0;
     box-sizing: border-box;
   }
+  a{
+    text-decoration: none !important;
+  }
  th, td{
   background-color: transparent !important;
+ }
+
+ .bg-green{
+  background-color: $bg-clr2;
+ }
+ .bg-blue{
+  background-color: $bg-clr4;
+ }
+ .bg-yellow{
+  background-color: $bg-clr3;
+ }
+ .bg-pink{
+  background-color: $bg-clr5;
  }

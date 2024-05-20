@@ -10,6 +10,8 @@ export default function Links() {
       <br />
       <br />
       <NavLink to="./dashboard"> Dashboard </NavLink>
+      <br />
+      <NavLink to="./sidebar">sidebar</NavLink>
     </div>
   )
 }
