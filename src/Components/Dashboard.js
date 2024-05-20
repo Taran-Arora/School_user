@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Sidebar from './Sidebar';
+import { Container } from 'react-bootstrap';
+import AllTeachers from './AllTeachers';
 
 const Dashboard = () => {
     const [toggle, setToggle] = useState(true);
@@ -27,7 +29,7 @@ const Dashboard = () => {
     }, [toggle, transitioning]);
 
     return (
-        <div className="container-fluid dash min-vh-100">
+        <Container fluid className="dash min-vh-100">
             <div className="row">
                 <div
                     className={`col-12 col-md-4 col-lg-3 col-xl-2 bg-white vh-100 position-fixed z-1 ${toggle ? 'sidebar-visible' : 'sidebar-hidden'}`}
@@ -36,11 +38,14 @@ const Dashboard = () => {
                     <Sidebar />
                 </div>
                 {toggle && <div className="col-4 col-md-2"></div>}
-                <div className="col">
+                {/* <div className="col">
                     <Home Toggle={Toggle} />
-                </div>
+                </div> */}
+                <div className="col">
+                    <AllTeachers Toggle={Toggle} />
+                </div> 
             </div>
-        </div>
+        </Container>
     );
 };
 
