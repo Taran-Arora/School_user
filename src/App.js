@@ -5,6 +5,8 @@ import Register from './Components/Register';
 import Forgot from './Components/Forget';
 import './Style/Style.scss';
 import Dashboard from './Components/Dashboard';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -17,13 +19,15 @@ function App() {
         <Routes>
           {/* <Route path="/" /> */}
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Links />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<Forgot />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </>
+
 
   );
 }

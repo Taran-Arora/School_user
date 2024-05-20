@@ -34,9 +34,12 @@ export default function Login() {
         let res = await _fetch(`${api_url}admin/login/`, 'POST', allFields, {});
     
         if (res?.status == 200) {
-          toasted.success(res?.message);
-          navigate('/');
-        }
+            toasted.success(res?.message);
+            localStorage.setItem('token', res?.access);
+            localStorage.setItem('auth', 'true');
+            localStorage.setItem('useremail', allFields?.username);
+            navigate('/');
+          }
         else if (res?.message) {
           toasted.error(res?.message);
         }

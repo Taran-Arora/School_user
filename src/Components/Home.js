@@ -1,11 +1,44 @@
-import React from 'react'
+import React, {useEffect, useState } from 'react'
 import Nav from './Nav'
 import Students from '../assets/Images/graduation.png'
 import Parents from '../assets/Images/parents.png'
 import Teacher from '../assets/Images/teacher.png'
 import Earning from '../assets/Images/salary.png'
+import { Link, useNavigate } from 'react-router-dom';
+import _fetch from '../../src/config/api';
+import { api_url } from '../../src/config/config';
+// import { useState } from 'react'
 
 const Home = ({Toggle}) => {
+    const Navigate = useNavigate();
+
+    // const [schoolData, setschoolData] = useState([]);
+    const [allData, setAllData] = useState([]);
+    const [token, settoken] = useState([]);
+    useEffect(() => {
+        const storedschool = localStorage.getItem('token');
+        if (storedschool) {
+            settoken(storedschool);
+        }
+        schoolData();
+    }, [token]);
+
+
+    const schoolData = async () => {
+        let res = '';
+        if (token) {
+            res = await _fetch(`${api_url}userdata/`, 'GET', {}, {});
+        }
+        console.log('res', res);
+        if (res?.status === 200) {
+            console.log(res);
+            setAllData(res?.data);
+        }
+        else {
+            Navigate('/login');
+        }
+    }
+
     return (
         <div className='px-3'>
             <Nav Toggle={Toggle}/>
@@ -14,7 +47,7 @@ const Home = ({Toggle}) => {
                     <div className="col-md-3 p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className='fs-2'>15000</h3>
+                                <h3 className='fs-2'></h3>
                                 <p className='fs-5'>Students</p>
                             </div>
                             <img src={Students} alt="" className='img-fluid'/>
