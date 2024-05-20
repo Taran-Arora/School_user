@@ -274,7 +274,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
-const Home = ({ Toggle }) => {
+const Home = () => {
     const navigate = useNavigate();
 
     const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '' });
@@ -314,7 +314,7 @@ const Home = ({ Toggle }) => {
 
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid className="cards">
                 <Row className="g-3 my-2">
                     <Col lg={3} md={6} className="p-1">

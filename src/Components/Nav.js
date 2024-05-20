@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 import SearchIcon from '@mui/icons-material/Search';
+import { ToggleContext } from './ToggleContext';
 
-const Nav = ({ Toggle }) => {
+const Nav = () => {
+    const { Toggle } = useContext(ToggleContext);
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-transparent px-3">
             <SegmentIcon className='toggler fs-1' onClick={Toggle}></SegmentIcon>

@@ -4,10 +4,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
-const SchoolData = ({Toggle}) => {
+const SchoolData = () => {
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid>
                 <Row>
                     <Col lg={12}>

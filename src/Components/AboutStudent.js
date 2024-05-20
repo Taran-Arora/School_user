@@ -3,7 +3,7 @@ import Nav from './Nav'
 import studentImg from "../assets/Images/newStudent.jpg";
 
 
-export default function AboutStudent({ Toggle }) {
+export default function AboutStudent() {
   
   return (
     <>
@@ -39,7 +39,7 @@ export default function AboutStudent({ Toggle }) {
         </table>
       </div> */}
       <div>
-        <Nav Toggle={Toggle} />
+        <Nav />
         <div className="each-student">
           <div className="student-name">
           <h2>SVPSAS230001 - Ayush Saha</h2>
