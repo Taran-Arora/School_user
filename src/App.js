@@ -11,6 +11,7 @@ import AllTeachers from './Components/AllTeachers';
 import DashLayout from './Components/DashLayout';
 import AllSchools from './Components/AllSchools';
 import AllStudents from './Components/AllStudents';
+import AboutStudent from './Components/AboutStudent';
 
 
 
@@ -37,8 +38,9 @@ function App() {
             <Route path="/allschools" element={<AllSchools />} />
             <Route path="/allteachers" element={<AllTeachers />} />
             <Route path='/allstudents' element={<AllStudents/>}/>
+            <Route path='/aboutStudent' element={<AboutStudent/>}/>
           </Route>
-        </Routes>
+        </Routes> 
       </BrowserRouter>
       <ToastContainer />
     </>
