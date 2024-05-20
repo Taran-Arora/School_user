@@ -10,11 +10,30 @@ import Students from '../assets/Images/graduation.png';
 import Parents from '../assets/Images/parents.png';
 import Teacher from '../assets/Images/teacher.png';
 import Earning from '../assets/Images/salary.png';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
+import toasted from '../config/toast';
 
 const Sidebar = () => {
+
+  const navigate = useNavigate();
+
+  const logOut = async () => {
+
+    var data = await _fetch(`${api_url}logout/`, 'POST', {}, {});
+
+    if (data?.status == 200) {
+
+      toasted.success(data?.message);
+      localStorage.clear();
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
+    } else {
+      toasted.error(data?.message);
+    }
+  }
 
   return (
     <>
@@ -46,10 +65,13 @@ const Sidebar = () => {
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
         </Link>
-        <Link to="/" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
+        {/* <Link to="/login" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
-        </Link>
+        </Link> */}
+        <Button type='button' onClick={logOut}>
+          Logout
+        </Button>
       </div>
     </div>
     </>
