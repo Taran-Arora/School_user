@@ -19,9 +19,13 @@ const Sidebar = () => {
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
         </Link>
-        <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
-            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+        <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
+            <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>All Schools</span>
+        </Link>
+        <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
+            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+            <span className='fs-5'>All Teachers</span>
         </Link>
         <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Sidebar from './Sidebar';
 import { Container } from 'react-bootstrap';
-import AllTeachers from './AllTeachers';
+
 
 const Dashboard = () => {
     const [toggle, setToggle] = useState(true);
@@ -38,12 +38,12 @@ const Dashboard = () => {
                     <Sidebar />
                 </div>
                 {toggle && <div className="col-4 col-md-2"></div>}
-                {/* <div className="col">
-                    <Home Toggle={Toggle} />
-                </div> */}
                 <div className="col">
+                    <Home Toggle={Toggle} />
+                </div>
+                {/* <div className="col">
                     <AllTeachers Toggle={Toggle} />
-                </div> 
+                </div>  */}
             </div>
         </Container>
     );
