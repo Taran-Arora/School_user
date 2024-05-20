@@ -29,6 +29,7 @@ export default function AllStudents() {
                             <td>	6296268026</td>
                             <td className='d-flex justify-content-evenly'>
                                 {/* <a href="" className='btn btn-login'>Login</a> */}
+                                
                                 <a href="" className='btn btn-view'>View</a>
                                 <a href="" className='btn btn-block'>edit</a>
                             </td>

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import Home from './AllSchool';
+import React, { useState, useEffect } from 'react';
+import Home from './Home';
 import Sidebar from './Sidebar';
-import { Route } from 'react-router-dom';
-import AllSchool from './AllSchool';
-import AboutStudent from './AboutStudent';
+import { Container } from 'react-bootstrap';
+
 
 const Dashboard = () => {
     const [toggle, setToggle] = useState(true);
+    const [transitioning, setTransitioning] = useState(false);
 
     useEffect(() => {
         if (window.innerWidth < 1200) {
@@ -15,27 +15,38 @@ const Dashboard = () => {
     }, []);
 
     const Toggle = () => {
+        setTransitioning(true);
         setToggle(!toggle);
     };
 
+    useEffect(() => {
+        if (transitioning) {
+            const timeout = setTimeout(() => {
+                setTransitioning(false);
+            }, 200);
+            return () => clearTimeout(timeout);
+        }
+    }, [toggle, transitioning]);
+
     return (
-        <div className="container-fluid dash min-vh-100">
+        <Container fluid className="dash min-vh-100">
             <div className="row">
-                {toggle && <div className="col-10 col-md-4 col-lg-3 col-xl-2 bg-white vh-100 position-fixed z-1">
-                    <Sidebar/> 
-                        {/* <Route path='/allschool' element={<AllSchool/>}/> */}
-                </div>}
+                <div
+                    className={`col-12 col-md-4 col-lg-3 col-xl-2 bg-white vh-100 position-fixed z-1 ${toggle ? 'sidebar-visible' : 'sidebar-hidden'}`}
+                    style={{ transition: 'transform 0.5s ease', transform: toggle ? 'translateX(0)' : 'translateX(-100%)' }}
+                >
+                    <Sidebar />
+                </div>
                 {toggle && <div className="col-4 col-md-2"></div>}
                 <div className="col">
                     <Home Toggle={Toggle} />
                 </div>
                 {/* <div className="col">
-                <AboutStudent Toggle={Toggle}/>
-
-                </div> */}
+                    <AllTeachers Toggle={Toggle} />
+                </div>  */}
             </div>
-        </div>
-    )
-}
+        </Container>
+    );
+};
 
-export default Dashboard
+export default Dashboard;

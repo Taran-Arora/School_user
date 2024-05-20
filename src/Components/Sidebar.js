@@ -16,23 +16,28 @@ const Sidebar = () => {
       </div>
       <hr className='text-dark'/>
       <div className='list-group list-group-flush max-vh-100'>
-        <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
+        <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
         </Link>
-        <Link to="./allschools" className="list-group-item py-2 d-flex align-items-center my-2">
-            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+        <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
+            <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>All Schools</span>
         </Link>
-        <Link to="/students" className="list-group-item py-2 d-flex align-items-center my-2">
+        <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
             <SchoolIcon className='fs-4 me-2'></SchoolIcon>
-            <span className='fs-5'>Student Details</span>
+            <span className='fs-5'>All Teachers</span>
         </Link>
-        <Link to="/myaccount" className="list-group-item py-2 d-flex align-items-center my-2">
+        <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
+            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+            <span className='fs-5'>All Students</span>
+        </Link>
+        
+        <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
         </Link>
-        <Link to="/" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center">
+        <Link to="/" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
         </Link>
