@@ -1,0 +1,94 @@
+// .about-studetns {
+//     padding-top: 10px;
+//     .each-students{
+//         display: flex;
+//         justify-content: space-between;
+
+//         .studentsid {
+//             h3{
+//                 font-size: 25px;
+//                 padding-top: 20px;
+//                 padding-left: 25px;
+//             }
+//         }
+//         .student-img {
+//             border: 1px solid #000;
+//             width: 125px;
+//             height: 150px;
+//             padding-right: 50px;
+//             margin: 10px  15px 0 0;
+
+
+
+//         }
+
+//     }
+// }
+
+
+// $border-color: black;
+
+$background-color-header: #f2f2f2;
+$padding: 10px;
+
+.each-student {
+    display: flex;
+    justify-content: space-between;
+
+    .student-name {
+        padding: 40px 0 0px 9px;
+
+        h2 {
+            font-size: 25px;
+            padding-top: 20px;
+          
+
+            @media (max-width:576px ) {
+                font-size: 18px;
+                br {
+                    display: block;
+                }
+            }
+
+        }
+    }
+
+    .student-img {
+        width: 125px;
+        height: 150px;
+        border: 1px solid #000;
+        padding-right: 50px;
+        margin: 10px 15px 0 0;
+
+        img {
+            width: 125px;
+            height: 150px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+    }
+
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    th,
+    td {
+        border: 1px solid #000;
+        padding: $padding;
+        text-align: left;
+    }
+
+    th {
+        background-color: #FFFFFF;
+    }
+
+
+}

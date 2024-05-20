@@ -3,6 +3,7 @@ import Home from './AllSchool';
 import Sidebar from './Sidebar';
 import { Route } from 'react-router-dom';
 import AllSchool from './AllSchool';
+import AboutStudent from './AboutStudent';
 
 const Dashboard = () => {
     const [toggle, setToggle] = useState(true);
@@ -28,6 +29,10 @@ const Dashboard = () => {
                 <div className="col">
                     <Home Toggle={Toggle} />
                 </div>
+                {/* <div className="col">
+                <AboutStudent Toggle={Toggle}/>
+
+                </div> */}
             </div>
         </div>
     )

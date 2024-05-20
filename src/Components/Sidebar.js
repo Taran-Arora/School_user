@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div className='bg-white sidebar p-2 max-vh-100'>
+    <>
+      <div className='bg-white sidebar p-2 max-vh-100'>
       <div className='m-2 d-flex align-items-center'>
         <PersonIcon className='me-2 fs-4'></PersonIcon>
         <span className='brand-name fs-4'>Admin</span>
@@ -19,7 +20,7 @@ const Sidebar = () => {
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
         </Link>
-        <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
+        <Link to="./allschools" className="list-group-item py-2 d-flex align-items-center my-2">
             <SchoolIcon className='fs-4 me-2'></SchoolIcon>
             <span className='fs-5'>All Schools</span>
         </Link>
@@ -37,6 +38,11 @@ const Sidebar = () => {
         </Link>
       </div>
     </div>
+    </>
+   
+
+
+  
   )
 }
 
