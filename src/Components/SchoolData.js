@@ -4,10 +4,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
-const SchoolData = ({Toggle}) => {
+const SchoolData = () => {
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid>
                 <Row>
                     <Col lg={12}>
@@ -19,7 +19,7 @@ const SchoolData = ({Toggle}) => {
                     <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>Teacher Data</h3>
-                        <Link to="/" className='add-btn'>
+                        <Link to="/addteacher" className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Teacher
                         </Link>
                     </div>

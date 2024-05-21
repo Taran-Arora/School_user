@@ -9,7 +9,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
-const AllSchools = ({Toggle}) => {
+
+const AllSchools = () => {
+
 
     const navigate = useNavigate();
 
@@ -51,7 +53,7 @@ const AllSchools = ({Toggle}) => {
 
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid>
                 <div className="table-responsive">
                     <table className="table">
