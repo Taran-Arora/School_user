@@ -16,6 +16,7 @@ import SchoolData from './Components/SchoolData';
 import AboutStudent from './Components/AboutStudent'
 import { ToggleProvider } from './Components/ToggleContext';
 import AddTeacher from './Components/AddTeacher';
+import AddClass from './Components/AddClass';
 
 
 
@@ -38,6 +39,7 @@ function App() {
               <Route path='/schooldata' element={<SchoolData />} />
               <Route path='/aboutStudent' element={<AboutStudent/>}/>
               <Route path="/addteacher" element={<AddTeacher />} />
+              <Route path='/addclass' element ={<AddClass/>} />
             </Route>
           </Routes>
         </BrowserRouter>
