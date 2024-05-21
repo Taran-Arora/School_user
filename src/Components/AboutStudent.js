@@ -181,24 +181,45 @@ import { Container, Row, Col } from "react-bootstrap";
 import DatePicker from 'react-datepicker';
 import Form from 'react-bootstrap/Form';
 import 'react-datepicker/dist/react-datepicker.css';
-export default function AboutStudent() {
+import studentImg from "../assets/Images/newStudent.jpg";
+import Nav from './Nav';
+import schoolLogo from "../assets/Images/school-logo.png";
+import RecyclingIcon from '@mui/icons-material/Recycling';
+import EditIcon from '@mui/icons-material/Edit';
+
+export default function AboutStudent({ Toggle }) {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   return (
     <div>
+      <Nav Toggle={Toggle} />
       <div className="about-student ">
-        <div className="student-image">
-          <img src="" alt="" />
-        </div>
-        <form action="" className='gx-5'>
-          <Row className=''>
+        <div className="for-image-section">
+          <div className="studemt-school-image">
+            <img src={schoolLogo} alt="" />
+            <div className="student-school">
+            <div className="school-about">
+              <h2 >Dayanand Anglo Vedic (DAV) School </h2>
+              {/* <h2 > DAV (Dayanand Anglo Vedic) School </h2> */}
+              <h4> Hanumangarh Rd, South Evenue, <br />
+                Abohar , Punjab 152116
 
-            <Col lg={6}>
+              </h4>
+            </div>
+         
+          </div>
+          </div>
+          
+          <div className="school-logo">
+              <img src={studentImg} alt="" />
+            </div>
+        </div>
+        <form action="" className='gx-5 student-admin-form'>
+          <Row className=''>
+            <Col lg={6} className="for-student-input"  >
               <label type="Name" className='labal-title'> Student Name </label>
               <input type="text" className='form-control' />
             </Col>
             <Col lg={6}>
-              {/* <label type="Name" className='labal-title'> Contact No  </label>
-              <input type="text" className='form-control' /> */}
               <label type="Name" className='labal-title'> Gender </label>
               <Form.Select aria-label="Default select example" className='form-control'>
                 <option>Select Gender </option>
@@ -207,24 +228,7 @@ export default function AboutStudent() {
                 <option value="3">Other </option>
               </Form.Select>
             </Col>
-            {/* <Col lg={6}>
-              <Form.Group as={Col} md="4" controlId="dob" >
-                <Form.Label>Date of Birth</Form.Label>
-                <DatePicker
-                  selected={dateOfBirth}
-                  onChange={(date) => setDateOfBirth(date)}
-                  dateFormat="yyyy/MM/dd"
-                  maxDate={new Date()}
-                  showYearDropdown
-                  scrollableYearDropdown
-                  placeholderText="Select your date of birth"
-                  className="form-control"
-                />
-              </Form.Group>
-            </Col> */}
-            <Col lg={6}>
-              {/* <label type="Name" className='labal-title'> Contact No  </label>
-              <input type="text" className='form-control' /> */}
+            <Col lg={6} className="for-student-input">
               <label type="Class" className='labal-title'> Classs </label>
               <Form.Select aria-label="Default select example" className='form-control'>
                 <option> Select Class </option>
@@ -242,11 +246,11 @@ export default function AboutStudent() {
                 <option value="12">12th</option>
               </Form.Select>
             </Col>
-            <Col lg={6} >
-              <label type="Name" className='labal-title'> DOB  </label>
-              <input type="text" className="form-control" />
+            <Col lg={6} className="for-student-input" >
+              <label className='labal-title'>DOB</label>
+              <input type="date" className='form-control' />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="BloodGroup" className='labal-title'> Blood Group </label>
               <Form.Select aria-label="Default select example" className='form-control'>
                 <option> Select Blood Group </option>
@@ -261,57 +265,79 @@ export default function AboutStudent() {
               </Form.Select>
             </Col>
 
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Date of Admission </label>
-              <input type="text" className='form-control' />
+            <Col lg={6} className="for-student-input">
+              <label className='labal-title'>Date of Admission</label>
+              <input type="date" className='form-control' />
             </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Contact No  </label>
-              <input type="text" className='form-control' />
+            <Col lg={6} className="for-student-input">
+              <label  className='labal-title'> Contact No  </label>
+              <input type="number" className='form-control' />
             </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Email </label>
-              <input type="text" className='form-control' />
+            <Col lg={6} className="for-student-input">
+              <label type="Email" className='labal-title'> Email </label>
+              <input type="Email" className='form-control' />
             </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> WhatsApp no  </label>
-              <input type="text" className='form-control' />
+            <Col lg={6} className="for-student-input">
+              <label  className='labal-title'> WhatsApp no  </label>
+              <input type="number" className='form-control' />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Address </label>
               <input type="text" className='form-control' />
             </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Religion  </label>
-              <input type="text" className='form-control' />
-            </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Caste </label>
-              <input type="text" className='form-control' />
+            <Col lg={6} className="for-student-input">
+              <label type="Religion" className='labal-title'> Religion </label>
+              <Form.Select aria-label="Default select example" className='form-control'>
+                <option> Select Religion </option>
+                <option value="Hindu">Hindu</option>
+                <option value="Muslim">Muslim</option>
+                <option value="Christian">Christian</option>
+                <option value="Sikh">Sikh</option>
+                <option value="Buddhist">Buddhist</option>
+                <option value="Jain">Jain</option>
+                <option value="Parsi">Parsi</option>
+                <option value="Jewish">Jewish</option>
+                <option value="Other">Other</option>
+              </Form.Select>
             </Col>
 
+            <Col lg={6} className="for-student-input">
+              <label type="Caste" className='labal-title'> Caste </label>
+              <Form.Select aria-label="Default select example" className='form-control'>
+                <option> Select Caste </option>
+                <option value="SC">SC</option>
+                <option value="BC">BC</option>
+                <option value="General">General</option>
+                <option value="Ews">EWS</option>
+                <option value="OBC">OBC</option>
+                <option value="ST">ST</option>
+              </Form.Select>
+            </Col>
           </Row>
-          <br />
           <Row>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Father's  Name  </label>
               <input type="text" className='form-control' />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's  Name  </label>
               <input type="text" className='form-control' />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Father's Mobile no </label>
-              <input type="text" className='form-control' />
+              <input type="number" className='form-control' />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's mobile no  </label>
-              <input type="text" className='form-control' />
+              <input type="number" className='form-control' />
             </Col>
           </Row>
         </form>
+        <div className="student-edit-btn">
+          <button className='student-edit'>   <RecyclingIcon/>Edit Details </button>
+        </div>
       </div>
     </div>
+
   )
 }

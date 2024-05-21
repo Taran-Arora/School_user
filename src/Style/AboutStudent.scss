@@ -41,7 +41,7 @@
 //         h2 {
 //             font-size: 25px;
 //             padding-top: 20px;
-          
+
 
 //             @media (max-width:576px ) {
 //                 font-size: 18px;
@@ -95,23 +95,126 @@
 
 .about-student {
     padding-top: 30px;
-    margin: 0 30px;
+    margin: 0 30px 10px 30px;
+
+    .for-image-section {
+        display: flex;
+        justify-content: space-between;
+
+        .studemt-school-image {
+            display: flex;
+            // justify-content: center; 
+            border-radius: 10px;
+            margin-bottom: 25px;
+
+
+            img {
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+
+            }
+        }
+
+        .student-school {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .school-about {
+                padding-left: 30px;
+                padding-top: 20px;
+
+            }
+
+        }
+
+        .school-logo {
+            padding-right: 40px;
+            display: flex;
+            justify-content: end;
+
+            img {
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+    }
+
+    .student-admin-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        padding-top: 40px;
+        margin-bottom: 30px;
+        
+        .for-student-input {
+            padding-top: 5px;
+        }
+
+        .labal-title {
+            font-size: 20px;
+            font-weight: 400;
+            padding-bottom: 8px;
+        }
+
+        input {
+            box-shadow: none;
+            outline: none;
+
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border: var(--bs-border-width) solid var(--bs-border-color);
+
+            }
+        }
+
+    }
 
     .labal-title {
         font-size: 20px;
         font-weight: 400;
         padding-bottom: 8px;
     }
+
     input {
         box-shadow: none;
-        border: none;
+
         &:focus {
             box-shadow: none;
-            border: none;
             outline: none;
         }
     }
 
+    .form-select {
+        box-shadow: none;
+
+        &:focus {
+            // border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133)) !important; 
+            outline: none;
+            box-shadow: none;
+            border: var(--bs-border-width) solid var(--bs-border-color);
+        }
+    }
+
+    .student-edit-btn {
+        display: flex;
+
+        .student-edit {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            background-color: #bcf0da;
+            color: #000;
+            border-radius: 8px;
+            padding: 8px;
+        }
+    }
 
 
 }

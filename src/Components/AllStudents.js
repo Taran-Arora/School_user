@@ -11,7 +11,7 @@ export default function AllStudents() {
                     <SearchOutlinedIcon className='students-search'/>
                     <tbody>
                         <tr>
-                            <th scope="col">Students Id</th>
+                            <th scope="col">Sr No </th>
                             <th scope="col">Name</th>
                             <th scope="col">	Class / Section</th>
                             {/* <th scope="col"></th> */}
@@ -21,7 +21,7 @@ export default function AllStudents() {
                             <th></th>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">1</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -35,7 +35,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">2</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -48,7 +48,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">3</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -61,7 +61,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">4</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -74,7 +74,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">5</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -87,7 +87,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">6</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -100,7 +100,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">7</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -113,7 +113,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">8</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -126,7 +126,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">9</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
@@ -139,7 +139,7 @@ export default function AllStudents() {
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
+                            <th scope="row">10</th>
                             <td>Ayush Saha</td>
                             <td>	5 / A</td>
                             <td> 	2023-01-22</td>
