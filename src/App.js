@@ -13,6 +13,7 @@ import AllStudents from './Components/AllStudents';
 import SchoolData from './Components/SchoolData';
 import AboutStudent from './Components/AboutStudent'
 import { ToggleProvider } from './Components/ToggleContext';
+import AddTeacher from './Components/AddTeacher';
 
 
 
@@ -33,6 +34,7 @@ function App() {
               <Route path='/allstudents' element={<AllStudents />} />
               <Route path='/schooldata' element={<SchoolData />} />
               <Route path="/aboutstudents" element={<AboutStudent />} />
+              <Route path="/addteacher" element={<AddTeacher />} />
             </Route>
           </Routes>
         </BrowserRouter>

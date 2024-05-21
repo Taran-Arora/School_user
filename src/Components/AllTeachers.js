@@ -12,7 +12,7 @@ const AllTeachers = () => {
                 <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>All Teachers</h3>
-                        <Link to="/" className='add-btn'>
+                        <Link to="/addteacher" className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Teacher
                         </Link>
                     </div>
