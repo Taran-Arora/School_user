@@ -9,7 +9,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
-const AllSchools = ({Toggle}) => {
+
+const AllSchools = () => {
+
 
     const navigate = useNavigate();
 
@@ -51,7 +53,7 @@ const AllSchools = ({Toggle}) => {
 
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid>
                 <div className="table-responsive">
                     <table className="table">
@@ -73,7 +75,7 @@ const AllSchools = ({Toggle}) => {
                                     <td>{item?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Link to="" className='btn-view'>View</Link>
+                                        <Link to="/schooldata" className='btn-view'>View</Link>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>

@@ -1,9 +1,11 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import Nav from './Nav'
 export default function AllStudents() {
     return (
-        <div>
+        <div className='px-3'>
+            <Nav />
             <div className="table-responsive">
                 <table className="table">
                     <thead><h3 className='table-heading'>All Students  </h3></thead>

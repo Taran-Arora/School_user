@@ -215,6 +215,7 @@ export default function AboutStudent({ Toggle }) {
         </div>
         <form action="" className='gx-5 student-admin-form'>
           <Row className=''>
+
             <Col lg={6} className="for-student-input"  >
               <label type="Name" className='labal-title'> Student Name </label>
               <input type="text" className='form-control' />

@@ -274,7 +274,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
-const Home = ({ Toggle }) => {
+const Home = () => {
     const navigate = useNavigate();
 
     const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '' });
@@ -314,10 +314,10 @@ const Home = ({ Toggle }) => {
 
     return (
         <div className='px-3'>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <Container fluid className="cards">
-                <Row className="g-3 my-2">
-                    <Col lg={3} md={6} className="p-1">
+                <Row className="g-3 my-4 my-xl-2">
+                    <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalUsers?.total_users}</h3>
@@ -326,7 +326,7 @@ const Home = ({ Toggle }) => {
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
                         </div>
                     </Col>
-                    <Col lg={3} md={6} className="p-1">
+                    <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalUsers?.active_users}</h3>
@@ -335,7 +335,7 @@ const Home = ({ Toggle }) => {
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
                         </div>
                     </Col>
-                    <Col lg={3} md={6} className="p-1">
+                    <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>0</h3>
@@ -344,7 +344,7 @@ const Home = ({ Toggle }) => {
                             <img src={Parents} alt="Inactive Users" className='img-fluid cards-img bg-yellow' />
                         </div>
                     </Col>
-                    <Col lg={3} md={6} className="p-1">
+                    <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>1</h3>
@@ -375,7 +375,7 @@ const Home = ({ Toggle }) => {
                                     <td>{item?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Link to="" className='btn-view'>View</Link>
+                                        <Link to="/schooldata" className='btn-view'>View</Link>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>
