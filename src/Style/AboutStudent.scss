@@ -135,7 +135,7 @@
         .school-logo {
             padding-right: 40px;
             display: flex;
-            justify-content: end;
+            // justify-content: end;
 
             img {
                 width: 200px;
@@ -219,4 +219,47 @@
     }
 
 
+}
+
+@media (max-width:992px) {
+    .school-logo {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width:550px) {
+    .school-name {
+        font-size: 20px;
+    }
+    .school-address {
+        font-size: 18px !important;
+    }
+    br {
+        display: none;
+    }
+    .school-logo {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .about-student {
+        margin: 0 ;
+    }
+    .for-image-section {
+        .studemt-school-image {
+            img {
+                display: none;
+            }
+        }
+        .school-logo {
+            width: 100% !important;
+            display: flex;
+            justify-content: center !important;
+            padding-bottom: 15px;
+            display: none;
+        }
+
+    }
 }

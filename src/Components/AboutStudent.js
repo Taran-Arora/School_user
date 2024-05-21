@@ -197,25 +197,21 @@ export default function AboutStudent({ Toggle }) {
           <div className="studemt-school-image">
             <img src={schoolLogo} alt="" />
             <div className="student-school">
-            <div className="school-about">
-              <h2 >Dayanand Anglo Vedic (DAV) School </h2>
-              {/* <h2 > DAV (Dayanand Anglo Vedic) School </h2> */}
-              <h4> Hanumangarh Rd, South Evenue, <br />
-                Abohar , Punjab 152116
-
-              </h4>
+              <div className="school-about">
+                <h2 className='school-name' >Dayanand Anglo Vedic (DAV) School </h2>
+                {/* <h2 > DAV (Dayanand Anglo Vedic) School </h2> */}
+                <h4 className='school-address'> Hanumangarh Rd, South Evenue, <br />
+                  Abohar , Punjab 152116
+                </h4>
+              </div>
             </div>
-         
           </div>
-          </div>
-          
           <div className="school-logo">
-              <img src={studentImg} alt="" />
-            </div>
+            <img src={studentImg} alt="" />
+          </div>
         </div>
         <form action="" className='gx-5 student-admin-form'>
           <Row className=''>
-
             <Col lg={6} className="for-student-input"  >
               <label type="Name" className='labal-title'> Student Name </label>
               <input type="text" className='form-control' />
@@ -265,13 +261,12 @@ export default function AboutStudent({ Toggle }) {
                 <option value="O-">O-</option>
               </Form.Select>
             </Col>
-
             <Col lg={6} className="for-student-input">
               <label className='labal-title'>Date of Admission</label>
               <input type="date" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
-              <label  className='labal-title'> Contact No  </label>
+              <label className='labal-title'> Contact No  </label>
               <input type="number" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
@@ -279,7 +274,7 @@ export default function AboutStudent({ Toggle }) {
               <input type="Email" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
-              <label  className='labal-title'> WhatsApp no  </label>
+              <label className='labal-title'> WhatsApp no  </label>
               <input type="number" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
@@ -335,10 +330,9 @@ export default function AboutStudent({ Toggle }) {
           </Row>
         </form>
         <div className="student-edit-btn">
-          <button className='student-edit'>   <RecyclingIcon/>Edit Details </button>
+          <button className='student-edit'>   <RecyclingIcon />Edit Details </button>
         </div>
       </div>
     </div>
-
   )
 }
