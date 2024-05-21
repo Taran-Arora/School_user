@@ -73,7 +73,7 @@ const AllSchools = ({Toggle}) => {
                                     <td>{item?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Link to="" className='btn-view'>View</Link>
+                                        <Link to="/schooldata" className='btn-view'>View</Link>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>
