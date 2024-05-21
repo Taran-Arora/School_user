@@ -1,5 +1,5 @@
 .sidebar {
-
+    transition: transform 0.5s ease;
     .list-group {
         a {
             cursor: pointer;
@@ -14,4 +14,12 @@
     .logout-btn{
         width: 88%;
     }
+}
+
+.sidebar-visible {
+    transform: translateX(0);
+}
+
+.sidebar-hidden {
+    transform: translateX(-100%);
 }
