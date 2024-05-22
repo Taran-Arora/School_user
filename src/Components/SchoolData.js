@@ -99,21 +99,21 @@ const SchoolData = () => {
                                 <th scope="col">1st</th>
                                 <td scope="col">Punjabi</td>
                                 <td scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
+                                    <Link to="/classdetails" className='btn-view'>View</Link>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="col">2nd</th>
                                 <td scope="col">Hindi</td>
                                 <td scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
+                                    <Link to="/classdetails" className='btn-view'>View</Link>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="col">3rd</th>
                                 <td scope="col">English</td>
                                 <td scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
+                                    <Link to="/classdetails" className='btn-view'>View</Link>
                                 </td>
                             </tr>
                             <tr>
