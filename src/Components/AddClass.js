@@ -1,33 +1,3 @@
-// import React from 'react'
-// import {Row , Col , } from 'react-bootstrap';
-
-// export default function AddClass() {
-//     return (
-//         <div>
-//             <div className="addclass">
-//                 <div className="add-class-about">
-//                     <h1> Add New Class </h1>
-//                 </div>
-//                 <form action="">
-//                     <Row>
-//                         <Col >
-//                             <label htmlFor=""> Enter class Name </label>
-//                             <input type="text" placeholder='Enter Class Name ' />
-//                         </Col>
-//                         <Col >
-//                             <label htmlFor=""> Total Students  </label>
-//                             <input type="number" placeholder='Total Students  ' />
-//                         </Col>
-//                         </Row>
-
-//                 </form>
-//             </div>
-
-//         </div>
-//     )
-// }
-
-
 import React from 'react'
 import Nav from './Nav'
 import { Col, Container, Row } from 'react-bootstrap'
