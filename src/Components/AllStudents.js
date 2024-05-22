@@ -12,7 +12,7 @@ export default function AllStudents() {
             <div className="table-responsive">
                 <div className='table-head'>
                     <h3 className='table-heading'>All Students</h3>
-                    <Link to="/" className='add-btn'>
+                    <Link to="/addstudent" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
                     </Link>
                 </div>

@@ -17,6 +17,8 @@ import AddTeacher from './Components/AddTeacher';
 import AddClass from './Components/AddClass';
 import AboutTeacher from './Components/AboutTeacher';
 import ClassDetails from './Components/ClassDetails';
+import AddSchool from './Components/AddSchool';
+import AddStudent from './Components/AddStudent';
 
 
 
@@ -42,6 +44,8 @@ function App() {
               <Route path='/addclass' element={<AddClass />} />
               <Route path='/aboutteacher' element={<AboutTeacher />} />
               <Route path='/classdetails' element={<ClassDetails />} />
+              <Route path='/addschool' element={<AddSchool />} />
+              <Route path='/addstudent' element={<AddStudent />} />
             </Route>
           </Routes>
         </BrowserRouter>
