@@ -24,6 +24,7 @@
 
         .form-control {
             background-color: $form-bg;
+            box-shadow: none !important;
         }
 
         .btn-submit {
@@ -31,7 +32,9 @@
             background-color: $btn-clr1;
             border: none;
             border-radius: 12px;
-            padding: 9px;
+            padding: 12px 26px;
+            font-size: 18px;
+            font-weight: 500;
         }
     }
 }

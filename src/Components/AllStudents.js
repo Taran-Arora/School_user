@@ -1,162 +1,101 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Nav from './Nav'
+import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
+import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
+
 export default function AllStudents() {
     return (
         <div className='px-3'>
-            <Nav />
+        <Nav />
+        <Container fluid>
             <div className="table-responsive">
+                <div className='table-head'>
+                    <h3 className='table-heading'>All Students</h3>
+                    <Link to="/" className='add-btn'>
+                        <AddCircleOutlineSharpIcon />Add New Student
+                    </Link>
+                </div>
                 <table className="table">
-                    <thead><h3 className='table-heading'>All Students  </h3></thead>
-                    <Form.Control type="text" placeholder="Enter here to text " className='custom-search-bar' />
-                    <SearchOutlinedIcon className='students-search'/>
                     <tbody>
                         <tr>
-                            <th scope="col">Students Id</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">	Class / Section</th>
-                            {/* <th scope="col"></th> */}
-                            <th>Date of Admission </th>
-                            <th>Guardian's Name </th>
-                            <th>Guardian's Phone </th>
-                            <th></th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Action</th>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">1</th>
+                            <td scope="col">Mark</td>
+                            <td scope="col">School@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="/aboutteacher" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">2</th>
+                            <td scope="col">Jacob</td>
+                            <td scope="col">school@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">3</th>
+                            <td scope="col">Larry the Bird</td>
+                            <td scope="col">School@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">4</th>
+                            <td scope="col">Samrat the Bird</td>
+                            <td scope="col">School@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">5</th>
+                            <td scope="col">Larry the Bird</td>
+                            <td scope="col">School@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SVPSAS230001</th>
-                            <td>Ayush Saha</td>
-                            <td>	5 / A</td>
-                            <td> 	2023-01-22</td>
-                            <td>Deepak Kumar Saha</td>
-                            <td>	6296268026</td>
-                            <td className='d-flex justify-content-evenly'>
-                                {/* <a href="" className='btn btn-login'>Login</a> */}
-                                <a href="" className='btn btn-view'>View</a>
-                                <a href="" className='btn btn-block'>edit</a>
+                            <th scope="col">6</th>
+                            <td scope="col">Larry the Bird</td>
+                            <td scope="col">School@gmail.com</td>
+                            <td scope="col">Male</td>
+                            <td scope="col">+91 1234567890</td>
+                            <td className='d-flex gap-3' scope="col">
+                                <Link to="" className='btn-view'>View</Link>
+                                <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-        </div>
+        </Container>
+    </div>
     )
 }

@@ -84,7 +84,7 @@ const SchoolData = () => {
                     <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>Classes</h3>
-                        <Link to="/" className='add-btn'>
+                        <Link to="/addclass" className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Class
                         </Link>
                     </div>
