@@ -8,7 +8,7 @@ import { api_url } from '../config/config';
 
 const SchoolData = ({ Toggle }) => {
 
-    const { email } = useParams();
+    const { username } = useParams();
 
     const [allData, setAllData] = useState([]);
     const [token, setToken] = useState(null);
@@ -25,7 +25,7 @@ const SchoolData = ({ Toggle }) => {
         // const data = {
         //     'email' : email
         // }
-        const res = await _fetch(`${api_url}teachers?school_email=${email}`, 'GET', {} , {});
+        const res = await _fetch(`${api_url}teachers?school_email=${username}`, 'GET', {} , {});
         console.log('res', res);
 
         if (res?.status === 200) {

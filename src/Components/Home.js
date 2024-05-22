@@ -42,7 +42,7 @@ const Home = ({ Toggle }) => {
         }
     };
 
-    const ViewData = () => {
+   const ViewData = (username) => {
         navigate('/schooldata', { state: { username } });
     }
 
@@ -110,7 +110,7 @@ const Home = ({ Toggle }) => {
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
                                         {/* <Link to='/schooldata' { state: { username } } className='btn-view'>View</Link> */}
-                                        <Button className='btn-view' >View</Button>
+                                        <Button className='btn-view' onClick={() => ViewData(item?.username)}>View</Button>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>
