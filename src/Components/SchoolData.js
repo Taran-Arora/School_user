@@ -83,50 +83,9 @@ const SchoolData = ({ Toggle }) => {
                                                     <th scope="col">{index + 1}</th>
                                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
-                                                        <Link to="" className='btn-view' >View</Link>
+                                                        <Link to="/aboutteacher" className='btn-view' >View</Link>
                                                     </td>
                                                 </tr>
-
-                                                {/* <tr>
-                                        <th scope="col">2</th>
-                                        <td scope="col">Jacob</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">3</th>
-                                        <td scope="col">Larry the Bird</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">4</th>
-                                        <td scope="col">Samrat the Bird</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">5</th>
-                                        <td scope="col">Larry the Bird</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">6</th>
-                                        <td scope="col">Larry the Bird</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-
-                                    </tr> */}
                                             </>
                                         )
                                     })}
@@ -138,7 +97,7 @@ const SchoolData = ({ Toggle }) => {
                         <div className="table-responsive">
                             <div className='table-head'>
                                 <h3 className='table-heading'>Classes</h3>
-                                <Link to="/" className='add-btn'>
+                                <Link to="/addclass" className='add-btn'>
                                     <AddCircleOutlineSharpIcon />Add New Class
                                 </Link>
                             </div>
