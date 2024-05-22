@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import TeacherImg from '../Images/teacherimg.png';
 import EditIcon from '@mui/icons-material/Edit';
 
-const AddImg = () => {
+const AddImg = ({ onImageChange }) => {
     const [profileImage, setProfileImage] = useState(TeacherImg);
+    const [imageUploaded, setImageUploaded] = useState(false);
 
     const handleImageClick = () => {
         document.getElementById('profile-image-upload').click();
@@ -14,6 +15,10 @@ const AddImg = () => {
         const reader = new FileReader();
         reader.onloadend = () => {
             setProfileImage(reader.result);
+            setImageUploaded(true);
+            if (onImageChange) {
+                onImageChange(true);
+            }
         };
         if (file) {
             reader.readAsDataURL(file);
@@ -37,6 +42,12 @@ const AddImg = () => {
                 type="file"
                 onChange={handleImageChange}
                 style={{ display: 'none' }}
+            />
+            <input
+                id="profile-image-required"
+                type="hidden"
+                value={imageUploaded ? 'uploaded' : ''}
+                required
             />
         </div>
     );

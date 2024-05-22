@@ -4,7 +4,7 @@
     background: $white;
     margin-top: 30px;
 
-    @media (max-width: 992px) {
+    @media (max-width: 1199px) {
         overflow-x: scroll !important;
     }
 
@@ -39,10 +39,12 @@
         }
     }
 }
+
 .cards .cards-img {
     border-radius: 50%;
     padding: 12px;
 }
+
 .table>:not(caption)>*>* {
     padding: 1rem 1.5rem !important;
 }

@@ -40,7 +40,7 @@ export default function AboutTeacher({ Toggle }) {
 
     return (
         <div>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <div className="about-teacher ">
                 <div className="for-image-section">
                     <div className="teacher-school-image">
