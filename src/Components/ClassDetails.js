@@ -11,7 +11,7 @@ export default function ClassDetails() {
         <Container fluid>
             <div className="table-responsive">
                 <div className='table-head'>
-                    <h3 className='table-heading'>Student Data of Class</h3>
+                    <h3 className='table-heading'>Class Students</h3>
                     <Link to="/" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
                     </Link>
