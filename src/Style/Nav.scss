@@ -19,6 +19,9 @@
 
 .navbar {
   position: relative;
+  .navbar-toggler{
+    display: none;
+  }
 
   .toggler {
     margin-right: 12px;
@@ -40,9 +43,6 @@
     color: $icon-clr;
   }
 
-  .bi-justify::before {
-    color: $icon-clr;
-  }
 
   div#collapsibleNavId {
     @media (max-width: 1199px) {

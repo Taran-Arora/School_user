@@ -13,6 +13,7 @@ const SchoolData = ({ Toggle }) => {
     const username = location.state?.username;
 
     const [allData, setAllData] = useState([]);
+    const [classData, setClassData] = useState([]);
     const [token, setToken] = useState(null);
 
     useEffect(() => {
@@ -20,13 +21,12 @@ const SchoolData = ({ Toggle }) => {
         if (storedToken) {
             setToken(storedToken);
             viewSchoolRecord();
+            viewClassRecord();
         }
     }, [token]);
 
     const viewSchoolRecord = async () => {
-        // const data = {
-        //     'email' : email
-        // }
+
         const res = await _fetch(`${api_url}teachers/?school_email=${username}`, 'GET', {}, {});
         console.log('res', res);
 
@@ -34,10 +34,20 @@ const SchoolData = ({ Toggle }) => {
             setAllData(res?.data);
         }
     };
+    const viewClassRecord = async () => {
+
+        const res = await _fetch(`${api_url}class/?school_email=${username}`, 'GET', {}, {});
+        console.log('res', res);
+
+        if (res?.status === 200) {
+            setClassData(res?.data);
+        }
+    };
 
     const ViewTeacherData = (id) => {
         navigate('/schooldata', { state: { id } });
     }
+    
 
     return (
         <div className='px-3'>
@@ -71,7 +81,7 @@ const SchoolData = ({ Toggle }) => {
 
                                                 <tr>
                                                     <th scope="col">{index + 1}</th>
-                                                    <td scope="col">{item?.name}</td>
+                                                    <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
                                                         <Link to="" className='btn-view' >View</Link>
                                                     </td>
@@ -139,48 +149,20 @@ const SchoolData = ({ Toggle }) => {
                                         <th scope="col">Total Students</th>
                                         <th scope="col">Action</th>
                                     </tr>
+                                    {classData?.map((item, index) => {
+                                        return (
+                                            <>
+
                                     <tr>
-                                        <th scope="col">1st</th>
-                                        <td scope="col">60</td>
+                                        <th scope="col">{item?.class_name}</th>
+                                        <td scope="col">{item?.total_students}</td>
                                         <td scope="col">
                                             <Link to="" className='btn-view'>View</Link>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="col">2nd</th>
-                                        <td scope="col">70</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">3rd</th>
-                                        <td scope="col">English</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">4th</th>
-                                        <td scope="col">50</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">5th</th>
-                                        <td scope="col">30</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">6th</th>
-                                        <td scope="col">25</td>
-                                        <td scope="col">
-                                            <Link to="" className='btn-view'>View</Link>
-                                        </td>
-                                    </tr>
+                                    </>
+                                        )
+                                    })}
                                 </tbody>
                             </table>
                         </div>
