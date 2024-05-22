@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,9 +6,38 @@ import teacherImg from "../assets/Images/newStudent.jpg";
 import Nav from './Nav';
 import schoolLogo from "../assets/Images/school-logo.png";
 import RecyclingIcon from '@mui/icons-material/Recycling';
+import { useLocation, useNavigate } from 'react-router-dom';
+import _fetch from '../config/api';
+import { api_url } from '../config/config';
 
 export default function AboutTeacher({ Toggle }) {
+
     const [dateOfBirth, setDateOfBirth] = useState(null);
+    const [token, setToken] = useState(null);
+    const [allData, setAllData] = useState({ first_name: "", last_name: "", email: "", gender: "", period_one: "", period_two: "", period_three: "", period_four: "", period_five: "", period_six: "", subjects: ""});
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const email = location.state?.email;
+    const school_email = location.state?.school_email;
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            setToken(storedToken);
+            viewTeacherRecord();
+        }
+    }, [token]);
+
+    const viewTeacherRecord = async () => {
+
+        const res = await _fetch(`${api_url}teachers/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
+
+        if (res?.status === 200) {
+            setAllData(res?.data[0]);
+        }
+    };
+
     return (
         <div>
             <Nav Toggle={Toggle} />
@@ -36,85 +65,73 @@ export default function AboutTeacher({ Toggle }) {
                     <Row className=''>
                         <Col lg={6} className="for-teacher-input"  >
                             <label type="Name" className='labal-title'> Teacher Name </label>
-                            <input type="text" className='form-control' />
+                            <input type="text" className='form-control' value={allData?.first_name + " " + allData?.last_name} />
                         </Col>
                         <Col lg={6}>
                             <label type="Name" className='labal-title'> Gender </label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option>Select Gender </option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                            </Form.Select>
+                            <input type="text" className='form-control' value={allData?.gender} readOnly/>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 1st</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_one}> {allData?.period_one} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 2nd</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_two}> {allData?.period_two} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 3rd</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_three}> {allData?.period_three} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 4th</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_four}> {allData?.period_four} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 5th</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_five}> {allData?.period_five} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Class" className='labal-title'>Period 6th</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
                                 <option> Select Class </option>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
+                                <option value={allData?.period_six}> {allData?.period_six} </option>
+                                {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label className='labal-title'> Subject</label>
-                            <input type="text" className='form-control' />
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'> Contact Info</label>
-                            <input type="number" className='form-control' />
+                            <input type="text" className='form-control' value={allData?.subjects}/>
                         </Col>
                         <Col lg={6} className="for-teacher-input">
                             <label type="Email" className='labal-title'> Email </label>
-                            <input type="Email" className='form-control' />
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'>Additional Details</label>
-                            <input type="number" className='form-control' />
+                            <input type="Email" className='form-control' value={allData?.email} />
                         </Col>
 
                     </Row>
                 </form>
                 <div className="teacher-edit-btn">
-                    <button className='teacher-edit'>   <RecyclingIcon />Update Details </button>
+                    <button className='teacher-edit'> <RecyclingIcon />Update Details </button>
                 </div>
             </div>
         </div>

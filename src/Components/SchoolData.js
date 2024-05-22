@@ -28,8 +28,6 @@ const SchoolData = ({ Toggle }) => {
     const viewSchoolRecord = async () => {
 
         const res = await _fetch(`${api_url}teachers/?school_email=${username}`, 'GET', {}, {});
-        console.log('res', res);
-
         if (res?.status === 200) {
             setAllData(res?.data);
         }
@@ -37,17 +35,11 @@ const SchoolData = ({ Toggle }) => {
     const viewClassRecord = async () => {
 
         const res = await _fetch(`${api_url}class/?school_email=${username}`, 'GET', {}, {});
-        console.log('res', res);
 
         if (res?.status === 200) {
             setClassData(res?.data);
         }
     };
-
-    const ViewTeacherData = (id) => {
-        navigate('/schooldata', { state: { id } });
-    }
-    
 
     return (
         <div className='px-3'>
@@ -83,7 +75,7 @@ const SchoolData = ({ Toggle }) => {
                                                     <th scope="col">{index + 1}</th>
                                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
-                                                        <Link to="" className='btn-view' >View</Link>
+                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id?.username }} > View </Link>
                                                     </td>
                                                 </tr>
 
