@@ -7,37 +7,6 @@ export default function AboutStudent() {
   
   return (
     <>
-      {/* <div className="about-studetns">
-        <Nav Toggle={Toggle} />
-        <div className="each-students">
-          <div className="studentsid">
-            <h3> SVPSAS230001 -   Ayush Saha</h3>
-          </div>
-          <div className="student-img">
-            <img className='std-img' src="/" alt="" />
-          </div>
-
-        </div>
-
-        <table>
-          <tr>
-            <th>
-              <h3 className='accdemic-title'> Academic Details</h3>
-            </th>
-          </tr>
-          <tr>
-            <th> <p className='acedmic-detail'> Class</p> </th>
-          </tr>
-          <tr>
-          <th> <p className='accedmic-detail'> Section</p></th>
-          </tr>
-        
-          <th> <p className='accedmic-detail'> Date of Admission </p></th>
-
-
-
-        </table>
-      </div> */}
       <div>
         <Nav />
         <div className="each-student">
