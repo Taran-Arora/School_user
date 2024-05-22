@@ -34,7 +34,7 @@ const AllTeachers = () => {
                                 <td scope="col">+91 1234567890</td>
                                 <td className='d-flex gap-3' scope="col">
                                     <Link to="" className='btn-login'>Login</Link>
-                                    <Link to="" className='btn-view'>View</Link>
+                                    <Link to="/aboutteacher" className='btn-view'>View</Link>
                                     <Link to="" className='btn-block'>Block</Link>
                                 </td>
                             </tr>

@@ -7,6 +7,9 @@
         position: relative;
         width: 100%;
         height: 100%;
+        &:hover img{
+            mix-blend-mode: difference;
+        }
 
         img {
             border-radius: 50%;
@@ -15,25 +18,26 @@
             width: 100px;
             height: 100px;
             position: relative;
-            &::after{
-                position: absolute;
-                content: "";
-                mix-blend-mode: color-burn;
-            }
         }
 
         .edit-icon {
             position: absolute;
-            color: $icon-clr2;
+            color:$form-bg;
             bottom: 35px;
-            right: 33px;
+            right: 35px;
+            border: 1px solid $form-bg;
+            border-radius: 50%;
             cursor: pointer;
             visibility: hidden;
+            font-size: 30px;
         }
 
         &:hover .edit-icon {
             transition: all 0.3s ease-in-out;
             visibility: visible;
+            border: 1px solid $form-bg;
+            border-radius: 50%;
+            padding: 3px;
         }
     }
 }
