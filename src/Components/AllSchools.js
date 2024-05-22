@@ -8,6 +8,7 @@ import Earning from '../assets/Images/salary.png';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
+import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
 const AllSchools = ({Toggle}) => {
 
@@ -57,9 +58,15 @@ const AllSchools = ({Toggle}) => {
             <Nav Toggle={Toggle} />
             <Container fluid>
                 <div className="table-responsive">
+                <div className='table-head'>
+                                <h3 className='table-heading'>All Schools</h3>
+                                <Link to="/addschool" className='add-btn'>
+                                    <AddCircleOutlineSharpIcon />Add New School
+                                </Link>
+                            </div>
                     <table className="table">
                         <thead>
-                            <h3 className='table-heading'>All Schools</h3>
+                         
 
                             <tr>
                                 <th scope="col">S. No.</th>

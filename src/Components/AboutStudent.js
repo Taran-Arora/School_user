@@ -6,13 +6,13 @@ import studentImg from "../assets/Images/newStudent.jpg";
 import Nav from './Nav';
 import schoolLogo from "../assets/Images/school-logo.png";
 import RecyclingIcon from '@mui/icons-material/Recycling';
-import EditIcon from '@mui/icons-material/Edit';
 
-export default function AboutStudent({ Toggle }) {
+
+export default function AboutStudent() {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   return (
     <div>
-      <Nav Toggle={Toggle} />
+      <Nav  />
       <div className="about-student ">
         <div className="for-image-section">
           <div className="studemt-school-image">

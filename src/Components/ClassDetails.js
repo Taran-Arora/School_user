@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
-export default function AllStudents() {
+export default function ClassDetails() {
     return (
         <div className='px-3'>
         <Nav />
         <Container fluid>
             <div className="table-responsive">
                 <div className='table-head'>
-                    <h3 className='table-heading'>All Students</h3>
-                    <Link to="/addstudent" className='add-btn'>
+                    <h3 className='table-heading'>Class Students</h3>
+                    <Link to="/" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
                     </Link>
                 </div>

@@ -2,6 +2,8 @@ import React from 'react'
 import Nav from './Nav'
 import { Col, Container, Row } from 'react-bootstrap'
 import AddImg from './AddImg';
+import { Link } from 'react-router-dom'
+import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
 const AddTeacher = () => {
     return (
@@ -12,7 +14,7 @@ const AddTeacher = () => {
                     <Col lg={12}>
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Teacher</h3>
-                            <AddImg/>
+                            <AddImg />
                         </div>
                     </Col>
                     <Col lg={12}>
@@ -39,11 +41,11 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Contact *</label>
-                                    <input type="number" className="form-control" placeholder='Enter Contact Number'/>
+                                    <input type="number" className="form-control" placeholder='Enter Contact Number' />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Email *</label>
-                                    <input type="mail" className="form-control" placeholder='Enter Email Address'/>
+                                    <input type="mail" className="form-control" placeholder='Enter Email Address' />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Subject *</label>
@@ -103,8 +105,11 @@ const AddTeacher = () => {
                                         <option value="3">3</option>
                                     </select>
                                 </Col>
-                                <Col lg={12} className='form-group'>
+                                <Col lg={12} className='form-group d-flex gap-3'>
                                     <button type='submit' className='btn-submit'>Submit</button>
+                                    <Link to="/addteacher" className='add-btn'>
+                                        <AddCircleOutlineSharpIcon />Add Period
+                                    </Link>
                                 </Col>
                             </Row>
                         </form>

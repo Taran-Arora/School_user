@@ -7,11 +7,11 @@ import Nav from './Nav';
 import schoolLogo from "../assets/Images/school-logo.png";
 import RecyclingIcon from '@mui/icons-material/Recycling';
 
-export default function AboutTeacher({ Toggle }) {
+export default function AboutTeacher() {
     const [dateOfBirth, setDateOfBirth] = useState(null);
     return (
         <div>
-            <Nav Toggle={Toggle} />
+            <Nav />
             <div className="about-teacher ">
                 <div className="for-image-section">
                     <div className="teacher-school-image">
