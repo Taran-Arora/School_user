@@ -5,7 +5,7 @@ import Students from '../assets/Images/graduation.png';
 import Parents from '../assets/Images/parents.png';
 import Teacher from '../assets/Images/teacher.png';
 import Earning from '../assets/Images/salary.png';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
@@ -47,6 +47,9 @@ const AllSchools = ({Toggle}) => {
             navigate('/login');
         }
     };
+    const ViewData = (username) => {
+        navigate('/schooldata', { state: { username } });
+    }
 
 
     return (
@@ -73,7 +76,7 @@ const AllSchools = ({Toggle}) => {
                                     <td>{item?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Link to="/schooldata" className='btn-view'>View</Link>
+                                        <Button className='btn-view'onClick={() => ViewData(item?.username)} >View</Button>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>
