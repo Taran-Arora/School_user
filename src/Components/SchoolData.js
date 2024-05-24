@@ -45,6 +45,10 @@ const SchoolData = ({ Toggle }) => {
         navigate('/addclass', { state: { username } });
     }
 
+    const addTeacher = async() => {
+        navigate('/addteacher', { state: { username } });
+    }
+
     return (
         <div className='px-3'>
             <Nav />
@@ -59,9 +63,9 @@ const SchoolData = ({ Toggle }) => {
                         <div className="table-responsive">
                             <div className='table-head'>
                                 <h3 className='table-heading'>Teacher Data</h3>
-                                <Link to="/addteacher" className='add-btn'>
+                                <Button className='add-btn' onClick={addTeacher} >
                                     <AddCircleOutlineSharpIcon />Add New Teacher
-                                </Link>
+                                </Button>
                             </div>
                             <table className="table">
                                 <thead>
@@ -112,7 +116,7 @@ const SchoolData = ({ Toggle }) => {
                                         <th scope="col">{item?.class_name}</th>
                                         <td scope="col">{item?.total_students}</td>
                                         <td scope="col">
-                                            <Link to="/classdetails" className='btn-view'>View</Link>
+                                            <Link to="/classdetails" className='btn-view' state={{email: item?.email, school_email: item?.school_id }}>View</Link>
                                         </td>
                                     </tr>
                                     </>
