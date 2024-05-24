@@ -4,23 +4,27 @@ import { Col, Container, Row } from 'react-bootstrap'
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
+import { useLocation } from 'react-router-dom';
 
 const AddTeacher = () => {
 
+
+    const location = useLocation();
+    // const navigate = useNavigate();
+        const username = location.state?.username;
+    console.log('username', username);
     const [className, setClassName] = useState('');
     const [totalStudents, setTotalStudents] = useState('');
 
     const addClass = async () => {
         const data = {
-            // school_id: schoolEmail,
+            school_id: username,
             class_name: className,
             total_students: totalStudents,
         };
 
         try {
-            const res = await _fetch(`${api_url}class/register/`, 'POST', {
-                'Content-Type': 'application/json',
-            }, JSON.stringify(data));
+            const res = await _fetch(`${api_url}class/register/`, "POST", data, {});
 
             console.log('res', res);
 

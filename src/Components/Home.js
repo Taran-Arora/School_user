@@ -39,7 +39,7 @@ const Home = ({ Toggle }) => {
                 inavtive_users: res?.inavtive_users,
             });
         } else {
-            navigate('/');
+            navigate('/login');
         }
     };
 
