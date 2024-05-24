@@ -37,7 +37,7 @@ const Sidebar = () => {
     if (res?.status === 200) {
 
     } else {
-      navigate('/login');
+      navigate('/');
     }
   };
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
       toasted.success(data?.message);
       localStorage.clear();
       setTimeout(() => {
-        navigate('/login');
+        navigate('/');
       }, 1000);
     } else {
       toasted.error(data?.message);
@@ -66,7 +66,7 @@ const Sidebar = () => {
         </div>
         <hr className='text-dark' />
         <div className='list-group list-group-flush max-vh-100'>
-          <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
+          <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
           </Link>
@@ -83,7 +83,7 @@ const Sidebar = () => {
             <span className='fs-5'>All Students</span>
           </Link>
 
-          <Link to="/" className="list-group-item py-2 d-flex align-items-center my-2">
+          <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
           </Link>

@@ -7,6 +7,15 @@ import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp
 
 const AddTeacher = () => {
 
+    const [inputFields, setInputFields] = useState([]);
+    const [status, setStatus] = useState('');
+
+    const handleAddField = () => {
+        const newInputFields = [...inputFields, { id: inputFields.length }];
+        setInputFields(newInputFields);
+        setStatus(`Added input field ${inputFields.length + 1}`);
+    };
+
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [gender, setGender] = useState();
@@ -19,11 +28,97 @@ const AddTeacher = () => {
     const [periodFour, setPeriodFour] = useState();
     const [periodFive, setPeriodFive] = useState();
     const [periodSix, setPeriodsix] = useState();
+    const [dynamicPeriods, setDynamicPeriods] = useState(6);
 
-// const submitTeacherData = async() => {
-//     const data = {
-//     }   
-// }
+    // const submitTeacherData = async() => {
+    //     const data = {
+    //     }   
+    // }
+
+    // const addPeriod = async () => {
+    //     console.log('called');
+    //     setDynamicPeriods(dynamicPeriods + 1);
+    //     const newPeriodsField = document.getElementById('Col');
+    //     newPeriodsField.classList.add('xl-4', 'lg-6', 'form-group');
+    //     const periodLabel = document.createElement('label');
+    //     periodLabel.textContent = `Period ${dynamicPeriods}`;
+    //     const periodSelction = document.createElement('select');
+    //     periodSelction.classList.add('form-control');
+    //     periodSelction.addEventListener('change', (e) => {
+
+    //     })
+    //     const periodOptions = [
+    //         { value: '', text: 'Select Class *' },
+    //         { value: '1', text: '1' },
+    //         { value: '2', text: '2' },
+    //         { value: '3', text: '3' },
+    //     ];
+
+    //     for (const option of periodOptions) {
+    //         const newOption = document.createElement('option');
+    //         newOption.value = option.value;
+    //         newOption.textContent = option.text;
+    //         periodSelction.appendChild(newOption);
+    //     }
+
+    //     newPeriodsField.appendChild(periodLabel);
+    //     newPeriodsField.appendChild(periodOptions);
+
+    //     const periodFieldsContainer = document.getElementById('period-fields');
+    //     periodFieldsContainer.appendChild(newPeriodsField);
+
+    // }
+
+
+    const addPeriod = async () => {
+        console.log('called');
+        setDynamicPeriods(dynamicPeriods + 1);
+
+        // Create a new Col element for the period field
+        const newPeriodField = document.createElement('col'); // Use lowercase 'col'
+
+        // Add Bootstrap classes for responsiveness
+        newPeriodField.classList.add('xl-4', 'lg-6', 'form-group');
+
+        // Create label element for the period number
+        const periodLabel = document.createElement('label');
+        periodLabel.textContent = `Period ${dynamicPeriods}th *`;
+
+        // Create select element for period selection
+        const periodSelect = document.createElement('select');
+        periodSelect.classList.add('form-control');
+
+        // Add event listener for handling period selection changes (if needed)
+        periodSelect.addEventListener('change', (event) => {
+            // Handle selection change logic here (optional)
+        });
+
+        // Create period option elements
+        const periodOptions = [
+            { value: '', text: 'Select Class *' },
+            { value: '1', text: '1' },
+            { value: '2', text: '2' },
+            { value: '3', text: '3' },
+        ];
+
+        for (const option of periodOptions) {
+            const newOption = document.createElement('option');
+            newOption.value = option.value;
+            newOption.textContent = option.text;
+            periodSelect.appendChild(newOption);
+        }
+
+        // Append label and select elements to the new period field
+        newPeriodField.appendChild(periodLabel);
+        newPeriodField.appendChild(periodSelect);
+
+        // Get the container element for period fields (modify the selector if needed)
+        const periodFieldsContainer = document.getElementById('period-fields');
+
+        // Append the newly created period field to the container
+        periodFieldsContainer.appendChild(newPeriodField);
+    };
+
 
     return (
         <div className='px-3'>
@@ -48,7 +143,7 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Last Name *</label>
-                                    <input type="text" placeholder="Enter Last Name" className="form-control" onChange={(e) => setLastName(e.target.value)} value={lastName}/>
+                                    <input type="text" placeholder="Enter Last Name" className="form-control" onChange={(e) => setLastName(e.target.value)} value={lastName} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Gender *</label>
@@ -60,11 +155,11 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Contact *</label>
-                                    <input type="number" className="form-control" placeholder='Enter Contact Number'/>
+                                    <input type="number" className="form-control" placeholder='Enter Contact Number' />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Email *</label>
-                                    <input type="mail" className="form-control" placeholder='Enter Email Address'/>
+                                    <input type="mail" className="form-control" placeholder='Enter Email Address' />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Subject *</label>
@@ -90,7 +185,7 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Period 3rd *</label>
-                                    <select className='form-control' onChange={(e) => setPeriodThree(e.target.value)}  > 
+                                    <select className='form-control' onChange={(e) => setPeriodThree(e.target.value)}  >
                                         <option value>Select Class *</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -124,12 +219,33 @@ const AddTeacher = () => {
                                         <option value="3">3</option>
                                     </select>
                                 </Col>
-                                <Col lg={12} className='form-group d-flex gap-3'>
-                                    <button type='submit' className='btn-submit'>Submit</button>
-                                    <Link to="/addteacher" className='add-btn'>
-                                        <AddCircleOutlineSharpIcon />Add Period
-                                    </Link>
+                                {/* <Col lg={12} className='form-group d-flex gap-3'> */}
+                                    {inputFields.map(field => {
+                                        return (
+                                            <>
+                                              <Col xl={4} lg={6} className='form-group'>
+                                    <label>Period {field.id + 1}</label>
+                                    <select className='form-control' onChange={(e) => setPeriodsix(e.target.value)}  >
+                                        <option value>Select Class *</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+
                                 </Col>
+                                            </>
+                                        )
+
+                                    })}
+
+                                {/* </Col> */}
+                                <div className='form-group d-flex gap-3'>
+                                    <button type='button' className='btn-submit'>Submit</button>
+                                    <button type='button' className='add-btn' onClick={handleAddField}>
+                                        <AddCircleOutlineSharpIcon />Add Period
+                                    </button>
+                                </div>
+
                             </Row>
                         </form>
                     </Col>

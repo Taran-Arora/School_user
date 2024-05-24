@@ -6,7 +6,7 @@ export default function Links() {
           <NavLink to='./register'> Regiser form </NavLink>
       <br />
       <br />
-      <NavLink to="./login"> Login page form </NavLink>
+      <NavLink to="./"> Login page form </NavLink>
       <br />
       <br />
       <NavLink to="./dashboard"> Dashboard </NavLink>

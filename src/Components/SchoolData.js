@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import _fetch from '../config/api';
@@ -41,6 +41,10 @@ const SchoolData = ({ Toggle }) => {
         }
     };
 
+    const addClass = async() => {
+        navigate('/addclass', { state: { username } });
+    }
+
     return (
         <div className='px-3'>
             <Nav />
@@ -75,7 +79,7 @@ const SchoolData = ({ Toggle }) => {
                                                     <th scope="col">{index + 1}</th>
                                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
-                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id?.username }} > View </Link>
+                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id }} > View </Link>
                                                     </td>
                                                 </tr>
                                             </>
@@ -89,9 +93,9 @@ const SchoolData = ({ Toggle }) => {
                         <div className="table-responsive">
                             <div className='table-head'>
                                 <h3 className='table-heading'>Classes</h3>
-                                <Link to="/addclass" className='add-btn'>
+                                <Button className='add-btn' onClick={addClass}>
                                     <AddCircleOutlineSharpIcon />Add New Class
-                                </Link>
+                                </Button>
                             </div>
                             <table className="table">
                                 <tbody>

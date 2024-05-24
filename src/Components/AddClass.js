@@ -4,28 +4,40 @@ import { Col, Container, Row } from 'react-bootstrap'
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
+import { useLocation } from 'react-router-dom';
 
 const AddTeacher = () => {
 
+
+    const location = useLocation();
+    // const navigate = useNavigate();
+        const username = location.state?.username;
+    console.log('username', username);
     const [className, setClassName] = useState('');
-    const [totalStudends, setTotalStudends] = useState('');
+    const [totalStudents, setTotalStudents] = useState('');
 
     const addClass = async () => {
-        let data = {
-            // 'school_name': schoolName,
-            // 'school_id': schoolEmail,
-            // 'password': password,
-            // 'confirm_password': confirmPassword,
+        const data = {
+            school_id: username,
+            class_name: className,
+            total_students: totalStudents,
+        };
+
+        try {
+            const res = await _fetch(`${api_url}class/register/`, "POST", data, {});
+
+            console.log('res', res);
+
+            if (res?.status === 200) {
+                toasted.success(res?.msg || 'Class added successfully');
+            } else {
+                toasted.error(res?.msg || 'Failed to add class');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            toasted.error('An error occurred while adding the class');
         }
-        let res = await _fetch(`${api_url}school/register/`, 'POST', {}, {});
-        console.log('res', res);
-        if (res?.status === 200) {
-            toasted.success(res?.msg);
-        }
-        else {
-            toasted.error(res?.msg);
-        }
-    }
+    };
 
     return (
         <div className='px-3'>
@@ -45,14 +57,14 @@ const AddTeacher = () => {
                             <Row>
                                 <Col xl={6} lg={6} className='form-group'>
                                     <label>Enter Class Name  </label>
-                                    <input type="text" placeholder="Enter Class Name" className="form-control" onChange={(e) => setClassName(e.target.value)} value={className} />
+                                    <input type="text" placeholder="Enter Class Name" className="form-control" value={className} onChange={(e) => setClassName(e.target.value)}  />
                                 </Col>
                                 <Col xl={6} lg={6} className='form-group'>
                                     <label>Total Students</label>
-                                    <input type="number" placeholder="Total Numbers of Students" className="form-control" onChange={(e) => setTotalStudends(e.target.value)} value={totalStudends} />
+                                    <input type="number" placeholder="Total Numbers of Students" className="form-control" value={totalStudents} onChange={(e) => setTotalStudents(e.target.value)}  />
                                 </Col>
                                 <Col lg={12} className='form-group'>
-                                    <button type='submit' className='btn-submit'>Submit</button>
+                                    <button type='button' onClick={addClass} className='btn-submit'>Submit</button>
                                 </Col>
                             </Row>
                         </form>

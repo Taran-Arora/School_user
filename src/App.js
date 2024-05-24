@@ -30,11 +30,11 @@ function App() {
       <ToggleProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot" element={<Forgot />} />
             <Route element={<DashLayout />}>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allschools" element={<AllSchools />} />
               <Route path="/allteachers" element={<AllTeachers />} />
               <Route path='/allstudents' element={<AllStudents />} />
