@@ -20,7 +20,7 @@ export default function AboutTeacher({ Toggle }) {
 
     const email = location.state?.email;
     const school_email = location.state?.school_email;
-
+console.log('school_email', school_email);
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -31,7 +31,7 @@ export default function AboutTeacher({ Toggle }) {
 
     const viewTeacherRecord = async () => {
 
-        const res = await _fetch(`${api_url}teachers/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
+        const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
 
         if (res?.status === 200) {
             setAllData(res?.data[0]);
