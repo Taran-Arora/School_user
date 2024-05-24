@@ -14,7 +14,9 @@ export default function AboutTeacher({ Toggle }) {
 
     const [dateOfBirth, setDateOfBirth] = useState(null);
     const [token, setToken] = useState(null);
-    const [allData, setAllData] = useState({ first_name: "", last_name: "", email: "", gender: "", period_one: "", period_two: "", period_three: "", period_four: "", period_five: "", period_six: "", subjects: ""});
+    const [imagedata, setimage] = useState({id: '', image: ''});
+    const [periods, setPeriods] = useState([]);
+    const [allData, setAllData] = useState({first_name: '', last_name: '', contact: '', email: '', gender: '', subjects: ''});
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -32,12 +34,16 @@ console.log('school_email', school_email);
     const viewTeacherRecord = async () => {
 
         const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
-
+        console.log('res', res);
         if (res?.status === 200) {
-            setAllData(res?.data[0]);
+            setimage(res?.teacher_images[0]);
+            setAllData(res?.teacher_images[0]?.teacher);
+            setPeriods(res?.teacher_periods || []);
+
         }
     };
-
+console.log('periods', periods);
+const imageSrc = `data:image/jpeg;base64,${imagedata.image}`;
     return (
         <div>
             <Nav />
@@ -55,7 +61,7 @@ console.log('school_email', school_email);
                         </div>
                     </div>
                     <div className="school-logo">
-                        <img src={teacherImg} alt="" />
+                        <img src={imageSrc} alt="" />
                     </div>
                 </div>
                 <form action="" className='gx-5 teacher-admin-form'>
@@ -71,54 +77,16 @@ console.log('school_email', school_email);
                             <label type="Name" className='labal-title'> Gender </label>
                             <input type="text" className='form-control' value={allData?.gender} readOnly/>
                         </Col>
+                        {periods?.map((item, index) => (
                         <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 1st</label>
+                            <label type="Class" className='labal-title'>Period {item?.period_number}</label>
                             <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_one}> {allData?.period_one} </option>
+                                <option>Class {item?.class_name}</option>
+                                <option value={item?.class_name}></option>
                                 {/* <option value="2">2nd</option> */}
                             </Form.Select>
                         </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 2nd</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_two}> {allData?.period_two} </option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 3rd</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_three}> {allData?.period_three} </option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 4th</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_four}> {allData?.period_four} </option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 5th</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_five}> {allData?.period_five} </option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period 6th</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option> Select Class </option>
-                                <option value={allData?.period_six}> {allData?.period_six} </option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
+                        ))}
                         <Col lg={6} className="for-teacher-input">
                             <label className='labal-title'> Subject</label>
                             <input type="text" className='form-control' value={allData?.subjects}/>
