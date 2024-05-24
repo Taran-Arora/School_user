@@ -38,7 +38,7 @@ export default function Login() {
             localStorage.setItem('token', res?.access);
             localStorage.setItem('auth', 'true');
             localStorage.setItem('useremail', allFields?.username);
-            navigate('/');
+            navigate('/dashboard');
           }
         else if (res?.message) {
           toasted.error(res?.message);

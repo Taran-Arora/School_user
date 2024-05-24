@@ -20,7 +20,7 @@ export default function AboutTeacher({ Toggle }) {
 
     const email = location.state?.email;
     const school_email = location.state?.school_email;
-
+console.log('school_email', school_email);
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
