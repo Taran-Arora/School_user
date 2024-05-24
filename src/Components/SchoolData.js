@@ -59,15 +59,16 @@ const SchoolData = ({ Toggle }) => {
                         <div className="table-responsive">
                             <div className='table-head'>
                                 <h3 className='table-heading'>Teacher Data</h3>
-                                <Link to="/addteacher" className='add-btn'>
+                                <Button  className='add-btn'>
                                     <AddCircleOutlineSharpIcon />Add New Teacher
-                                </Link>
+                                </Button>
                             </div>
                             <table className="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Teacher ID</th>
                                         <th scope="col">Teacher Name</th>
+                                         <th scope='col'> Action  </th>
                                     </tr>
                                 </thead>
                                 <tbody>

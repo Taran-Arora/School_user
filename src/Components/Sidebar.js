@@ -95,7 +95,7 @@ const Sidebar = () => {
             Logout
           </Button> */}
           <div className="for-logout-btn">
-          <button class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
+          <button  onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
           </div>
         </div>
       </div>
