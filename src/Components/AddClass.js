@@ -11,8 +11,7 @@ const AddTeacher = () => {
 
     const location = useLocation();
     // const navigate = useNavigate();
-        const username = location.state?.username;
-    console.log('username', username);
+    const username = location.state?.username;
     const [className, setClassName] = useState('');
     const [totalStudents, setTotalStudents] = useState('');
 
@@ -23,21 +22,19 @@ const AddTeacher = () => {
             total_students: totalStudents,
         };
 
-        try {
-            const res = await _fetch(`${api_url}class/register/`, "POST", data, {});
+        const res = await _fetch(`${api_url}class/register/`, "POST", data, {});
 
-            console.log('res', res);
+        console.log('res', res);
 
-            if (res?.status === 200) {
-                toasted.success(res?.msg || 'Class added successfully');
-            } else {
-                toasted.error(res?.msg || 'Failed to add class');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            toasted.error('An error occurred while adding the class');
+        if (res?.status === 200) {
+
+            toasted.success(res?.msg);
+
+        } else if (res?.status == 400) {
+
+            toasted.error(res?.msg);
         }
-    };
+    }
 
     return (
         <div className='px-3'>
@@ -57,11 +54,11 @@ const AddTeacher = () => {
                             <Row>
                                 <Col xl={6} lg={6} className='form-group'>
                                     <label>Enter Class Name  </label>
-                                    <input type="text" placeholder="Enter Class Name" className="form-control" value={className} onChange={(e) => setClassName(e.target.value)}  />
+                                    <input type="text" placeholder="Enter Class Name" className="form-control" value={className} onChange={(e) => setClassName(e.target.value)} />
                                 </Col>
                                 <Col xl={6} lg={6} className='form-group'>
                                     <label>Total Students</label>
-                                    <input type="number" placeholder="Total Numbers of Students" className="form-control" value={totalStudents} onChange={(e) => setTotalStudents(e.target.value)}  />
+                                    <input type="number" placeholder="Total Numbers of Students" className="form-control" value={totalStudents} onChange={(e) => setTotalStudents(e.target.value)} />
                                 </Col>
                                 <Col lg={12} className='form-group'>
                                     <button type='button' onClick={addClass} className='btn-submit'>Submit</button>

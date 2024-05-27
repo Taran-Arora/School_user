@@ -1,5 +1,6 @@
 .sidebar {
     transition: transform 0.5s ease;
+
     .list-group {
         a {
             cursor: pointer;
@@ -11,7 +12,8 @@
             }
         }
     }
-    .logout-btn{
+
+    .logout-btn {
         width: 88%;
     }
 }
@@ -22,4 +24,18 @@
 
 .sidebar-hidden {
     transform: translateX(-100%);
+}
+.for-logout-btn {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    .list-group-item {
+        border-radius: 20px;
+        padding-bottom: 40px;
+        bottom: 10px;
+        &:hover {
+            background-color: #ffa901;
+    
+        }
+    }
 }

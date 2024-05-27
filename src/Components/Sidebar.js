@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    if(storedToken) {
+    if (storedToken) {
       setToken(storedToken);
       schoolData();
     }
@@ -73,8 +73,8 @@ const Sidebar = () => {
           <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>All Schools</span>
-        </Link>
-        <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
+          </Link>
+          <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
             <SchoolIcon className='fs-4 me-2'></SchoolIcon>
             <span className='fs-5'>All Teachers</span>
           </Link>
@@ -87,13 +87,16 @@ const Sidebar = () => {
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
           </Link>
-          {/* <Link to="/login" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
+          {/* <button to="/login" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
-        </Link> */}
-          <Button type='button' onClick={logOut}>
+        </button> */}
+          {/* <Button type='button' onClick={logOut}>
             Logout
-          </Button>
+          </Button> */}
+          <div className="for-logout-btn">
+          <button  onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
+          </div>
         </div>
       </div>
     </>

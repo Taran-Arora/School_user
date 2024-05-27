@@ -45,6 +45,10 @@ const SchoolData = ({ Toggle }) => {
         navigate('/addclass', { state: { username } });
     }
 
+    const addTeacher = async() => {
+        navigate('/addteacher', { state: { username } });
+    }
+
     return (
         <div className='px-3'>
             <Nav />
@@ -59,15 +63,16 @@ const SchoolData = ({ Toggle }) => {
                         <div className="table-responsive">
                             <div className='table-head'>
                                 <h3 className='table-heading'>Teacher Data</h3>
-                                <Link to="/addteacher" className='add-btn'>
+                                <Button className='add-btn' onClick={addTeacher} >
                                     <AddCircleOutlineSharpIcon />Add New Teacher
-                                </Link>
+                                </Button>
                             </div>
                             <table className="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Teacher ID</th>
                                         <th scope="col">Teacher Name</th>
+                                         <th scope='col'> Action  </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,7 +117,7 @@ const SchoolData = ({ Toggle }) => {
                                         <th scope="col">{item?.class_name}</th>
                                         <td scope="col">{item?.total_students}</td>
                                         <td scope="col">
-                                            <Link to="/classdetails" className='btn-view'>View</Link>
+                                            <Link to="/classdetails" className='btn-view' state={{class_name: item?.class_name, school_email: item?.school_id?.username }}>View</Link>
                                         </td>
                                     </tr>
                                     </>

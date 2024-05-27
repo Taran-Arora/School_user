@@ -25,6 +25,7 @@
             background-color: $btn-clr2;
             border-radius: 12px;
             padding: 9px;
+            border: none;
         }
 
         .btn-block {
@@ -42,7 +43,8 @@
 
 .cards .cards-img {
     border-radius: 50%;
-    padding: 12px;
+    padding: 13px;
+
 }
 
 .table>:not(caption)>*>* {
