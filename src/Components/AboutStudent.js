@@ -67,7 +67,7 @@ export default function AboutStudent() {
             </Col>
             <Col lg={6} className="for-student-input"  >
               <label type="roll-number" className='labal-title'> Students Roll No  </label>
-              <input type="number" className='form-control' />
+              <input type="number" value={alldata.roll_no} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Class" className='labal-title'> Classs </label>
@@ -108,7 +108,7 @@ export default function AboutStudent() {
             <Col lg={6}>
               <label type="Name" className='labal-title'> Gender </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option>Select Gender </option>
+                <option> {alldata.gender} </option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
                 <option value="3">Other </option>
@@ -133,7 +133,7 @@ export default function AboutStudent() {
             <Col lg={6} className="for-student-input">
               <label type="Religion" className='labal-title'> Religion </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option> Select Religion </option>
+                <option> {alldata.religion} </option>
                 <option value="Hindu">Hindu</option>
                 <option value="Muslim">Muslim</option>
                 <option value="Christian">Christian</option>
@@ -149,7 +149,7 @@ export default function AboutStudent() {
             <Col lg={6} className="for-student-input">
               <label type="Caste" className='labal-title'> Caste </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option> Select Caste </option>
+                <option> {alldata.caste} </option>
                 <option value="SC">SC</option>
                 <option value="BC">BC</option>
                 <option value="General">General</option>
@@ -162,23 +162,23 @@ export default function AboutStudent() {
           <Row>
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Father's  Name  </label>
-              <input type="text" className='form-control' />
+              <input type="text" value={alldata.father_name} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's  Name  </label>
-              <input type="text" className='form-control' />
+              <input type="text" value={alldata.mother_name} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Father's Mobile no </label>
-              <input type="number" className='form-control' />
+              <input type="number" value={alldata.father_no} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's mobile no  </label>
-              <input type="number" className='form-control' />
+              <input type="number" value={alldata.mother_no} className='form-control' />
             </Col>
             <Col lg={12} className="for-student-input">
               <label type="Name" className='labal-title'> Address </label>
-              <textarea type="text-area" className='form-control' />
+              <textarea type="text-area" value={alldata.address} className='form-control' />
             </Col>
           </Row>
         </form>
