@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,13 +6,35 @@ import studentImg from "../assets/Images/newStudent.jpg";
 import Nav from './Nav';
 import schoolLogo from "../assets/Images/school-logo.png";
 import RecyclingIcon from '@mui/icons-material/Recycling';
+import { useLocation, useNavigate } from 'react-router-dom';
+import _fetch from '../config/api';
+import { api_url } from '../config/config';
 
 
 export default function AboutStudent() {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const class_id = location.state?.class_id;
+  const school_email = location.state?.school_email;
+  const email = location.state?.email;
+
   const [dateOfBirth, setDateOfBirth] = useState(null);
+  useEffect(() => {
+    aboutStudentData();
+  }, []);
+  const aboutStudentData = async () => {
+    const data = await _fetch(`${api_url}studentdetail/?class_id=${class_id}&school_email=${school_email}&email=${email}`, "GET", {}, {});
+    if (data?.status === 200) {
+
+      console.log('data', data);
+    }
+  }
+
   return (
     <div>
-      <Nav  />
+      <Nav />
       <div className="about-student ">
         <div className="for-image-section">
           <div className="studemt-school-image">

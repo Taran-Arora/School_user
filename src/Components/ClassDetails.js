@@ -9,11 +9,11 @@ import { api_url } from '../config/config';
 export default function ClassDetails() {
 
     const [token, setToken] = useState(null);
+    const [allData, setAllData] = useState([]);
 
     const location = useLocation();
     const class_name = location.state?.class_name;
     const school_email = location.state?.school_email;
-console.log('class_name', class_name, school_email);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -26,10 +26,8 @@ console.log('class_name', class_name, school_email);
     const viewClassRecord = async () => {
 
         const res = await _fetch(`${api_url}students/?school_email=${school_email}&class_name=${class_name}`, 'GET', {}, {});
-        console.log('res', res);
         if (res?.status === 200) {
-            console.log('res', res);
-
+            setAllData(res?.data);
         }
     };
 
@@ -45,7 +43,7 @@ console.log('class_name', class_name, school_email);
                         </Link>
                     </div>
                     <table className="table">
-                        <tbody>
+                        <thead>
                             <tr>
                                 <th scope="col">Student ID</th>
                                 <th scope="col">Student Name</th>
@@ -54,72 +52,26 @@ console.log('class_name', class_name, school_email);
                                 <th scope="col">Contact</th>
                                 <th scope="col">Action</th>
                             </tr>
-                            <tr>
-                                <th scope="col">1</th>
-                                <td scope="col">Mark</td>
-                                <td scope="col">School@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="/aboutteacher" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">2</th>
-                                <td scope="col">Jacob</td>
-                                <td scope="col">school@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">3</th>
-                                <td scope="col">Larry the Bird</td>
-                                <td scope="col">School@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">4</th>
-                                <td scope="col">Samrat the Bird</td>
-                                <td scope="col">School@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">5</th>
-                                <td scope="col">Larry the Bird</td>
-                                <td scope="col">School@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">6</th>
-                                <td scope="col">Larry the Bird</td>
-                                <td scope="col">School@gmail.com</td>
-                                <td scope="col">Male</td>
-                                <td scope="col">+91 1234567890</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="" className='btn-view'>View</Link>
-                                    <Link to="" className='btn-block'>Block</Link>
-                                </td>
-                            </tr>
+                        </thead>
+                        <tbody>
+                            {allData?.map((item, index) => {
+                                return (
+                                    <>
+                                        <tr>
+                                            <th scope="col">{index + 1}</th>
+                                            <td scope="col">{item?.name}</td>
+                                            <td scope="col">{item?.email}</td>
+                                            <td scope="col">{item?.gender}</td>
+                                            <td scope="col">{item?.contact_No}</td>
+                                            <td className='d-flex gap-3' scope="col">
+                                                <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.username, email: item?.email }} className='btn-view'>View</Link>
+                                                <Link to="" className='btn-block'>Block</Link>
+                                            </td>
+                                        </tr>
+                                    </>
+                                )
+                            })}
+
                         </tbody>
                     </table>
                 </div>
