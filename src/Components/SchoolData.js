@@ -72,6 +72,7 @@ const SchoolData = ({ Toggle }) => {
                                     <tr>
                                         <th scope="col">Teacher ID</th>
                                         <th scope="col">Teacher Name</th>
+                                         <th scope='col'> Action  </th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -11,8 +11,9 @@
     display: flex;
     align-items: center;
     gap: 0.2rem;
-    background-color: $btn-clr1;
-    color: $btn-text1;
+    background-color: $btn-clr1 !important;
+    color: $btn-text1 !important;
     border-radius: 8px;
     padding: 8px;
+    border: none !important;
 }
