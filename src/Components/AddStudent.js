@@ -2,58 +2,51 @@ import React, { useState } from 'react'
 import Nav from './Nav'
 import { Col, Container, Row } from 'react-bootstrap'
 import AddImg from './AddImg';
-import { Link } from 'react-router-dom'
 import 'react-datepicker/dist/react-datepicker.css';
+import _fetch from '../config/api';
+import { api_url } from '../config/config';
+import toasted from '../config/toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddStudent = () => {
 
-    const [dateOfBirth, setDateOfBirth] = useState(null);
+    const navigate = useNavigate();
 
     const [isImageUploaded, setIsImageUploaded] = useState(false);
     const [allFields, setAllFields] = useState({});
 
     const handleInputFileds = (e) => {
-        // const allFields = {
-        //     name: document.getElementById('name').value,
-        //     gender: document.getElementById('gender').value,
-        //     number: document.getElementById('number').value,
-        //     whatsapp_number: document.getElementById('whatsapp_number').value,
-        //     email: document.getElementById('email').value,
-        //     blood_group: document.getElementById('blood_group').value,
-        //     dob: document.getElementById('dob').value,
-        //     dob_of_addmission: document.getElementById('dob_of_addmission').value,
-        //     address: document.getElementById('address').value,
-        //     religion: document.getElementById('religion').value,
-        //     caste: document.getElementById('caste').value,
-        //     father_name: document.getElementById('father_name').value,
-        //     mother_name: document.getElementById('mother_name').value,
-        //     father_number: document.getElementById('father_number').value,
-        //     mother_number: document.getElementById('mother_number').value,
 
-        // }
         const { name, value } = e.target;
         setAllFields(prevState => ({
             ...prevState,
             [name]: value
         }));
-        // console.log('allFields', allFields);
-
     }
 
     const handleImageChange = (uploaded) => {
         setIsImageUploaded(uploaded);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!isImageUploaded) {
-            alert('Please upload a profile image.');
-            return;
-        }
-        // Handle form submission logic here
-        console.log('Form submitted');
-    };
 
+        const res = await _fetch(`${api_url}`, "POST", allFields, {});
+        if (res?.status === 200) {
+            toasted.success(res?.message);
+            navigate('/allstudents');
+        }
+        else if (res?.status === 400) {
+            toasted.error(res?.message);
+        }
+
+        // if (!isImageUploaded) {
+        //     alert('Please upload a profile image.');
+        //     return;
+        // }
+        // // Handle form submission logic here
+        // console.log('Form submitted');
+    };
 
     return (
         <div className='px-3'>

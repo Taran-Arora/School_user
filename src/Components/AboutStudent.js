@@ -23,17 +23,20 @@ export default function AboutStudent() {
   const [imagedata, setimagedata] = useState([])
 
   const [dateOfBirth, setDateOfBirth] = useState(null);
+
   useEffect(() => {
     aboutStudentData();
   }, []);
+
   const aboutStudentData = async () => {
     const data = await _fetch(`${api_url}studentdetail/?class_id=${class_id}&school_email=${school_email}&email=${email}`, "GET", {}, {});
     if (data?.status === 200) {
-      setalldata(data?.data[0]?.student)
-      setimagedata(data?.data[0])
+      setalldata(data?.data[0]?.student);
+      setimagedata(data?.data[0]);
     }
   }
-  const imageSrc = `data:image/jpeg;base64,${imagedata.image}`;
+
+  const imageSrc = `data:image/jpeg;base64,${imagedata?.image}`;
 
   return (
     <div>
@@ -63,11 +66,11 @@ export default function AboutStudent() {
           <Row className=''>
             <Col lg={6} className="for-student-input"  >
               <label type="Name" className='labal-title'> Student Name </label>
-              <input type="text" className='form-control' value={alldata.name}/>
+              <input type="text" className='form-control' value={alldata?.name} />
             </Col>
             <Col lg={6} className="for-student-input"  >
               <label type="roll-number" className='labal-title'> Students Roll No  </label>
-              <input type="number" value={alldata.roll_no} className='form-control' />
+              <input type="number" value={alldata?.roll_no} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Class" className='labal-title'> Classs </label>

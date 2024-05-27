@@ -19,9 +19,7 @@ import AboutTeacher from './Components/AboutTeacher';
 import ClassDetails from './Components/ClassDetails';
 import AddSchool from './Components/AddSchool';
 import AddStudent from './Components/AddStudent';
-
-
-
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 function App() {
 
@@ -33,6 +31,8 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot" element={<Forgot />} />
+
+            <Route element={<PrivateRoutes />}>
             <Route element={<DashLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allschools" element={<AllSchools />} />
@@ -46,6 +46,7 @@ function App() {
               <Route path='/classdetails' element={<ClassDetails />} />
               <Route path='/addschool' element={<AddSchool />} />
               <Route path='/addstudent' element={<AddStudent />} />
+            </Route>
             </Route>
           </Routes>
         </BrowserRouter>

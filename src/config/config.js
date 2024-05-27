@@ -1,5 +1,3 @@
-// import site_logo from '../Assets/image/logo.png';
-// export const logo = site_logo;
 export const title = 'ecommerce';
 export const website = ''; 
 export const shortTitle = 'ecommerce';

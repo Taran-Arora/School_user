@@ -9,19 +9,23 @@ import RecyclingIcon from '@mui/icons-material/Recycling';
 import { useLocation, useNavigate } from 'react-router-dom';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
+import toasted from '../config/toast';
 
 export default function AboutTeacher({ Toggle }) {
 
     const [dateOfBirth, setDateOfBirth] = useState(null);
     const [token, setToken] = useState(null);
-    const [imagedata, setimage] = useState({id: '', image: ''});
+    const [imagedata, setimage] = useState({ id: '', image: '' });
     const [periods, setPeriods] = useState([]);
-    const [allData, setAllData] = useState({first_name: '', last_name: '', contact: '', email: '', gender: '', subjects: ''});
+    const [allData, setAllData] = useState({ first_name: '', last_name: '', contact: '', email: '', gender: '', subjects: '' });
+    const [allFields, setAllFields] = useState({});
+
     const location = useLocation();
     const navigate = useNavigate();
 
     const email = location.state?.email;
     const school_email = location.state?.school_email;
+
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -37,12 +41,32 @@ export default function AboutTeacher({ Toggle }) {
         if (res?.status === 200) {
             setimage(res?.teacher_images[0]);
             setAllData(res?.teacher_images[0]?.teacher);
-            setPeriods(res?.teacher_periods || []);
+            setPeriods(res?.teacher_periods);
 
         }
     };
-console.log('periods', periods);
-const imageSrc = `data:image/jpeg;base64,${imagedata.image}`;
+
+    const changeSubject = (e) => {
+        const { name, value } = e.target;
+        setAllFields(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
+
+    const imageSrc = `data:image/jpeg;base64,${imagedata ? imagedata.image : ''}`;
+
+    const updateTeacherData = async () => {
+        const data = await _fetch(`${api_url}`, "PATCH", allFields, {});
+        console.log('data', data);
+        if (data?.status === 200) {
+            toasted.success(data?.message);
+        }
+        else {
+            toasted.error(data?.message);
+        }
+    }
+
     return (
         <div>
             <Nav />
@@ -70,31 +94,29 @@ const imageSrc = `data:image/jpeg;base64,${imagedata.image}`;
                     <Row className=''>
                         <Col lg={6} className="for-teacher-input"  >
                             <label type="Name" className='labal-title'> Teacher Name </label>
-                            <input type="text" className='form-control' value={allData?.first_name + " " + allData?.last_name} />
+                            <input type="text" className='form-control' value={allData?.first_name + " " + allData?.last_name} readOnly />
                         </Col>
                         <Col lg={6}>
                             <label type="Name" className='labal-title'> Gender </label>
-                            <input type="text" className='form-control' value={allData?.gender} readOnly/>
+                            <input type="text" className='form-control' value={allData?.gender} readOnly />
                         </Col>
                         {periods?.map((item, index) => (
-                        <Col lg={6} className="for-teacher-input">
-                            <label type="Class" className='labal-title'>Period {item?.period_number}</label>
-                            <Form.Select aria-label="Default select example" className='form-control'>
-                                <option>Class {item?.class_name}</option>
-                                <option value={item?.class_name}></option>
-                                {/* <option value="2">2nd</option> */}
-                            </Form.Select>
-                        </Col>
+                            <Col lg={6} className="for-teacher-input">
+                                <label type="Class" className='labal-title'>Period {item?.period_number}</label>
+                                <Form.Select aria-label="Default select example" className='form-control'>
+                                    <option value={item?.class_name}>Class {item?.class_name}</option>
+                                    {/* <option value={item?.class_name}></option> */}
+                                </Form.Select>
+                            </Col>
                         ))}
                         <Col lg={6} className="for-teacher-input">
                             <label className='labal-title'> Subject</label>
-                            <input type="text" className='form-control' value={allData?.subjects}/>
+                            <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />
                         </Col>
                         <Col lg={6} className="for-teacher-input">
-                            <label type="Email" className='labal-title'> Email </label>
-                            <input type="Email" className='form-control' value={allData?.email} />
+                            <label className='labal-title'> Email </label>
+                            <input type="Email" className='form-control' value={allData?.email} readOnly />
                         </Col>
-
                     </Row>
                 </form>
                 <div className="teacher-edit-btn">
