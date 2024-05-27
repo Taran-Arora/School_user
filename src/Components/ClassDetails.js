@@ -11,8 +11,9 @@ export default function ClassDetails() {
     const [token, setToken] = useState(null);
 
     const location = useLocation();
-    const email = location.state?.email;
+    const class_name = location.state?.class_name;
     const school_email = location.state?.school_email;
+console.log('class_name', class_name, school_email);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -24,7 +25,7 @@ export default function ClassDetails() {
 
     const viewClassRecord = async () => {
 
-        const res = await _fetch(`${api_url}classdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
+        const res = await _fetch(`${api_url}students/?school_email=${school_email}&class_name=${class_name}`, 'GET', {}, {});
         console.log('res', res);
         if (res?.status === 200) {
             console.log('res', res);
