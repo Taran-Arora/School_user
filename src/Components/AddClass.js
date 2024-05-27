@@ -4,13 +4,13 @@ import { Col, Container, Row } from 'react-bootstrap'
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AddTeacher = () => {
 
 
     const location = useLocation();
-    // const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const username = location.state?.username;
     const [className, setClassName] = useState('');
     const [totalStudents, setTotalStudents] = useState('');
@@ -24,11 +24,10 @@ const AddTeacher = () => {
 
         const res = await _fetch(`${api_url}class/register/`, "POST", data, {});
 
-        console.log('res', res);
-
         if (res?.status === 200) {
 
             toasted.success(res?.msg);
+            navigate('/schooldata');
 
         } else if (res?.status == 400) {
 
