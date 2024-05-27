@@ -19,6 +19,8 @@ export default function AboutStudent() {
   const class_id = location.state?.class_id;
   const school_email = location.state?.school_email;
   const email = location.state?.email;
+  const [alldata, setalldata] = useState([])
+  const [imagedata, setimagedata] = useState([])
 
   const [dateOfBirth, setDateOfBirth] = useState(null);
   useEffect(() => {
@@ -27,10 +29,11 @@ export default function AboutStudent() {
   const aboutStudentData = async () => {
     const data = await _fetch(`${api_url}studentdetail/?class_id=${class_id}&school_email=${school_email}&email=${email}`, "GET", {}, {});
     if (data?.status === 200) {
-
-      console.log('data', data);
+      setalldata(data?.data[0]?.student)
+      setimagedata(data?.data[0])
     }
   }
+  const imageSrc = `data:image/jpeg;base64,${imagedata.image}`;
 
   return (
     <div>
@@ -50,7 +53,7 @@ export default function AboutStudent() {
             </div>
           </div>
           <div className="school-logo">
-            <img src={studentImg} alt="" />
+            <img src={imageSrc} alt="" />
           </div>
         </div>
         <form action="" className='gx-5 student-admin-form'>
@@ -60,12 +63,12 @@ export default function AboutStudent() {
           <Row className=''>
             <Col lg={6} className="for-student-input"  >
               <label type="Name" className='labal-title'> Student Name </label>
-              <input type="text" className='form-control' />
+              <input type="text" className='form-control' value={alldata.name}/>
             </Col>
             <Col lg={6}>
               <label type="Name" className='labal-title'> Gender </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option>Select Gender </option>
+                <option>{alldata.gender} </option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
                 <option value="3">Other </option>
@@ -74,7 +77,7 @@ export default function AboutStudent() {
             <Col lg={6} className="for-student-input">
               <label type="Class" className='labal-title'> Classs </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option> Select Class </option>
+                <option> {alldata.student_class} </option>
                 <option value="1">1st</option>
                 <option value="2">2nd</option>
                 <option value="3">3rd</option>
@@ -91,12 +94,12 @@ export default function AboutStudent() {
             </Col>
             <Col lg={6} className="for-student-input" >
               <label className='labal-title'>DOB</label>
-              <input type="date" className='form-control' />
+              <input type="date" value={alldata.dob} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="BloodGroup" className='labal-title'> Blood Group </label>
               <Form.Select aria-label="Default select example" className='form-control'>
-                <option> Select Blood Group </option>
+                <option> {alldata.blood_group} </option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
                 <option value="B+">B+</option>
@@ -109,19 +112,19 @@ export default function AboutStudent() {
             </Col>
             <Col lg={6} className="for-student-input">
               <label className='labal-title'>Date of Admission</label>
-              <input type="date" className='form-control' />
+              <input type="date" value={alldata.date_of_admission} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label className='labal-title'> Contact No  </label>
-              <input type="number" className='form-control' />
+              <input type="number" value={alldata.contact_No} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Email" className='labal-title'> Email </label>
-              <input type="Email" className='form-control' />
+              <input type="Email" value={alldata.email} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label className='labal-title'> WhatsApp no  </label>
-              <input type="number" className='form-control' />
+              <input type="number" value={alldata.contact_No} className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Address </label>
