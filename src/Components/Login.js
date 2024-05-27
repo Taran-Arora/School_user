@@ -54,7 +54,6 @@ export default function Login() {
                         <input type="Email" placeholder='Email' required name='username' onChange={inputFieldsData} value={allFields?.username}  />
                         <MailIcon className="icon" />
                     </div>
-
                     <div className="input_box">
                         <input
                             type={showPassword ? "text" : "password"}

@@ -12,7 +12,7 @@ export default function AboutStudent() {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   return (
     <div>
-      <Nav  />
+      <Nav />
       <div className="about-student ">
         <div className="for-image-section">
           <div className="studemt-school-image">
@@ -40,14 +40,9 @@ export default function AboutStudent() {
               <label type="Name" className='labal-title'> Student Name </label>
               <input type="text" className='form-control' />
             </Col>
-            <Col lg={6}>
-              <label type="Name" className='labal-title'> Gender </label>
-              <Form.Select aria-label="Default select example" className='form-control'>
-                <option>Select Gender </option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other </option>
-              </Form.Select>
+            <Col lg={6} className="for-student-input"  >
+              <label type="roll-number" className='labal-title'> Students Roll No  </label>
+              <input type="number" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Class" className='labal-title'> Classs </label>
@@ -85,6 +80,15 @@ export default function AboutStudent() {
                 <option value="O-">O-</option>
               </Form.Select>
             </Col>
+            <Col lg={6}>
+              <label type="Name" className='labal-title'> Gender </label>
+              <Form.Select aria-label="Default select example" className='form-control'>
+                <option>Select Gender </option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other </option>
+              </Form.Select>
+            </Col>
             <Col lg={6} className="for-student-input">
               <label className='labal-title'>Date of Admission</label>
               <input type="date" className='form-control' />
@@ -100,10 +104,6 @@ export default function AboutStudent() {
             <Col lg={6} className="for-student-input">
               <label className='labal-title'> WhatsApp no  </label>
               <input type="number" className='form-control' />
-            </Col>
-            <Col lg={6} className="for-student-input">
-              <label type="Name" className='labal-title'> Address </label>
-              <input type="text" className='form-control' />
             </Col>
             <Col lg={6} className="for-student-input">
               <label type="Religion" className='labal-title'> Religion </label>
@@ -150,6 +150,10 @@ export default function AboutStudent() {
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's mobile no  </label>
               <input type="number" className='form-control' />
+            </Col>
+            <Col lg={12} className="for-student-input">
+              <label type="Name" className='labal-title'> Address </label>
+              <textarea type="text-area" className='form-control' />
             </Col>
           </Row>
         </form>
