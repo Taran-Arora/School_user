@@ -15,7 +15,6 @@ const SchoolData = ({ Toggle }) => {
     const [allData, setAllData] = useState([]);
     const [classData, setClassData] = useState([]);
     const [token, setToken] = useState(null);
-    console.log('ff');
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
