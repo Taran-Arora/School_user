@@ -84,7 +84,7 @@ const SchoolData = ({ Toggle }) => {
                                                     <th scope="col">{index + 1}</th>
                                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
-                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id }} > View </Link>
+                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id?.username }} > View </Link>
                                                     </td>
                                                 </tr>
                                             </>
