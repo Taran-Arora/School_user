@@ -10,6 +10,7 @@ import { Col, Container, Row, Button } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import snoze1 from '../assets/Images/snoze1.png';
+import toasted from '../config/toast';
 
 const Home = ({ Toggle }) => {
 
@@ -18,6 +19,8 @@ const Home = ({ Toggle }) => {
     const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inavtive_users: '' });
     const [allData, setAllData] = useState([]);
     const [token, setToken] = useState(null);
+    const [blockUser, setBlockUser] = useState(false);
+    const [schoolEmail, setSchoolEmail] = useState();
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
@@ -44,6 +47,27 @@ const Home = ({ Toggle }) => {
             navigate('/');
         }
     };
+
+    const blockUserData = (email) => {
+        // setBlockUser(true);
+        // setSchoolEmail(email);
+        setTimeout(() => {
+            submitBlockUser(email, true);
+        }, 1000);
+    }
+    const submitBlockUser = async (email, block) => {
+        setBlockUser(block);
+        let data = {
+            'school_email': email,
+            'block': block
+        }
+
+        let res = await _fetch(`${api_url}block/`, "POST", data, {});
+        console.log('res', res);
+        if (res?.status === 200) {
+            toasted.success(res?.message);
+        }
+    }
 
     const ViewData = (username) => {
         navigate('/schooldata', { state: { username } });
@@ -78,7 +102,7 @@ const Home = ({ Toggle }) => {
                                 <h3 className='fs-2'>{totalUsers?.inavtive_users} </h3>
                                 <p className='fs-5'>Inactive Users</p>
                             </div>
-                            <img src={snoze1} alt="Inactive Users" className='img-fluid cards-img bg-yellow' style={{width:"88px" , height:"88px"}} />
+                            <img src={snoze1} alt="Inactive Users" className='img-fluid cards-img bg-yellow' style={{ width: "88px", height: "88px" }} />
                         </div>
                     </Col>
                     <Col xl={3} lg={6} md={6} className="p-1">
@@ -113,8 +137,12 @@ const Home = ({ Toggle }) => {
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
                                         {/* <Link to='/schooldata' { state: { username } } className='btn-view'>View</Link> */}
-                                        <Button className='btn-view'onClick={() => ViewData(item?.username)} >View</Button>
-                                        <Link to="" className='btn-block'>Block</Link>
+                                        <Button className='btn-view' onClick={() => ViewData(item?.username)} >View</Button>
+                                        {!blockUser ?
+                                            <Link to="" className='btn-block' onClick={() => blockUserData(item?.username)}>Block</Link>
+                                            :
+                                            <Link to="" className='btn-block'>Unblock</Link>
+                                        }
                                     </td>
                                 </tr>
                             ))}

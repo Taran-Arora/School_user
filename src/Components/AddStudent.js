@@ -24,7 +24,8 @@ const AddStudent = () => {
         setAllFields(prevState => ({
             ...prevState,
             [name]: value,
-            school_id: username
+            school_id: username,
+            image : profileImage
         }));
     }
 
@@ -65,7 +66,6 @@ const AddStudent = () => {
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Student</h3>
                             <input type='file' onChange={handleImage} />
-                            {/* <AddImg onImageChange={handleImageChange} /> */}
                         </div>
                     </Col>
                     <Col lg={12}>
