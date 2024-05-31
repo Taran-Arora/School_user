@@ -1,10 +1,35 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Nav from './Nav'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
+import _fetch from '../../src/config/api';
+import { api_url } from '../../src/config/config';
 
 export default function AllStudents() {
+    const navigate = useNavigate();
+    const [allData, setAllData] = useState([]);
+    const [allschoolData, setschoolData] = useState([]);
+
+    const schoolData = async () => {
+        try {
+            const res = await _fetch(`${api_url}allstudent/`, 'GET', {}, {});
+            if (res.status === 200) {
+                setAllData(res?.data);
+                setschoolData(res?.data[0]?.school_id)
+                console.log(res?.data[0]?.school_id);
+
+            } else {
+                console.log('Error fetching data:', res.status);
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        schoolData();
+    }, []);
     return (
         <div className='px-3'>
         <Nav />
@@ -21,77 +46,24 @@ export default function AllStudents() {
                         <tr>
                             <th scope="col">Student ID</th>
                             <th scope="col">Student Name</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">School Name</th>
                             <th scope="col">Gender</th>
                             <th scope="col">Contact</th>
                             <th scope="col">Action</th>
                         </tr>
+                        {allData?.map((item, index) => (
                         <tr>
-                            <th scope="col">1</th>
-                            <td scope="col">Mark</td>
-                            <td scope="col">School@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
+                            <th scope="col">{index + 1}</th>
+                            <td scope="col">{item?.name}</td>
+                                <td scope="col">{item?.school_id?.first_name}</td>
+                                <td scope="col">{item?.gender}</td>
+                                <td scope="col">{item?.contact_No}</td>
                             <td className='d-flex gap-3' scope="col">
                                 <Link to="/aboutteacher" className='btn-view'>View</Link>
                                 <Link to="" className='btn-block'>Block</Link>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="col">2</th>
-                            <td scope="col">Jacob</td>
-                            <td scope="col">school@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
-                            <td className='d-flex gap-3' scope="col">
-                                <Link to="" className='btn-view'>View</Link>
-                                <Link to="" className='btn-block'>Block</Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">3</th>
-                            <td scope="col">Larry the Bird</td>
-                            <td scope="col">School@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
-                            <td className='d-flex gap-3' scope="col">
-                                <Link to="" className='btn-view'>View</Link>
-                                <Link to="" className='btn-block'>Block</Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">4</th>
-                            <td scope="col">Samrat the Bird</td>
-                            <td scope="col">School@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
-                            <td className='d-flex gap-3' scope="col">
-                                <Link to="" className='btn-view'>View</Link>
-                                <Link to="" className='btn-block'>Block</Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">5</th>
-                            <td scope="col">Larry the Bird</td>
-                            <td scope="col">School@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
-                            <td className='d-flex gap-3' scope="col">
-                                <Link to="" className='btn-view'>View</Link>
-                                <Link to="" className='btn-block'>Block</Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="col">6</th>
-                            <td scope="col">Larry the Bird</td>
-                            <td scope="col">School@gmail.com</td>
-                            <td scope="col">Male</td>
-                            <td scope="col">+91 1234567890</td>
-                            <td className='d-flex gap-3' scope="col">
-                                <Link to="" className='btn-view'>View</Link>
-                                <Link to="" className='btn-block'>Block</Link>
-                            </td>
-                        </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

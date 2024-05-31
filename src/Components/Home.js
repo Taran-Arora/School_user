@@ -15,7 +15,7 @@ const Home = ({ Toggle }) => {
 
     const navigate = useNavigate();
 
-    const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inavtive_users: '' });
+    const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inavtive_users: '', block: '' });
     const [allData, setAllData] = useState([]);
     const [token, setToken] = useState(null);
 
@@ -39,6 +39,7 @@ const Home = ({ Toggle }) => {
                 total_users: res?.total_users,
                 active_users: res?.active_users,
                 inavtive_users: res?.inavtive_users,
+                block: res?.block,
             });
         } else {
             navigate('/');
@@ -84,7 +85,7 @@ const Home = ({ Toggle }) => {
                     <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className='fs-2'></h3>
+                                <h3 className='fs-2'>{totalUsers?.block}</h3>
                                 <p className='fs-5'>Blocked Users</p>
                             </div>
                             <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink' />
