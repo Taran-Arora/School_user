@@ -12,7 +12,7 @@ import { Construction } from '@mui/icons-material';
 const AddTeacher = () => {
 
     const location = useLocation();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
     const username = location.state?.username;
 
     const [inputFields, setInputFields] = useState([7]);
@@ -53,6 +53,17 @@ const AddTeacher = () => {
         setImageUploaded(true);
     };
 
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setProfileImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
     const submitTeacherData = async () => {
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
         const data = {
@@ -63,7 +74,7 @@ const AddTeacher = () => {
             contact: contact,
             email: email,
             subjects: subject,
-            // image: image,
+            image: profileImage,
             periods: periods
         };
 
@@ -89,7 +100,8 @@ const AddTeacher = () => {
                     <Col lg={12}>
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Teacher</h3>
-                            <AddImg profileImage={profileImage} imageUploaded={imageUploaded} onImageChange={handleImageChange} />
+                            <input type='file' onChange={handleImage} />
+                            {/* <AddImg profileImage={profileImage} imageUploaded={imageUploaded} onImageChange={handleImageChange} /> */}
                         </div>
                     </Col>
                     <Col lg={12}>

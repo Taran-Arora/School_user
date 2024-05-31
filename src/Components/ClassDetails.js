@@ -38,7 +38,7 @@ export default function ClassDetails() {
                 <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>Class Students</h3>
-                        <Link to="/addstudent" className='add-btn'>
+                        <Link to="/addstudent" state={{school_id: school_email}} className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Student
                         </Link>
                     </div>

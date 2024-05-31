@@ -6,32 +6,47 @@ import 'react-datepicker/dist/react-datepicker.css';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AddStudent = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const username = location?.state?.school_id;
 
     const [isImageUploaded, setIsImageUploaded] = useState(false);
     const [allFields, setAllFields] = useState({});
+    const [profileImage, setProfileImage] = useState(null);
 
     const handleInputFileds = (e) => {
 
         const { name, value } = e.target;
         setAllFields(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: value,
+            school_id: username
         }));
     }
 
-    const handleImageChange = (uploaded) => {
-        setIsImageUploaded(uploaded);
-    };
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setProfileImage(reader.result);
+                setAllFields(prevFields => ({
+                    ...prevFields,
+                    image: reader.result
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await _fetch(`${api_url}`, "POST", allFields, {});
+        const res = await _fetch(`${api_url}student/register/`, "POST", allFields, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
             navigate('/allstudents');
@@ -39,13 +54,6 @@ const AddStudent = () => {
         else if (res?.status === 400) {
             toasted.error(res?.message);
         }
-
-        // if (!isImageUploaded) {
-        //     alert('Please upload a profile image.');
-        //     return;
-        // }
-        // // Handle form submission logic here
-        // console.log('Form submitted');
     };
 
     return (
@@ -56,7 +64,8 @@ const AddStudent = () => {
                     <Col lg={12}>
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Student</h3>
-                            <AddImg onImageChange={handleImageChange} />
+                            <input type='file' onChange={handleImage} />
+                            {/* <AddImg onImageChange={handleImageChange} /> */}
                         </div>
                     </Col>
                     <Col lg={12}>
@@ -70,6 +79,15 @@ const AddStudent = () => {
                                     <input type="text" placeholder="Enter Name" className="form-control" name='name' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
+                                    <label>Roll No </label>
+                                    <input type="text" className="form-control" placeholder='Enter Roll No' name='roll_no' onChange={handleInputFileds} />
+                                </Col>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Class </label>
+                                    <input type="text" className="form-control" placeholder='Enter Class' name='student_class' onChange={handleInputFileds} />
+                                </Col>
+                                
+                                <Col xl={4} lg={6} className='form-group'>
                                     <label>Gender </label>
                                     <select className='form-control' name='gender' onChange={handleInputFileds} >
                                         <option value>Please Select Gender </option>
@@ -80,7 +98,7 @@ const AddStudent = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Contact </label>
-                                    <input type="number" className="form-control" placeholder='Enter Contact Number' name='number' onChange={handleInputFileds} />
+                                    <input type="number" className="form-control" placeholder='Enter Contact Number' name='contact_No' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Whatapp Number</label>
@@ -105,7 +123,7 @@ const AddStudent = () => {
                                 </Col>
                                 <Col lg={6} xl={4} className="form-group">
                                     <label>Date of Admission </label>
-                                    <input type="date" className='form-control' name='dob_of_addmission' onChange={handleInputFileds} />
+                                    <input type="date" className='form-control' name='date_of_admission' onChange={handleInputFileds} />
                                 </Col>
                                 <Col lg={6} xl={4} className="form-group">
                                     <label> Address</label>
@@ -140,11 +158,11 @@ const AddStudent = () => {
                                 </Col>
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="Name"> Father's Mobile no </label>
-                                    <input type="number" className='form-control' name='father_number' onChange={handleInputFileds} />
+                                    <input type="number" className='form-control' name='father_no' onChange={handleInputFileds} />
                                 </Col>
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="Name"> Mother's mobile no  </label>
-                                    <input type="number" className='form-control' name='mother_number' onChange={handleInputFileds} />
+                                    <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
                                 </Col>
                                 <Col lg={12} className='form-group'>
                                     <button type='submit' className='btn-submit'>Submit</button>
