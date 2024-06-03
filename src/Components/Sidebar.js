@@ -70,6 +70,10 @@ const Sidebar = () => {
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>DashBoard</span>
           </Link>
+          <Link to="/addschool" className="list-group-item py-2 d-flex align-items-center my-2">
+            <GridViewIcon className='fs-5 me-2'></GridViewIcon>
+            <span className='fs-5'>Add Schools</span>
+          </Link>
           <Link to="/allschools" className="list-group-item py-2 d-flex align-items-center my-2">
             <GridViewIcon className='fs-5 me-2'></GridViewIcon>
             <span className='fs-5'>All Schools</span>
@@ -83,10 +87,10 @@ const Sidebar = () => {
             <span className='fs-5'>All Students</span>
           </Link>
 
-          <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
+          {/* <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
             <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
             <span className='fs-5'>My Account</span>
-          </Link>
+          </Link> */}
           {/* <button to="/login" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
             <LogoutIcon className='fs-4 me-2'></LogoutIcon>
             <span className='fs-5'>Logout</span>
