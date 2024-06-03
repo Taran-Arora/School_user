@@ -25,22 +25,23 @@ const AddStudent = () => {
             ...prevState,
             [name]: value,
             school_id: username,
-            image : profileImage
+            image: profileImage
         }));
     }
 
     const handleImage = (e) => {
-        const file = e.target.files[0];
+        const file = e.target.file[0];
         if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setProfileImage(reader.result);
-                setAllFields(prevFields => ({
-                    ...prevFields,
-                    image: reader.result
-                }));
-            };
-            reader.readAsDataURL(file);
+            setProfileImage(file);
+            // const reader = new FileReader();
+            // reader.onloadend = () => {
+            //     setProfileImage(reader.result);
+            //     setAllFields(prevFields => ({
+            //         ...prevFields,
+            //         image: reader.result
+            //     }));
+            // };
+            // reader.readAsDataURL(file);
         }
     }
 
@@ -86,7 +87,7 @@ const AddStudent = () => {
                                     <label>Class </label>
                                     <input type="text" className="form-control" placeholder='Enter Class' name='student_class' onChange={handleInputFileds} />
                                 </Col>
-                                
+
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Gender </label>
                                     <select className='form-control' name='gender' onChange={handleInputFileds} >

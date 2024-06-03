@@ -16,12 +16,12 @@ const Home = ({ Toggle }) => {
 
     const navigate = useNavigate();
 
-    const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inavtive_users: '' });
+    const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inactive_users: '', block: '' });
     const [allData, setAllData] = useState([]);
     const [token, setToken] = useState(null);
     const [blockUser, setBlockUser] = useState(false);
-    const [schoolEmail, setSchoolEmail] = useState();
-
+    const [blockedData, setBlockedData] = useState([]);
+    
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -38,10 +38,12 @@ const Home = ({ Toggle }) => {
 
         if (res?.status === 200) {
             setAllData(res?.users);
+            setBlockedData(res?.blockschools);
             setTotalUsers({
                 total_users: res?.total_users,
                 active_users: res?.active_users,
-                inavtive_users: res?.inavtive_users,
+                inactive_users: res?.inactive_users,
+                block: res?.block,
             });
         } else {
             navigate('/');
@@ -49,8 +51,6 @@ const Home = ({ Toggle }) => {
     };
 
     const blockUserData = (email) => {
-        // setBlockUser(true);
-        // setSchoolEmail(email);
         setTimeout(() => {
             submitBlockUser(email, true);
         }, 1000);
@@ -99,7 +99,7 @@ const Home = ({ Toggle }) => {
                     <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className='fs-2'>{totalUsers?.inavtive_users} </h3>
+                                <h3 className='fs-2'>{totalUsers?.inactive_users} </h3>
                                 <p className='fs-5'>Inactive Users</p>
                             </div>
                             <img src={snoze1} alt="Inactive Users" className='img-fluid cards-img bg-yellow' style={{ width: "88px", height: "88px" }} />
@@ -108,7 +108,7 @@ const Home = ({ Toggle }) => {
                     <Col xl={3} lg={6} md={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 className='fs-2'></h3>
+                                <h3 className='fs-2'>{totalUsers?.block}</h3>
                                 <p className='fs-5'>Blocked Users</p>
                             </div>
                             <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink' />
@@ -136,13 +136,27 @@ const Home = ({ Toggle }) => {
                                     <td>{item?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        {/* <Link to='/schooldata' { state: { username } } className='btn-view'>View</Link> */}
                                         <Button className='btn-view' onClick={() => ViewData(item?.username)} >View</Button>
-                                        {!blockUser ?
-                                            <Link to="" className='btn-block' onClick={() => blockUserData(item?.username)}>Block</Link>
-                                            :
-                                            <Link to="" className='btn-block'>Unblock</Link>
-                                        }
+                                        {blockedData ? (
+                                            blockedData.map((item) => (
+                                                item?.user?.email ? (
+                                                    <Button
+                                                        className='btn-block'
+                                                        // onClick={() => blockUserData(item?.username)}
+                                                    >
+                                                        Block
+                                                    </Button>
+                                                ) : (
+                                                    <Button
+                                                        className='btn-block'
+                                                    >
+                                                        Unblock
+                                                    </Button>
+                                                )
+                                            ))
+                                        ) : (
+                                            ''
+                                        )}
                                     </td>
                                 </tr>
                             ))}

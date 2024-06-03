@@ -55,17 +55,23 @@ const AddTeacher = () => {
 
     const handleImage = (e) => {
         const file = e.target.files[0];
+        console.log('file', file);
         if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setProfileImage(reader.result);
-            };
-            reader.readAsDataURL(file);
+            setProfileImage(file);
         }
+        // if (file) {
+        //     const reader = new FileReader();
+        //     reader.onloadend = () => {
+        //         setProfileImage(reader.result);
+        //     };
+        //     reader.readAsDataURL(file);
+        // }
     }
 
     const submitTeacherData = async () => {
+        console.log('profileImage',profileImage);
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
+        let formData = new FormData();
         const data = {
             school_id: username,
             first_name: firstName,
@@ -77,6 +83,7 @@ const AddTeacher = () => {
             image: profileImage,
             periods: periods
         };
+        console.log('data',data);
 
         const res = await _fetch(`${api_url}teacher/register/`, "POST", data, {});
 
