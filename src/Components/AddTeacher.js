@@ -22,6 +22,8 @@ const AddTeacher = () => {
     const [lastName, setLastName] = useState();
     const [gender, setGender] = useState();
     const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirm_password, setConfirmPassword] = useState();
     const [subject, setSubject] = useState();
     const [contact, setContact] = useState();
     const [profileImage, setProfileImage] = useState(null);
@@ -55,7 +57,6 @@ const AddTeacher = () => {
 
     const handleImage = (e) => {
         const file = e.target.files[0];
-        console.log('file', file);
         if (file) {
             setProfileImage(file);
         }
@@ -72,20 +73,34 @@ const AddTeacher = () => {
         console.log('profileImage',profileImage);
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
         let formData = new FormData();
-        const data = {
-            school_id: username,
-            first_name: firstName,
-            last_name: lastName,
-            gender: gender,
-            contact: contact,
-            email: email,
-            subjects: subject,
-            image: profileImage,
-            periods: periods
-        };
-        console.log('data',data);
+        formData.append('school_id', username);
+        formData.append('first_name', firstName);
+        formData.append('last_name', lastName);
+        formData.append('gender', gender);
+        formData.append('contact', contact);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('confirm_password', confirm_password);
+        formData.append('subjects', subject);
+        formData.append('image', profileImage);
+        formData.append('periods', JSON.stringify(periods) );
 
-        const res = await _fetch(`${api_url}teacher/register/`, "POST", data, {});
+        // const data = {
+        //     school_id: username,
+        //     first_name: firstName,
+        //     last_name: lastName,
+        //     gender: gender,
+        //     contact: contact,
+        //     email: email,
+        //     password: password,
+        //     confirm_password: confirm_password,
+        //     subjects: subject,
+        //     image: profileImage,
+        //     periods: periods
+        // };
+        // console.log('data',data);
+
+        const res = await _fetch(`${api_url}teacher/register/`, "ImagePost", formData, {});
 
         if (res?.status === 200) {
 
@@ -140,6 +155,14 @@ const AddTeacher = () => {
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Email </label>
                                     <input type="mail" className="form-control" placeholder='Enter Email Address' onChange={(e) => setEmail(e.target.value)} value={email} />
+                                </Col>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Password </label>
+                                    <input type="password" className="form-control" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} value={password} />
+                                </Col>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Confirm Password </label>
+                                    <input type="password" className="form-control" placeholder='Enter Confirm Password' onChange={(e) => setConfirmPassword(e.target.value)} value={confirm_password} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Subject </label>

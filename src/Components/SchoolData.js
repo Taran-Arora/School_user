@@ -84,7 +84,7 @@ const SchoolData = ({ Toggle }) => {
                                                     <th scope="col">{index + 1}</th>
                                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
                                                     <td scope="col">
-                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id?.username }} > View </Link>
+                                                    <Link to="/aboutteacher" className='btn-view' state={{email: item?.email, school_email: item?.school_id?.school_email }} > View </Link>
                                                     </td>
                                                 </tr>
                                             </>
@@ -117,7 +117,7 @@ const SchoolData = ({ Toggle }) => {
                                         <th scope="col">{item?.class_name}</th>
                                         <td scope="col">{item?.total_students}</td>
                                         <td scope="col">
-                                            <Link to="/classdetails" className='btn-view' state={{class_name: item?.class_name, school_email: item?.school_id?.username }} >View</Link>
+                                            <Link to="/classdetails" className='btn-view' state={{class_name: item?.class_name, school_email: item?.school_id?.school_email }} >View</Link>
                                         </td>
                                     </tr>
                                     </>

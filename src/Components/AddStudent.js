@@ -13,6 +13,7 @@ const AddStudent = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const username = location?.state?.school_id;
+    const class_name = location.state?.class_name;
 
     const [isImageUploaded, setIsImageUploaded] = useState(false);
     const [allFields, setAllFields] = useState({});
@@ -25,33 +26,33 @@ const AddStudent = () => {
             ...prevState,
             [name]: value,
             school_id: username,
-            image: profileImage
+            // image: profileImage,
+            student_class: class_name
         }));
     }
 
     const handleImage = (e) => {
-        const file = e.target.file[0];
+        const file = e.target.files[0];
         if (file) {
             setProfileImage(file);
-            // const reader = new FileReader();
-            // reader.onloadend = () => {
-            //     setProfileImage(reader.result);
-            //     setAllFields(prevFields => ({
-            //         ...prevFields,
-            //         image: reader.result
-            //     }));
-            // };
-            // reader.readAsDataURL(file);
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('profileImage', profileImage);
+        const formData = new FormData();
+        for (const key in allFields) {
+            formData.append(key, allFields[key]);
+        }
+        if (profileImage) {
+            formData.append('image', profileImage);
+        }
 
-        const res = await _fetch(`${api_url}student/register/`, "POST", allFields, {});
+        const res = await _fetch(`${api_url}student/register/`, "ImagePost", formData, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
-            navigate('/allstudents');
+            navigate('/classdetails');
         }
         else if (res?.status === 400) {
             toasted.error(res?.message);
@@ -85,7 +86,7 @@ const AddStudent = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Class </label>
-                                    <input type="text" className="form-control" placeholder='Enter Class' name='student_class' onChange={handleInputFileds} />
+                                    <input type="text" className="form-control" placeholder='Enter Class' value={class_name} />
                                 </Col>
 
                                 <Col xl={4} lg={6} className='form-group'>
@@ -109,6 +110,15 @@ const AddStudent = () => {
                                     <label>Email </label>
                                     <input type="mail" className="form-control" placeholder='Enter Email Address' name='email' onChange={handleInputFileds} />
                                 </Col>
+                                <Col lg={6} xl={4} className="form-group">
+                                    <label > Password  </label>
+                                    <input type="password" className='form-control' name='password' onChange={handleInputFileds} />
+                                </Col>
+                                <Col lg={6} xl={4} className="form-group">
+                                    <label > Confirm Password </label>
+                                    <input type="password" className='form-control' name='confirm_password' onChange={handleInputFileds} />
+                                </Col>
+
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="BloodGroup"> Blood Group </label>
                                     <select aria-label="Default select example" className='form-control' name='blood_group' onChange={handleInputFileds} >
