@@ -39,7 +39,7 @@ export default function AboutTeacher({ Toggle }) {
         const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
         console.log('res', res);
         if (res?.status === 200) {
-            setimage(res?.teacher_images[0]);
+            setimage(res?.data);
             setAllData(res?.teacher_images[0]?.teacher);
             setPeriods(res?.teacher_periods);
 
