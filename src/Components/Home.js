@@ -132,11 +132,11 @@ const Home = ({ Toggle }) => {
                             {allData?.map((item, index) => (
                                 <tr key={index}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{item?.first_name}</td>
-                                    <td>{item?.username}</td>
+                                    <td>{item?.user?.first_name}</td>
+                                    <td>{item?.user?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Button className='btn-view' onClick={() => ViewData(item?.username)} >View</Button>
+                                        <Button className='btn-view' onClick={() => ViewData(item?.user?.username)} >View</Button>
                                         {blockedData ? (
                                             blockedData.map((item) => (
                                                 item?.user?.email ? (

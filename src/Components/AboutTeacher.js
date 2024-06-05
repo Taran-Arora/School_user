@@ -15,7 +15,7 @@ export default function AboutTeacher({ Toggle }) {
 
     const [dateOfBirth, setDateOfBirth] = useState(null);
     const [token, setToken] = useState(null);
-    const [imagedata, setimage] = useState({ id: '', image: '' });
+    const [imagedata, setimage] = useState({ image: '' });
     const [periods, setPeriods] = useState([]);
     const [allData, setAllData] = useState({ first_name: '', last_name: '', contact: '', email: '', gender: '', subjects: '' });
     const [allFields, setAllFields] = useState({});
@@ -37,12 +37,16 @@ export default function AboutTeacher({ Toggle }) {
     const viewTeacherRecord = async () => {
 
         const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
-        console.log('res', res);
+        const res2 = await _fetch(`${api_url}teacherperiodsdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
+        console.log('res2', res2);
         if (res?.status === 200) {
-            setimage(res?.teacher_images[0]);
-            setAllData(res?.teacher_images[0]?.teacher);
-            setPeriods(res?.teacher_periods);
+            setimage(res?.data[0]);
+            setAllData(res?.data[0]?.teacher); 
 
+        }
+        if (res2?.status == 200) {
+            setPeriods(res2?.data);
+            
         }
     };
 
@@ -54,8 +58,6 @@ export default function AboutTeacher({ Toggle }) {
         }));
     }
 
-    const imageSrc = `data:image/jpeg;base64,${imagedata ? imagedata.image : ''}`;
-
     const updateTeacherData = async () => {
         const data = await _fetch(`${api_url}`, "PATCH", allFields, {});
         console.log('data', data);
@@ -66,6 +68,7 @@ export default function AboutTeacher({ Toggle }) {
             toasted.error(data?.message);
         }
     }
+    console.log('periods', periods);
 
     return (
         <div>
@@ -84,7 +87,7 @@ export default function AboutTeacher({ Toggle }) {
                         </div>
                     </div>
                     <div className="school-logo">
-                        <img src={imageSrc} alt="" />
+                        <img src={`data:image/jpeg;base64,${imagedata ? imagedata?.image : ''}`} alt="" />
                     </div>
                 </div>
                 <form action="" className='gx-5 teacher-admin-form'>
@@ -100,15 +103,19 @@ export default function AboutTeacher({ Toggle }) {
                             <label type="Name" className='labal-title'> Gender </label>
                             <input type="text" className='form-control' value={allData?.gender} readOnly />
                         </Col>
-                        {periods?.map((item, index) => (
-                            <Col lg={6} className="for-teacher-input">
-                                <label type="Class" className='labal-title'>Period {item?.period_number}</label>
-                                <Form.Select aria-label="Default select example" className='form-control'>
-                                    <option value={item?.class_name}>Class {item?.class_name}</option>
-                                    {/* <option value={item?.class_name}></option> */}
-                                </Form.Select>
-                            </Col>
-                        ))}
+                        {periods?.map((item, index) => {
+                            return (
+                                <>
+
+                                    <Col lg={6} className="for-teacher-input">
+                                        <label type="Class" className='labal-title'>Period {item?.period_number}</label>
+                                        <Form.Select aria-label="Default select example" className='form-control'>
+                                            <option value={item?.class_name}>Class {item?.class_name}</option>
+                                        </Form.Select>
+                                    </Col>
+                                </>
+                            )
+                        })}
                         <Col lg={6} className="for-teacher-input">
                             <label className='labal-title'> Subject</label>
                             <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />

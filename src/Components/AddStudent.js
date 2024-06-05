@@ -21,6 +21,7 @@ const AddStudent = () => {
     const handleInputFileds = (e) => {
 
         const { name, value } = e.target;
+
         setAllFields(prevState => ({
             ...prevState,
             [name]: value,
@@ -28,27 +29,28 @@ const AddStudent = () => {
             image: profileImage
         }));
     }
-
+console.log('profileImage', profileImage);
     const handleImage = (e) => {
         const file = e.target.file[0];
         if (file) {
             setProfileImage(file);
-            // const reader = new FileReader();
-            // reader.onloadend = () => {
-            //     setProfileImage(reader.result);
-            //     setAllFields(prevFields => ({
-            //         ...prevFields,
-            //         image: reader.result
-            //     }));
-            // };
-            // reader.readAsDataURL(file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                console.log('reader.result', reader.result);
+                setProfileImage(reader.result);
+                // setAllFields(prevFields => ({
+                //     ...prevFields,
+                //     image: reader.result
+                // }));
+            };
+            reader.readAsDataURL(file);
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const res = await _fetch(`${api_url}student/register/`, "POST", allFields, {});
+        const res = await _fetch(`${api_url}student/register/`, "ImagePost", allFields, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
             navigate('/allstudents');
