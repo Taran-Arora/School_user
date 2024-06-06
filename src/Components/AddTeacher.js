@@ -70,7 +70,6 @@ const AddTeacher = () => {
     }
 
     const submitTeacherData = async () => {
-        console.log('profileImage',profileImage);
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
         let formData = new FormData();
         formData.append('school_id', username);
@@ -85,31 +84,13 @@ const AddTeacher = () => {
         formData.append('image', profileImage);
         formData.append('periods', JSON.stringify(periods) );
 
-        // const data = {
-        //     school_id: username,
-        //     first_name: firstName,
-        //     last_name: lastName,
-        //     gender: gender,
-        //     contact: contact,
-        //     email: email,
-        //     password: password,
-        //     confirm_password: confirm_password,
-        //     subjects: subject,
-        //     image: profileImage,
-        //     periods: periods
-        // };
-        // console.log('data',data);
-
         const res = await _fetch(`${api_url}teacher/register/`, "ImagePost", formData, {});
 
         if (res?.status === 200) {
-
             toasted.success(res?.message);
             navigate('/schooldata');
 
-
         } else if (res?.status == 400) {
-
             toasted.error(res?.message);
         }
     }
@@ -194,7 +175,7 @@ const AddTeacher = () => {
                                 ))}
 
                                 <div className='form-group d-flex gap-3'>
-                                    <button type='button' className='btn-submit' onClick={submitTeacherData}>Submit</button>
+                                    <button type='button' className='btn-submit' onClick={() => submitTeacherData()}>Submit</button>
                                     <button type='button' className='add-btn' onClick={handleAddField}>
                                         <AddCircleOutlineSharpIcon />Add Period
                                     </button>

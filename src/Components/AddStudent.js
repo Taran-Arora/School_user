@@ -22,6 +22,7 @@ const AddStudent = () => {
     const handleInputFileds = (e) => {
 
         const { name, value } = e.target;
+
         setAllFields(prevState => ({
             ...prevState,
             [name]: value,
@@ -30,11 +31,21 @@ const AddStudent = () => {
             student_class: class_name
         }));
     }
-
+console.log('profileImage', profileImage);
     const handleImage = (e) => {
         const file = e.target.files[0];
         if (file) {
             setProfileImage(file);
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                console.log('reader.result', reader.result);
+                setProfileImage(reader.result);
+                // setAllFields(prevFields => ({
+                //     ...prevFields,
+                //     image: reader.result
+                // }));
+            };
+            reader.readAsDataURL(file);
         }
     }
 
@@ -49,7 +60,7 @@ const AddStudent = () => {
             formData.append('image', profileImage);
         }
 
-        const res = await _fetch(`${api_url}student/register/`, "ImagePost", formData, {});
+        const res = await _fetch(`${api_url}student/register/`, "ImagePost", allFields, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
             navigate('/classdetails');

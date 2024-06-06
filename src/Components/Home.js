@@ -134,7 +134,7 @@ console.log('blockedData', blockedData);
                               
                                 <tr key={index}>
                                     <th scope="row">{index + 1}</th>
-                                    <td>{ item?.user?.first_name}</td>
+                                    <td>{item?.user?.first_name}</td>
                                     <td>{item?.user?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
