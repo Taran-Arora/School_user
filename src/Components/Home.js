@@ -19,9 +19,8 @@ const Home = ({ Toggle }) => {
     const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inactive_users: '', block: '' });
     const [allData, setAllData] = useState([]);
     const [token, setToken] = useState(null);
-    const [blockUser, setBlockUser] = useState(false);
     const [blockedData, setBlockedData] = useState([]);
-    
+
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -50,22 +49,35 @@ const Home = ({ Toggle }) => {
         }
     };
 
-    const blockUserData = (email) => {
-        setTimeout(() => {
-            submitBlockUser(email, true);
-        }, 1000);
+    const isUserBlocked = (username) => {
+        return blockedData.some((item) => item.user?.username === username);
+    };
+
+    const blockUser = (email) => {
+        submitBlockUser(email, true);
+    }
+
+    const unBlockUser = (email) => {
+        submitBlockUser(email, false);
     }
     const submitBlockUser = async (email, block) => {
-        setBlockUser(block);
+        let res = '';
         let data = {
             'school_email': email,
             'block': block
         }
 
-        let res = await _fetch(`${api_url}block/`, "POST", data, {});
-        console.log('res', res);
+        if (block === true) {
+            res = await _fetch(`${api_url}block/`, "POST", data, {});
+        }
+        else {
+            res = await _fetch(`${api_url}unblock/`, "POST", data, {});
+        }
         if (res?.status === 200) {
             toasted.success(res?.message);
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
         }
     }
 
@@ -137,25 +149,10 @@ const Home = ({ Toggle }) => {
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
                                         <Button className='btn-view' onClick={() => ViewData(item?.user?.username)} >View</Button>
-                                        {blockedData ? (
-                                            blockedData.map((item) => (
-                                                item?.user?.email ? (
-                                                    <Button
-                                                        className='btn-block'
-                                                        // onClick={() => blockUserData(item?.username)}
-                                                    >
-                                                        Block
-                                                    </Button>
-                                                ) : (
-                                                    <Button
-                                                        className='btn-block'
-                                                    >
-                                                        Unblock
-                                                    </Button>
-                                                )
-                                            ))
+                                        {isUserBlocked(item?.user?.username) ? (
+                                            <Button className='btn-block' onClick={() => unBlockUser(item?.user?.username)}>UnBlock</Button>
                                         ) : (
-                                            ''
+                                            <Button className='btn-block' onClick={() => blockUser(item?.user?.username)}>Block</Button>
                                         )}
                                     </td>
                                 </tr>
