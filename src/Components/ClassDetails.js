@@ -38,7 +38,7 @@ export default function ClassDetails() {
                 <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>Class Students</h3>
-                        <Link to="/addstudent" state={{school_id: school_email}} className='add-btn'>
+                        <Link to="/addstudent" state={{school_id: school_email, class_name: class_name}} className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Student
                         </Link>
                     </div>
@@ -64,7 +64,7 @@ export default function ClassDetails() {
                                             <td scope="col">{item?.gender}</td>
                                             <td scope="col">{item?.contact_No}</td>
                                             <td className='d-flex gap-3' scope="col">
-                                                <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.username, email: item?.email }} className='btn-view'>View</Link>
+                                                {/* <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email, email: item?.email }} className='btn-view'>View</Link> */}
                                                 <Link to="" className='btn-block'>Block</Link>
                                             </td>
                                         </tr>

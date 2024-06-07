@@ -44,6 +44,7 @@ const Home = ({ Toggle }) => {
                 inactive_users: res?.inactive_users,
                 block: res?.block,
             });
+      
         } else {
             navigate('/');
         }
@@ -142,6 +143,7 @@ const Home = ({ Toggle }) => {
                         </thead>
                         <tbody>
                             {allData?.map((item, index) => (
+                              
                                 <tr key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{item?.user?.first_name}</td>

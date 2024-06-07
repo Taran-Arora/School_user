@@ -31,7 +31,7 @@ export default function Login() {
 
       const loginSubmit = async () => {
 
-        let res = await _fetch(`${api_url}admin/login/`, 'POST', allFields, {});
+        let res = await _fetch(`${api_url}admin/login/`, 'POST', allFields, {});    
     
         if (res?.status == 200) {
             toasted.success(res?.message);
