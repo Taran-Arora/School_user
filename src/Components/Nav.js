@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
 import 'bootstrap/js/dist/dropdown'
@@ -7,6 +7,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { ToggleContext } from './ToggleContext';
 
 const Nav = () => {
+
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsDropdownVisible(!isDropdownVisible);
+    };
+
     const { Toggle } = useContext(ToggleContext);
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-transparent px-3">
@@ -31,6 +38,20 @@ const Nav = () => {
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className="round-image" onClick={toggleDropdown}>
+                <img
+                    src="https://via.placeholder.com/150"
+                    alt="Round"
+                    className="round-img"
+                />
+                {isDropdownVisible && (
+                    <ul className="dropdown-menu">
+                        <li>Option 1</li>
+                        <li>Option 2</li>
+                        <li>Option 3</li>
+                    </ul>
+                )}
             </div>
         </nav>
     );

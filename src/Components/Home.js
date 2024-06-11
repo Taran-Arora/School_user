@@ -92,36 +92,6 @@ const Home = ({ Toggle }) => {
                     </Col>
                 </Row>
             </Container>
-            <Container fluid>
-                <div className="table-responsive">
-                    <table className="table">
-                        <thead>
-                            <h3 className='table-heading'>All Schools</h3>
-                            <tr>
-                                <th scope="col">S. No.</th>
-                                <th scope="col">School Name</th>
-                                <th scope="col">School Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {allData?.map((item, index) => (
-                                <tr key={index}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{item?.first_name}</td>
-                                    <td>{item?.username}</td>
-                                    <td className='d-flex gap-3'>
-                                        <Link to="" className='btn-login'>Login</Link>
-                                        {/* <Link to='/schooldata' { state: { username } } className='btn-view'>View</Link> */}
-                                        <Button className='btn-view'onClick={() => ViewData(item?.username)} >View</Button>
-                                        <Link to="" className='btn-block'>Block</Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </Container>
         </div>
     );
 }
