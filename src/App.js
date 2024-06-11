@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/LoginLayout/Login';
-import Register from './Components/Register';
 import Forgot from './Components/LoginLayout/Forget';
 import './Style/Style.scss';
 import Dashboard from './Components/Dashboard';
@@ -8,7 +7,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import AllTeachers from './Components/AllTeachers';
 import DashLayout from './Components/DashLayout';
-import AllSchools from './Components/AllSchools';
 import AllStudents from './Components/AllStudents';
 import SchoolData from './Components/SchoolData';
 import AboutStudent from './Components/AboutStudent'
@@ -29,7 +27,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/forgot" element={<Forgot />} />
 
             <Route element={<PrivateRoutes />}>
