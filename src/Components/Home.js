@@ -129,40 +129,7 @@ const Home = ({ Toggle }) => {
                     </Col>
                 </Row>
             </Container>
-            <Container fluid>
-                <div className="table-responsive">
-                    <table className="table">
-                        <thead>
-                            <h3 className='table-heading'>All Schools</h3>
-                            <tr>
-                                <th scope="col">S. No.</th>
-                                <th scope="col">School Name</th>
-                                <th scope="col">School Email</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {allData?.map((item, index) => (
-                              
-                                <tr key={index}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{item?.user?.first_name}</td>
-                                    <td>{item?.user?.username}</td>
-                                    <td className='d-flex gap-3'>
-                                        <Link to="" className='btn-login'>Login</Link>
-                                        <Button className='btn-view' onClick={() => ViewData(item?.user?.username)} >View</Button>
-                                        {isUserBlocked(item?.user?.username) ? (
-                                            <Button className='btn-block' onClick={() => unBlockUser(item?.user?.username)}>UnBlock</Button>
-                                        ) : (
-                                            <Button className='btn-block' onClick={() => blockUser(item?.user?.username)}>Block</Button>
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </Container>
+            
         </div>
     );
 }
