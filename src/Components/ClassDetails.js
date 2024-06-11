@@ -64,7 +64,7 @@ export default function ClassDetails() {
                                             <td scope="col">{item?.gender}</td>
                                             <td scope="col">{item?.contact_No}</td>
                                             <td className='d-flex gap-3' scope="col">
-                                                {/* <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email, email: item?.email }} className='btn-view'>View</Link> */}
+                                                <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email, email: item?.email }} className='btn-view'>View</Link>
                                                 <Link to="" className='btn-block'>Block</Link>
                                             </td>
                                         </tr>
