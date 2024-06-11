@@ -1,0 +1,130 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.form-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("../Images/admin.jpeg");
+	// background: url('../Images/book.jpg');
+	// background:
+	//     rgba(0, 0, 0, .55)
+
+	//     url('../Images/book.jpg');
+	// background-blend-mode: darken;
+	// background: url('../Images/book1.webp');
+	// background: url('../Images/book2.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	.login_box {
+		background-color: transparent;
+		padding: 50px 20px;
+		width: 400px;
+		border-radius: 20px;
+		border: 1px solid #fff;
+		backdrop-filter: blur(4px);
+
+		.login-reg-heading {
+			text-align: center;
+			// margin-bottom: 20px;
+			margin-bottom: 40px;
+			font-size: 40px;
+			color: #fff;
+		}
+
+		.input_box {
+			width: 90%;
+			margin: auto;
+			height: 40px;
+			position: relative;
+			// margin-bottom: 20px;
+			margin-bottom: 30px;
+
+			input {
+				width: 100%;
+				height: 40px;
+				box-sizing: border-box;
+				padding: 0px 10px;
+				background-color: transparent;
+				color: #fff;
+				font-size: 18px;
+				padding-right: 52px;
+				outline: none !important;
+				border: none;
+				border-bottom: 2px solid #fff;
+				box-shadow: none !important;
+
+				&::placeholder {
+					font-size: 18px;
+					font-weight: 500;
+					color: #fff;
+				}
+			}
+
+
+			.icon {
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				transform: translateY(-50%);
+				color: #fff;
+			}
+		}
+		
+		.login {
+			display: flex;
+			justify-content: center;
+
+			.sign-log-button {
+				width: 200px;
+				height: 40px;
+				margin-top: 20px;
+				border-radius: 20px;
+				font-size: 18px;
+				font-weight: bold;
+				background-color: #fff;
+				border: none;
+				outline: none;
+				transition: .3s;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #000;
+				text-decoration: none;
+				border: 1px solid #fff;
+
+				&:hover {
+					cursor: pointer;
+					background-color: transparent;
+					color: #fff;
+					border: 1px solid #fff;
+				}
+			}
+		}
+
+	
+
+		// .input_box input:focus~label,
+		// .input_box input:valid~label {
+		// 	top: -10px;
+		// }
+		// .input_box input:focus~label,
+		// .input_box input:valid~label,
+		// .input_box input:not(:placeholder-shown)~label {
+		// 	top: -10px;
+		// }
+
+		@media (max-width:576px ){
+		margin: 0 20px;	
+		}
+		
+	}
+}
+

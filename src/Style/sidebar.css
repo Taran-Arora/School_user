@@ -1,0 +1,36 @@
+.sidebar {
+  transition: transform 0.5s ease;
+}
+.sidebar .list-group a {
+  cursor: pointer;
+}
+.sidebar .list-group a:hover {
+  background-color: #ffa901;
+  color: #fff;
+  border-radius: 8px;
+}
+.sidebar .logout-btn {
+  width: 88%;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+}
+
+.sidebar-hidden {
+  transform: translateX(-100%);
+}
+
+.for-logout-btn {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+}
+.for-logout-btn .list-group-item {
+  border-radius: 20px;
+  padding-bottom: 40px;
+  bottom: 10px;
+}
+.for-logout-btn .list-group-item:hover {
+  background-color: #ffa901;
+}/*# sourceMappingURL=sidebar.css.map */

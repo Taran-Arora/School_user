@@ -1,0 +1,52 @@
+.input-group {
+  .form-control {
+    &::placeholder {
+      font-size: 0.95rem;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+
+  .btn {
+    right: 0;
+    bottom: -2px;
+  }
+}
+
+.navbar {
+  position: relative;
+  .navbar-toggler{
+    display: none;
+  }
+
+  .toggler {
+    margin-right: 12px;
+    z-index: 3;
+    @media (max-width: 1199px) {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+    @media (max-width: 478px) {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+  }
+
+  svg {
+    color: $icon-clr;
+  }
+
+
+  div#collapsibleNavId {
+    @media (max-width: 1199px) {
+      display: none !important;
+    }
+  }
+}
