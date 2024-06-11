@@ -1,9 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
-import SearchIcon from '@mui/icons-material/Search';
 import { ToggleContext } from './ToggleContext';
-
+import Profile from '../Images/profile.png'
 
 const Nav = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -40,19 +39,9 @@ const Nav = () => {
             >
                 <i className='bi bi-justify'></i>
             </button>
-            {/* <div className="collapse navbar-collapse" id="collapsibleNavId">
-                <div className="input-group">
-                    <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" className="form-control border-0 bg-light" />
-                    <div className="input-group-append">
-                        <button id="button-addon1" type="submit" className="btn position-absolute">
-                            <SearchIcon />
-                        </button>
-                    </div>
-                </div>
-            </div> */}
             <div className="round-image" onClick={toggleDropdown}>
                 <img
-                    src="https://via.placeholder.com/50"
+                    src={Profile}
                     alt="Round"
                     className="round-img"
                 />
