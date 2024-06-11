@@ -50,39 +50,41 @@
     }
   }
 
-  // 
-  .round-image {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  .round-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .custom-dropdown-menu {
-    position: absolute;
-    top: 160px; /* Adjust this based on your image size */
-    left: 0;
-    background-color: white;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-    z-index: 1000;
-  }
-  
-  .custom-dropdown-menu li {
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .custom-dropdown-menu li:hover {
-    background-color: #f0f0f0;
-  }
+  /* Ensure you have this CSS file imported in your Nav component */
+.round-image {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.round-img {
+  width: 50px;  /* Smaller image size */
+  height: 50px; /* Smaller image size */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: 60px; /* Adjust based on your image size */
+  left: 0;
+  width: 200px; /* Larger width for the dropdown */
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  z-index: 1000;
+}
+
+.custom-dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.custom-dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
 }

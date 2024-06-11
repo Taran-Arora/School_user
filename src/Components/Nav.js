@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
 import SearchIcon from '@mui/icons-material/Search';
 import { ToggleContext } from './ToggleContext';
-import Profile from '../Images/profile.png'
+
 
 const Nav = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -52,7 +52,7 @@ const Nav = () => {
             </div> */}
             <div className="round-image" onClick={toggleDropdown}>
                 <img
-                    src={Profile}
+                    src="https://via.placeholder.com/50"
                     alt="Round"
                     className="round-img"
                 />
