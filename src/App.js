@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './Components/Login';
+import Login from './Components/LoginLayout/Login';
 import Register from './Components/Register';
-import Forgot from './Components/Forget';
+import Forgot from './Components/LoginLayout/Forget';
 import './Style/Style.scss';
 import Dashboard from './Components/Dashboard';
 import { ToastContainer } from "react-toastify";
