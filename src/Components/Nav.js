@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
 import { ToggleContext } from './ToggleContext';
+import { Link } from 'react-router-dom';
 import Profile from '../Images/profile.png'
 
 const Nav = () => {
@@ -47,9 +48,19 @@ const Nav = () => {
                 />
                 {isDropdownVisible && (
                     <ul className="custom-dropdown-menu">
-                        <li>Option 1</li>
-                        <li>Option 2</li>
-                        <li>Option 3</li>
+                        <li className='user-id'>Gni@gmail.com</li>
+                        <li>
+                            <img src={Profile} alt="" className="round-img" />
+                        </li>
+                        <li>
+                            <h4>Hi, User!</h4>
+                        </li>
+                        <li className='drop-links'>
+                            <Link to='/profile'>View Profile</Link>
+                        </li>
+                        <li className='drop-links'>
+                            <button>Sign Out</button>
+                        </li>
                     </ul>
                 )}
             </div>

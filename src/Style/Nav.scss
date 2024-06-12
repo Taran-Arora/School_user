@@ -18,19 +18,23 @@
 }
 
 .navbar {
+  justify-content: space-between !important;
   position: relative;
-  .navbar-toggler{
+
+  .navbar-toggler {
     display: none;
   }
 
   .toggler {
     margin-right: 12px;
     z-index: 3;
+
     @media (max-width: 1199px) {
       position: absolute;
       right: 20px;
       top: 10px;
     }
+
     @media (max-width: 478px) {
       position: absolute;
       right: 20px;
@@ -51,40 +55,77 @@
   }
 
   /* Ensure you have this CSS file imported in your Nav component */
-.round-image {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
+  .round-image {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
 
-.round-img {
-  width: 50px;  /* Smaller image size */
-  height: 50px; /* Smaller image size */
-  border-radius: 50%;
-  object-fit: cover;
-}
+  .round-img {
+    width: 50px;
+    /* Smaller image size */
+    height: 50px;
+    /* Smaller image size */
+    border-radius: 50%;
+    object-fit: cover;
+  }
 
-.custom-dropdown-menu {
-  position: absolute;
-  top: 60px; /* Adjust based on your image size */
-  left: 0;
-  width: 400px; /* Larger width for the dropdown */
-  background-color: white;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  list-style-type: none;
-  padding: 10px;
-  margin: 0;
-  z-index: 1000;
-}
+  .custom-dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: -340px;
+    width: 350px;
+    height: 380px;
+    background-color: $bg-drop;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 12px;
+    list-style-type: none;
+    padding: 12px 24px;
+    margin: 0;
+    z-index: 1000;
+    text-align: center;
 
-.custom-dropdown-menu li {
-  padding: 8px 16px;
-  cursor: pointer;
-}
+    @media (max-width:1199px) {
+      left: 0 !important;
+    }
 
-.custom-dropdown-menu li:hover {
-  background-color: #f0f0f0;
-}
+    @media (max-width:420px) {
+      width: 300px;
+    }
+
+    @media (max-width:350px) {
+      width: 250px;
+    }
+
+    li {
+      padding: 8px 12px;
+    }
+
+    .drop-links {
+      background-color: $white;
+      margin: 18px 0;
+      border-radius: 12px;
+      cursor: pointer;
+
+      a {
+        color: $btn-clr4 !important;
+      }
+
+      button {
+        background: unset;
+        border: unset;
+      }
+
+
+      &:hover {
+        background: $bg-hover;
+      }
+    }
+
+    .user-id {
+      margin: 12px 0;
+      font-weight: 600;
+    }
+  }
 
 }
