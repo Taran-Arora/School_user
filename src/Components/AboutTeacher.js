@@ -23,7 +23,7 @@ export default function AboutTeacher({ Toggle }) {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const email = location.state?.email;
+    const teacher_email = location.state?.teacher_email;
     const school_email = location.state?.school_email;
 
     useEffect(() => {
@@ -36,8 +36,9 @@ export default function AboutTeacher({ Toggle }) {
 
     const viewTeacherRecord = async () => {
 
-        const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
-        const res2 = await _fetch(`${api_url}teacherperiodsdetail/?school_email=${school_email}&teacher_email=${email}`, 'GET', {}, {});
+        const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${teacher_email}`, 'GET', {}, {});
+        const res2 = await _fetch(`${api_url}teacherperiodsdetail/?school_email=${school_email}&teacher_email=${teacher_email}`, 'GET', {}, {});
+
         if (res?.status === 200) {
             setimage(res?.data[0]);
             setAllData(res?.data[0]?.teacher); 

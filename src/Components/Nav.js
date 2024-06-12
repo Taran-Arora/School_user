@@ -3,10 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
 import SearchIcon from '@mui/icons-material/Search';
 import { ToggleContext } from './ToggleContext';
-
+import _fetch from '../config/api';
+import { api_url } from '../config/config';
 
 const Nav = () => {
+
+    const whoLogin = localStorage.getItem('whologin');
+    const userEmail = localStorage.getItem('useremail');
+
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [teacherImage, setTeacherImage] = useState();
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
@@ -19,11 +25,23 @@ const Nav = () => {
     };
 
     useEffect(() => {
+        if(whoLogin === 'is_teacher') {
+            getIsTeacherdata();
+        }
+
         document.addEventListener('click', handleClickOutside);
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
     }, []);
+
+    const getIsTeacherdata = async () => {
+        let res = await _fetch(`${api_url}teacherimagedata/?teacher_email=${userEmail}`, 'GET', {}, {});
+        console.log('res', res);
+        if (res?.status === 200) {
+            setTeacherImage(res?.data[0]?.image);
+        }
+    }
 
     const { Toggle } = useContext(ToggleContext);
     return (
@@ -50,9 +68,10 @@ const Nav = () => {
                     </div>
                 </div>
             </div> */}
+            {whoLogin === 'is_teacher' ? 
             <div className="round-image" onClick={toggleDropdown}>
                 <img
-                    src="https://via.placeholder.com/50"
+                    src={`data:image/jpeg;base64,${teacherImage}`}
                     alt="Round"
                     className="round-img"
                 />
@@ -64,6 +83,8 @@ const Nav = () => {
                     </ul>
                 )}
             </div>
+            : ''
+            }
         </nav>
     );
 };
