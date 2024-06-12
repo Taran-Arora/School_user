@@ -19,6 +19,7 @@ import ClassDetails from './Components/ClassDetails';
 import AddStudent from './Components/AddStudent';
 import PrivateRoutes from "./routes/PrivateRoutes";
 import ClassData from './Components/ClassData';
+import FeeCounter from './Components/FeeCounter';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
               <Route path='/classdata' element={<ClassData />} />
              
               <Route path='/addstudent' element={<AddStudent />} />
+              <Route path='/feecounter' element={<FeeCounter/>}/>
             </Route>
             </Route>
           </Routes>

@@ -66,8 +66,6 @@ const AllSchools = ({Toggle}) => {
                             </div>
                     <table className="table">
                         <thead>
-                         
-
                             <tr>
                                 <th scope="col">S. No.</th>
                                 <th scope="col">School Name</th>

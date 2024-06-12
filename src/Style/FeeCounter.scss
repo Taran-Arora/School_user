@@ -1,0 +1,37 @@
+.fee-counter-main {
+    .student-admin-form {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        padding-top: 40px;
+        margin-bottom: 30px;
+        margin-top: 120px;
+    }
+    .fee-edit-btn {
+        .student-edit-btn {
+            .student-edit {
+                display: flex;
+                align-items: center;
+                gap: 0.2rem;
+                background-color: #14A44D;
+                color: #000;
+                border-radius: 8px;
+                padding: 8px;
+                color: $white;
+                font-weight: 600;
+                border: none;
+                padding: 12px;
+            }
+
+        }
+
+    }
+    .for-student-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+    }
+
+}

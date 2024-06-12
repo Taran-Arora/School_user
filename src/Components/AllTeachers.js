@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const AllTeachers = () => {
     const navigate = useNavigate();
@@ -64,6 +65,9 @@ const AllTeachers = () => {
                                     <Link to="" className='btn-login'>Login</Link>
                                     <Link to="/aboutteacher" className='btn-view'>View</Link>
                                     <Link to="" className='btn-block'>Block</Link>
+                                    <Link to='' className='btn-delete btn-block text-center' style={{background:'#6d6464'}} onClick={ ()=> alert('Are You sure to delete ')} > <DeleteIcon/> </Link>
+
+                                    
                                 </td>
                             </tr>
                             ))}
