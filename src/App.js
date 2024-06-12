@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import AllTeachers from './Components/AllTeachers';
 import DashLayout from './Components/DashLayout';
-import AllSchools from './Components/AllSchools';
 import AllStudents from './Components/AllStudents';
 import SchoolData from './Components/SchoolData';
 import AboutStudent from './Components/AboutStudent'
@@ -17,9 +16,9 @@ import AddTeacher from './Components/AddTeacher';
 import AddClass from './Components/AddClass';
 import AboutTeacher from './Components/AboutTeacher';
 import ClassDetails from './Components/ClassDetails';
-import AddSchool from './Components/AddSchool';
 import AddStudent from './Components/AddStudent';
 import PrivateRoutes from "./routes/PrivateRoutes";
+import ClassData from './Components/ClassData';
 
 function App() {
 
@@ -35,7 +34,6 @@ function App() {
             <Route element={<PrivateRoutes />}>
             <Route element={<DashLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/allschools" element={<AllSchools />} />
               <Route path="/allteachers" element={<AllTeachers />} />
               <Route path='/allstudents' element={<AllStudents />} />
               <Route path='/schooldata' element={<SchoolData />} />
@@ -44,7 +42,8 @@ function App() {
               <Route path='/addclass' element={<AddClass />} />
               <Route path='/aboutteacher' element={<AboutTeacher />} />
               <Route path='/classdetails' element={<ClassDetails />} />
-              <Route path='/addschool' element={<AddSchool />} />
+              <Route path='/classdata' element={<ClassData />} />
+             
               <Route path='/addstudent' element={<AddStudent />} />
             </Route>
             </Route>
