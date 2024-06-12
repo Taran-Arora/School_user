@@ -26,7 +26,7 @@ function App() {
       <ToggleProvider>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={<Login />} /> */}
+            <Route path="/" element={<Login />} />
             <Route path="/forgot" element={<Forgot />} />
 
             <Route element={<PrivateRoutes />}>
