@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SegmentIcon from '@mui/icons-material/Segment';
-import SearchIcon from '@mui/icons-material/Search';
 import { ToggleContext } from './ToggleContext';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
+import { Link } from 'react-router-dom';
+import Profile from '../Images/profile.png'
 
 const Nav = () => {
 
@@ -25,7 +26,7 @@ const Nav = () => {
     };
 
     useEffect(() => {
-        if(whoLogin === 'is_teacher') {
+        if (whoLogin === 'is_teacher') {
             getIsTeacherdata();
         }
 
@@ -58,32 +59,33 @@ const Nav = () => {
             >
                 <i className='bi bi-justify'></i>
             </button>
-            {/* <div className="collapse navbar-collapse" id="collapsibleNavId">
-                <div className="input-group">
-                    <input type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" className="form-control border-0 bg-light" />
-                    <div className="input-group-append">
-                        <button id="button-addon1" type="submit" className="btn position-absolute">
-                            <SearchIcon />
-                        </button>
-                    </div>
+
+            {whoLogin != 'is_school' ?
+                <div className="round-image" onClick={toggleDropdown}>
+                    <img
+                        src={Profile}
+                        alt="Round"
+                        className="round-img"
+                    />
+                    {isDropdownVisible && (
+                        <ul className="custom-dropdown-menu">
+                            <li className='user-id'>Gni@gmail.com</li>
+                            <li>
+                                <img src={Profile} alt="" className="round-img" />
+                            </li>
+                            <li>
+                                <h4>Hi, User!</h4>
+                            </li>
+                            <li className='drop-links'>
+                                <Link to='/profile'>View Profile</Link>
+                            </li>
+                            <li className='drop-links'>
+                                <button>Sign Out</button>
+                            </li>
+                        </ul>
+                    )}
                 </div>
-            </div> */}
-            {whoLogin === 'is_teacher' ? 
-            <div className="round-image" onClick={toggleDropdown}>
-                <img
-                    src={`data:image/jpeg;base64,${teacherImage}`}
-                    alt="Round"
-                    className="round-img"
-                />
-                {isDropdownVisible && (
-                    <ul className="custom-dropdown-menu">
-                        <li>Option 1</li>
-                        <li>Option 2</li>
-                        <li>Option 3</li>
-                    </ul>
-                )}
-            </div>
-            : ''
+                : ""
             }
         </nav>
     );

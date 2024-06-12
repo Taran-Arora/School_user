@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { Link, useNavigate } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
-import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
+import DeleteIcon from '@mui/icons-material/Delete';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 
@@ -56,7 +56,7 @@ export default function AllStudents() {
                                     <td scope="col">{item?.contact_No}</td>
                                     <td className='d-flex gap-3' scope="col">
                                         <Link to="/aboutteacher" className='btn-view'>View</Link>
-                                        <Link to="" className='btn-block'>Block</Link>
+                                        <DeleteIcon />
                                     </td>
                                 </tr>
                             ))}

@@ -5,6 +5,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import DeleteIcon from '@mui/icons-material/Delete';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
+import toasted from '../config/toast';
 
 const AllTeachers = () => {
 
@@ -18,11 +19,23 @@ const AllTeachers = () => {
     }, []);
 
     const TeacherData = async () => {
-            const res = await _fetch(`${api_url}getteachercount/?school_email=${userEmail}`, 'GET', {}, {});
-            if (res.status === 200) {
-                setTeacherData(res?.data);
-            }
+        const res = await _fetch(`${api_url}getteachercount/?school_email=${userEmail}`, 'GET', {}, {});
+        if (res.status === 200) {
+            setTeacherData(res?.data);
+        }
     };
+
+    const deleteTeacher = async (email) => {
+        let data = {
+            'email': email
+        }
+        let res = await _fetch(`${api_url}delete/`, "POST", data, {});
+        console.log('res', res);
+        if (res?.status === 200) {
+            toasted.success(res?.message);
+            TeacherData();
+        }
+    }
 
     return (
         <div className='px-3'>
@@ -46,18 +59,17 @@ const AllTeachers = () => {
                                 <th scope="col">Action</th>
                             </tr>
                             {teacherData?.map((item, index) => (
-                            <tr>
-                                <th scope="col">{index + 1}</th>
-                                <td scope="col">{item?.first_name} {item?.last_name}</td>
-                                <td scope="col">{item?.school_id?.school_name}</td>
-                                <td scope="col">{item?.gender}</td>
-                                <td scope="col">{item?.contact}</td>
-                                <td className='d-flex gap-3' scope="col">
-                                    <Link to="/aboutteacher" state={{teacher_email: item?.email, school_email: item?.school_id?.school_email}} className='btn-view'>View</Link>
-                                    <Button className='btn-block'>Block</Button>
-                                    <DeleteIcon />
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="col">{index + 1}</th>
+                                    <td scope="col">{item?.first_name} {item?.last_name}</td>
+                                    <td scope="col">{item?.school_id?.school_name}</td>
+                                    <td scope="col">{item?.gender}</td>
+                                    <td scope="col">{item?.contact}</td>
+                                    <td className='d-flex gap-3 set-view-btn' scope="col">
+                                        <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
+                                        <DeleteIcon onClick={() => deleteTeacher(item?.email)} />
+                                    </td>
+                                </tr>
                             ))}
 
                         </tbody>

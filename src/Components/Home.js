@@ -97,7 +97,7 @@ const Home = ({ Toggle }) => {
             <Nav />
             <Container fluid className="cards">
                 <Row className="g-3 my-4 my-xl-2">
-                    <Col xl={3} lg={6} md={6} className="p-1">
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalTeachers} </h3>
@@ -106,7 +106,7 @@ const Home = ({ Toggle }) => {
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
                         </div>
                     </Col>
-                    <Col xl={3} lg={6} md={6} className="p-1">
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalStudents} </h3>
@@ -115,7 +115,34 @@ const Home = ({ Toggle }) => {
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
                         </div>
                     </Col>
-                    <Col xl={3} lg={6} md={6} className="p-1">
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 className='fs-2'>{totalUsers?.block}</h3>
+                                <p className='fs-5'>Blocked Users</p>
+                            </div>
+                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 className='fs-2'>{totalTeachers} </h3>
+                                <p className='fs-5'>Total Teachers</p>
+                            </div>
+                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 className='fs-2'>{totalStudents} </h3>
+                                <p className='fs-5'>Total Students</p>
+                            </div>
+                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalUsers?.block}</h3>
