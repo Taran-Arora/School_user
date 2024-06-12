@@ -40,12 +40,12 @@ export default function Login() {
             localStorage.setItem('auth', 'true');
             localStorage.setItem('useremail', allFields?.username);
             localStorage.setItem('whologin',  allFields?.who);
-            if(allFields?.who === 'is_school') {
+            // if(allFields?.who === 'is_school') {
                 navigate('/dashboard');
-            }
-            else if(allFields?.who === 'is_teacher') {
-                navigate('/classdetails');
-            }
+            // }
+            // else if(allFields?.who === 'is_teacher') {
+            //     navigate('/classdetails');
+            // }
             // else if(allFields?.who === 'is_student') {
             //     navigate('/classdetails');
             // }

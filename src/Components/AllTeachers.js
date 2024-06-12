@@ -25,9 +25,10 @@ const AllTeachers = () => {
         }
     };
 
-    const deleteTeacher = async (email) => {
+    const deleteTeacher = async (email, school_email) => {
         let data = {
-            'email': email
+            'email': email,
+            'school_email': school_email
         }
         let res = await _fetch(`${api_url}delete/`, "POST", data, {});
         console.log('res', res);
@@ -67,7 +68,7 @@ const AllTeachers = () => {
                                     <td scope="col">{item?.contact}</td>
                                     <td className='d-flex gap-3 set-view-btn' scope="col">
                                         <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
-                                        <DeleteIcon onClick={() => deleteTeacher(item?.email)} />
+                                        <DeleteIcon onClick={() => deleteTeacher(item?.email, item?.school_id?.school_email)} />
                                     </td>
                                 </tr>
                             ))}
