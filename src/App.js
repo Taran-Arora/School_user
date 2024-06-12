@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/LoginLayout/Login';
-import Register from './Components/Register';
+// import Register from './Components/Register';
 import Forgot from './Components/LoginLayout/Forget';
 import './Style/Style.scss';
 import Dashboard from './Components/Dashboard';
@@ -29,7 +29,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/forgot" element={<Forgot />} />
 
             <Route element={<PrivateRoutes />}>
