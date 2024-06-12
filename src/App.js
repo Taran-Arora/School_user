@@ -19,6 +19,7 @@ import ClassDetails from './Components/ClassDetails';
 import AddStudent from './Components/AddStudent';
 import PrivateRoutes from "./routes/PrivateRoutes";
 import ClassData from './Components/ClassData';
+import Profile from './Components/ProfileLayout/Profile';
 
 function App() {
 
@@ -43,8 +44,9 @@ function App() {
               <Route path='/aboutteacher' element={<AboutTeacher />} />
               <Route path='/classdetails' element={<ClassDetails />} />
               <Route path='/classdata' element={<ClassData />} />
-             
               <Route path='/addstudent' element={<AddStudent />} />
+              <Route path='/profile' element={<Profile />} />
+
             </Route>
             </Route>
           </Routes>
