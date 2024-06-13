@@ -37,6 +37,7 @@ const Home = ({ Toggle    }) => {
     
     const whoLogin = localStorage.getItem('whologin');
     const userEmail = localStorage.getItem('useremail');
+
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
@@ -59,14 +60,14 @@ const Home = ({ Toggle    }) => {
             setTotalStudents(res?.student_count);
 
         } else {
-            navigate('/');
+            // navigate('/');
         }
         console.log('res2', res2);
         if(res2?.status === 200) {
             setTotalTeachers(res2?.teacher_count);
         }
     };
-console.log('totalTeachers', totalTeachers);
+
     const isUserBlocked = (username) => {
         return blockedData.some((item) => item.user?.username === username);
     };
@@ -129,7 +130,7 @@ console.log('totalTeachers', totalTeachers);
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalTeachers} </h3>
-                                <p className='fs-5'>Total Teachers</p>
+                                <Link to='/allteachers' className='fs-5'>Total Teachers</Link>
                             </div>
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
                         </div>
@@ -138,7 +139,7 @@ console.log('totalTeachers', totalTeachers);
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalStudents} </h3>
-                                <p className='fs-5'>Total Students</p>
+                                <Link to='/allstudents' className='fs-5'>Total Students</Link>
                             </div>
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
                         </div>
