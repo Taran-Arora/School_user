@@ -1,0 +1,72 @@
+// .cards {
+//     .bg-white {
+//         --bs-bg-opacity: .8 !important;
+//     }
+
+//     .box {
+//         transition: all 0.3s ease;
+//         transform: scale(0.95);
+//         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+//         &:hover{
+//             transform: scale(1);
+//             --bs-bg-opacity: 1 !important;
+//             box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+//         }
+//     }
+// }
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    position: relative;
+    padding: 25px 30px;
+    color: $primary-color2;
+
+    &::after {
+        content: '';
+        background: $primary-color2;
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        clip-path: circle(10% at 0% 0%);
+        transition: all .4s ease-in;
+    }
+
+    &:hover::after {
+        clip-path: circle(100%);
+    }
+
+    &:hover {
+        .content {
+            color: $white !important;
+            .d-link{
+                color: $white !important;
+            }
+        }
+    }
+
+    .box-image {
+        position: relative;
+        z-index: 1; 
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    transition: all .4s ease-in;
+    .d-link{
+        color: $black;
+        font-weight: 500;
+        font-size: 22px !important;
+
+    }
+}
