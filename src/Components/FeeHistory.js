@@ -46,23 +46,23 @@ export default function FeeHistory() {
 
                             <tr>
                                 {/* <th className='col'> Student Name</th> */}
-                                <th className='col'> Total Feee</th>
-                                <th className='col'>  </th>
-                                <th className='col total-fee'> 20,0000 </th>
+                                <td className='col'> Total Feee</td>
+                                <td className='col'>  </td>
+                                <td className='col for-fee'> 20,0000 </td>
                             </tr>
                             {/* <tr>
                                 <th className='col'> Date of Submit</th>
                                 <th className='col'>31st March </th>
                             </tr> */}
                             <tr>
-                                <th className='col'> Last Fee Submitted</th>
-                                <th className='col'> 21st May 2024 </th>
-                                <th className='col'> 16,000</th>
+                                <td className='col'> Last Fee Submitted</td>
+                                <td className='col for-fee fee-date'> 21st May 2024 </td>
+                                <td className='col for-fee pending-fee '>  16,000</td>
                             </tr>
                             <tr >
-                                <th className='col'> Pending Fee</th>
-                                <th className='col'>  </th>
-                                <th className='col'>4,000</th>
+                                <td className='col pending-fee2'> Pending Fee</td>
+                                <td className='col'>  </td>
+                                <td className='col'><p className='pending-fee2'> 4,000</p></td>
                             </tr>
 
 
