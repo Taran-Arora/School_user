@@ -9,7 +9,7 @@ import Nav from './Nav'
 const ClassData = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const username = location.state?.username;
+    const username = localStorage.getItem('useremail');
 
     const [allData, setAllData] = useState([]);
     const [classData, setClassData] = useState([]);

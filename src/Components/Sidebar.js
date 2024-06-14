@@ -19,6 +19,7 @@ const Sidebar = () => {
 
   const navigate = useNavigate();
   const [token, setToken] = useState(null);
+  const whoLogin = localStorage.getItem('whologin');
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
@@ -43,7 +44,7 @@ const Sidebar = () => {
 
   const logOut = async () => {
 
-    var data = await _fetch(`${api_url}logout/`, 'POST', {}, {});
+    var data = await _fetch(`${api_url}logoutuser/`, 'POST', {}, {});
 
     if (data?.status == 200) {
 
@@ -65,39 +66,67 @@ const Sidebar = () => {
           <span className='brand-name fs-4'>Admin</span>
         </div>
         <hr className='text-dark' />
-        <div className='list-group list-group-flush max-vh-100'>
-          <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
-            <GridViewIcon className='fs-5 me-2'></GridViewIcon>
-            <span className='fs-5'>DashBoard</span>
-          </Link>
-          <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
-            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
-            <span className='fs-5'>All Teachers</span>
-          </Link>
-          <Link to="/classdata" className="list-group-item py-2 d-flex align-items-center my-2">
-            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
-            <span className='fs-5'>Class Data</span>
-          </Link>
-          <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
-            <SchoolIcon className='fs-4 me-2'></SchoolIcon>
-            <span className='fs-5'>All Students</span>
-          </Link>
+        {whoLogin === 'is_school' && (
+          <>
+            <div className='list-group list-group-flush max-vh-100'>
+              <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
+                <GridViewIcon className='fs-5 me-2'></GridViewIcon>
+                <span className='fs-5'>DashBoard</span>
+              </Link>
+              <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Teachers</span>
+              </Link>
 
-          {/* <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
-            <ManageAccountsIcon className='fs-4 me-2'></ManageAccountsIcon>
-            <span className='fs-5'>My Account</span>
-          </Link> */}
-          {/* <button to="/login" className="list-group-item py-2 position-absolute bottom-0 d-flex align-items-center logout-btn">
-            <LogoutIcon className='fs-4 me-2'></LogoutIcon>
-            <span className='fs-5'>Logout</span>
-        </button> */}
-          {/* <Button type='button' onClick={logOut}>
-            Logout
-          </Button> */}
-          <div className="for-logout-btn">
-          <button  onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
-          </div>
-        </div>
+              <Link to="/classdata" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Classes</span>
+              </Link>
+              <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Students</span>
+              </Link>
+
+              <div className="for-logout-btn">
+                <button onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
+              </div>
+            </div>
+          </>
+        )}
+        {whoLogin === 'is_teacher' && (
+          <>
+            <div className='list-group list-group-flush max-vh-100'>
+
+              <Link to="/classdata" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Classes</span>
+              </Link>
+              <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Students</span>
+              </Link>
+
+              <div className="for-logout-btn">
+                <button onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
+              </div>
+            </div>
+          </>
+        )}
+
+        {whoLogin === 'is_stdent' && (
+          <>
+            <div className='list-group list-group-flush max-vh-100'>
+              <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
+                <SchoolIcon className='fs-4 me-2'></SchoolIcon>
+                <span className='fs-5'>All Students</span>
+              </Link>
+
+              <div className="for-logout-btn">
+                <button onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
 

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/LoginLayout/Login';
+// import Register from './Components/Register';
 import Forgot from './Components/LoginLayout/Forget';
 import './Style/Style.scss';
 import Dashboard from './Components/Dashboard';
@@ -18,6 +19,7 @@ import ClassDetails from './Components/ClassDetails';
 import AddStudent from './Components/AddStudent';
 import PrivateRoutes from "./routes/PrivateRoutes";
 import ClassData from './Components/ClassData';
+import Profile from './Components/ProfileLayout/Profile';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
+            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/forgot" element={<Forgot />} />
 
             <Route element={<PrivateRoutes />}>
@@ -41,8 +44,9 @@ function App() {
               <Route path='/aboutteacher' element={<AboutTeacher />} />
               <Route path='/classdetails' element={<ClassDetails />} />
               <Route path='/classdata' element={<ClassData />} />
-             
               <Route path='/addstudent' element={<AddStudent />} />
+              <Route path='/profile' element={<Profile />} />
+
             </Route>
             </Route>
           </Routes>
