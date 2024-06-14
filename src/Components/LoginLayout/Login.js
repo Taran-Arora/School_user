@@ -41,7 +41,7 @@ export default function Login() {
             localStorage.setItem('useremail', allFields?.username);
             localStorage.setItem('whologin',  allFields?.who);
             // if(allFields?.who === 'is_school') {
-                navigate('/dashboard');
+            navigate('/dashboard');
             // }
             // else if(allFields?.who === 'is_teacher') {
             //     navigate('/classdetails');

@@ -11,7 +11,7 @@ const AddTeacher = () => {
 
     const location = useLocation();
     const navigate = useNavigate(); 
-    const username = location.state?.username;
+    const username = localStorage.getItem('useremail');
     const [className, setClassName] = useState('');
     const [totalStudents, setTotalStudents] = useState('');
 
@@ -27,7 +27,7 @@ const AddTeacher = () => {
         if (res?.status === 200) {
 
             toasted.success(res?.msg);
-            navigate('/schooldata');
+            navigate('/classdata');
 
         } else if (res?.status == 400) {
 
