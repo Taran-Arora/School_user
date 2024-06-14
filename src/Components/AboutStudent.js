@@ -9,6 +9,7 @@ import RecyclingIcon from '@mui/icons-material/Recycling';
 import { useLocation, useNavigate } from 'react-router-dom';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 
 
 export default function AboutStudent() {
@@ -185,8 +186,11 @@ export default function AboutStudent() {
             </Col>
           </Row>
         </form>
-        <div className="student-edit-btn">
+        {/* <div className="student-edit-btn">
           <button className='student-edit'>   <RecyclingIcon />Update Details </button>
+        </div> */}
+        <div className="student-edit-btn">
+          <button className='student-edit bg-sucess'>   <AccountBalanceWalletIcon /> Fee Counter </button>
         </div>
       </div>
     </div>

@@ -19,7 +19,9 @@ import ClassDetails from './Components/ClassDetails';
 import AddStudent from './Components/AddStudent';
 import PrivateRoutes from "./routes/PrivateRoutes";
 import ClassData from './Components/ClassData';
+import FeeCounter from './Components/FeeCounter';
 import Profile from './Components/ProfileLayout/Profile';
+import FeeHistory from './Components/FeeHistory';
 
 function App() {
 
@@ -32,7 +34,7 @@ function App() {
             {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/forgot" element={<Forgot />} />
 
-            <Route element={<PrivateRoutes />}>
+            {/* <Route element={<PrivateRoutes />}> */}
             <Route element={<DashLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allteachers" element={<AllTeachers />} />
@@ -45,10 +47,12 @@ function App() {
               <Route path='/classdetails' element={<ClassDetails />} />
               <Route path='/classdata' element={<ClassData />} />
               <Route path='/addstudent' element={<AddStudent />} />
+              <Route path='/feecounter' element={<FeeCounter/>}/>
               <Route path='/profile' element={<Profile />} />
+              <Route path='/feehistory' element={<FeeHistory/>}></Route>
 
             </Route>
-            </Route>
+            {/* </Route> */}
           </Routes>
         </BrowserRouter>
       </ToggleProvider>
