@@ -68,11 +68,11 @@ export default function FeeCounter() {
                             <button className='student-edit'> <RecyclingIcon />Update Details </button>
                         </div>
                     </div>
-                    <div className="fee-edit-btn2">
+                    {/* <div className="fee-edit-btn2">
                         <div className="student-edit-btn">
                             <button className='student-edit'> <HistoryIcon />  Fee History </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

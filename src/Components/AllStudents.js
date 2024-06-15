@@ -56,7 +56,9 @@ export default function AllStudents() {
                                     <td scope="col">{item?.contact_No}</td>
                                     <td className='d-flex gap-3' scope="col">
                                         <Link to="/aboutstudent" className='btn-view' state={{ email: item?.email, class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email }}>View</Link>
-                                        <DeleteIcon />
+                                        {/* <DeleteIcon /> */}
+                                        <DeleteIcon className='delete-icon' />
+
                                     </td>
                                 </tr>
                             ))}
