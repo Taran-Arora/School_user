@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import DeleteIcon from '@mui/icons-material/Delete';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
+import toasted from "../../src/config/toast";
 
 export default function AllStudents() {
 
@@ -25,6 +26,19 @@ export default function AllStudents() {
             setAllStudentsData(res?.data);
         }
     };
+
+    const deleteStudent = async (email, school_email) => {
+        let data = {
+            'email': email,
+            'school_email': school_email
+        }
+        let res = await _fetch(`${api_url}deletestudent/`, "POST", data, {});
+
+        if (res?.status === 200) {
+            toasted.success(res?.message);
+            StudentsData();
+        }
+    }
 
     return (
         <div className='px-3'>
@@ -56,7 +70,7 @@ export default function AllStudents() {
                                     <td scope="col">{item?.contact_No}</td>
                                     <td className='d-flex gap-3' scope="col">
                                         <Link to="/aboutstudent" className='btn-view' state={{ email: item?.email, class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email }}>View</Link>
-                                        <DeleteIcon />
+                                        <DeleteIcon onClick={() => deleteStudent(item?.email, item?.school_id?.school_email)} />
                                     </td>
                                 </tr>
                             ))}

@@ -60,7 +60,6 @@ export default function AboutTeacher({ Toggle }) {
 
     const updateTeacherData = async () => {
         const data = await _fetch(`${api_url}`, "PATCH", allFields, {});
-        console.log('data', data);
         if (data?.status === 200) {
             toasted.success(data?.message);
         }
@@ -68,8 +67,7 @@ export default function AboutTeacher({ Toggle }) {
             toasted.error(data?.message);
         }
     }
-    console.log('periods', periods);
-
+    
     return (
         <div>
             <Nav />

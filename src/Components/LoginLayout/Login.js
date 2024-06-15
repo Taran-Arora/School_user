@@ -55,23 +55,6 @@ export default function Login() {
         }
     }
 
-    // const colourOptions = [
-    //     { value: "is_student", label: "Is Student" },
-    //     { value: "is_school", label: "Is School" },
-    //     { value: "is_teacher", label: "Is Teacher" }
-    // ];
-    // const colourStyles = {
-    //     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    //         // const color = chroma(data.color);
-    //         console.log({ data, isDisabled, isFocused, isSelected });
-    //         return {
-    //             ...styles,
-    //             backgroundColor: isFocused ? "#999999" : null,
-    //             color: "#333333"
-    //         };
-    //     }
-    // };
-
     return (
         <div>
             <div className="form-section">

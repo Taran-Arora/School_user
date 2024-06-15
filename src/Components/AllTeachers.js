@@ -30,8 +30,8 @@ const AllTeachers = () => {
             'email': email,
             'school_email': school_email
         }
+        
         let res = await _fetch(`${api_url}delete/`, "POST", data, {});
-        console.log('res', res);
         if (res?.status === 200) {
             toasted.success(res?.message);
             TeacherData();
