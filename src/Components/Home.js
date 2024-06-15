@@ -130,7 +130,7 @@ const Home = ({ Toggle    }) => {
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalTeachers} </h3>
-                                <Link to='/allteachers' className='fs-5'>Total Teachers</Link>
+                                <Link to='/allteachers' className='fs-5 d-link'>Total Teachers</Link>
                             </div>
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
                         </div>
@@ -139,7 +139,7 @@ const Home = ({ Toggle    }) => {
                         <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 <h3 className='fs-2'>{totalStudents} </h3>
-                                <Link to='/allstudents' className='fs-5'>Total Students</Link>
+                                <Link to='/allstudents' className='fs-5 d-link'>Total Students</Link>
                             </div>
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
                         </div>
