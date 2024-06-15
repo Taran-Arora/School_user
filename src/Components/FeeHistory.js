@@ -1,3 +1,4 @@
+import { Padding } from '@mui/icons-material';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -46,9 +47,9 @@ export default function FeeHistory() {
 
                             <tr>
                                 {/* <th className='col'> Student Name</th> */}
-                                <td className='col'> Total Feee</td>
+                                <td className='col for-hightlight'> Total Feee</td>
                                 <td className='col'>  </td>
-                                <td className='col for-fee'> 20,0000 </td>
+                                <td className='col  for-hightlight'> 20,0000 </td>
                             </tr>
                             {/* <tr>
                                 <th className='col'> Date of Submit</th>
@@ -60,9 +61,9 @@ export default function FeeHistory() {
                                 <td className='col for-fee pending-fee '>  16,000</td>
                             </tr>
                             <tr >
-                                <td className='col pending-fee2'> Pending Fee</td>
+                                <td className='col for-hightlight'> Pending Fee</td>
                                 <td className='col'>  </td>
-                                <td className='col'><p className='pending-fee2'> 4,000</p></td>
+                                <td className='col'><p className='for-highlight'>  <b>4,000</b> </p></td>
                             </tr>
 
 

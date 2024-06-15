@@ -7,7 +7,8 @@
     }
 
     .for-fee {
-        color: #706b6b;
+        // color: #706b6b;
+        color: #272222;
     }
 
     .pending-fee {
@@ -30,5 +31,11 @@
         font-weight: 600;
         
     }
+
+    .for-hightlight{
+        color: #000;
+        font-weight: 600;
+    }
+
 
 }
