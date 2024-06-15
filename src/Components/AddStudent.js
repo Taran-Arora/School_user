@@ -30,15 +30,17 @@ const AddStudent = () => {
     }
 
     const handleImage = (e) => {
+        // const file = e.target.files[0];
+        // if (file) {
+        //     setProfileImage(file);
+        //     const reader = new FileReader();
+        //     reader.onloadend = () => {
+        //         setProfileImage(reader.result);
+        //     };
+        //     reader.readAsDataURL(file);
+        // }
         const file = e.target.files[0];
-        if (file) {
-            setProfileImage(file);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setProfileImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
+        setProfileImage(file);
     }
 
     const handleSubmit = async (e) => {
