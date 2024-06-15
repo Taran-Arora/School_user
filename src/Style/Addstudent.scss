@@ -1,0 +1,17 @@
+input {
+    &:focus-within {
+        border: 1px solid #dee2e6;
+
+    }
+    &:focus {
+        border: 1px solid #dee2e6;
+        border-color: #dee2e6 !important;
+    }
+ 
+}
+
+select {
+    &:focus {
+        border-color: #dee2e6 !important;
+    }
+}

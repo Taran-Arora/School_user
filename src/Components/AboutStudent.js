@@ -178,14 +178,20 @@ export default function AboutStudent() {
               <label type="Name" className='labal-title'> Father's Mobile no </label>
               <input type="number" value={alldata.father_no} className='form-control' />
             </Col>
+       
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's mobile no  </label>
               <input type="number" value={alldata.mother_no} className='form-control' />
+            </Col>
+            <Col lg={6} className="for-student-input">
+              <label type="Name" className='labal-title'> Pending Fee </label>
+              <input type="number"  className='form-control' />
             </Col>
             <Col lg={12} className="for-student-input">
               <label type="Name" className='labal-title'> Address </label>
               <textarea type="text-area" value={alldata.address} className='form-control' />
             </Col>
+            
           </Row>
         </form>
         {/* <div className="student-edit-btn">

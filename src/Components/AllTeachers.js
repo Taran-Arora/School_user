@@ -6,6 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from '../config/toast';
+import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
 const AllTeachers = () => {
 
@@ -45,9 +46,9 @@ const AllTeachers = () => {
                 <div className="table-responsive">
                     <div className='table-head'>
                         <h3 className='table-heading'>All Teachers</h3>
-                        {/* <Link to="/addteacher" className='add-btn'>
+                        <Link to="/addteacher" className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Teacher
-                        </Link> */}
+                        </Link>
                     </div>
                     <table className="table">
                         <tbody>
