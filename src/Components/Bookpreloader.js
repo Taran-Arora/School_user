@@ -10,9 +10,9 @@ export default function Bookpreloader() {
 	--hue: 223;
 	--bg: #8EAEB7;
 	--fg: hsl(var(--hue),10%,10%);
-	--primary: hsl(var(--hue),90%,55%);
-	--primary-l: hsl(var(--hue),90%,65%);
-	--primary-d: hsl(var(--hue),90%,45%);
+	--primary: #8EB0B9;
+	--primary-l: #8EB0B9;
+	--primary-d: #8EB0B9;
 	--white: hsl(var(--hue),10%,100%);
 	--white-d: hsl(var(--hue),10%,45%);
 	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
@@ -47,6 +47,7 @@ body {
 	height: 6em;
 	transform: translate3d(0,0,0);
 	transform-style: preserve-3d;
+	boder: 1px solid #000 ; 
 }
 .book__pg-shadow,
 .book__pg {
