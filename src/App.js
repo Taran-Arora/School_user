@@ -36,7 +36,7 @@ function App() {
       setLoading(false);
     }, 1700); // Set the timeout for 4 seconds
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer); 
   }, []);
 
 
