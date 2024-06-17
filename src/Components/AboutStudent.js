@@ -9,6 +9,9 @@ import RecyclingIcon from '@mui/icons-material/Recycling';
 import { useLocation, useNavigate } from 'react-router-dom';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import HistoryIcon from '@mui/icons-material/History';
+
 
 
 export default function AboutStudent() {
@@ -175,18 +178,34 @@ export default function AboutStudent() {
               <label type="Name" className='labal-title'> Father's Mobile no </label>
               <input type="number" value={alldata.father_no} className='form-control' />
             </Col>
+       
             <Col lg={6} className="for-student-input">
               <label type="Name" className='labal-title'> Mother's mobile no  </label>
               <input type="number" value={alldata.mother_no} className='form-control' />
+            </Col>
+            <Col lg={6} className="for-student-input">
+              <label type="Name" className='labal-title'> Pending Fee </label>
+              <input type="number"  className='form-control' />
             </Col>
             <Col lg={12} className="for-student-input">
               <label type="Name" className='labal-title'> Address </label>
               <textarea type="text-area" value={alldata.address} className='form-control' />
             </Col>
+            
           </Row>
         </form>
-        <div className="student-edit-btn">
+        {/* <div className="student-edit-btn">
           <button className='student-edit'>   <RecyclingIcon />Update Details </button>
+        </div> */}
+        <div className="for-edit-btn">
+          <div className="student-edit-btn">
+            <button className='student-edit bg-sucess'>   <AccountBalanceWalletIcon /> Fee Counter </button>
+          </div>
+          <div className="fee-edit-btn2">
+            <div className="student-edit-btn">
+              <button className='student-edit'> <HistoryIcon />  Fee History </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

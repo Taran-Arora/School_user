@@ -103,6 +103,14 @@ export default function AboutTeacher({ Toggle }) {
                             <label type="Name" className='labal-title'> Gender </label>
                             <input type="text" className='form-control' value={allData?.gender} readOnly />
                         </Col>
+                        <Col lg={6} className="for-teacher-input">
+                            <label className='labal-title'> Email </label>
+                            <input type="Email" className='form-control' value={allData?.email} readOnly />
+                        </Col>
+                        <Col lg={6} className="for-teacher-input">
+                            <label className='labal-title'> Subject</label>
+                            <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />
+                        </Col>
                         {periods?.map((item, index) => {
                             return (
                                 <>
@@ -116,14 +124,6 @@ export default function AboutTeacher({ Toggle }) {
                                 </>
                             )
                         })}
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'> Subject</label>
-                            <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'> Email </label>
-                            <input type="Email" className='form-control' value={allData?.email} readOnly />
-                        </Col>
                     </Row>
                 </form>
                 {/* <div className="teacher-edit-btn">

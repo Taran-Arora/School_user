@@ -1,0 +1,41 @@
+.table-responsive {
+    .table {
+        .fee-student {
+            font-size: 16px;
+        }
+
+    }
+
+    .for-fee {
+        // color: #706b6b;
+        color: #272222;
+    }
+
+    .pending-fee {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            background-color: #000;
+            width: 120px;
+            height: 2px;
+
+        }
+    }
+
+    .pending-fee2 {
+       color: #000;
+        font-weight: 600;
+        
+    }
+
+    .for-hightlight{
+        color: #000;
+        font-weight: 600;
+    }
+
+
+}

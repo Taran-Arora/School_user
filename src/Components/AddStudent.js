@@ -188,7 +188,7 @@ console.log('profileImage', profileImage);
                                 </Col>
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="Name"> Total Fee </label>
-                                    <input type="number" className='form-control' name='total_fee' onChange={handleInputFileds} />
+                                    <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
                                 </Col>
                                 <Col lg={12} className='form-group'>
                                     <button type='submit' className='btn-submit'>Submit</button>

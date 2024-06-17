@@ -11,10 +11,22 @@ import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import snoze1 from '../assets/Images/snoze1.png';
 import toasted from '../config/toast';
+import { useHistory } from 'react-router-dom';
 
-const Home = ({ Toggle }) => {
+
+const Home = ({ Toggle    }) => {
 
     const navigate = useNavigate();
+
+    const handleClick1 = () => {
+      navigate('/allteachers');
+    };
+
+    const handleClick2 = () => {
+        navigate('/allstudents')
+    }
+
+    // const navigate = useNavigate();
 
     const [totalUsers, setTotalUsers] = useState({ total_users: '', active_users: '', inactive_users: '', block: '' });
     const [allData, setAllData] = useState([]);
@@ -48,7 +60,7 @@ const Home = ({ Toggle }) => {
             setTotalStudents(res?.student_count);
 
         } else {
-            navigate('/');
+            // navigate('/');
         }
         console.log('res2', res2);
         if (res2?.status === 200) {
@@ -92,25 +104,42 @@ const Home = ({ Toggle }) => {
         navigate('/schooldata', { state: { username } });
     }
 
+    // function handleClick() {
+    //     window.location.href = "mailto:Ashokmonga9@gmail.com";
+    //   }
+    //   function handleclick2() {
+    //     window.location.href = "tel:95096-13000";
+    //   }
+    
+    //   function handleClick4() {
+    //     window.open("https://www.instagram.com/makemyhome26?igsh=YzljYTk1ODg3Zg==", '_blank');
+    //   }
+    //   function handleClickWhatsApp1() {
+    //     window.location.href = 'whatsapp://send?phone=+9195096-13000';
+    
+    //   }
+
+ 
+
     return (
         <div className='px-3'>
             <Nav />
             <Container fluid className="cards">
                 <Row className="g-3 my-4 my-xl-2">
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-4 bg-white box">
-                            <div className='content'>
-                                <Link to='/allteachers' className='fs-5 d-link'>Total Teachers</Link>
+                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
+                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
                                 <h3 className='fs-2'>{totalTeachers} </h3>
+                                <Link to='/allteachers' className='fs-5 d-link'>Total Teachers</Link>
                             </div>
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
                         </div>
                     </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-4 bg-white box">
-                            <div className='content'>
-                                <Link to='/allstudents' className='fs-5 d-link'>Total Students</Link>
+                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick2} className="p-1">
+                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
                                 <h3 className='fs-2'>{totalStudents} </h3>
+                                <Link to='/allstudents' className='fs-5 d-link'>Total Students</Link>
                             </div>
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue box-image' />
                         </div>

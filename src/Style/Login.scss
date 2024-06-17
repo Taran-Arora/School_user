@@ -18,7 +18,8 @@ $pclr: #575757;
 
   &::after {
     content: '';
-    background: url("../Images/bg-ss2.jpg");
+    // background: url("../Images/bg-ss2.jpg");
+    background: url('../Images/notepad.jpg'); 
     background-attachment: fixed;
     background-size: cover;
     position: absolute;
@@ -136,7 +137,8 @@ $pclr: #575757;
     }
 
     .forget-link {
-      color: $pclr;
+      // color: $pclr;
+      color: #3B71CA;
       text-align: end;
       margin: 4px 0 12px 0;
     }
@@ -150,7 +152,8 @@ $pclr: #575757;
       font-weight: 600;
       margin: 10px;
       margin-top: 20px;
-      background-color: $ClrOrange;
+      // background-color: $ClrOrange;
+      background: #007CAF;
       color: $white;
       transition: 0.3s all ease-in-out;
 
