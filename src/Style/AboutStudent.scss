@@ -115,7 +115,10 @@
             border: var(--bs-border-width) solid var(--bs-border-color);
         }
     }
-
+    .for-edit-btn {
+        display: flex;
+        justify-content: space-between;
+        
     .student-edit-btn {
         display: flex;
 
@@ -123,7 +126,8 @@
             display: flex;
             align-items: center;
             gap: 0.2rem;
-            background-color: #14A44D;
+            // background-color: #14A44D;
+            background-color: #007CAF;
             color: #000;
             border-radius: 8px;
             padding: 8px;
@@ -132,6 +136,7 @@
             border: none;
             padding: 12px;
         }
+    }
     }
 
 

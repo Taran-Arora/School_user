@@ -39,7 +39,7 @@ export default function Login() {
             localStorage.setItem('token', res?.access);
             localStorage.setItem('auth', 'true');
             localStorage.setItem('useremail', allFields?.username);
-            localStorage.setItem('whologin',  allFields?.who);
+            localStorage.setItem('whologin', allFields?.who);
             // if(allFields?.who === 'is_school') {
             navigate('/dashboard');
             // }
@@ -64,21 +64,6 @@ export default function Login() {
                             <div className="main-form">
                                 <div className="form-heading">
                                     <h1 className='text-center'> Sign In </h1>
-                                    {/* <div className="dropdown dropup my-3 text-end">
-                                        <button
-                                            className="btn btn-secondary dropdown-toggle"
-                                            type="button"
-                                            id="dropdownMenuButton"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                        >
-                                            is School
-                                        </button>
-                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a className="dropdown-item" href="#action1">is Teacher</a></li>
-                                            <li><a className="dropdown-item" href="#action2">is Student</a></li>
-                                        </ul>
-                                    </div> */}
                                 </div>
                                 <div className="input-filed position-relative">
                                     <span className='select'>Please Select *</span>
@@ -88,12 +73,7 @@ export default function Login() {
                                         <option value="is_teacher">Is Teacher</option>
                                         <option value="is_student">Is Student</option>
                                     </Form.Select>
-                                    {/* <Select aria-label="Default select example" name='who' class="selector" onChange={inputFieldsData}
-                                        defaultValue={colourOptions[1]}
-                                        label="Single select"
-                                        options={colourOptions}
-                                        styles={colourStyles}
-                                    ></Select> */}
+
                                 </div>
                                 <div className="input-filed position-relative">
                                     <Form.Control type="email" name='username' placeholder="Email" onChange={inputFieldsData} value={allFields?.username} />

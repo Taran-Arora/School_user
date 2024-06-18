@@ -1,0 +1,58 @@
+.my-profile {
+    .bread-crumb {
+        padding: 16px 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        a {
+            color: $btn-clr4;
+        }
+
+
+        svg {
+            color: $btn-clr3;
+            font-size: 16px;
+        }
+    }
+
+    .card {
+        padding: 14px 18px;
+        border: unset !important;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        .card-img-section {
+            align-items: center;
+            gap: 18px;
+
+            .pf-img {
+                height: 80px;
+                width: 80px;
+            }
+        }
+        .info-details{
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            span{
+                font-weight: 600;
+                margin-left: 10px;
+            }
+        }
+        .summary{
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            .item-icon{
+                svg{
+                    color: $primary-clr;
+                    padding: 12px;
+                    height: 62px;
+                    width: 62px;
+                    border-radius: 50px;
+                    background-color: $bg-clr;
+                }
+            }
+        }
+    }
+}

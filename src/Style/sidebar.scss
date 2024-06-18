@@ -1,12 +1,20 @@
 .sidebar {
     transition: transform 0.5s ease;
+    z-index: 1;
+    @media (max-width:767px) {
+        z-index: 3 !important;
+    }
 
     .list-group {
         a {
             cursor: pointer;
+            border-radius: 8px;
+            border: unset !important;
+            background-color: $bg-item !important;
+            color: $white !important;
 
             &:hover {
-                background-color: #ffa901;
+                background-color: #ffa901 !important;
                 color: #fff;
                 border-radius: 8px;
             }
@@ -25,17 +33,23 @@
 .sidebar-hidden {
     transform: translateX(-100%);
 }
+
 .for-logout-btn {
     margin-bottom: 20px;
     border: none;
     border-radius: 10px;
+
     .list-group-item {
         border-radius: 20px;
         padding-bottom: 40px;
         bottom: 10px;
+        background-color: $bg-item !important;
+        color: $white !important;
+        border: unset !important;
+
         &:hover {
-            background-color: #ffa901;
-    
+            background-color: #ffa901 !important;
+
         }
     }
 }

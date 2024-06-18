@@ -60,7 +60,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='bg-white sidebar p-2 max-vh-100'>
+      <div className='p-2 max-vh-100'>
         <div className='m-2 d-flex align-items-center'>
           <PersonIcon className='me-2 fs-4'></PersonIcon>
           <span className='brand-name fs-4'>Admin</span>

@@ -52,11 +52,10 @@ const AddStudent = () => {
         if (profileImage) {
             formData.append('image', profileImage);
         }
-
         const res = await _fetch(`${api_url}student/register/`, "ImagePost", formData, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
-            navigate('/classdetails');
+            navigate('/classdata');
         }
         else if (res?.status === 400) {
             toasted.error(res?.message);
@@ -185,6 +184,7 @@ const AddStudent = () => {
                                     <label type="Name"> Mother's mobile no  </label>
                                     <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
                                 </Col>
+                               
                                 <Col lg={12} className='form-group'>
                                     <button type='submit' className='btn-submit'>Submit</button>
                                 </Col>

@@ -1,0 +1,54 @@
+.box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    position: relative;
+    padding: 25px 30px;
+    color: $primary-color2;
+
+    &::after {
+        content: '';
+        background: $primary-color2;
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        clip-path: circle(10% at 0% 0%);
+        transition: all .4s ease-in;
+    }
+
+    &:hover::after {
+        clip-path: circle(100%);
+    }
+
+    &:hover {
+        .content {
+            color: $white !important;
+            .d-link{
+                color: $white !important;
+            }
+        }
+    }
+
+    .box-image {
+        position: relative;
+        z-index: 1; 
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    transition: all .4s ease-in;
+    .d-link{
+        color: $black;
+        font-weight: 500;
+        font-size: 22px !important;
+
+    }
+}

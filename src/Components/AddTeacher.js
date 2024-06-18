@@ -15,6 +15,8 @@ const AddTeacher = () => {
     const navigate = useNavigate();
     const username = location.state?.username;
 
+    const useremail = localStorage.getItem('useremail');
+
     const [inputFields, setInputFields] = useState([7]);
     const [status, setStatus] = useState('');
 
@@ -72,7 +74,7 @@ const AddTeacher = () => {
     const submitTeacherData = async () => {
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
         let formData = new FormData();
-        formData.append('school_id', username);
+        formData.append('school_id', useremail);
         formData.append('first_name', firstName);
         formData.append('last_name', lastName);
         formData.append('gender', gender);
@@ -88,7 +90,7 @@ const AddTeacher = () => {
 
         if (res?.status === 200) {
             toasted.success(res?.message);
-            navigate('/schooldata');
+            navigate('/allteachers');
 
         } else if (res?.status == 400) {
             toasted.error(res?.message);

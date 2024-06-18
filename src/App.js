@@ -1,3 +1,4 @@
+import  React , {useEffect , useState} from  'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/LoginLayout/Login';
 // import Register from './Components/Register';
@@ -22,14 +23,45 @@ import ClassData from './Components/ClassData';
 import FeeCounter from './Components/FeeCounter';
 import Profile from './Components/ProfileLayout/Profile';
 import FeeHistory from './Components/FeeHistory';
+import Bookpreloader from './Components/Bookpreloader';
+// import { useEffect, useState } from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  // for staic time value for preloader
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1700); // Set the timeout for 4 seconds
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+
+  // // for dynamic timing value until the page is load 
+  // useEffect(() => {
+  //   const handleLoad = () => {
+  //     setLoading(false);
+  //   };
+
+  //   window.addEventListener('load', handleLoad);
+
+  //   return () => window.removeEventListener('load', handleLoad);
+  // }, []);
 
   return (
     <>
+    
+    {loading ? (
+        <Bookpreloader />
+      ) : (
+    
       <ToggleProvider>
         <BrowserRouter>
           <Routes>
+            {/* <Route path='/' element={<Bookpreloader/>}/> */}
             <Route path="/" element={<Login />} />
             {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/forgot" element={<Forgot />} />
@@ -47,17 +79,18 @@ function App() {
               <Route path='/classdetails' element={<ClassDetails />} />
               <Route path='/classdata' element={<ClassData />} />
               <Route path='/addstudent' element={<AddStudent />} />
-              <Route path='/feecounter' element={<FeeCounter/>}/>
+              <Route path='/feecounter' element={<FeeCounter />} />
               <Route path='/profile' element={<Profile />} />
-              <Route path='/feehistory' element={<FeeHistory/>}></Route>
+              <Route path='/feehistory' element={<FeeHistory />}></Route>
 
             </Route>
             {/* </Route> */}
           </Routes>
         </BrowserRouter>
       </ToggleProvider>
+      )}
 
-      <ToastContainer />
+      <ToastContainer /> 
     </>
 
 

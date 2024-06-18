@@ -14,12 +14,12 @@ import toasted from '../config/toast';
 import { useHistory } from 'react-router-dom';
 
 
-const Home = ({ Toggle    }) => {
+const Home = ({ Toggle }) => {
 
     const navigate = useNavigate();
 
     const handleClick1 = () => {
-      navigate('/allteachers');
+        navigate('/allteachers');
     };
 
     const handleClick2 = () => {
@@ -34,7 +34,7 @@ const Home = ({ Toggle    }) => {
     const [blockedData, setBlockedData] = useState([]);
     const [totalStudents, setTotalStudents] = useState();
     const [totalTeachers, setTotalTeachers] = useState();
-    
+
     const whoLogin = localStorage.getItem('whologin');
     const userEmail = localStorage.getItem('useremail');
 
@@ -62,7 +62,7 @@ const Home = ({ Toggle    }) => {
         } else {
              navigate('/');
         }
-        if(res2?.status === 200) {
+        if (res2?.status === 200) {
             setTotalTeachers(res2?.teacher_count);
         }
     };
@@ -109,16 +109,16 @@ const Home = ({ Toggle    }) => {
     //   function handleclick2() {
     //     window.location.href = "tel:95096-13000";
     //   }
-    
+
     //   function handleClick4() {
     //     window.open("https://www.instagram.com/makemyhome26?igsh=YzljYTk1ODg3Zg==", '_blank');
     //   }
     //   function handleClickWhatsApp1() {
     //     window.location.href = 'whatsapp://send?phone=+9195096-13000';
-    
+
     //   }
 
- 
+
 
     return (
         <div className='px-3'>
@@ -126,65 +126,63 @@ const Home = ({ Toggle    }) => {
             <Container fluid className="cards">
                 <Row className="g-3 my-4 my-xl-2">
                     <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
                                 <h3 className='fs-2'>{totalTeachers} </h3>
                                 <Link to='/allteachers' className='fs-5 d-link'>Total Teachers</Link>
                             </div>
-                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
+                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
                         </div>
                     </Col>
                     <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick2} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 className='fs-2'>{totalStudents} </h3>
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
                                 <Link to='/allstudents' className='fs-5 d-link'>Total Students</Link>
-                            </div>
-                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 className='fs-2'>{totalUsers?.block}</h3>
-                                <p className='fs-5'>Blocked Users</p>
-                            </div>
-                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink' />
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <h3 className='fs-2'>{totalTeachers} </h3>
-                                <p className='fs-5'>Total Teachers</p>
-                            </div>
-                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green' />
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
                                 <h3 className='fs-2'>{totalStudents} </h3>
-                                <p className='fs-5'>Total Students</p>
                             </div>
-                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue' />
+                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue box-image' />
                         </div>
                     </Col>
                     <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
+                                <Link to='' className='fs-5 d-link'>Blocked Users</Link>
                                 <h3 className='fs-2'>{totalUsers?.block}</h3>
-                                <p className='fs-5'>Blocked Users</p>
                             </div>
-                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink' />
+                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink box-image' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
+                                <Link to='' className='fs-5 d-link'>Total Teachers</Link>
+                                <h3 className='fs-2'>{totalTeachers} </h3>
+                            </div>
+                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
+                                <Link className='fs-5 d-link'>Total Students</Link>
+                                <h3 className='fs-2'>{totalStudents} </h3>
+                            </div>
+                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue box-image' />
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                        <div className="p-4 bg-white box">
+                            <div className='content'>
+                                <Link className='fs-5 d-link'>Blocked Users</Link>
+                                <h3 className='fs-2'>{totalUsers?.block}</h3>
+                            </div>
+                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink box-image' />
                         </div>
                     </Col>
                 </Row>
             </Container>
-
         </div>
     );
 }
 
 export default Home;
-
