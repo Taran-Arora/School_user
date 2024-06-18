@@ -38,7 +38,7 @@ const Sidebar = () => {
     if (res?.status === 200) {
 
     } else {
-      // navigate('/');
+   navigate('/');
     }
   };
 
@@ -51,7 +51,7 @@ const Sidebar = () => {
       toasted.success(data?.message);
       localStorage.clear();
       setTimeout(() => {
-        // navigate('/');
+       navigate('/');
       }, 1000);
     } else {
       toasted.error(data?.message);

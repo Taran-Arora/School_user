@@ -38,7 +38,6 @@ const Nav = () => {
 
     const getIsTeacherdata = async () => {
         let res = await _fetch(`${api_url}teacherimagedata/?teacher_email=${userEmail}`, 'GET', {}, {});
-        console.log('res', res);
         if (res?.status === 200) {
             setTeacherImage(res?.data[0]?.image);
         }

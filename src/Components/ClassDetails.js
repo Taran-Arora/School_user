@@ -3,8 +3,10 @@ import Nav from './Nav'
 import { Link, useLocation } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
+import DeleteIcon from '@mui/icons-material/Delete';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
+import toasted from '../config/toast';
 
 export default function ClassDetails() {
 
@@ -30,6 +32,20 @@ export default function ClassDetails() {
             setAllData(res?.data);
         }
     };
+
+
+    const deleteStudent = async (email, school_email) => {
+        let data = {
+            'email': email,
+            'school_email': school_email
+        }
+        
+        let res = await _fetch(`${api_url}deletestudent/`, "POST", data, {});
+        if (res?.status === 200) {
+            toasted.success(res?.message);
+            viewClassRecord();
+        }
+    }
 
     return (
         <div className='px-3'>
@@ -65,7 +81,7 @@ export default function ClassDetails() {
                                             <td scope="col">{item?.contact_No}</td>
                                             <td className='d-flex gap-3' scope="col">
                                                 <Link to="/aboutstudent" state={{class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email, email: item?.email }} className='btn-view'>View</Link>
-                                                <Link to="" className='btn-block'>Block</Link>
+                                                <DeleteIcon onClick={() => deleteStudent(item?.email, item?.school_id?.school_email)} />
                                             </td>
                                         </tr>
                                     </>

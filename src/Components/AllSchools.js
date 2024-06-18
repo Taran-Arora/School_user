@@ -45,7 +45,7 @@ const AllSchools = ({Toggle}) => {
                 active_users: res?.active_users,
             });
         } else {
-            // navigate('/');
+           navigate('/');
         }
     };
     const ViewData = (username) => {

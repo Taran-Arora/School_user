@@ -60,9 +60,8 @@ const Home = ({ Toggle }) => {
             setTotalStudents(res?.student_count);
 
         } else {
-            // navigate('/');
+             navigate('/');
         }
-        console.log('res2', res2);
         if (res2?.status === 200) {
             setTotalTeachers(res2?.teacher_count);
         }

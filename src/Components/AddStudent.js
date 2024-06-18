@@ -14,8 +14,6 @@ const AddStudent = () => {
     const location = useLocation();
     const username = location?.state?.school_id;
     const class_name = location.state?.class_name;
-
-    const [isImageUploaded, setIsImageUploaded] = useState(false);
     const [allFields, setAllFields] = useState({});
     const [profileImage, setProfileImage] = useState(null);
 
@@ -27,31 +25,26 @@ const AddStudent = () => {
             ...prevState,
             [name]: value,
             school_id: username,
-            // image: profileImage,
             student_class: class_name
         }));
     }
-console.log('profileImage', profileImage);
+
     const handleImage = (e) => {
+        // const file = e.target.files[0];
+        // if (file) {
+        //     setProfileImage(file);
+        //     const reader = new FileReader();
+        //     reader.onloadend = () => {
+        //         setProfileImage(reader.result);
+        //     };
+        //     reader.readAsDataURL(file);
+        // }
         const file = e.target.files[0];
-        if (file) {
-            setProfileImage(file);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                console.log('reader.result', reader.result);
-                setProfileImage(reader.result);
-                // setAllFields(prevFields => ({
-                //     ...prevFields,
-                //     image: reader.result
-                // }));
-            };
-            reader.readAsDataURL(file);
-        }
+        setProfileImage(file);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('profileImage', profileImage);
         const formData = new FormData();
         for (const key in allFields) {
             formData.append(key, allFields[key]);
@@ -59,11 +52,10 @@ console.log('profileImage', profileImage);
         if (profileImage) {
             formData.append('image', profileImage);
         }
-
-        const res = await _fetch(`${api_url}student/register/`, "ImagePost", allFields, {});
+        const res = await _fetch(`${api_url}student/register/`, "ImagePost", formData, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
-            navigate('/classdetails');
+            navigate('/classdata');
         }
         else if (res?.status === 400) {
             toasted.error(res?.message);
@@ -129,7 +121,7 @@ console.log('profileImage', profileImage);
                                     <label > Confirm Password </label>
                                     <input type="password" className='form-control' name='confirm_password' onChange={handleInputFileds} />
                                 </Col>
-
+                                
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="BloodGroup"> Blood Group </label>
                                     <select aria-label="Default select example" className='form-control' name='blood_group' onChange={handleInputFileds} >
@@ -170,6 +162,12 @@ console.log('profileImage', profileImage);
                                             ))}
                                     </select>
                                 </Col>
+
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Total Fee </label>
+                                    <input type="number" className="form-control" placeholder='Enter Total Fee' name='total_fee' onChange={handleInputFileds} />
+                                </Col>
+
                                 <Col lg={6} xl={4} className="form-group">
                                     <label type="Name"> Father's  Name  </label>
                                     <input type="text" className='form-control' name='father_name' onChange={handleInputFileds} />
@@ -186,10 +184,7 @@ console.log('profileImage', profileImage);
                                     <label type="Name"> Mother's mobile no  </label>
                                     <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Name"> Total Fee </label>
-                                    <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
-                                </Col>
+                               
                                 <Col lg={12} className='form-group'>
                                     <button type='submit' className='btn-submit'>Submit</button>
                                 </Col>
