@@ -41,7 +41,7 @@ export default function AllStudents() {
                         <tbody>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Student Name</th>
+                                <th scope="col ">Student Name</th>
                                 <th scope="col">School Name</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Contact</th>
@@ -50,14 +50,17 @@ export default function AllStudents() {
                             {alStudentsData?.map((item, index) => (
                                 <tr>
                                     <th scope="col">{index + 1}</th>
-                                    <td scope="col">{item?.name}</td>
+                                    <td scope="col " className='for-name'> {item?.name}</td>
                                     <td scope="col">{item?.school_id?.school_name}</td>
                                     <td scope="col">{item?.gender}</td>
                                     <td scope="col">{item?.contact_No}</td>
                                     <td className='d-flex gap-3' scope="col">
                                         <Link to="/aboutstudent" className='btn-view' state={{ email: item?.email, class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email }}>View</Link>
                                         {/* <DeleteIcon /> */}
+                                        <div className="delete-button">
                                         <DeleteIcon className='delete-icon' />
+                                        </div>
+                                      
 
                                     </td>
                                 </tr>
