@@ -1,5 +1,9 @@
 .sidebar {
     transition: transform 0.5s ease;
+    z-index: 1;
+    @media (max-width:767px) {
+        z-index: 3 !important;
+    }
 
     .list-group {
         a {
