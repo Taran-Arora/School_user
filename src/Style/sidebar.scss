@@ -1,6 +1,7 @@
 .sidebar {
     transition: transform 0.5s ease;
     z-index: 1;
+
     @media (max-width:767px) {
         z-index: 3 !important;
     }
@@ -12,11 +13,15 @@
             border: unset !important;
             background-color: $bg-item !important;
             color: $white !important;
+            transition: 0.2s all;
 
             &:hover {
-                background-color: #ffa901 !important;
+                // background-color: #ffa901 !important;
+                background-color: #00CEC9 !important;
                 color: #fff;
                 border-radius: 8px;
+                transition: 0.2s all;
+
             }
         }
     }
@@ -48,7 +53,7 @@
         border: unset !important;
 
         &:hover {
-            background-color: #ffa901 !important;
+            background-color: #00CEC9 !important;
 
         }
     }

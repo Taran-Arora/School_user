@@ -22,10 +22,12 @@
 
         .btn-view {
             color: $btn-text2;
-            background-color: $btn-clr2;
+            // background-color: $btn-clr2;
             border-radius: 12px;
             padding: 9px;
             border: none;
+            background-color: #89DDF1;
+            color: #fff;
         }
 
         .btn-block {
@@ -41,7 +43,7 @@
                 border: none;
                 font-size: 14px;
                 width: 75px;
-            
+                text-align: center;
         }
 
         .table-heading {
@@ -57,7 +59,7 @@
 }
 
 .table>:not(caption)>*>* {
-    padding: 1rem 1.5rem !important;
+    padding: 1rem 0.5rem !important;
 }
 .d-link {
     color: #000;

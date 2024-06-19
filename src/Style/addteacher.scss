@@ -12,10 +12,16 @@
     padding: 1.5rem;
 
     .form-group {
+        position: relative;
         label {
             margin-bottom: 10px;
             display: block;
             color: $form-label;
+        }
+        .password-icon-t {
+            position: absolute;
+            right: 20px;
+            top: 56%;
         }
     }
 

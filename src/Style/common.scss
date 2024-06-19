@@ -87,6 +87,18 @@ input[type=number] {
   background: rgba(255, 255, 255, 0.5);
 
 }
-.delete-icon {
-  color: red;
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .delete-icon {
+    color: red;
+  }
+}
+
+
+.for-name {
+  text-transform: capitalize !important;
+
 }

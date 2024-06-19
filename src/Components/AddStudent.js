@@ -81,7 +81,7 @@ const AddStudent = () => {
                             <Row>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label> Name </label>
-                                    <input type="text" placeholder="Enter Name" className="form-control" name='name' onChange={handleInputFileds} />
+                                    <input type="text" placeholder="Enter Name" className="form-control " name='name' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Roll No </label>

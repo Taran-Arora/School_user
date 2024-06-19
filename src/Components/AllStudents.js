@@ -41,7 +41,7 @@ export default function AllStudents() {
     }
 
     return (
-        <div className='px-3'>
+        <div className='px-md-3'>
             <Nav />
             <Container fluid>
                 <div className="table-responsive">
@@ -55,7 +55,7 @@ export default function AllStudents() {
                         <tbody>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Student Name</th>
+                                <th scope="col ">Student Name</th>
                                 <th scope="col">School Name</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Contact</th>
@@ -64,7 +64,7 @@ export default function AllStudents() {
                             {alStudentsData?.map((item, index) => (
                                 <tr>
                                     <th scope="col">{index + 1}</th>
-                                    <td scope="col">{item?.name}</td>
+                                    <td scope="col " className='for-name'> {item?.name}</td>
                                     <td scope="col">{item?.school_id?.school_name}</td>
                                     <td scope="col">{item?.gender}</td>
                                     <td scope="col">{item?.contact_No}</td>
