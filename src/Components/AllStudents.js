@@ -7,6 +7,7 @@ import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from "../../src/config/toast";
 
+
 export default function AllStudents() {
 
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function AllStudents() {
     }
 
     return (
-        <div className='px-md-3'>
+        <div className='px-3'>
             <Nav />
             <Container fluid>
                 <div className="table-responsive">
@@ -82,3 +83,6 @@ export default function AllStudents() {
         </div>
     )
 }
+
+
+

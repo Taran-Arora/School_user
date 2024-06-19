@@ -1,8 +1,8 @@
 $bg-orange: #F4EEE5;
 $ClrOrange: #f37335;
-$textClr:#2b2b2b;
+$textClr: #2b2b2b;
 $btn-bg: #565e64;
-$black:#000;
+$black: #000;
 $pclr: #575757;
 
 .form-section {
@@ -19,7 +19,7 @@ $pclr: #575757;
   &::after {
     content: '';
     // background: url("../Images/bg-ss2.jpg");
-    background: url('../Images/notepad.jpg'); 
+    background: url('../Images/notepad.jpg');
     background-attachment: fixed;
     background-size: cover;
     position: absolute;
@@ -162,4 +162,10 @@ $pclr: #575757;
       }
     }
   }
+}
+
+.go-back {
+  text-align: center;
+  padding-top: 5px;
+
 }
