@@ -6,7 +6,7 @@ import studentImg from "../assets/Images/newStudent.jpg";
 import Nav from './Nav';
 import schoolLogo from "../assets/Images/school-logo.png";
 import RecyclingIcon from '@mui/icons-material/Recycling';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
@@ -194,16 +194,13 @@ export default function AboutStudent() {
             
           </Row>
         </form>
-        {/* <div className="student-edit-btn">
-          <button className='student-edit'>   <RecyclingIcon />Update Details </button>
-        </div> */}
         <div className="for-edit-btn">
           <div className="student-edit-btn">
-            <button className='student-edit bg-sucess'>   <AccountBalanceWalletIcon /> Fee Counter </button>
+            <Link to='/feecounter' state={{email: alldata?.email}} className='student-edit bg-sucess'> <AccountBalanceWalletIcon /> Fee Counter </Link>
           </div>
           <div className="fee-edit-btn2">
             <div className="student-edit-btn">
-              <button className='student-edit'> <HistoryIcon />  Fee History </button>
+              <Link to= '/feehistory' state={{email: alldata?.email}} className='student-edit'> <HistoryIcon />  Fee History </Link>
             </div>
           </div>
         </div>

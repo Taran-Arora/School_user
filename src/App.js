@@ -61,12 +61,10 @@ function App() {
       <ToggleProvider>
         <BrowserRouter>
           <Routes>
-            {/* <Route path='/' element={<Bookpreloader/>}/> */}
             <Route path="/" element={<Login />} />
-            {/* <Route path="/register" element={<Register />} /> */}
             <Route path="/forgot" element={<Forgot />} />
 
-            {/* <Route element={<PrivateRoutes />}> */}
+            <Route element={<PrivateRoutes />}>
             <Route element={<DashLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allteachers" element={<AllTeachers />} />
@@ -82,9 +80,8 @@ function App() {
               <Route path='/feecounter' element={<FeeCounter />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/feehistory' element={<FeeHistory />}></Route>
-
             </Route>
-            {/* </Route> */}
+            </Route>
           </Routes>
         </BrowserRouter>
       </ToggleProvider>
@@ -92,8 +89,6 @@ function App() {
 
       <ToastContainer /> 
     </>
-
-
   );
 }
 
