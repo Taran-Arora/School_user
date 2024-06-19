@@ -45,8 +45,8 @@ export default function AllStudents() {
         <div className='px-3'>
             <Nav />
             <Container fluid>
-                <div className="table-responsive">
-                    <div className='table-head'>
+                <div className="table-responsive table-container">
+                    <div className='table-head fixed-header-one'>
                         <h3 className='table-heading'>All Students</h3>
                         {/* <Link to="/addstudent" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
@@ -54,7 +54,7 @@ export default function AllStudents() {
                     </div>
                     <table className="table">
                         <tbody>
-                            <tr>
+                            <tr className='fixed-header'>
                                 <th scope="col">#</th>
                                 <th scope="col ">Student Name</th>
                                 <th scope="col">School Name</th>
