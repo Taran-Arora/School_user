@@ -69,10 +69,3 @@
 .d-link {
     color: #000;
 }
-
-@media (max-width:479px) {
-    .table>:not(caption)>*>* {
-        padding: 1rem 1rem !important;
-    }
-
-}
