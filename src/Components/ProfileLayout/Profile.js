@@ -8,20 +8,19 @@ import ProfileImg from '../../Images/profile.png'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PercentIcon from '@mui/icons-material/Percent';
-import FeedIcon from '@mui/icons-material/Feed';
 
 const Profile = () => {
   return (
     <div className='my-profile px-3'>
       <Nav />
       <Container fluid>
-        <Row className='my-4 my-xl-2'>
-          <Col lg={12}>
+        <Row className='my-4 my-xl-2 align-items-center'>
+          <Col xl={12}>
             <h3 className='title'>Hello, User!</h3>
             <p className='bread-crumb'><Link to="/dashboard">Dashboard</Link> <ArrowForwardIosIcon /> Profile</p>
           </Col>
-          <Col lg={4}>
-            <div className="card">
+          <Col xl={4} lg={6}>
+            <div className="card mb-3 mb-lg-0">
               <div className="item-title pt-3">
                 <h4>About Me</h4>
               </div>
@@ -39,16 +38,14 @@ const Profile = () => {
                   <p>Email: <span>abc@gmail.com</span></p>
                   <p>Phone: <span>+91-1234567890</span></p>
                   <p>Class: <span>1st</span></p>
-                  <p>DOB: <span>01-01-2000</span></p>
-                  <p>Address: <span>Abohar (Punjab)</span></p>
                 </div>
               </div>
             </div>
           </Col>
-          <Col lg={8}>
+          <Col xl={8} lg={6}>
             <Row>
-              <Col lg={4}>
-                <div className="card">
+              <Col xl={4}>
+                <div className="card mb-3 mb-lg-0">
                   <div className="summary">
                     <div className="item-icon">
                       <NotificationsActiveIcon />
@@ -60,8 +57,8 @@ const Profile = () => {
                   </div>
                 </div>
               </Col>
-              <Col lg={4}>
-                <div className="card">
+              <Col xl={4}>
+                <div className="card mb-3 mb-lg-0">
                   <div className="summary">
                     <div className="item-icon">
                       <CalendarMonthIcon />
@@ -73,7 +70,7 @@ const Profile = () => {
                   </div>
                 </div>
               </Col>
-              <Col lg={4}>
+              <Col xl={4}>
                 <div className="card">
                   <div className="summary">
                     <div className="item-icon">
@@ -86,43 +83,43 @@ const Profile = () => {
                   </div>
                 </div>
               </Col>
-              <Col lg={12}>
-                <div className="card mt-lg-3">
-                  <div className="summary">
-                    <div className="item-icon">
-                      <FeedIcon />
-                    </div>
-                    <div className="item-content">
-                      <p>Additional Info</p>
-                      <p>Coming soon...</p>
-                    </div>
+              <Col xl={12}>
+                <div className="table-responsive">
+                  <div className='table-head'>
+                    <h3 className='table-heading'>Periods</h3>
+
                   </div>
-                </div>
-              </Col>
-              <Col lg={12}>
-                <div className="card mt-lg-3">
-                  <div className="summary">
-                    <div className="item-icon">
-                      <FeedIcon />
-                    </div>
-                    <div className="item-content">
-                      <p>Additional Info</p>
-                      <p>Coming soon...</p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-              <Col lg={12}>
-                <div className="card mt-lg-3">
-                  <div className="summary">
-                    <div className="item-icon">
-                      <FeedIcon />
-                    </div>
-                    <div className="item-content">
-                      <p>Additional Info</p>
-                      <p>Coming soon...</p>
-                    </div>
-                  </div>
+                  <table className="table">
+
+                    <tbody>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Period</th>
+                        <th scope="col">Class</th>
+                      </tr>
+                      <tr>
+                        <td scope="col">1</td>
+                        <td scope="col">Period 1st</td>
+                        <td scope="col">Class 1st</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">2</td>
+                        <td scope="col">Period 2nd</td>
+                        <td scope="col">Class 2nd</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">3</td>
+                        <td scope="col">Period 3rd</td>
+                        <td scope="col">Class 3rd</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">4</td>
+                        <td scope="col">Period 4th</td>
+                        <td scope="col">Class 4th</td>
+                      </tr>
+                    </tbody>
+
+                  </table>
                 </div>
               </Col>
             </Row>

@@ -13,17 +13,6 @@
 
     .pending-fee {
         position: relative;
-
-        &::after {
-            position: absolute;
-            content: '';
-            left: 0;
-            bottom: 0;
-            background-color: #000;
-            width: 120px;
-            height: 2px;
-
-        }
     }
 
     .pending-fee2 {

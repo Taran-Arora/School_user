@@ -1,8 +1,34 @@
 import { Padding } from '@mui/icons-material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { api_url } from '../config/config';
+import _fetch from '../config/api';
+import { useLocation } from 'react-router-dom';
 
 export default function FeeHistory() {
+
+    const location = useLocation();
+
+    const email = location?.state?.email;
+
+    const [data, setData] = useState({ total_fee: '' });
+    const [allData, setAllData] = useState([]);
+    const [pendingFee, setPendingFee] = useState();
+
+    useEffect(() => {
+        geFeeData();
+    }, []);
+
+    const geFeeData = async () => {
+        let data = await _fetch(`${api_url}studentdata/?email=${email}`, "GET", {}, {});
+        if (data?.status === 200) {
+           const pendingFee = data?.data[data?.data?.length - 1];
+            setData(data?.data[0]);
+            setAllData(data?.data);
+            setPendingFee(pendingFee?.pending_fee);
+        }
+    }
+    
     return (
         <div>
             <Container fluid>
@@ -39,34 +65,36 @@ export default function FeeHistory() {
 
                             </tr> */}
                             <tr>
-                                <th className='col'> Student Name</th>     
-                                <th className='col'></th>                                                
-                                <th className='col'> <p className='fee-student'> Samrat</p></th>
-                              
+                                <th className='col'> Student Name</th>
+                                <th className='col'></th>
+                                <th className='col'> <p className='fee-student'> {data?.student?.name}</p></th>
+
                             </tr>
 
-                            <tr>
+                            <tr style={{borderBottom:'2px solid #000 '}}>
                                 {/* <th className='col'> Student Name</th> */}
                                 <td className='col for-hightlight'> Total Feee</td>
                                 <td className='col'>  </td>
-                                <td className='col  for-hightlight'> 20,0000 </td>
+                                <td className='col  for-hightlight'> {data?.total_fee}</td>
                             </tr>
                             {/* <tr>
                                 <th className='col'> Date of Submit</th>
                                 <th className='col'>31st March </th>
                             </tr> */}
-                            <tr>
-                                <td className='col'> Last Fee Submitted</td>
-                                <td className='col for-fee fee-date'> 21st May 2024 </td>
-                                <td className='col for-fee pending-fee '>  16,000</td>
-                            </tr>
-                            <tr >
+                            {allData?.map((item, index) => {
+                                return(
+                                <tr>
+                                    <td className='col'> Fee Submitted</td>
+                                    <td className='col for-fee fee-date'> {item?.date} </td>
+                                    <td className='col for-fee pending-fee '>{item?.Submit} </td>
+                                </tr>
+                                )}
+                            )}
+                            <tr style={{borderTop:"2px solid #000 "}}>
                                 <td className='col for-hightlight'> Pending Fee</td>
                                 <td className='col'>  </td>
-                                <td className='col'><p className='for-highlight'>  <b>4,000</b> </p></td>
+                                <td className='col'><p className='for-highlight'>  <b>{pendingFee}</b> </p></td>
                             </tr>
-
-
 
                         </tbody>
                     </table>

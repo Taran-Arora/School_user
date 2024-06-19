@@ -169,6 +169,8 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/forgot" element={<Forgot />} />
+
+            <Route element={<PrivateRoutes />}>
             <Route element={<DashLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/allteachers" element={<AllTeachers />} />
@@ -176,14 +178,15 @@ function AppContent() {
               <Route path="/schooldata" element={<SchoolData />} />
               <Route path="/aboutstudent" element={<AboutStudent />} />
               <Route path="/addteacher" element={<AddTeacher />} />
-              <Route path="/addclass" element={<AddClass />} />
-              <Route path="/aboutteacher" element={<AboutTeacher />} />
-              <Route path="/classdetails" element={<ClassDetails />} />
-              <Route path="/classdata" element={<ClassData />} />
-              <Route path="/addstudent" element={<AddStudent />} />
-              <Route path="/feecounter" element={<FeeCounter />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/feehistory" element={<FeeHistory />} />
+              <Route path='/addclass' element={<AddClass />} />
+              <Route path='/aboutteacher' element={<AboutTeacher />} />
+              <Route path='/classdetails' element={<ClassDetails />} />
+              <Route path='/classdata' element={<ClassData />} />
+              <Route path='/addstudent' element={<AddStudent />} />
+              <Route path='/feecounter' element={<FeeCounter />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/feehistory' element={<FeeHistory />}></Route>
+            </Route>
             </Route>
           </Routes>
         </ToggleProvider>
