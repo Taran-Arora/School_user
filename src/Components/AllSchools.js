@@ -10,7 +10,7 @@ import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 
-const AllSchools = ({Toggle}) => {
+const AllSchools = ({ Toggle }) => {
 
     const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ const AllSchools = ({Toggle}) => {
                 active_users: res?.active_users,
             });
         } else {
-           navigate('/');
+            navigate('/');
         }
     };
     const ViewData = (username) => {
@@ -57,16 +57,16 @@ const AllSchools = ({Toggle}) => {
         <div className='px-3'>
             <Nav Toggle={Toggle} />
             <Container fluid>
-                <div className="table-responsive">
-                <div className='table-head'>
-                                <h3 className='table-heading'>All Schools</h3>
-                                <Link to="/addschool" className='add-btn'>
-                                    <AddCircleOutlineSharpIcon />Add New School
-                                </Link>
-                            </div>
+                <div className="table-responsive table-container">
+                    <div className='table-head fixed-header-one'>
+                        <h3 className='table-heading'>All Schools</h3>
+                        <Link to="/addschool" className='add-btn'>
+                            <AddCircleOutlineSharpIcon />Add New School
+                        </Link>
+                    </div>
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr className='fixed-header'>
                                 <th scope="col">S. No.</th>
                                 <th scope="col">School Name</th>
                                 <th scope="col">School Email</th>
@@ -74,14 +74,14 @@ const AllSchools = ({Toggle}) => {
                             </tr>
                         </thead>
                         <tbody>
-                        {allData?.map((item, index) => (
+                            {allData?.map((item, index) => (
                                 <tr key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{item?.user?.first_name}</td>
                                     <td>{item?.user?.username}</td>
                                     <td className='d-flex gap-3'>
                                         <Link to="" className='btn-login'>Login</Link>
-                                        <Button className='btn-view'onClick={() => ViewData(item?.user?.username)} >View</Button>
+                                        <Button className='btn-view' onClick={() => ViewData(item?.user?.username)} >View</Button>
                                         <Link to="" className='btn-block'>Block</Link>
                                     </td>
                                 </tr>
