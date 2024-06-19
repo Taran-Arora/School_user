@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import Nav from '../Nav'
@@ -9,8 +9,36 @@ import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PercentIcon from '@mui/icons-material/Percent';
 import FeedIcon from '@mui/icons-material/Feed';
+import _fetch from '../../config/api'
+import { api_url } from '../../config/config'
 
 const Profile = () => {
+
+  const loginEmail = localStorage.getItem('whologin');
+
+  const [imageData, setImageData] = useState({image: '', teacher : {email: '', first_name: '', last_name: '', gender: '',   }});
+  const [periodsData, setPeriodsData] = useState();
+  
+  useEffect(() => {
+    getTeacherImage();
+    getTeacherPeriods();
+  }, []);
+
+      const getTeacherImage = async() => {
+        let res = await _fetch(`${api_url}teacherimagedata/?teacher_email=${loginEmail}`, "GET", {}, {});
+        if(res?.status === 200) {
+          setImageData(res?.data);
+
+        }
+      }
+
+      const getTeacherPeriods = async() => {
+        let res = await _fetch(`${api_url}teacherperiodsdata/?teacher_email=${loginEmail}`, "GET", {}, {});
+        if(res?.status === 200) {
+          setPeriodsData(res?.data);
+        }
+      }
+console.log('imageData', imageData?.teacher);
   return (
     <div className='my-profile px-3'>
       <Nav />
@@ -27,7 +55,7 @@ const Profile = () => {
               </div>
               <div className="info mt-3">
                 <div className="card-img-section d-flex">
-                  <img src={ProfileImg} alt="" className='pf-img' />
+                  <img src={`data:image/jpeg;base64,${imageData?.image}`} alt="" className='pf-img' />
                   <div className="main-body">
                     <div className="pf-title"><h5>Samrat Monga</h5></div>
                     <p>Aliquam erat volutpat. Curabiene natis massa sedde lacustiquen sodale word moun taiery.</p>

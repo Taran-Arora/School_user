@@ -14,14 +14,29 @@ export default function AllStudents() {
     const [alStudentsData, setAllStudentsData] = useState([]);
 
     const userEmail = localStorage.getItem('useremail');
+    const loginUser = localStorage.getItem('whologin');
 
     useEffect(() => {
-        StudentsData();
+        if(loginUser === 'is_school') {
+            StudentsData();
+        }
+        else if(loginUser === 'is_teacher') {
+            TeachersStudentData();
+        }
+
     }, []);
 
     const StudentsData = async () => {
 
         const res = await _fetch(`${api_url}getstudentcount/?school_email=${userEmail}`, 'GET', {}, {});
+        if (res.status === 200) {
+            setAllStudentsData(res?.data);
+        }
+    };
+
+    const TeachersStudentData = async () => {
+
+        const res = await _fetch(`${api_url}allstudentdata/?teacher_email=${userEmail}`, 'GET', {}, {});
         if (res.status === 200) {
             setAllStudentsData(res?.data);
         }

@@ -39,7 +39,15 @@ export default function Login() {
             localStorage.setItem('auth', 'true');
             localStorage.setItem('useremail', allFields?.username);
             localStorage.setItem('whologin', allFields?.who);
-            navigate('/dashboard');
+            if(allFields?.who === 'is_school') {
+                navigate('/dashboard');
+            }
+            else if(allFields?.who === 'is_teacher') {
+                navigate('/classdata');
+            }
+            else if(allFields?.who === 'is_student') {
+                navigate('/aboutstudent');
+            }
         }
         else {
             toasted.error(res?.message);

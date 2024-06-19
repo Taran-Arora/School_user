@@ -14,7 +14,8 @@ const Nav = () => {
 
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [teacherImage, setTeacherImage] = useState();
-
+    const [teacherData, setTeacherData] = useState();
+    
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
@@ -40,10 +41,12 @@ const Nav = () => {
         let res = await _fetch(`${api_url}teacherimagedata/?teacher_email=${userEmail}`, 'GET', {}, {});
         if (res?.status === 200) {
             setTeacherImage(res?.data[0]?.image);
+            setTeacherData(res?.data[0]?.teacher);
         }
     }
 
     const { Toggle } = useContext(ToggleContext);
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-transparent px-3">
             <SegmentIcon className='toggler fs-1' onClick={Toggle}></SegmentIcon>
@@ -59,21 +62,21 @@ const Nav = () => {
                 <i className='bi bi-justify'></i>
             </button>
 
-            {whoLogin != 'is_school' ?
+            {whoLogin != 'is_school' && whoLogin != 'is_student' ?
                 <div className="round-image" onClick={toggleDropdown}>
                     <img
-                        src={Profile}
+                        src={`data:image/jpeg;base64,${teacherImage}`}
                         alt="Round"
                         className="round-img"
                     />
                     {isDropdownVisible && (
                         <ul className="custom-dropdown-menu">
-                            <li className='user-id'>Gni@gmail.com</li>
+                            <li className='user-id'>{teacherData?.email}</li>
                             <li>
-                                <img src={Profile} alt="" className="round-img" />
+                                <img src={`data:image/jpeg;base64,${teacherImage}`} alt="" className="round-img" />
                             </li>
                             <li>
-                                <h4>Hi, User!</h4>
+                                <h4>Hi, {teacherData?.first_name}</h4>
                             </li>
                             <li className='drop-links'>
                                 <Link to='/profile'>View Profile</Link>
