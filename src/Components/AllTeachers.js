@@ -41,7 +41,7 @@ const AllTeachers = () => {
             TeacherData();
         }
     }
-console.log('loading', loading);
+
     return (
         <div className='px-3'>
             <Nav />
@@ -54,34 +54,31 @@ console.log('loading', loading);
                         </Link>
                     </div>
                     <table className="table">
-                        {loading ?
-                            <Bookpreloader />
-                            :
-                            <tbody>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Teacher Name</th>
-                                    <th scope="col">School Name</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Contact</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                                {teacherData?.map((item, index) => (
-                                    <tr>
-                                        <th scope="col">{index + 1}</th>
-                                        <td scope="col">{item?.first_name} {item?.last_name}</td>
-                                        <td scope="col">{item?.school_id?.school_name}</td>
-                                        <td scope="col">{item?.gender}</td>
-                                        <td scope="col">{item?.contact}</td>
-                                        <td className='d-flex gap-3 set-view-btn' scope="col">
-                                            <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
-                                            <DeleteIcon onClick={() => deleteTeacher(item?.email, item?.school_id?.school_email)} />
-                                        </td>
-                                    </tr>
-                                ))}
 
-                            </tbody>
-                        }
+                        <tbody>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Teacher Name</th>
+                                <th scope="col">School Name</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            {teacherData?.map((item, index) => (
+                                <tr>
+                                    <th scope="col">{index + 1}</th>
+                                    <td scope="col">{item?.first_name} {item?.last_name}</td>
+                                    <td scope="col">{item?.school_id?.school_name}</td>
+                                    <td scope="col">{item?.gender}</td>
+                                    <td scope="col">{item?.contact}</td>
+                                    <td className='d-flex gap-3 set-view-btn' scope="col">
+                                        <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
+                                        <DeleteIcon onClick={() => deleteTeacher(item?.email, item?.school_id?.school_email)} />
+                                    </td>
+                                </tr>
+                            ))}
+
+                        </tbody>
                     </table>
                 </div>
             </Container>
