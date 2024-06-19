@@ -1,6 +1,7 @@
 import React, { useState, } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import {Link} from 'react-router-dom';
 
 export default function Forget() {
 
@@ -18,6 +19,8 @@ export default function Forget() {
                                 <AlternateEmailIcon />
                             </div>
                             <button className='signIn-btn form-control'>  Send OTP </button>
+
+                            <Link to='/' className="go-back"> Back to Sign In </Link>
                         </div>
                     </Form>
 

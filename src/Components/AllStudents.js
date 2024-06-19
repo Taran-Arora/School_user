@@ -7,6 +7,7 @@ import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from "../../src/config/toast";
 
+
 export default function AllStudents() {
 
     const navigate = useNavigate();
@@ -59,8 +60,8 @@ export default function AllStudents() {
         <div className='px-3'>
             <Nav />
             <Container fluid>
-                <div className="table-responsive">
-                    <div className='table-head'>
+                <div className="table-responsive table-container">
+                    <div className='table-head fixed-header-one'>
                         <h3 className='table-heading'>All Students</h3>
                         {/* <Link to="/addstudent" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
@@ -68,9 +69,9 @@ export default function AllStudents() {
                     </div>
                     <table className="table">
                         <tbody>
-                            <tr>
+                            <tr className='fixed-header'>
                                 <th scope="col">#</th>
-                                <th scope="col">Student Name</th>
+                                <th scope="col ">Student Name</th>
                                 <th scope="col">School Name</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Contact</th>
@@ -79,7 +80,7 @@ export default function AllStudents() {
                             {alStudentsData?.map((item, index) => (
                                 <tr>
                                     <th scope="col">{index + 1}</th>
-                                    <td scope="col">{item?.name}</td>
+                                    <td scope="col " className='for-name'> {item?.name}</td>
                                     <td scope="col">{item?.school_id?.school_name}</td>
                                     <td scope="col">{item?.gender}</td>
                                     <td scope="col">{item?.contact_No}</td>
@@ -97,3 +98,6 @@ export default function AllStudents() {
         </div>
     )
 }
+
+
+

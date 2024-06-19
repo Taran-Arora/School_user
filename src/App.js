@@ -1,4 +1,4 @@
-import  React , {useEffect , useState} from  'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/LoginLayout/Login';
 // import Register from './Components/Register';
@@ -36,7 +36,7 @@ function App() {
       setLoading(false);
     }, 1700); // Set the timeout for 4 seconds
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
 
@@ -53,41 +53,41 @@ function App() {
 
   return (
     <>
-    
-    {loading ? (
+
+      {loading ? (
         <Bookpreloader />
       ) : (
-    
-      <ToggleProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/forgot" element={<Forgot />} />
 
-            <Route element={<PrivateRoutes />}>
-            <Route element={<DashLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/allteachers" element={<AllTeachers />} />
-              <Route path='/allstudents' element={<AllStudents />} />
-              <Route path='/schooldata' element={<SchoolData />} />
-              <Route path='/aboutstudent' element={<AboutStudent />} />
-              <Route path="/addteacher" element={<AddTeacher />} />
-              <Route path='/addclass' element={<AddClass />} />
-              <Route path='/aboutteacher' element={<AboutTeacher />} />
-              <Route path='/classdetails' element={<ClassDetails />} />
-              <Route path='/classdata' element={<ClassData />} />
-              <Route path='/addstudent' element={<AddStudent />} />
-              <Route path='/feecounter' element={<FeeCounter />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/feehistory' element={<FeeHistory />}></Route>
-            </Route>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </ToggleProvider>
+        <ToggleProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/forgot" element={<Forgot />} />
+
+              <Route element={<PrivateRoutes />}>
+                <Route element={<DashLayout />}>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/allteachers" element={<AllTeachers />} />
+                  <Route path='/allstudents' element={<AllStudents />} />
+                  <Route path='/schooldata' element={<SchoolData />} />
+                  <Route path='/aboutstudent' element={<AboutStudent />} />
+                  <Route path="/addteacher" element={<AddTeacher />} />
+                  <Route path='/addclass' element={<AddClass />} />
+                  <Route path='/aboutteacher' element={<AboutTeacher />} />
+                  <Route path='/classdetails' element={<ClassDetails />} />
+                  <Route path='/classdata' element={<ClassData />} />
+                  <Route path='/addstudent' element={<AddStudent />} />
+                  <Route path='/feecounter' element={<FeeCounter />} />
+                  <Route path='/profile' element={<Profile />} />
+                  <Route path='/feehistory' element={<FeeHistory />}></Route>
+                </Route>
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </ToggleProvider>
       )}
 
-      <ToastContainer /> 
+      <ToastContainer />
     </>
   );
 }

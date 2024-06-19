@@ -8,6 +8,10 @@ import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import { Construction } from '@mui/icons-material';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+
 
 const AddTeacher = () => {
 
@@ -84,7 +88,7 @@ const AddTeacher = () => {
         formData.append('confirm_password', confirm_password);
         formData.append('subjects', subject);
         formData.append('image', profileImage);
-        formData.append('periods', JSON.stringify(periods) );
+        formData.append('periods', JSON.stringify(periods));
 
         const res = await _fetch(`${api_url}teacher/register/`, "ImagePost", formData, {});
 
@@ -96,6 +100,19 @@ const AddTeacher = () => {
             toasted.error(res?.message);
         }
     }
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
+    const [confirmPassword2, setConfirmPassword2] = useState('');
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const togglePasswordVisibility2 = () => {
+        setShowPassword2(!showPassword2);
+    };
+
 
     return (
         <div className='px-3'>
@@ -139,13 +156,29 @@ const AddTeacher = () => {
                                     <label>Email </label>
                                     <input type="mail" className="form-control" placeholder='Enter Email Address' onChange={(e) => setEmail(e.target.value)} value={email} />
                                 </Col>
-                                <Col xl={4} lg={6} className='form-group'>
+                                <Col xl={4} lg={6} className='form-group t-filed'>
                                     <label>Password </label>
-                                    <input type="password" className="form-control" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} value={password} />
+                                    <input type={showPassword ? "text" : "password"} className="form-control" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} value={password} />
+                                    {showPassword ? (<RemoveRedEyeIcon className='password-icon-t' onClick={togglePasswordVisibility} />) : (<VisibilityOffIcon className='password-icon-t' onClick={togglePasswordVisibility} />)}
                                 </Col>
+                                {/* <div className="input-filed position-relative">
+                                    <Form.Control  placeholder="Password" className='password-filed' name='password'  />
+                                  
+                                </div> */}
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Confirm Password </label>
-                                    <input type="password" className="form-control" placeholder='Enter Confirm Password' onChange={(e) => setConfirmPassword(e.target.value)} value={confirm_password} />
+                                    <input
+                                        type={showPassword2 ? "text" : "password"}
+                                        className="form-control"
+                                        placeholder='Enter Confirm Password'
+                                        onChange={(e) => setConfirmPassword2(e.target.value)}
+                                        value={confirmPassword2}
+                                    />
+                                    {showPassword2 ? (
+                                        <RemoveRedEyeIcon className='password-icon-t' onClick={togglePasswordVisibility2} />
+                                    ) : (
+                                        <VisibilityOffIcon className='password-icon-t' onClick={togglePasswordVisibility2} />
+                                    )}
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Subject </label>

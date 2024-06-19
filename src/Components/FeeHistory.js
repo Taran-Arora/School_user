@@ -14,9 +14,15 @@ export default function FeeHistory() {
     const [data, setData] = useState({ total_fee: '' });
     const [allData, setAllData] = useState([]);
     const [pendingFee, setPendingFee] = useState();
+    
+    const loginUser = localStorage.getItem('whologin');
+    const userEmail = localStorage.getItem('useremail');
 
     useEffect(() => {
         geFeeData();
+        if (loginUser === 'is_student') {
+            getStudentFeeData();
+          }
     }, []);
 
     const geFeeData = async () => {
@@ -28,7 +34,16 @@ export default function FeeHistory() {
             setPendingFee(pendingFee?.pending_fee);
         }
     }
-    
+
+    const getStudentFeeData = async () => {
+        let data = await _fetch(`${api_url}studentfeedata/?student_email=${userEmail}`, "GET", {}, {});
+        if (data?.status === 200 && data?.data?.length > 0) {
+            const pendingFee = data?.data[data?.data?.length - 1];
+            setAllData(data?.data);
+            setPendingFee(pendingFee?.pending_fee);
+        }
+    }
+
     return (
         <div>
             <Container fluid>

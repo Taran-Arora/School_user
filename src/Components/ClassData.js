@@ -57,8 +57,8 @@ const ClassData = () => {
             <Container fluid>
                 <Row>
                     <Col lg={12}>
-                        <div className="table-responsive">
-                            <div className='table-head'>
+                        <div className="table-responsive table-container">
+                            <div className='table-head fixed-header-one'>
                                 <h3 className='table-heading'>Classes</h3>
                                 <Button className='add-btn' onClick={addClass}>
                                     <AddCircleOutlineSharpIcon />Add New Class
@@ -66,7 +66,7 @@ const ClassData = () => {
                             </div>
                             <table className="table">
                                 <tbody>
-                                    <tr>
+                                    <tr className='fixed-header'>
                                         <th scope="col">Class</th>
                                         <th scope="col">Total Students</th>
                                         <th scope="col">Action</th>
