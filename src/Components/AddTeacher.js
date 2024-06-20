@@ -165,7 +165,7 @@ const AddTeacher = () => {
                                     <Form.Control  placeholder="Password" className='password-filed' name='password'  />
                                   
                                 </div> */}
-                                <Col xl={4} lg={6} className='form-group'>
+                                <Col xl={4} lg={6} className='form-group '>
                                     <label>Confirm Password </label>
                                     <input
                                         type={showPassword2 ? "text" : "password"}
