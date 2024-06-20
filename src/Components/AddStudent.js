@@ -6,6 +6,8 @@ import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import { useLocation, useNavigate } from 'react-router-dom';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const AddStudent = () => {
     const navigate = useNavigate();
@@ -47,6 +49,18 @@ const AddStudent = () => {
         } else if (res?.status === 400) {
             toasted.error(res?.message);
         }
+    };
+
+
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
     };
 
     return (
@@ -100,11 +114,17 @@ const AddStudent = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Password </label>
-                                    <input type="password" className="form-control" placeholder='Enter Password' name='password' onChange={handleInputFileds} />
+                                    <input type={showPassword ? "text" : "password"} className="form-control" placeholder='Enter Password' name='password' onChange={handleInputFileds} />
+                                    {showPassword ? (<RemoveRedEyeIcon className='password-icon-t' onClick={togglePasswordVisibility} />) : (<VisibilityOffIcon className='password-icon-t' onClick={togglePasswordVisibility} />)}
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Confirm Password </label>
-                                    <input type="password" className="form-control" placeholder='Enter Confirm Password' name='confirm_password' onChange={handleInputFileds} />
+                                    <input type={showConfirmPassword ? "text" : "password"} className="form-control" placeholder='Enter Confirm Password' name='confirm_password' onChange={handleInputFileds} />
+                                    {showConfirmPassword ? (
+                                        <RemoveRedEyeIcon className='password-icon-t' onClick={toggleConfirmPasswordVisibility} />
+                                    ) : (
+                                        <VisibilityOffIcon className='password-icon-t' onClick={toggleConfirmPasswordVisibility} />
+                                    )}
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Blood Group </label>
