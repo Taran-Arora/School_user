@@ -1,47 +1,34 @@
-import React, { useState } from 'react'
-import Nav from './Nav'
-import { Col, Container, Row } from 'react-bootstrap'
+import React, { useState } from 'react';
+import Nav from './Nav';
+import { Col, Container, Row } from 'react-bootstrap';
 import AddImg from './AddImg';
-import 'react-datepicker/dist/react-datepicker.css';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const AddStudent = () => {
-
     const navigate = useNavigate();
     const location = useLocation();
     const username = location?.state?.school_id;
     const class_name = location.state?.class_name;
+
     const [allFields, setAllFields] = useState({});
     const [profileImage, setProfileImage] = useState(null);
 
     const handleInputFileds = (e) => {
-
         const { name, value } = e.target;
-
         setAllFields(prevState => ({
             ...prevState,
             [name]: value,
             school_id: username,
             student_class: class_name
         }));
-    }
+    };
 
-    const handleImage = (e) => {
-        // const file = e.target.files[0];
-        // if (file) {
-        //     setProfileImage(file);
-        //     const reader = new FileReader();
-        //     reader.onloadend = () => {
-        //         setProfileImage(reader.result);
-        //     };
-        //     reader.readAsDataURL(file);
-        // }
-        const file = e.target.files[0];
-        setProfileImage(file);
-    }
+    const handleImageChange = (imageData) => {
+        setProfileImage(imageData);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -52,12 +39,12 @@ const AddStudent = () => {
         if (profileImage) {
             formData.append('image', profileImage);
         }
+
         const res = await _fetch(`${api_url}student/register/`, "ImagePost", formData, {});
         if (res?.status === 200) {
             toasted.success(res?.message);
             navigate('/classdata');
-        }
-        else if (res?.status === 400) {
+        } else if (res?.status === 400) {
             toasted.error(res?.message);
         }
     };
@@ -70,7 +57,7 @@ const AddStudent = () => {
                     <Col lg={12}>
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Student</h3>
-                            <input type='file' onChange={handleImage} />
+                            <AddImg profileImage={profileImage} onImageChange={handleImageChange} />
                         </div>
                     </Col>
                     <Col lg={12}>
@@ -80,8 +67,8 @@ const AddStudent = () => {
                             </div>
                             <Row>
                                 <Col xl={4} lg={6} className='form-group'>
-                                    <label> Name </label>
-                                    <input type="text" placeholder="Enter Name" className="form-control " name='name' onChange={handleInputFileds} />
+                                    <label>Name </label>
+                                    <input type="text" placeholder="Enter Name" className="form-control" name='name' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Roll No </label>
@@ -89,16 +76,14 @@ const AddStudent = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Class </label>
-                                    <input type="text" className="form-control" placeholder='Enter Class' value={class_name} />
+                                    <input type="text" className="form-control" placeholder='Enter Class' value={class_name} readOnly />
                                 </Col>
-
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Gender </label>
-                                    <select className='form-control' name='gender' onChange={handleInputFileds} >
-                                        <option value>Please Select Gender </option>
-                                        {['male', 'female'].map((gender, index) => (
-                                            <option key={index} value={gender}>{gender}</option>
-                                        ))}
+                                    <select className='form-control' name='gender' onChange={handleInputFileds}>
+                                        <option value="">Please Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
                                     </select>
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
@@ -106,96 +91,90 @@ const AddStudent = () => {
                                     <input type="number" className="form-control" placeholder='Enter Contact Number' name='contact_No' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
-                                    <label>Whatapp Number</label>
+                                    <label>Whatsapp Number</label>
                                     <input type="number" className="form-control" placeholder='Enter Whatsapp Number' name='whatsapp_number' onChange={handleInputFileds} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Email </label>
-                                    <input type="mail" className="form-control" placeholder='Enter Email Address' name='email' onChange={handleInputFileds} />
+                                    <input type="email" className="form-control" placeholder='Enter Email Address' name='email' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label > Password  </label>
-                                    <input type="password" className='form-control' name='password' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Password </label>
+                                    <input type="password" className="form-control" placeholder='Enter Password' name='password' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label > Confirm Password </label>
-                                    <input type="password" className='form-control' name='confirm_password' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Confirm Password </label>
+                                    <input type="password" className="form-control" placeholder='Enter Confirm Password' name='confirm_password' onChange={handleInputFileds} />
                                 </Col>
-                                
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="BloodGroup"> Blood Group </label>
-                                    <select aria-label="Default select example" className='form-control' name='blood_group' onChange={handleInputFileds} >
-                                        <option> Select Blood Group </option>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Blood Group </label>
+                                    <select className='form-control' name='blood_group' onChange={handleInputFileds}>
+                                        <option value="">Select Blood Group</option>
                                         {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map((group, index) => (
                                             <option key={index} value={group}>{group}</option>
                                         ))}
                                     </select>
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group" >
+                                <Col xl={4} lg={6} className='form-group'>
                                     <label>DOB </label>
                                     <input type="date" className='form-control' name='dob' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
+                                <Col xl={4} lg={6} className='form-group'>
                                     <label>Date of Admission </label>
                                     <input type="date" className='form-control' name='date_of_admission' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label> Address</label>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Address</label>
                                     <input type="text" className='form-control' name='address' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Religion"> Religion </label>
-                                    <select aria-label="Default select example" className='form-control' name='religion' onChange={handleInputFileds} >
-                                        <option> Select Religion </option>
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Religion </label>
+                                    <select className='form-control' name='religion' onChange={handleInputFileds}>
+                                        <option value="">Select Religion</option>
                                         {['Hindu', 'Muslim', 'Christian', 'Sikh', 'Buddhist', 'Jain', 'Parsi', 'Jewish', 'Other'].map((religion, index) => (
                                             <option key={index} value={religion}>{religion}</option>
                                         ))}
                                     </select>
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Caste"> Caste </label>
-                                    <select aria-label="Default select example" className='form-control' name='caste' onChange={handleInputFileds} >
-                                        <option> Select Caste </option>
-                                        {[
-                                            'SC', 'BC', 'General', 'Ews', 'OBC', 'ST'].map((caste, index) => (
-                                                <option key={index} value={caste}>{caste}</option>
-                                            ))}
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Caste </label>
+                                    <select className='form-control' name='caste' onChange={handleInputFileds}>
+                                        <option value="">Select Caste</option>
+                                        {['SC', 'BC', 'General', 'Ews', 'OBC', 'ST'].map((caste, index) => (
+                                            <option key={index} value={caste}>{caste}</option>
+                                        ))}
                                     </select>
                                 </Col>
-
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Total Fee </label>
                                     <input type="number" className="form-control" placeholder='Enter Total Fee' name='total_fee' onChange={handleInputFileds} />
                                 </Col>
-
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Name"> Father's  Name  </label>
-                                    <input type="text" className='form-control' name='father_name' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Father's Name </label>
+                                    <input type="text" className="form-control" placeholder="Enter Father's Name" name="father_name" onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Name"> Mother's  Name  </label>
-                                    <input type="text" className='form-control' name='mother_name' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Mother's Name </label>
+                                    <input type="text" className="form-control" placeholder="Enter Mother's Name" name='mother_name' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Name"> Father's Mobile no </label>
-                                    <input type="number" className='form-control' name='father_no' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Father's Mobile No </label>
+                                    <input type="number" className="form-control" placeholder="Enter Father's Mobile No" name='father_no' onChange={handleInputFileds} />
                                 </Col>
-                                <Col lg={6} xl={4} className="form-group">
-                                    <label type="Name"> Mother's mobile no  </label>
-                                    <input type="number" className='form-control' name='mother_no' onChange={handleInputFileds} />
+                                <Col xl={4} lg={6} className='form-group'>
+                                    <label>Mother's Mobile No </label>
+                                    <input type="number" className="form-control" placeholder="Enter Mother's Mobile No" name='mother_no' onChange={handleInputFileds} />
                                 </Col>
-                               
                                 <Col lg={12} className='form-group'>
                                     <button type='submit' className='btn-submit'>Submit</button>
                                 </Col>
-
                             </Row>
                         </form>
                     </Col>
                 </Row>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default AddStudent
+export default AddStudent;

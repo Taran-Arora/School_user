@@ -29,18 +29,22 @@ export default function FeeHistory() {
         let data = await _fetch(`${api_url}studentdata/?email=${email}`, "GET", {}, {});
         if (data?.status === 200) {
            const pendingFee = data?.data[data?.data?.length - 1];
+           
             setData(data?.data[0]);
             setAllData(data?.data);
             setPendingFee(pendingFee?.pending_fee);
         }
     }
-
     const getStudentFeeData = async () => {
         let data = await _fetch(`${api_url}studentfeedata/?student_email=${userEmail}`, "GET", {}, {});
         if (data?.status === 200 && data?.data?.length > 0) {
+            
             const pendingFee = data?.data[data?.data?.length - 1];
+            setData(data?.data[0]);
             setAllData(data?.data);
             setPendingFee(pendingFee?.pending_fee);
+            // setAllData(data?.data);
+            // setPendingFee(pendingFee?.pending_fee);
         }
     }
 
