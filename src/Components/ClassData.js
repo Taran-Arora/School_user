@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
@@ -10,6 +10,7 @@ const ClassData = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const username = localStorage.getItem('useremail');
+    const loginUser = localStorage.getItem('whologin');
 
     const [allData, setAllData] = useState([]);
     const [classData, setClassData] = useState([]);
@@ -19,15 +20,31 @@ const ClassData = () => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
             setToken(storedToken);
-            viewClassRecord();
+            if (loginUser === 'is_school') {
+                viewClassRecord();
+            }
+            else if (loginUser === 'is_teacher') {
+                viewTeacherClasses();
+            }
         }
     }, [token]);
-    const addClass = async() => {
+
+    const addClass = async () => {
         navigate('/addclass', { state: { username } });
     }
+    
     const viewClassRecord = async () => {
 
         const res = await _fetch(`${api_url}class/?school_email=${username}`, 'GET', {}, {});
+
+        if (res?.status === 200) {
+            setClassData(res?.data);
+        }
+    };
+
+    const viewTeacherClasses = async () => {
+
+        const res = await _fetch(`${api_url}classes/?teacher_email=${username}`, 'GET', {}, {});
 
         if (res?.status === 200) {
             setClassData(res?.data);

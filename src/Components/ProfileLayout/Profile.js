@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import Nav from '../Nav'
@@ -8,15 +8,44 @@ import ProfileImg from '../../Images/profile.png'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PercentIcon from '@mui/icons-material/Percent';
+import FeedIcon from '@mui/icons-material/Feed';
+import { api_url } from '../../config/config'
+import _fetch from '../../config/api'
 
 const Profile = () => {
+
+  const loginEmail = localStorage.getItem('useremail');
+
+  const [teacherImageData, setTeacherImageData] = useState({ image: '', teacher: { email: '', first_name: '', last_name: '', gender: '', } });
+  const [periodsData, setPeriodsData] = useState([]);
+
+  useEffect(() => {
+    getTeacherImage();
+    getTeacherPeriods();
+  }, []);
+
+  const getTeacherImage = async () => {
+    let res = await _fetch(`${api_url}teacherimagedata/?teacher_email=${loginEmail}`, "GET", {}, {});
+    if (res?.status === 200) {
+      setTeacherImageData(res?.data[0]);
+
+    }
+  }
+
+  const getTeacherPeriods = async () => {
+    let res = await _fetch(`${api_url}teacherperiodsdata/?teacher_email=${loginEmail}`, "GET", {}, {});
+    if (res?.status === 200) {
+      setPeriodsData(res?.data);
+    }
+  }
+
   return (
     <div className='my-profile px-3'>
       <Nav />
       <Container fluid>
         <Row className='my-4 my-xl-2 align-items-center'>
           <Col xl={12}>
-            <h3 className='title'>Hello, User!</h3>
+            <h3 className='title'>Hello, {teacherImageData?.teacher?.first_name + " " + teacherImageData?.teacher?.last_name}</h3>
             <p className='bread-crumb'><Link to="/dashboard">Dashboard</Link> <ArrowForwardIosIcon /> Profile</p>
           </Col>
           <Col xl={4} lg={6}>
@@ -26,18 +55,18 @@ const Profile = () => {
               </div>
               <div className="info mt-3">
                 <div className="card-img-section d-flex">
-                  <img src={ProfileImg} alt="" className='pf-img' />
+                  <img src={`data:image/jpeg;base64,${teacherImageData?.image}`} alt="" className='pf-img' />
                   <div className="main-body">
-                    <div className="pf-title"><h5>Samrat Monga</h5></div>
-                    <p>Aliquam erat volutpat. Curabiene natis massa sedde lacustiquen sodale word moun taiery.</p>
+                    <div className="pf-title"><h5>{teacherImageData?.teacher?.first_name + " " + teacherImageData?.teacher?.last_name}</h5></div>
+                    {/* <p>Aliquam erat volutpat. Curabiene natis massa sedde lacustiquen sodale word moun taiery.</p> */}
                   </div>
                 </div>
                 <div className="info-details">
-                  <p>Name: <span>Samrat Monga</span></p>
-                  <p>Gender: <span>Male</span></p>
-                  <p>Email: <span>abc@gmail.com</span></p>
-                  <p>Phone: <span>+91-1234567890</span></p>
-                  <p>Class: <span>1st</span></p>
+                  <p>Name: <span>{teacherImageData?.teacher?.first_name + " " + teacherImageData?.teacher?.last_name}</span></p>
+                  <p>Gender: <span>{teacherImageData?.teacher?.gender}</span></p>
+                  <p>Email: <span>{teacherImageData?.teacher?.email}</span></p>
+                  {/* <p>Phone: <span>+91-1234567890</span></p>
+                  <p>Class: <span>1st</span></p> */}
                 </div>
               </div>
             </div>
@@ -94,15 +123,22 @@ const Profile = () => {
                     <tbody>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Period</th>
+                        <th scope="col">Period Number</th>
                         <th scope="col">Class</th>
                       </tr>
-                      <tr>
-                        <td scope="col">1</td>
-                        <td scope="col">Period 1st</td>
-                        <td scope="col">Class 1st</td>
-                      </tr>
-                      <tr>
+                      {periodsData?.map((item, index) => {
+                        return (
+                          <>
+                            <tr>
+                              <td scope="col">{index + 1}</td>
+                              <td scope="col">{item?.period_number}</td>
+                              <td scope="col">{item?.class_name}</td>
+                            </tr>
+                          </>
+                        )
+                      })}
+
+                      {/* <tr>
                         <td scope="col">2</td>
                         <td scope="col">Period 2nd</td>
                         <td scope="col">Class 2nd</td>
@@ -116,7 +152,7 @@ const Profile = () => {
                         <td scope="col">4</td>
                         <td scope="col">Period 4th</td>
                         <td scope="col">Class 4th</td>
-                      </tr>
+                      </tr> */}
                     </tbody>
 
                   </table>

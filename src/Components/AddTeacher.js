@@ -1,37 +1,28 @@
-import React, { useState } from 'react'
-import Nav from './Nav'
-import { Col, Container, Row } from 'react-bootstrap'
+import React, { useState } from 'react';
+import Nav from './Nav';
+import { Col, Container, Row } from 'react-bootstrap';
 import AddImg from './AddImg';
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
-import { Construction } from '@mui/icons-material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-
-
 const AddTeacher = () => {
-
     const location = useLocation();
     const navigate = useNavigate();
-    const username = location.state?.username;
-
     const useremail = localStorage.getItem('useremail');
 
-    const [inputFields, setInputFields] = useState([7]);
-    const [status, setStatus] = useState('');
-
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [gender, setGender] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirm_password, setConfirmPassword] = useState();
-    const [subject, setSubject] = useState();
-    const [contact, setContact] = useState();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [gender, setGender] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [subject, setSubject] = useState('');
+    const [contact, setContact] = useState('');
     const [profileImage, setProfileImage] = useState(null);
     const [imageUploaded, setImageUploaded] = useState(false);
 
@@ -61,21 +52,12 @@ const AddTeacher = () => {
         setImageUploaded(true);
     };
 
-    const handleImage = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setProfileImage(file);
-        }
-        // if (file) {
-        //     const reader = new FileReader();
-        //     reader.onloadend = () => {
-        //         setProfileImage(reader.result);
-        //     };
-        //     reader.readAsDataURL(file);
-        // }
-    }
-
     const submitTeacherData = async () => {
+        if (password !== confirmPassword) {
+            toasted.error('Passwords do not match');
+            return;
+        }
+
         const periods = [...staticPeriods, ...dynamicPeriods].filter(period => period.class_name !== '');
         let formData = new FormData();
         formData.append('school_id', useremail);
@@ -85,7 +67,7 @@ const AddTeacher = () => {
         formData.append('contact', contact);
         formData.append('email', email);
         formData.append('password', password);
-        formData.append('confirm_password', confirm_password);
+        formData.append('confirm_password', confirmPassword);
         formData.append('subjects', subject);
         formData.append('image', profileImage);
         formData.append('periods', JSON.stringify(periods));
@@ -95,24 +77,21 @@ const AddTeacher = () => {
         if (res?.status === 200) {
             toasted.success(res?.message);
             navigate('/allteachers');
-
-        } else if (res?.status == 400) {
+        } else if (res?.status === 400) {
             toasted.error(res?.message);
         }
-    }
+    };
 
     const [showPassword, setShowPassword] = useState(false);
-    const [showPassword2, setShowPassword2] = useState(false);
-    const [confirmPassword2, setConfirmPassword2] = useState('');
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    const togglePasswordVisibility2 = () => {
-        setShowPassword2(!showPassword2);
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
     };
-
 
     return (
         <div className='px-3'>
@@ -122,8 +101,7 @@ const AddTeacher = () => {
                     <Col lg={12}>
                         <div className='top-head d-flex'>
                             <h3 className='top-heading'>Add a New Teacher</h3>
-                            <input type='file' onChange={handleImage} />
-                            {/* <AddImg profileImage={profileImage} imageUploaded={imageUploaded} onImageChange={handleImageChange} /> */}
+                            <AddImg profileImage={profileImage} imageUploaded={imageUploaded} onImageChange={handleImageChange} />
                         </div>
                     </Col>
                     <Col lg={12}>
@@ -142,8 +120,8 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Gender </label>
-                                    <select className='form-control' onChange={(e) => setGender(e.target.value)} >
-                                        <option value>Please Select Gender </option>
+                                    <select className='form-control' onChange={(e) => setGender(e.target.value)} value={gender}>
+                                        <option value="">Please Select Gender </option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                     </select>
@@ -154,30 +132,26 @@ const AddTeacher = () => {
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
                                     <label>Email </label>
-                                    <input type="mail" className="form-control" placeholder='Enter Email Address' onChange={(e) => setEmail(e.target.value)} value={email} />
+                                    <input type="email" className="form-control" placeholder='Enter Email Address' onChange={(e) => setEmail(e.target.value)} value={email} />
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group t-filed'>
                                     <label>Password </label>
                                     <input type={showPassword ? "text" : "password"} className="form-control" placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} value={password} />
                                     {showPassword ? (<RemoveRedEyeIcon className='password-icon-t' onClick={togglePasswordVisibility} />) : (<VisibilityOffIcon className='password-icon-t' onClick={togglePasswordVisibility} />)}
                                 </Col>
-                                {/* <div className="input-filed position-relative">
-                                    <Form.Control  placeholder="Password" className='password-filed' name='password'  />
-                                  
-                                </div> */}
-                                <Col xl={4} lg={6} className='form-group '>
+                                <Col xl={4} lg={6} className='form-group'>
                                     <label>Confirm Password </label>
                                     <input
-                                        type={showPassword2 ? "text" : "password"}
+                                        type={showConfirmPassword ? "text" : "password"}
                                         className="form-control"
                                         placeholder='Enter Confirm Password'
-                                        onChange={(e) => setConfirmPassword2(e.target.value)}
-                                        value={confirmPassword2}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        value={confirmPassword}
                                     />
-                                    {showPassword2 ? (
-                                        <RemoveRedEyeIcon className='password-icon-t' onClick={togglePasswordVisibility2} />
+                                    {showConfirmPassword ? (
+                                        <RemoveRedEyeIcon className='password-icon-t' onClick={toggleConfirmPasswordVisibility} />
                                     ) : (
-                                        <VisibilityOffIcon className='password-icon-t' onClick={togglePasswordVisibility2} />
+                                        <VisibilityOffIcon className='password-icon-t' onClick={toggleConfirmPasswordVisibility} />
                                     )}
                                 </Col>
                                 <Col xl={4} lg={6} className='form-group'>
@@ -189,7 +163,7 @@ const AddTeacher = () => {
                                     <Col key={index} xl={4} lg={6} className='form-group'>
                                         <label>Period {field?.period_number} </label>
                                         <select className='form-control' name="class_name" onChange={(e) => handleStaticChange(index, e)} value={field?.class_name}>
-                                            <option value>Select Class </option>
+                                            <option value="">Select Class </option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -201,7 +175,7 @@ const AddTeacher = () => {
                                     <Col key={index} xl={4} lg={6} className='form-group'>
                                         <label>Period {field?.period_number} </label>
                                         <select className='form-control' name="class_name" onChange={(e) => handleDynamicChange(index, e)} value={field?.class_name}>
-                                            <option value>Select Class </option>
+                                            <option value="">Select Class </option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -210,7 +184,7 @@ const AddTeacher = () => {
                                 ))}
 
                                 <div className='form-group d-flex gap-3'>
-                                    <button type='button' className='btn-submit' onClick={() => submitTeacherData()}>Submit</button>
+                                    <button type='button' className='btn-submit' onClick={submitTeacherData}>Submit</button>
                                     <button type='button' className='add-btn' onClick={handleAddField}>
                                         <AddCircleOutlineSharpIcon />Add Period
                                     </button>
@@ -222,7 +196,7 @@ const AddTeacher = () => {
                 </Row>
             </Container>
         </div>
-    )
-}
+    );
+};
 
-export default AddTeacher
+export default AddTeacher;

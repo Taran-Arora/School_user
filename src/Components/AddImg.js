@@ -3,27 +3,6 @@ import TeacherImg from '../Images/teacherimg.png';
 import EditIcon from '@mui/icons-material/Edit';
 
 const AddImg = ({ onImageChange }) => {
-    // const [profileImage, setProfileImage] = useState(TeacherImg);
-    // const [imageUploaded, setImageUploaded] = useState(false);
-
-    // const handleImageClick = () => {
-    //     document.getElementById('profile-image-upload').click();
-    // };
-    // const handleImageChange = (e) => {
-    //     const file = e.target.files[0];
-    //     const reader = new FileReader();
-    //     reader.onloadend = () => {
-    //         // setProfileImage(reader.result);
-    //         // setImageUploaded(true);
-    //         if (onImageChange) {
-    //             onImageChange(true);
-    //         }
-    //     };
-    //     if (file) {
-    //         reader.readAsDataURL(file);
-    //     }
-    // };
-
     const [profileImage, setProfileImage] = useState(TeacherImg);
     const [imageUploaded, setImageUploaded] = useState(false);
 
@@ -33,16 +12,12 @@ const AddImg = ({ onImageChange }) => {
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setProfileImage(reader.result);
+        if (file) {
+            setProfileImage(file);
             setImageUploaded(true);
             if (onImageChange) {
-                onImageChange(true);
+                onImageChange(file);  // Pass the file object back to parent
             }
-        };
-        if (file) {
-            reader.readAsDataURL(file);
         }
     };
 
@@ -51,7 +26,7 @@ const AddImg = ({ onImageChange }) => {
             <div className="img-container" onClick={handleImageClick}>
                 <img
                     alt="User Pic"
-                    src={profileImage}
+                    src={imageUploaded ? URL.createObjectURL(profileImage) : profileImage}
                     id="profile-image1"
                     height="200"
                 />
