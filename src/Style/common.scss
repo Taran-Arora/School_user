@@ -150,3 +150,12 @@ input[type=number] {
 .table-container {
   max-height: 650px;
 }
+
+.delte-iocn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color:red;
+  }
+}
