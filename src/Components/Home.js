@@ -12,6 +12,7 @@ import { api_url } from '../../src/config/config';
 import snoze1 from '../assets/Images/snoze1.png';
 import toasted from '../config/toast';
 import { useHistory } from 'react-router-dom';
+import classesImg from '../assets/Images/classes.png'
 
 
 const Home = ({ Toggle }) => {
@@ -34,6 +35,8 @@ const Home = ({ Toggle }) => {
     const [blockedData, setBlockedData] = useState([]);
     const [totalStudents, setTotalStudents] = useState();
     const [totalTeachers, setTotalTeachers] = useState();
+    const [totalClasses, setTotalClasses] = useState();
+    
 
     const whoLogin = localStorage.getItem('whologin');
     const userEmail = localStorage.getItem('useremail');
@@ -56,6 +59,8 @@ const Home = ({ Toggle }) => {
 
         const res2 = await _fetch(`${api_url}getteachercount/?school_email=${userEmail}`, 'GET', {}, {});
 
+        const res3 = await _fetch(`${api_url}class/?school_email=${userEmail}`, 'GET', {}, {});
+
         if (res?.status === 200) {
             setTotalStudents(res?.student_count);
 
@@ -64,6 +69,10 @@ const Home = ({ Toggle }) => {
         }
         if (res2?.status === 200) {
             setTotalTeachers(res2?.teacher_count);
+        }
+
+        if (res3?.status === 200) {
+            setTotalClasses(res3?.total_classes);
         }
     };
 
@@ -128,8 +137,9 @@ const Home = ({ Toggle }) => {
                     <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
                         <div className="p-4 bg-white box">
                             <div className='content'>
-                                <h3 className='fs-2'>{totalTeachers} </h3>
+                         
                                 <Link to='/allteachers' className='fs-5 d-link'>Total Teachers</Link>
+                                <h3 className='fs-2'>{totalTeachers} </h3>
                             </div>
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
                         </div>
@@ -146,39 +156,13 @@ const Home = ({ Toggle }) => {
                     <Col xl={4} lg={6} md={6} sm={6} className="p-1">
                         <div className="p-4 bg-white box">
                             <div className='content'>
-                                <Link to='' className='fs-5 d-link'>Blocked Users</Link>
-                                <h3 className='fs-2'>{totalUsers?.block}</h3>
+                                <Link to='' className='fs-5 d-link'>Total Classes</Link>
+                                <h3 className='fs-2'>{totalClasses}</h3>
                             </div>
-                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink box-image' />
+                            <img src={classesImg} alt="Blocked Users" className='img-fluid cards-img bg-pink box-image' />
                         </div>
                     </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-4 bg-white box">
-                            <div className='content'>
-                                <Link to='' className='fs-5 d-link'>Total Teachers</Link>
-                                <h3 className='fs-2'>{totalTeachers} </h3>
-                            </div>
-                            <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-4 bg-white box">
-                            <div className='content'>
-                                <Link className='fs-5 d-link'>Total Students</Link>
-                                <h3 className='fs-2'>{totalStudents} </h3>
-                            </div>
-                            <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue box-image' />
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
-                        <div className="p-4 bg-white box">
-                            <div className='content'>
-                                <Link className='fs-5 d-link'>Blocked Users</Link>
-                                <h3 className='fs-2'>{totalUsers?.block}</h3>
-                            </div>
-                            <img src={bUser} alt="Blocked Users" className='img-fluid cards-img bg-pink box-image' />
-                        </div>
-                    </Col>
+        
                 </Row>
             </Container>
         </div>

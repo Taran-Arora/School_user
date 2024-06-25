@@ -8,7 +8,7 @@ import Nav from './Nav';
 import { Link, useNavigate } from 'react-router-dom';
 import Students from '../assets/Images/graduation.png';
 import Parents from '../assets/Images/parents.png';
-import Teacher from '../assets/Images/teacher.png';
+// import Teacher from '../assets/Images/teacher.png';
 import Earning from '../assets/Images/salary.png';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';

@@ -12,12 +12,12 @@
             // justify-content: center; 
             border-radius: 10px;
             margin-bottom: 25px;
-          
+
 
 
             img {
-                width: 200px;
-                height: 200px;
+                width: 150px;
+                height: 150px;
                 border-radius: 10px;
                 margin-bottom: 10px;
 
@@ -43,8 +43,8 @@
             // justify-content: end;
 
             img {
-                width: 200px;
-                height: 200px;
+                width: 150px;
+                height: 150px;
                 border-radius: 10px;
                 margin-bottom: 10px;
                 border-radius: 100% !important;
@@ -82,8 +82,9 @@
 
             }
         }
+
         textarea {
-            
+
             &:focus {
                 box-shadow: none;
                 outline: none;
@@ -94,7 +95,7 @@
 
     }
 
-  
+
 
     input {
         box-shadow: none;
@@ -115,28 +116,37 @@
             border: var(--bs-border-width) solid var(--bs-border-color);
         }
     }
+
     .for-edit-btn {
         display: flex;
         justify-content: space-between;
-        
-    .student-edit-btn {
-        display: flex;
 
-        .student-edit {
+        .student-edit-btn {
             display: flex;
-            align-items: center;
-            gap: 0.2rem;
-            // background-color: #14A44D;
-            background-color: #007CAF;
-            color: #000;
-            border-radius: 8px;
-            padding: 8px;
-            color: $white;
-            font-weight: 600;
-            border: none;
-            padding: 12px;
+
+            .student-edit {
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+                // background-color: #14A44D;
+                background-color: #187b98;
+                color: #000;
+                border-radius: 8px;
+                padding: 8px;
+                color: $white;
+                font-weight: 600;
+                border: none;
+                padding: 12px;
+                transition: 0.3s all;
+                
+
+                &:hover {
+                    background-color: #00CEC9;
+                    transition: 0.3s all;
+        
+                }
+            }
         }
-    }
     }
 
 
@@ -154,26 +164,32 @@
     .school-name {
         font-size: 20px;
     }
+
     .school-address {
         font-size: 18px !important;
     }
+
     br {
         display: none;
     }
+
     .school-logo {
         display: flex;
         width: 100%;
         justify-content: center;
     }
+
     .about-student {
-        margin: 0 ;
+        margin: 0;
     }
+
     .for-image-section {
         .studemt-school-image {
             img {
                 display: none;
             }
         }
+
         .school-logo {
             width: 100% !important;
             display: flex;
@@ -182,5 +198,14 @@
             display: none;
         }
 
+
     }
+}
+
+.school-name {
+    font-size: 25px !important;
+}
+
+.school-address {
+    font-size: 1.5rem;
 }

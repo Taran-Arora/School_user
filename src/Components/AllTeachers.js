@@ -60,7 +60,10 @@ const AllTeachers = () => {
                             <tr className='fixed-header' >
                                 <th scope="col">#</th>
                                 <th scope="col">Teacher Name</th>
+                                <th>Teacher Email</th>
                                 <th scope="col">School Name</th>
+                                <th>School Email</th>
+                                <th>Subject</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Contact</th>
                                 <th scope="col">Action</th>
@@ -69,7 +72,11 @@ const AllTeachers = () => {
                                 <tr>
                                     <th scope="col">{index + 1}</th>
                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
+                                    <td scope="col">{item?.email}</td>
                                     <td scope="col">{item?.school_id?.school_name}</td>
+                                    <td scope="col">{item?.school_id?.school_email}</td>
+                                    <td scope="col">{item?.subjects}</td>
+                                    
                                     <td scope="col">{item?.gender}</td>
                                     <td scope="col">{item?.contact}</td>
                                     <td className='d-flex gap-3 set-view-btn' scope="col">
