@@ -14,7 +14,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from '../config/toast';
-
+import DavLogo from '../assets/Images/davlogo.jpg';
 const Sidebar = () => {
 
   const navigate = useNavigate();
@@ -62,8 +62,15 @@ const Sidebar = () => {
     <>
       <div className='p-2 max-vh-100'>
         <div className='m-2 d-flex align-items-center'>
-          <PersonIcon className='me-2 fs-4'></PersonIcon>
-          <span className='brand-name fs-4'>Admin</span>
+          <div className='school-logo-img' >
+          {/* <img src={DavLogo}  alt="" className='img-fluid' /> */}
+          </div>
+  
+          {/* <PersonIcon className='me-2 fs-4'></PersonIcon> */}
+          <marquee behavior="" direction="">
+          <h4 className='brand-name fs-4'> DAV School Abohar </h4>
+          </marquee>
+     
         </div>
         <hr className='text-dark' />
         {whoLogin === 'is_school' && (
