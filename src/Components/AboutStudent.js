@@ -87,11 +87,11 @@ export default function AboutStudent() {
             </div>
             <Row className=''>
               <Col lg={6} className="for-student-input"  >
-                <label type="Name" className='labal-title'> Student Name </label>
+                <label type="Name" className='labal-title'> Name </label>
                 <input type="text" className='form-control' value={studentImageData?.student?.name} />
               </Col>
               <Col lg={6} className="for-student-input"  >
-                <label type="roll-number" className='labal-title'> Students Roll No  </label>
+                <label type="roll-number" className='labal-title'>Roll No  </label>
                 <input type="number" value={studentImageData?.student?.roll_no} className='form-control' />
               </Col>
               <Col lg={6} className="for-student-input">
@@ -139,10 +139,7 @@ export default function AboutStudent() {
                   <option value="3">Other </option>
                 </Form.Select>
               </Col>
-              <Col lg={6} className="for-student-input">
-                <label className='labal-title'>Date of Admission</label>
-                <input type="date" value={studentImageData?.student?.date_of_admission} className='form-control' />
-              </Col>
+
               <Col lg={6} className="for-student-input">
                 <label className='labal-title'> Contact No  </label>
                 <input type="number" value={studentImageData?.student?.contact_No} className='form-control' />
@@ -220,11 +217,11 @@ export default function AboutStudent() {
             </div>
             <Row className=''>
               <Col lg={6} className="for-student-input"  >
-                <label type="Name" className='labal-title'> Student Name </label>
+                <label type="Name" className='labal-title'>  Name </label>
                 <input type="text" className='form-control' value={alldata?.name} />
               </Col>
               <Col lg={6} className="for-student-input"  >
-                <label type="roll-number" className='labal-title'> Students Roll No  </label>
+                <label type="roll-number" className='labal-title'>Roll No  </label>
                 <input type="number" value={alldata?.roll_no} className='form-control' />
               </Col>
               <Col lg={6} className="for-student-input">
@@ -245,11 +242,25 @@ export default function AboutStudent() {
                   <option value="12">12th</option>
                 </Form.Select>
               </Col>
+              <Col lg={6} className="for-student-input">
+                <label className='labal-title'>Date of Admission</label>
+                <input  value={alldata.date_of_admission} className='form-control' />
+              </Col>
+              <Col lg={6}>
+                <label type="Name" className='labal-title'> Gender </label>
+                <Form.Select aria-label="Default select example" className='form-control'>
+                  <option> {alldata.gender} </option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                  <option value="3">Other </option>
+                </Form.Select>
+              </Col>
               <Col lg={6} className="for-student-input" >
                 <label className='labal-title'>DOB</label>
-                <input type="date" value={alldata.dob} className='form-control' />
+                <input  value={alldata.dob} className='form-control' />
               </Col>
-              <Col lg={6} className="for-student-input">
+
+              {/* <Col lg={6} className="for-student-input">
                 <label type="BloodGroup" className='labal-title'> Blood Group </label>
                 <Form.Select aria-label="Default select example" className='form-control'>
                   <option> {alldata.blood_group} </option>
@@ -262,33 +273,23 @@ export default function AboutStudent() {
                   <option value="O+">O+</option>
                   <option value="O-">O-</option>
                 </Form.Select>
+              </Col> */}
+          
+          <Col lg={6} className="for-student-input">
+                <label type="Email" className='labal-title'> Email </label>
+                <input type="Email" value={alldata.email} className='form-control' />
               </Col>
-              <Col lg={6}>
-                <label type="Name" className='labal-title'> Gender </label>
-                <Form.Select aria-label="Default select example" className='form-control'>
-                  <option> {alldata.gender} </option>
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                  <option value="3">Other </option>
-                </Form.Select>
-              </Col>
-              <Col lg={6} className="for-student-input">
-                <label className='labal-title'>Date of Admission</label>
-                <input type="date" value={alldata.date_of_admission} className='form-control' />
-              </Col>
+      
               <Col lg={6} className="for-student-input">
                 <label className='labal-title'> Contact No  </label>
                 <input type="number" value={alldata.contact_No} className='form-control' />
               </Col>
-              <Col lg={6} className="for-student-input">
-                <label type="Email" className='labal-title'> Email </label>
-                <input type="Email" value={alldata.email} className='form-control' />
-              </Col>
-              <Col lg={6} className="for-student-input">
+        
+              {/* <Col lg={6} className="for-student-input">
                 <label className='labal-title'> WhatsApp no  </label>
                 <input type="number" value={alldata.contact_No} className='form-control' />
-              </Col>
-              <Col lg={6} className="for-student-input">
+              </Col> */}
+              {/* <Col lg={6} className="for-student-input">
                 <label type="Religion" className='labal-title'> Religion </label>
                 <Form.Select aria-label="Default select example" className='form-control'>
                   <option> {alldata.religion} </option>
@@ -302,9 +303,9 @@ export default function AboutStudent() {
                   <option value="Jewish">Jewish</option>
                   <option value="Other">Other</option>
                 </Form.Select>
-              </Col>
+              </Col> */}
 
-              <Col lg={6} className="for-student-input">
+              {/* <Col lg={6} className="for-student-input">
                 <label type="Caste" className='labal-title'> Caste </label>
                 <Form.Select aria-label="Default select example" className='form-control'>
                   <option> {alldata.caste} </option>
@@ -315,33 +316,29 @@ export default function AboutStudent() {
                   <option value="OBC">OBC</option>
                   <option value="ST">ST</option>
                 </Form.Select>
-              </Col>
-            </Row>
-            <Row>
+              </Col> */}
+       
               <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Father's  Name  </label>
                 <input type="text" value={alldata.father_name} className='form-control' />
-              </Col>
-              <Col lg={6} className="for-student-input">
-                <label type="Name" className='labal-title'> Mother's  Name  </label>
-                <input type="text" value={alldata.mother_name} className='form-control' />
               </Col>
               <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Father's Mobile no </label>
                 <input type="number" value={alldata.father_no} className='form-control' />
               </Col>
 
-              <Col lg={6} className="for-student-input">
+              {/* <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Mother's mobile no  </label>
                 <input type="number" value={alldata.mother_no} className='form-control' />
+              </Col> */}
+
+              <Col lg={6} className="for-student-input">
+                <label type="Name" className='labal-title'> Address </label>
+                <textarea type="text-area" value={alldata.address} className='form-control' />
               </Col>
               <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Pending Fee </label>
                 <input type="number" className='form-control' />
-              </Col>
-              <Col lg={12} className="for-student-input">
-                <label type="Name" className='labal-title'> Address </label>
-                <textarea type="text-area" value={alldata.address} className='form-control' />
               </Col>
 
             </Row>

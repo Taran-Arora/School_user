@@ -2,7 +2,7 @@
     overflow-x: hidden !important;
     border-radius: 0.375rem;
     background: $white;
-    margin-top: 30px;
+    margin-top: 10px;
 
     @media (max-width: 1199px) {
         overflow-x: scroll !important;
@@ -24,7 +24,7 @@
             color: $btn-text2;
             // background-color: $btn-clr2;
             border-radius: 12px;
-            padding: 9px;
+            padding: 9px 12px;
             border: none;
             background-color: #89DDF1;
             color: #fff;
@@ -38,7 +38,7 @@
             color: #fff;
             background-color: #e15959;
             border-radius: 12px;
-            padding: 9px;
+            padding: 9px 23px;
             box-shadow: none;
             border: none;
             font-size: 14px;

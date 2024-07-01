@@ -76,7 +76,8 @@ input[type=number] {
 }
 
 .dash {
-  background-image: url(../Images/bg1.jpg);
+  // background-image: url(../Images/bg1.jpg);
+  background-image: url(../Images/bgmain.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -105,47 +106,83 @@ input[type=number] {
 
 
 /* styles.css (or any appropriate CSS file) */
-.table-container {
-  overflow-y: auto;
-  max-height: 100%; /* Adjust the height as needed */
-}
-.fixed-header-one {
-  position: sticky;
-  top: 0;
-  background-color: white; /* Ensure the background is white for header visibility */
-  z-index: 10; /* Ensure it's above other content */
 
-  @media (max-width:768px) {
-    position: static;
-  }
+// .table-container {
+//   overflow-y: auto;
+//   max-height: 100%; /* Adjust the height as needed */
+// }
+// .fixed-header-one {
+//   position: sticky;
+//   top: 0;
+//   background-color: white; /* Ensure the background is white for header visibility */
+//   z-index: 10; /* Ensure it's above other content */
+
+//   @media (max-width:768px) {
+//     position: static;
+//   }
 
 
   
-}
-.fixed-header {
-  padding-bottom: 10px;
-  @media (max-width:768px) {
-    position: static;
-  }
+// }
+// .fixed-header {
+//   padding-bottom: 10px;
+//   @media (max-width:768px) {
+//     position: static;
+//   }
 
-}
-.fixed-header th {
-  position: sticky;
-  top: 70px;
-  background-color: #187b98 !important; /* Ensure the background is white for header visibility */
-  z-index: 10; /* Ensure it's above other content */
-  color: #fff !important;
-  font-weight: 500;
+// }
+// .fixed-header th {
+//   position: sticky;
+//   top: 70px;
+//   background-color: #187b98 !important; /* Ensure the background is white for header visibility */
+//   z-index: 10; /* Ensure it's above other content */
+//   color: #fff !important;
+//   font-weight: 500;
 
 
-  @media (max-width:768px) {
-    position: static;
-  }
+//   @media (max-width:768px) {
+//     position: static;
+//   }
 
   
-}
+// }
 
 
 .table-container {
   max-height: 650px;
+}
+
+.delte-iocn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    color:red;
+  }
+}
+
+
+.table {
+  position: relative;
+  tr {
+      &:nth-child(2) {
+          margin-top: 20px;
+      }
+  }
+  .its-t-head {
+      position: sticky;
+      top: 0;
+      background:#187b98 ;
+      color: #fff !important;
+      tr {
+        th {
+          color: #fff;
+        }
+      }
+  }
+}
+
+.t-custom {
+  background: white;
+  position: relative;
 }

@@ -30,7 +30,7 @@ const AllTeachers = () => {
     };
 
     const deleteTeacher = async (email, school_email) => {
-        let data = { 
+        let data = {
             'email': email,
             'school_email': school_email
         }
@@ -46,30 +46,41 @@ const AllTeachers = () => {
         <div className='px-3'>
             <Nav />
             <Container fluid>
-                <div className="table-responsive table-container">
-                    <div className='table-head fixed-header-one '>
+                <div className='t-custom'>
+            <div className='table-head fixed-header-one '>
                         <h3 className='table-heading '>All Teachers</h3>
                         <Link to="/addteacher" className='add-btn'>
                             <AddCircleOutlineSharpIcon />Add New Teacher
                         </Link>
                     </div>
+                <div className="table-responsive table-container">
+                 
 
                     <table className="table">
 
-                        <tbody>
+
+                        <thead className='its-t-head'>
                             <tr className='fixed-header' >
                                 <th scope="col">#</th>
                                 <th scope="col">Teacher Name</th>
-                                <th scope="col">School Name</th>
+                                <th>Teacher Email</th>
+                                {/* <th>School Email</th> */}
+                                <th>Subject</th>
                                 <th scope="col">Gender</th>
                                 <th scope="col">Contact</th>
                                 <th scope="col">Action</th>
                             </tr>
+                        </thead>
+                        <tbody>
+
                             {teacherData?.map((item, index) => (
                                 <tr>
                                     <th scope="col">{index + 1}</th>
                                     <td scope="col">{item?.first_name} {item?.last_name}</td>
-                                    <td scope="col">{item?.school_id?.school_name}</td>
+                                    <td scope="col">{item?.email}</td>
+                                    {/* <td scope="col">{item?.school_id?.school_email}</td> */}
+                                    <td scope="col">{item?.subjects}</td>
+
                                     <td scope="col">{item?.gender}</td>
                                     <td scope="col">{item?.contact}</td>
                                     <td className='d-flex gap-3 set-view-btn' scope="col">
@@ -81,54 +92,137 @@ const AllTeachers = () => {
                                 
                             ))}
                             
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+                            <tr>
+                                <td>title1</td>
+                                <td>title2</td>
+                                <td>title3</td>
+                                <td>title4</td>
+                                <td>title5</td>
+                                <td><button>Delte</button></td>
+                            </tr>
+              
+
                         </tbody>
                     </table>
+                </div>
                 </div>
             </Container>
         </div>
 
 
-    //     <div className='px-3'>
-    //     <Nav />
-    //     <Container fluid>
-    //         <div className="table-responsive table-container">
-    //             <div className='table-head'>
-    //                 <h3 className='table-heading'>All Teachers</h3>
-    //                 <Link to="/addteacher" className='add-btn'>
-    //                     <AddCircleOutlineSharpIcon />Add New Teacher
-    //                 </Link>
-    //             </div>
-    //             <table className="table">
-    //                 <thead className="fixed-header">
-    //                     <tr>
-    //                         <th>#</th>
-    //                         <th>Teacher Name</th>
-    //                         <th>School Name</th>
-    //                         <th>Gender</th>
-    //                         <th>Contact</th>
-    //                         <th>Action</th>
-    //                     </tr>
-    //                 </thead>
-    //                 <tbody>
-    //                     {teacherData?.map((item, index) => (
-    //                         <tr key={index}>
-    //                             <td>{index + 1}</td>
-    //                             <td>{item?.first_name} {item?.last_name}</td>
-    //                             <td>{item?.school_id?.school_name}</td>
-    //                             <td>{item?.gender}</td>
-    //                             <td>{item?.contact}</td>
-    //                             <td className='d-flex gap-3 set-view-btn'>
-    //                                 <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
-    //                                 <DeleteIcon onClick={() => deleteTeacher(item?.email, item?.school_id?.school_email)} />
-    //                             </td>
-    //                         </tr>
-    //                     ))}
-    //                 </tbody>
-    //             </table>
-    //         </div>
-    //         {loading && <Bookpreloader />}
-    //     </Container>
-    // </div>
+        //     <div className='px-3'>
+        //     <Nav />
+        //     <Container fluid>
+        //         <div className="table-responsive table-container">
+        //             <div className='table-head'>
+        //                 <h3 className='table-heading'>All Teachers</h3>
+        //                 <Link to="/addteacher" className='add-btn'>
+        //                     <AddCircleOutlineSharpIcon />Add New Teacher
+        //                 </Link>
+        //             </div>
+        //             <table className="table">
+        //                 <thead className="fixed-header">
+        //                     <tr>
+        //                         <th>#</th>
+        //                         <th>Teacher Name</th>
+        //                         <th>School Name</th>
+        //                         <th>Gender</th>
+        //                         <th>Contact</th>
+        //                         <th>Action</th>
+        //                     </tr>
+        //                 </thead>
+        //                 <tbody>
+        //                     {teacherData?.map((item, index) => (
+        //                         <tr key={index}>
+        //                             <td>{index + 1}</td>
+        //                             <td>{item?.first_name} {item?.last_name}</td>
+        //                             <td>{item?.school_id?.school_name}</td>
+        //                             <td>{item?.gender}</td>
+        //                             <td>{item?.contact}</td>
+        //                             <td className='d-flex gap-3 set-view-btn'>
+        //                                 <Link to="/aboutteacher" state={{ teacher_email: item?.email, school_email: item?.school_id?.school_email }} className='btn-view'>View</Link>
+        //                                 <DeleteIcon onClick={() => deleteTeacher(item?.email, item?.school_id?.school_email)} />
+        //                             </td>
+        //                         </tr>
+        //                     ))}
+        //                 </tbody>
+        //             </table>
+        //         </div>
+        //         {loading && <Bookpreloader />}
+        //     </Container>
+        // </div>
     )
 }
 

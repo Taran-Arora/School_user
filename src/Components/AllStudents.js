@@ -18,10 +18,10 @@ export default function AllStudents() {
     const loginUser = localStorage.getItem('whologin');
 
     useEffect(() => {
-        if(loginUser === 'is_school') {
+        if (loginUser === 'is_school') {
             StudentsData();
         }
-        else if(loginUser === 'is_teacher') {
+        else if (loginUser === 'is_teacher') {
             TeachersStudentData();
         }
 
@@ -60,40 +60,49 @@ export default function AllStudents() {
         <div className='px-3'>
             <Nav />
             <Container fluid>
-                <div className="table-responsive table-container">
+                <div className="t-custom">
                     <div className='table-head fixed-header-one'>
                         <h3 className='table-heading'>All Students</h3>
                         {/* <Link to="/addstudent" className='add-btn'>
                         <AddCircleOutlineSharpIcon />Add New Student
                     </Link> */}
                     </div>
-                    <table className="table">
-                        <tbody>
-                            <tr className='fixed-header'>
-                                <th scope="col">#</th>
-                                <th scope="col ">Student Name</th>
-                                <th scope="col">School Name</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Contact</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                            {alStudentsData?.map((item, index) => (
-                                <tr>
-                                    <th scope="col">{index + 1}</th>
-                                    <td scope="col " className='for-name'> {item?.name}</td>
-                                    <td scope="col">{item?.school_id?.school_name}</td>
-                                    <td scope="col">{item?.gender}</td>
-                                    <td scope="col">{item?.contact_No}</td>
-                                    <td className='d-flex gap-3' scope="col">
-                                        <Link to="/aboutstudent" className='btn-view' state={{ email: item?.email, class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email }}>View</Link>
-                                        <DeleteIcon className='delete-icon' onClick={() => deleteStudent(item?.email, item?.school_id?.school_email)} />
 
-                                    </td>
+                    <div className="table-responsive table-container">
+
+                        <table className="table">
+
+                            <thead className='its-t-head'>
+                                <tr className='fixed-header'>
+                                    <th scope="col">#</th>
+                                    <th scope="col ">Student Name</th>
+                                    <th scope="col">School Name</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Contact</th>
+                                    <th scope="col">Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {alStudentsData?.map((item, index) => (
+                                    <tr>
+                                        <th scope="col">{index + 1}</th>
+                                        <td scope="col " className='for-name'> {item?.name}</td>
+                                        <td scope="col">{item?.school_id?.school_name}</td>
+                                        <td scope="col">{item?.gender}</td>
+                                        <td scope="col">{item?.contact_No}</td>
+                                        <td className='d-flex gap-3' scope="col">
+                                            <Link to="/aboutstudent" className='btn-view' state={{ email: item?.email, class_id: item?.class_id?.class_name, school_email: item?.school_id?.school_email }}>View</Link>
+                                            <DeleteIcon className='delete-icon' onClick={() => deleteStudent(item?.email, item?.school_id?.school_email)} />
+
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
+
             </Container>
         </div>
     )
