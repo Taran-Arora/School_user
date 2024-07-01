@@ -38,7 +38,7 @@ const Sidebar = () => {
     if (res?.status === 200) {
 
     } else {
-   navigate('/');
+  //  navigate('/');
     }
   };
 
@@ -51,7 +51,7 @@ const Sidebar = () => {
       toasted.success(data?.message);
       localStorage.clear();
       setTimeout(() => {
-       navigate('/');
+      //  navigate('/');
       }, 1000);
     } else {
       toasted.error(data?.message);
@@ -73,7 +73,7 @@ const Sidebar = () => {
      
         </div>
         <hr className='text-dark' />
-        {whoLogin === 'is_school' && (
+        {/* {whoLogin === 'is_school' && ( */}
           <>
             <div className='list-group list-group-flush max-vh-100'>
               <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
@@ -99,8 +99,8 @@ const Sidebar = () => {
               </div>
             </div>
           </>
-        )}
-        {whoLogin === 'is_teacher' && (
+        {/* )} */}
+        {/* {whoLogin === 'is_teacher' && (
           <>
             <div className='list-group list-group-flush max-vh-100'>
 
@@ -128,15 +128,14 @@ const Sidebar = () => {
                 <span className='fs-5'>All Students</span>
               </Link> */}
 
-              <div className="for-logout-btn">
+              {/* <div className="for-logout-btn">
                 <button onClick={logOut} class="list-group-item py-2 position-absolute  d-flex align-items-center logout-btn" ><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium fs-4 me-2 css-i4bv87-MuiSvgIcon-root" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LogoutIcon"><path d="m17 7-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z"></path></svg><span class="fs-5">Logout</span></button>
               </div>
             </div>
           </>
-        )}
+        )} */}
       </div>
-    </>
-
+    </> 
 
 
 

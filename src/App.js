@@ -64,7 +64,7 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/forgot" element={<Forgot />} />
 
-              <Route element={<PrivateRoutes />}>
+              {/* <Route element={<PrivateRoutes />}> */}
                 <Route element={<DashLayout />}>
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/allteachers" element={<AllTeachers />} />
@@ -81,7 +81,7 @@ function App() {
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/feehistory' element={<FeeHistory />}></Route>
                 </Route>
-              </Route>
+              {/* </Route> */}
             </Routes>
           </BrowserRouter>
         </ToggleProvider>

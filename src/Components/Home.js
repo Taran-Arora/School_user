@@ -13,8 +13,13 @@ import snoze1 from '../assets/Images/snoze1.png';
 import toasted from '../config/toast';
 import { useHistory } from 'react-router-dom';
 import classesImg from '../assets/Images/classes.png'
-
-
+import Studentsall from '../assets/Images/students (1).png'
+import allteacher from '../assets/Images/teacher (1).png';
+import allsclasses from '../assets/Images/teacher (2).png'
+import bottomimg from '../assets/Images/portrait-girl-lying-wooden-floor-painting-yellow-star-with-paintbrush-removebg-preview.png'
+import Celendar from '../Components/Celendar'
+import management from '../assets/Images/school-management-services-4-500x500.webp'
+import Slider from '../Components/Slider';
 const Home = ({ Toggle }) => {
 
     const navigate = useNavigate();
@@ -36,7 +41,7 @@ const Home = ({ Toggle }) => {
     const [totalStudents, setTotalStudents] = useState();
     const [totalTeachers, setTotalTeachers] = useState();
     const [totalClasses, setTotalClasses] = useState();
-    
+
 
     const whoLogin = localStorage.getItem('whologin');
     const userEmail = localStorage.getItem('useremail');
@@ -65,7 +70,7 @@ const Home = ({ Toggle }) => {
             setTotalStudents(res?.student_count);
 
         } else {
-             navigate('/');
+            // navigate('/');
         }
         if (res2?.status === 200) {
             setTotalTeachers(res2?.teacher_count);
@@ -165,6 +170,68 @@ const Home = ({ Toggle }) => {
         
                 </Row>
             </Container>
+
+
+            {/* <Container fluid className="cards">
+                <Row className="g-3 my-4 my-xl-2">
+                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
+                        <div className="user-card">
+                            <div className="u-card-heading">
+                                <h6> Total Students</h6>
+                            </div>
+                            <div className="u-card-des">
+                                <h3 className='fs-2'>{totalStudents} </h3>
+                            </div>
+                            <div className="user-card-img">
+                                <img src={Studentsall} alt="" />
+                            </div>
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
+                        <div className="user-card">
+                            <div className="u-card-heading">
+                                <h6> Total Teachers </h6>
+                            </div>
+                            <div className="u-card-des">
+                                <h3 className='fs-2'>{totalTeachers} </h3>
+                            </div>
+                            <div className="user-card-img">
+                                <img src={allteacher} alt="" />
+                            </div>
+                        </div>
+                    </Col>
+                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
+                        <div className="user-card">
+                            <div className="u-card-heading">
+                                <h6> All Classes </h6>
+                            </div>
+                            <div className="u-card-des">
+                                <h3 className='fs-2'>{totalClasses} </h3>
+                            </div>
+                            <div className="user-card-img">
+                                <img src={allsclasses} alt="" />
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col lg={6}>
+                        <Celendar />
+                    </Col>
+                    <Col lg={6} className='for-custom-cal' >
+                        <div className="new-custom-cal">
+                            <img src={management} alt="" />
+
+                        </div>
+
+                    </Col>
+
+                </Row>
+
+
+
+            </Container> */}
+            <Slider/>
         </div>
     );
 }

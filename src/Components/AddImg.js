@@ -38,6 +38,7 @@ const AddImg = ({ onImageChange }) => {
                 type="file"
                 onChange={handleImageChange}
                 style={{ display: 'none' }}
+                required
             />
             <input
                 id="profile-image-required"
