@@ -68,20 +68,20 @@ const ClassData = () => {
                         <table className="table">
 
                             <thead className='its-t-head'>
-                                <tr className='fixed-header'>
+                                <tr className='fixed-header text-center'>
                                     <th scope="col">Class</th>
                                     <th scope="col">Total Students</th>
                                     <th scope="col">Action</th>
                                 </tr>
 
                             </thead>
-                            <tbody>
+                            <tbody className='its-t-body'>
 
                                 {classData?.map((item, index) => {
                                     return (
                                         <>
 
-                                            <tr>
+                                            <tr className='text-center'>
                                                 <th scope="col">{item?.class_name}</th>
                                                 <td scope="col">{item?.total_students}</td>
                                                 <td scope="col">

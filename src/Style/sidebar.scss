@@ -1,11 +1,28 @@
-.school-logo-img {
-    width: 30px;
-    height: 20px;
+.school-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    .s-img-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+        border-radius: 44px;
+        border: 1px solid #000;
+        border-radius: 70px;
+        background: transparent;
+    }
 }
 
 .sidebar {
     transition: transform 0.5s ease;
     z-index: 1;
+    position: fixed;
 
     @media (max-width:767px) {
         z-index: 3 !important;
@@ -29,11 +46,18 @@
 
             }
         }
+
+        .for-logout-btn {
+            .logout-btn {
+                width: 88%;
+                position: absolute;
+                bottom: 0;
+            }
+
+        }
     }
 
-    .logout-btn {
-        width: 88%;
-    }
+
 }
 
 .sidebar-visible {
@@ -63,4 +87,3 @@
         }
     }
 }
-

@@ -47,4 +47,8 @@
     background: white;
     position: relative;
     margin-top: 30px;
+
+    @media (max-width:992px ) {
+        margin-top: 90px;
+    }
 }
