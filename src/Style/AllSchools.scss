@@ -26,8 +26,14 @@
             border-radius: 12px;
             padding: 9px 12px;
             border: none;
-            background-color: #89DDF1;
+            // background-color: #89DDF1;
+            background-color: $bg-item;
             color: #fff;
+            font-weight: 500;
+
+            &:hover {
+                background-color: $primary-color2;
+            }
         }
 
         .btn-block {

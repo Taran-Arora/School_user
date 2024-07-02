@@ -135,7 +135,7 @@ const Home = ({ Toggle }) => {
 
 
     return (
-        <div className='px-3'>
+        <div className=' px-3'>
             <Nav />
             <Container fluid className="cards">
                 <Row className="g-3 my-4 my-xl-2">

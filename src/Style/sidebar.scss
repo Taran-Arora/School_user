@@ -1,16 +1,17 @@
-.school-logo {
+.school-logo-main {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
+    height: 100%;
 
     .s-img-div {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 120px;
-        height: 120px;
+        // height: 120px;
         padding: 10px;
         border-radius: 44px;
         border: 1px solid #000;
@@ -47,13 +48,9 @@
             }
         }
 
-        .for-logout-btn {
-            .logout-btn {
-                width: 88%;
-                position: absolute;
-                bottom: 0;
-            }
-
+        .logout {
+            width: 88%;
+            text-align: start;
         }
     }
 
@@ -87,3 +84,103 @@
         }
     }
 }
+
+
+
+.sidebar-main {
+    transition: width 0.3s;
+}
+
+.sidebar-open {
+    width: 250px;
+    /* Adjust as needed */
+}
+
+
+
+
+
+.fs-5 {
+    transition: display 0.5s ease;
+}
+
+.fs-5-hidden {
+    display: none;
+}
+
+
+.logout-collapse  {
+    width: 65%;
+}
+
+
+// .sidebar {
+//     height: 100%;
+
+//     .list-group {
+
+//         a,
+//         button {
+//             cursor: pointer;
+//             border-radius: 8px;
+//             border: unset !important;
+//             background-color: unset !important;
+//             transition: 0.3s all ease-in;
+//             color: $white;
+//             display: flex;
+//             align-items: center;
+//             padding: 15px 16px;
+//             margin: 12px 0;
+//             white-space: nowrap;
+//             width: 100%;
+//             @media (max-width: 1199px) {
+//                 margin: 8px 0;
+//             }
+
+
+//             &:hover {
+//                 background-color: $primary-color2 !important;
+//                 color: $white;
+//                 border-radius: 8px;
+//             }
+//         }
+//     }
+//     .top-head {
+//         display: flex;
+//         align-items: center;
+//         justify-content: start;
+//         margin-bottom: 24px !important;
+
+//         .brand-name {
+//             font-size: 32px !important;
+//             font-weight: 800;
+//             color: $white !important;
+//         }
+
+//         svg {
+//             color: $white;
+//             font-size: 35px !important;
+//         }
+//     }
+
+// }
+
+// .for-logout-btn {
+//     margin-top: 100px;
+//     border: none;
+//     border-radius: 10px;
+
+//     .list-group-item {
+//         border-radius: 20px;
+//         border: unset !important;
+//         background-color: unset !important;
+//         color: $white;
+//         display: flex;
+//         align-items: center;
+//         white-space: nowrap;
+
+//         &:hover {
+//             background-color: $primary-color2 !important;
+//         }
+//     }
+// }

@@ -39,6 +39,11 @@ $pclr: #575757;
     background-position: center;
   }
 
+  @media (min-height:50%) {
+    align-items: start !important;
+
+  }
+
   .main-form {
     width: 470px;
     display: flex;

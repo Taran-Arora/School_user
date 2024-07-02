@@ -13,6 +13,11 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 export default function Login() {
 
+
+    
+
+
+
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState();
@@ -39,13 +44,13 @@ export default function Login() {
             localStorage.setItem('auth', 'true');
             localStorage.setItem('useremail', allFields?.username);
             localStorage.setItem('whologin', allFields?.who);
-            if(allFields?.who === 'is_school') {
+            if (allFields?.who === 'is_school') {
                 navigate('/dashboard');
             }
-            else if(allFields?.who === 'is_teacher') {
+            else if (allFields?.who === 'is_teacher') {
                 navigate('/classdata');
             }
-            else if(allFields?.who === 'is_student') {
+            else if (allFields?.who === 'is_student') {
                 navigate('/aboutstudent');
             }
         }
@@ -89,6 +94,8 @@ export default function Login() {
                     </Col>
                 </Container>
             </div>
+
+          
         </div>
     );
 }

@@ -11,11 +11,13 @@
     display: flex !important;
     align-items: center;
     gap: 0.2rem;
-    background-color: $btn-clr1 !important;
+    // background-color: $btn-clr1 !important;
+    background-color: $bg-item !important;
     color: $btn-text1 !important;
     border-radius: 8px;
     padding: 8px;
     border: none !important;
+    color: $white !important;
 }
 .set-view-btn{
     display: flex !important;
