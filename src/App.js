@@ -80,8 +80,10 @@ function App() {
                   <Route path='/feecounter' element={<FeeCounter />} />
                   <Route path='/profile' element={<Profile />} />
                   <Route path='/feehistory' element={<FeeHistory />}></Route>
+                
                 </Route>
               </Route>
+              <Route path='/bookpreloader' element={<Bookpreloader />}></Route>
             </Routes>
           </BrowserRouter>
         </ToggleProvider>
