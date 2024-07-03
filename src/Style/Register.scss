@@ -10,14 +10,6 @@
 	justify-content: center;
 	align-items: center;
 	background-image: url("../Images/admin.jpeg");
-	// background: url('../Images/book.jpg');
-	// background:
-	//     rgba(0, 0, 0, .55)
-
-	//     url('../Images/book.jpg');
-	// background-blend-mode: darken;
-	// background: url('../Images/book1.webp');
-	// background: url('../Images/book2.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -108,18 +100,6 @@
 				}
 			}
 		}
-
-	
-
-		// .input_box input:focus~label,
-		// .input_box input:valid~label {
-		// 	top: -10px;
-		// }
-		// .input_box input:focus~label,
-		// .input_box input:valid~label,
-		// .input_box input:not(:placeholder-shown)~label {
-		// 	top: -10px;
-		// }
 
 		@media (max-width:576px ){
 		margin: 0 20px;	

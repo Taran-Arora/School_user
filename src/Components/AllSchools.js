@@ -54,7 +54,7 @@ const AllSchools = ({ Toggle }) => {
 
 
     return (
-        <div className='px-3'>
+        <div className='px-md-3'>
             <Nav Toggle={Toggle} />
             <Container fluid>
                 <div className="table-responsive table-container">

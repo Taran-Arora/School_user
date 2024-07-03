@@ -52,7 +52,7 @@ const ClassData = () => {
     };
 
     return (
-        <div className='class-data px-3'>
+        <div className='class-data px-md-3'>
             <Nav />
             <Container fluid>
                 <div className="t-custom">

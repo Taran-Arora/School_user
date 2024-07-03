@@ -50,7 +50,7 @@ const SchoolData = ({ Toggle }) => {
     }
 
     return (
-        <div className='px-3'>
+        <div className='px-md-3'>
             <Nav />
             <Container fluid>
                 <Row>

@@ -46,6 +46,10 @@
   svg {
     color: $white;
     // box-shadow: #fff 0px px 0px;
+
+    @media (max-width:1400px) {
+      color: #000 !important;
+    }
   }
 
 

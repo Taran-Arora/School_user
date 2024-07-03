@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
 import { Link, useNavigate } from 'react-router-dom';
 import Students from '../assets/Images/youth.png';
-// import Parents from '../assets/Images/parents.png';
 import Inactive from "../assets/Images/snoze.png";
 import Teacher from '../assets/Images/teamwork (4).png';
 import bUser from '../assets/Images/buser.png';
@@ -117,29 +116,12 @@ const Home = ({ Toggle }) => {
         navigate('/schooldata', { state: { username } });
     }
 
-    // function handleClick() {
-    //     window.location.href = "mailto:Ashokmonga9@gmail.com";
-    //   }
-    //   function handleclick2() {
-    //     window.location.href = "tel:95096-13000";
-    //   }
-
-    //   function handleClick4() {
-    //     window.open("https://www.instagram.com/makemyhome26?igsh=YzljYTk1ODg3Zg==", '_blank');
-    //   }
-    //   function handleClickWhatsApp1() {
-    //     window.location.href = 'whatsapp://send?phone=+9195096-13000';
-
-    //   }
-
-
-
     return (
-        <div className=' px-3'>
+        <div className=' px-md-3'>
             <Nav />
             <Container fluid className="cards">
                 <Row className="g-3 my-4 my-xl-2">
-                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
+                    <Col xl={4} lg={6} md={6} onClick={handleClick1} className="p-1">
                         <div className="p-4 bg-white box">
                             <div className='content'>
                          
@@ -149,7 +131,7 @@ const Home = ({ Toggle }) => {
                             <img src={Students} alt="Total Users" className='img-fluid cards-img bg-green box-image' />
                         </div>
                     </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick2} className="p-1">
+                    <Col xl={4} lg={6} md={6}  onClick={handleClick2} className="p-1">
                         <div className="p-4 bg-white box">
                             <div className='content'>
                                 <Link to='/allstudents' className='fs-5 d-link'>Total Students</Link>
@@ -158,7 +140,7 @@ const Home = ({ Toggle }) => {
                             <img src={Teacher} alt="Active Users" className='img-fluid cards-img bg-blue box-image' />
                         </div>
                     </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} className="p-1">
+                    <Col xl={4} lg={6} md={6}  className="p-1">
                         <div className="p-4 bg-white box">
                             <div className='content'>
                                 <Link to='' className='fs-5 d-link'>Total Classes</Link>
@@ -170,67 +152,6 @@ const Home = ({ Toggle }) => {
         
                 </Row>
             </Container>
-
-
-            {/* <Container fluid className="cards">
-                <Row className="g-3 my-4 my-xl-2">
-                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
-                        <div className="user-card">
-                            <div className="u-card-heading">
-                                <h6> Total Students</h6>
-                            </div>
-                            <div className="u-card-des">
-                                <h3 className='fs-2'>{totalStudents} </h3>
-                            </div>
-                            <div className="user-card-img">
-                                <img src={Studentsall} alt="" />
-                            </div>
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
-                        <div className="user-card">
-                            <div className="u-card-heading">
-                                <h6> Total Teachers </h6>
-                            </div>
-                            <div className="u-card-des">
-                                <h3 className='fs-2'>{totalTeachers} </h3>
-                            </div>
-                            <div className="user-card-img">
-                                <img src={allteacher} alt="" />
-                            </div>
-                        </div>
-                    </Col>
-                    <Col xl={4} lg={6} md={6} sm={6} onClick={handleClick1} className="p-1">
-                        <div className="user-card">
-                            <div className="u-card-heading">
-                                <h6> All Classes </h6>
-                            </div>
-                            <div className="u-card-des">
-                                <h3 className='fs-2'>{totalClasses} </h3>
-                            </div>
-                            <div className="user-card-img">
-                                <img src={allsclasses} alt="" />
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg={6}>
-                        <Celendar />
-                    </Col>
-                    <Col lg={6} className='for-custom-cal' >
-                        <div className="new-custom-cal">
-                            <img src={management} alt="" />
-
-                        </div>
-
-                    </Col>
-
-                </Row>
-
-
-
-            </Container> */}
             <Slider/>
         </div>
     );
