@@ -1,4 +1,4 @@
-// ToggleContext.js
+
 import React, { createContext, useState, useEffect } from 'react';
 
 export const ToggleContext = createContext();

@@ -1,19 +1,20 @@
-.school-logo {
+.school-logo-main {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
+    height: 100%;
 
     .s-img-div {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 120px;
-        height: 120px;
+        // height: 120px;
         padding: 10px;
         border-radius: 44px;
-        border: 1px solid #000;
+        border: 1px solid $black;
         border-radius: 70px;
         background: transparent;
     }
@@ -38,23 +39,28 @@
             transition: 0.2s all;
 
             &:hover {
-                // background-color: #ffa901 !important;
-                background-color: #00CEC9 !important;
-                color: #fff;
+           
+                background-color: $primary-color2 !important;
+                color: $white;
                 border-radius: 8px;
                 transition: 0.2s all;
 
             }
-        }
-
-        .for-logout-btn {
-            .logout-btn {
-                width: 88%;
-                position: absolute;
-                bottom: 0;
+            &:active {
+                background-color: $primary-color2   !important;
+                 
             }
-
         }
+
+        .logout {
+            width: 88%;
+            text-align: start;
+        }
+
+        .active {
+            background-color: $primary-color2 !important;
+        }
+
     }
 
 
@@ -80,10 +86,49 @@
         background-color: $bg-item !important;
         color: $white !important;
         border: unset !important;
+        display: flex;
+        justify-content: center;
 
         &:hover {
-            background-color: #00CEC9 !important;
+            background-color: $primary-color2 !important;
 
         }
     }
 }
+
+
+
+.sidebar-main {
+    transition: width 0.3s;
+}
+
+.sidebar-open {
+    width: 250px;
+    /* Adjust as needed */
+}
+
+
+
+
+
+.fs-5 {
+    transition: display 0.5s ease;
+}
+
+.fs-5-hidden {
+    display: none;
+}
+
+
+.logout-collapse  {
+    width: 65%;
+}
+
+
+.active-link {
+    background-color: $primary-color2 !important;
+  }
+
+
+  
+

@@ -260,20 +260,7 @@ export default function AboutStudent() {
                 <input  value={alldata.dob} className='form-control' />
               </Col>
 
-              {/* <Col lg={6} className="for-student-input">
-                <label type="BloodGroup" className='labal-title'> Blood Group </label>
-                <Form.Select aria-label="Default select example" className='form-control'>
-                  <option> {alldata.blood_group} </option>
-                  <option value="A+">A+</option>
-                  <option value="A-">A-</option>
-                  <option value="B+">B+</option>
-                  <option value="B-">B-</option>
-                  <option value="AB+">AB+</option>
-                  <option value="AB-">AB-</option>
-                  <option value="O+">O+</option>
-                  <option value="O-">O-</option>
-                </Form.Select>
-              </Col> */}
+         
           
           <Col lg={6} className="for-student-input">
                 <label type="Email" className='labal-title'> Email </label>
@@ -284,39 +271,6 @@ export default function AboutStudent() {
                 <label className='labal-title'> Contact No  </label>
                 <input type="number" value={alldata.contact_No} className='form-control' />
               </Col>
-        
-              {/* <Col lg={6} className="for-student-input">
-                <label className='labal-title'> WhatsApp no  </label>
-                <input type="number" value={alldata.contact_No} className='form-control' />
-              </Col> */}
-              {/* <Col lg={6} className="for-student-input">
-                <label type="Religion" className='labal-title'> Religion </label>
-                <Form.Select aria-label="Default select example" className='form-control'>
-                  <option> {alldata.religion} </option>
-                  <option value="Hindu">Hindu</option>
-                  <option value="Muslim">Muslim</option>
-                  <option value="Christian">Christian</option>
-                  <option value="Sikh">Sikh</option>
-                  <option value="Buddhist">Buddhist</option>
-                  <option value="Jain">Jain</option>
-                  <option value="Parsi">Parsi</option>
-                  <option value="Jewish">Jewish</option>
-                  <option value="Other">Other</option>
-                </Form.Select>
-              </Col> */}
-
-              {/* <Col lg={6} className="for-student-input">
-                <label type="Caste" className='labal-title'> Caste </label>
-                <Form.Select aria-label="Default select example" className='form-control'>
-                  <option> {alldata.caste} </option>
-                  <option value="SC">SC</option>
-                  <option value="BC">BC</option>
-                  <option value="General">General</option>
-                  <option value="Ews">EWS</option>
-                  <option value="OBC">OBC</option>
-                  <option value="ST">ST</option>
-                </Form.Select>
-              </Col> */}
        
               <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Father's  Name  </label>
@@ -326,11 +280,6 @@ export default function AboutStudent() {
                 <label type="Name" className='labal-title'> Father's Mobile no </label>
                 <input type="number" value={alldata.father_no} className='form-control' />
               </Col>
-
-              {/* <Col lg={6} className="for-student-input">
-                <label type="Name" className='labal-title'> Mother's mobile no  </label>
-                <input type="number" value={alldata.mother_no} className='form-control' />
-              </Col> */}
 
               <Col lg={6} className="for-student-input">
                 <label type="Name" className='labal-title'> Address </label>

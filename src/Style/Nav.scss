@@ -2,7 +2,7 @@
   .form-control {
     &::placeholder {
       font-size: 0.95rem;
-      color: #aaa;
+      color: $placeholder_clr;
       font-style: italic;
     }
 
@@ -46,6 +46,10 @@
   svg {
     color: $white;
     // box-shadow: #fff 0px px 0px;
+
+    @media (max-width:1400px) {
+      color: $black !important;
+    }
   }
 
 

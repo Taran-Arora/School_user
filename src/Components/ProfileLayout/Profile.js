@@ -13,9 +13,7 @@ import { api_url } from '../../config/config'
 import _fetch from '../../config/api'
 
 const Profile = () => {
-
   const loginEmail = localStorage.getItem('useremail');
-
   const [teacherImageData, setTeacherImageData] = useState({ image: '', teacher: { email: '', first_name: '', last_name: '', gender: '', } });
   const [periodsData, setPeriodsData] = useState([]);
 
@@ -40,7 +38,7 @@ const Profile = () => {
   }
 
   return (
-    <div className='my-profile px-3'>
+    <div className='my-profile px-md-3'>
       <Nav />
       <Container fluid>
         <Row className='my-4 my-xl-2 align-items-center'>
@@ -58,15 +56,12 @@ const Profile = () => {
                   <img src={`data:image/jpeg;base64,${teacherImageData?.image}`} alt="" className='pf-img' />
                   <div className="main-body">
                     <div className="pf-title"><h5>{teacherImageData?.teacher?.first_name + " " + teacherImageData?.teacher?.last_name}</h5></div>
-                    {/* <p>Aliquam erat volutpat. Curabiene natis massa sedde lacustiquen sodale word moun taiery.</p> */}
                   </div>
                 </div>
                 <div className="info-details">
                   <p>Name: <span>{teacherImageData?.teacher?.first_name + " " + teacherImageData?.teacher?.last_name}</span></p>
                   <p>Gender: <span>{teacherImageData?.teacher?.gender}</span></p>
                   <p>Email: <span>{teacherImageData?.teacher?.email}</span></p>
-                  {/* <p>Phone: <span>+91-1234567890</span></p>
-                  <p>Class: <span>1st</span></p> */}
                 </div>
               </div>
             </div>
@@ -137,22 +132,6 @@ const Profile = () => {
                           </>
                         )
                       })}
-
-                      {/* <tr>
-                        <td scope="col">2</td>
-                        <td scope="col">Period 2nd</td>
-                        <td scope="col">Class 2nd</td>
-                      </tr>
-                      <tr>
-                        <td scope="col">3</td>
-                        <td scope="col">Period 3rd</td>
-                        <td scope="col">Class 3rd</td>
-                      </tr>
-                      <tr>
-                        <td scope="col">4</td>
-                        <td scope="col">Period 4th</td>
-                        <td scope="col">Class 4th</td>
-                      </tr> */}
                     </tbody>
 
                   </table>

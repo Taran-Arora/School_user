@@ -94,10 +94,6 @@ export default function FeeHistory() {
                                 )}
                             )}
                             <tr>
-                                {/* <td className='col b-none'></td> */}
-                                {/* <td className='col  f-panding '><p className='for-highlight '>  Total Fee : <span>{data?.total_fee}</span> </p></td> */}
-                                
-
                             </tr>
                             <tr>
                             <td className='col  f-panding '><p className='for-highlight '> Total Fee  <span>{data?.total_fee}</span> </p></td>
@@ -110,9 +106,6 @@ export default function FeeHistory() {
                         </tbody>
                      
                     </table>
-                    {/* <div className="t-fee-sign">
-                                <p> Signature </p>
-                            </div> */}
                 </div>
             </Container>
 

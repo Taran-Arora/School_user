@@ -52,23 +52,24 @@ const ClassData = () => {
     };
 
     return (
-        <div className='class-data px-3'>
+        <div className='class-data px-md-3'>
             <Nav />
             <Container fluid>
                 <div className="t-custom">
-                <div className='table-head fixed-header-one'>
-                            <h3 className='table-heading'>Classes</h3>
-                            <Button className='add-btn' onClick={addClass}>
-                                <AddCircleOutlineSharpIcon />Add New Class
-                            </Button>
-                        </div>
+                    <div className='table-head fixed-header-one'>
+                        <h3 className='table-heading'>Classes</h3>
+                        <Button className='add-btn' onClick={addClass}>
+                            <AddCircleOutlineSharpIcon />Add New Class
+                        </Button>
+                    </div>
                     <div className="table-responsive table-container ">
-                       
+
 
                         <table className="table">
 
                             <thead className='its-t-head'>
                                 <tr className='fixed-header text-center'>
+                                    <th scope="col"> Serial No </th>
                                     <th scope="col">Class</th>
                                     <th scope="col">Total Students</th>
                                     <th scope="col">Action</th>
@@ -81,7 +82,9 @@ const ClassData = () => {
                                     return (
                                         <>
 
-                                            <tr className='text-center'>
+                                            <tr className='text-center'  key={index}>
+                                                <th scope="col"> {index+1 } </th>
+
                                                 <th scope="col">{item?.class_name}</th>
                                                 <td scope="col">{item?.total_students}</td>
                                                 <td scope="col">

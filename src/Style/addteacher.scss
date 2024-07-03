@@ -7,7 +7,7 @@
 .teacher-from {
     overflow-x: hidden !important;
     border-radius: 0.375rem;
-    background: #ffffff;
+    background: $white;
     margin-top: 30px;
     padding: 1.5rem;
 
@@ -35,7 +35,9 @@
 
         .btn-submit {
             color: $btn-text1;
-            background-color: $btn-clr1;
+            // background-color: $btn-clr1;
+            background-color: $bg-item;
+            color: $white;
             border: none;
             border-radius: 12px;
             padding: 12px 40px;

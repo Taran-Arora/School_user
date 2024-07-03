@@ -124,9 +124,6 @@ export default function AboutTeacher({ Toggle }) {
                         })}
                     </Row>
                 </form>
-                {/* <div className="teacher-edit-btn">
-                    <button className='teacher-edit'> <RecyclingIcon />Update Details </button>
-                </div> */}
             </div>
         </div>
     )

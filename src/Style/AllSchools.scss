@@ -26,17 +26,19 @@
             border-radius: 12px;
             padding: 9px 12px;
             border: none;
-            background-color: #89DDF1;
-            color: #fff;
+            // background-color: #89DDF1;
+            background-color: $bg-item;
+            color: $white;
+            font-weight: 500;
+
+            &:hover {
+                background-color: $primary-color2;
+            }
         }
 
         .btn-block {
-            // color: $btn-text1;
-            // background-color: $btn-clr3;
-            // border-radius: 12px;
-            // padding: 9px;
-            color: #fff;
-            background-color: #e15959;
+            color: $white;
+            background-color: $btn-clr3;
             border-radius: 12px;
             padding: 9px 23px;
             box-shadow: none;
@@ -67,5 +69,5 @@
 }
 
 .d-link {
-    color: #000;
+    color: $black;
 }

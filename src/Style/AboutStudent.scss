@@ -29,6 +29,15 @@
             display: flex;
             justify-content: space-between;
 
+            @media (max-width:1200px) {
+                padding-right: 40px;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 26px;
+            }
+
+
             .school-about {
                 padding-left: 30px;
                 padding-top: 20px;
@@ -54,7 +63,7 @@
     }
 
     .student-admin-form {
-        background: #fff;
+        background: $white;
         padding: 30px;
         border-radius: 8px;
         padding-top: 40px;
@@ -129,7 +138,7 @@
                 align-items: center;
                 gap: 0.3rem;
                 // background-color: #14A44D;
-                background-color: #187b98;
+                background-color: $bg-item;
                 color: #000;
                 border-radius: 8px;
                 padding: 8px;
@@ -141,7 +150,7 @@
                 
 
                 &:hover {
-                    background-color: #00CEC9;
+                    background-color: $primary-color2;
                     transition: 0.3s all;
         
                 }

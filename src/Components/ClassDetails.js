@@ -48,7 +48,7 @@ export default function ClassDetails() {
     }
 
     return (
-        <div className='px-3'>
+        <div className='px-md-3'>
             <Nav />
             <Container fluid>
                 <div className="table-responsive">
