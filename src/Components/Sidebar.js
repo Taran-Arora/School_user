@@ -1,8 +1,4 @@
 
-
-
-
-
 import GridViewIcon from '@mui/icons-material/GridView';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
@@ -10,7 +6,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import React, { useEffect, useState, useContext } from 'react';
 import Nav from './Nav';
-import { Link, useNavigate , NavLink } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import Students from '../assets/Images/graduation.png';
 import Parents from '../assets/Images/parents.png';
 import Earning from '../assets/Images/salary.png';
@@ -78,85 +74,54 @@ const Sidebar = () => {
         </div>
         <hr className='text-dark' />
         <>
-         
 
-          {/* <div className='list-group list-group-flush'>
-            <Link to="/dashboard"
-             className="list-group-item py-2 d-flex align-items-center my-2"
-             >
+          <div className='list-group list-group-flush'>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+              }
+            >
               <GridViewIcon className={`fs-5 me-2 ${toggle ? '' : 'fs-4'}`}></GridViewIcon>
               <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>DashBoard</span>
-            </Link>
-            <Link to="/allteachers" className="list-group-item py-2 d-flex align-items-center my-2">
-              <i class="fa-solid fa-chalkboard-user fs-5 me-2 "></i>
-   
+            </NavLink>
+            <NavLink
+              to="/allteachers"
+              className={({ isActive }) =>
+                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+              }
+            >
+              <i className="fa-solid fa-chalkboard-user fs-5 me-2"></i>
               <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Teachers</span>
-            </Link>
-            <Link to="/classdata" className="list-group-item py-2 d-flex align-items-center my-2">
-      
-              <img src={classImg} alt="" className=' fs-5 me-2' />
+            </NavLink>
+            <NavLink
+              to="/classdata"
+              className={({ isActive }) =>
+                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+              }
+            >
+              <img src={classImg} alt="" className='fs-5 me-2' />
               <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
-            </Link>
-            <Link to="/allstudents" className="list-group-item py-2 d-flex align-items-center my-2">
+            </NavLink>
+            <NavLink
+              to="/allstudents"
+              className={({ isActive }) =>
+                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+              }
+            >
               <img src={studentone} alt="" className='fs-5 me-2' />
-           
               <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
-            </Link>
+            </NavLink>
             <div className="for-logout-btn">
-              <button onClick={logOut} className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>
+              <button
+                onClick={logOut}
+                className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
+              >
                 <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
                 <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
               </button>
             </div>
-          </div> */}
-
-<div className='list-group list-group-flush'>
-      <NavLink
-        to="/dashboard"
-        className={({ isActive }) =>
-          `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-        }
-      >
-        <GridViewIcon className={`fs-5 me-2 ${toggle ? '' : 'fs-4'}`}></GridViewIcon>
-        <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>DashBoard</span>
-      </NavLink>
-      <NavLink
-        to="/allteachers"
-        className={({ isActive }) =>
-          `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-        }
-      >
-        <i className="fa-solid fa-chalkboard-user fs-5 me-2"></i>
-        <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Teachers</span>
-      </NavLink>
-      <NavLink
-        to="/classdata"
-        className={({ isActive }) =>
-          `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-        }
-      >
-        <img src={classImg} alt="" className='fs-5 me-2' />
-        <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
-      </NavLink>
-      <NavLink
-        to="/allstudents"
-        className={({ isActive }) =>
-          `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-        }
-      >
-        <img src={studentone} alt="" className='fs-5 me-2' />
-        <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
-      </NavLink>
-      <div className="for-logout-btn">
-        <button
-          onClick={logOut}
-          className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
-        >
-          <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
-          <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
-        </button>
-      </div>
-    </div>
+          </div>
         </>
       </div>
     </>
