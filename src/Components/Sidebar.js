@@ -14,7 +14,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from '../config/toast';
-import DavLogo from '../assets/Images/davlogo.jpg';
+import SchoolLogo from '../assets/Images/davlogo-removebg-preview.png';
 const Sidebar = () => {
 
   const navigate = useNavigate();
@@ -62,20 +62,27 @@ const Sidebar = () => {
     <>
       <div className='p-2 max-vh-100'>
         <div className='m-2 d-flex align-items-center'>
-          <div className='school-logo-img' >
-          {/* <img src={DavLogo}  alt="" className='img-fluid' /> */}
+          <div className="school-logo">
+          <div className="s-img-div">
+            <img src={SchoolLogo} className="s-img img-fluid" alt="DavLogo"  />
           </div>
+         
+          
   
+
+          </div>
+
+       
           {/* <PersonIcon className='me-2 fs-4'></PersonIcon> */}
-          <marquee behavior="" direction="">
+          {/* <marquee behavior="" direction="">
           <h4 className='brand-name fs-4'> DAV School Abohar </h4>
-          </marquee>
+          </marquee> */}
      
         </div>
         <hr className='text-dark' />
         {/* {whoLogin === 'is_school' && ( */}
           <>
-            <div className='list-group list-group-flush max-vh-100'>
+            <div className='list-group list-group-flush '>
               <Link to="/dashboard" className="list-group-item py-2 d-flex align-items-center my-2">
                 <GridViewIcon className='fs-5 me-2'></GridViewIcon>
                 <span className='fs-5'>DashBoard</span>

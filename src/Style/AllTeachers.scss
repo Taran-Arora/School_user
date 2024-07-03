@@ -33,7 +33,7 @@
     .its-t-head {
         position: sticky;
         top: 0;
-        background:#187b98 ;
+        background-color: $bg-item;
         color: #fff !important;
         tr {
           th {
@@ -47,4 +47,8 @@
     background: white;
     position: relative;
     margin-top: 30px;
+
+    @media (max-width:992px ) {
+        margin-top: 90px;
+    }
 }

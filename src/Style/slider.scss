@@ -1,34 +1,129 @@
 .main-sidebar {
+.bg-slider{
+    position: relative;
+  
 
+}
     .slider {
         padding: 50px;
         border: 2px dashed #E9CFCF;
         border-radius: 32px;
         position: relative;
         margin-top: 70px;
-        width: 414px;
-        background-color: #fff;
-        .slider-img {
+        transition: 0.4s all;
+        background-color: $white;
+        opacity: 1;
+        transition: 0.5s all;
+
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../assets//Images/bg-shape.jpg');
+            background-size: cover;
+            opacity: 0;
+            border-radius: 32px;
+         
+
+        }
+
+        &:hover {
+            background-color: $primary-color2;
+            color: #fff !important;
+            z-index: 99;
+            filter: brightness(-2.1) !important;
+            border: 2px solid transparent ;
+            transition: 0.5s all;
+
+            .s-heading {
+                h4 {
+                font-weight: 700;
+
+                }
+            }
+            .s-des {
+                p {
+                    font-weight: 600;
+                }
+            }
+            &::before {
+                opacity: 0.2;
+            
+            }
+
+
+            .slider-img-main  {
+                .slider-img  {
+                    background-color: #187b98;
+                    transition: 0.5s all;
+                    z-index: 99;
+
+
+                    .slideimg {
+                        transform: scale(1.2);
+                        transition: 0.5s all;
+                    }
+
+
+
+                }
+              
+            }
+
+            .s-btn {
+                .s-view-more {
+                    border: 1px solid #fff;
+                    color: #fff;
+                }
+            }
+        }
+
+        .slider-img-main{
+
             display: flex;
             justify-content: center;
+            align-items: center;
 
-            .slideimg {
+
+            .slider-img {
+                display: flex;
+                justify-content: center;
+                width: 120px;
+                height: 120px;
+                background: $light_orange;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 64px;
-                color: var(--secondcolor);
+                border-radius: 70px;
+    
+                .slideimg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 64px;
+                    color: $dark_yellow;
+
+                }
             }
         }
+        
+
+
+
         .slider-content {
             .s-heading {
                 h4 {
-                    color: #000;
+                   
                     font-size: 30px;
                     text-align: center;
                     padding-top: 30px;
                 }
             }
+
             .s-des {
                 p {
                     text-align: center;
@@ -36,32 +131,162 @@
                 }
 
             }
+
+            // .s-btn {
+            //     display: flex;
+            //     justify-content: center;
+            //     position: relative;
+            //     transition: 0.5s all;
+            //     font-weight: 600;
+                
+
+
+            //     .s-view-more {
+            //         position: relative;
+            //         &::before {
+            //             content: '';
+            //             position: absolute;
+            //             width: 100%;
+            //             height: 0;
+            //             background-color: $dark_yellow;
+            //             bottom: 0;
+            //             left: 0;
+            //             color: $white;
+
+            //         }
+
+            //         &:hover {
+            //             background-color: $dark_yellow;
+            //             transition: 0.5s all;
+            //             font-weight: 600;
+            //             color: $white;
+
+            //             &::before {
+            //                 height: 100%;
+            //                 transition: 0.5 all;
+            //             }
+
+                   
+            //         }
+            //     }
+
+            //     &::before {
+
+
+            //         content: "";
+            //         background-color: var(--secondcolor);
+            //         height: 300px;
+            //         width: 300px;
+            //         border-radius: 50%;
+            //         position: absolute;
+            //         top: 100%;
+            //         left: 50%;
+            //         transform: translateX(-50%);
+            //         -webkit-transition: all 0.5s ease-out 0s;
+            //         -moz-transition: all 0.5s ease-out 0s;
+            //         -ms-transition: all 0.5s ease-out 0s;
+            //         -o-transition: all 0.5s ease-out 0s;
+            //         transition: all 0.5s ease-out 0s;
+
+            //     }
+
+            //     a  {
+            //         padding-top: 10px !important;
+            //         border: 2px solid #FF9B24;
+            //         padding: 10px 40px;
+            //         border-radius: 50px;
+            //         color: $black;
+            //         margin-top: 30px;
+            //     }
+            // }
+
             .s-btn {
                 display: flex;
                 justify-content: center;
+                position: relative;
+                transition: 0.5s all;
+                font-weight: 600;
+              
+                .s-view-more {
+                  position: relative;
+                  overflow: hidden;  // To hide the overflow of the pseudo-element
+              
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 0;
+                    background-color: $dark_yellow;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;  // Ensures the background color is behind the text
+                    transition: height 0.5s ease;
 
-                a {
-                    padding-top: 10px !important;
-                 border: 2px solid #FF9B24;
-                 padding: 10px 40px;
-                 border-radius: 50px;
-                 color: #000;
-                 margin-top: 30px;
+                  }
+              
+                  &:hover::before {
+                    height: 100%;
+                 
+                  }
+              
+                  &:hover {
+                    color: $white; 
+               // Text color changes to white on hover
+                  }
                 }
-            }
+              
+                &::before {
+                  content: "";
+                //   background-color: $light_orange;
+                  height: 300px;
+                  width: 300px;
+                  border-radius: 50%;
+                  position: absolute;
+                  top: 110%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  -webkit-transition: all 0.5s ease-out 0s;
+                  -moz-transition: all 0.5s ease-out 0s;
+                  -ms-transition: all 0.5s ease-out 0s;
+                  -o-transition: all 0.5s ease-out 0s;
+                  transition: all 0.5s ease-out 0s;
+                }
+              
+                a {
+                  padding-top: 10px !important;
+                  border: 2px solid #FF9B24;
+                  padding: 10px 40px;
+                  border-radius: 50px;
+                  color: $black;
+                  margin-top: 30px;
+                }
+              }
+              
 
         }
 
-   
+
     }
 }
 
 
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: var(--swiper-pagination-bottom, 8px);
     top: var(--swiper-pagination-top, auto);
     left: 0;
     width: 100%;
     display: none;
+}
+
+.for-logout-btn {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
 }

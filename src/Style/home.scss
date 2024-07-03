@@ -7,7 +7,7 @@
     position: relative;
     padding: 25px 30px;
     color: $primary-color2;
-
+    transition: 0.5s linear;
     &::after {
         content: '';
         background: $primary-color2;
