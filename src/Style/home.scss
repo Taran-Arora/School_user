@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: white;
+    background: $white;
     border-radius: 15px;
     position: relative;
     padding: 25px 30px;
@@ -50,7 +50,7 @@
     z-index: 2;
     transition: all .4s ease-in;
     .d-link{
-        color: #00CEC9;
+        color: $primary-color2;
         font-weight: 500;
         font-size: 22px !important;
     }

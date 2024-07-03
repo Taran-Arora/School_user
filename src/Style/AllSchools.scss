@@ -28,7 +28,7 @@
             border: none;
             // background-color: #89DDF1;
             background-color: $bg-item;
-            color: #fff;
+            color: $white;
             font-weight: 500;
 
             &:hover {
@@ -37,8 +37,8 @@
         }
 
         .btn-block {
-            color: #fff;
-            background-color: #e15959;
+            color: $white;
+            background-color: $btn-clr3;
             border-radius: 12px;
             padding: 9px 23px;
             box-shadow: none;
@@ -69,5 +69,5 @@
 }
 
 .d-link {
-    color: #000;
+    color: $black;
 }

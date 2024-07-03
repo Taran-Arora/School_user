@@ -13,11 +13,6 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 export default function Login() {
 
-
-    
-
-
-
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState();

@@ -81,6 +81,7 @@ input[type=number] {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 .sidebar {
@@ -128,18 +129,18 @@ input[type=number] {
   .its-t-head {
       position: sticky;
       top: 0;
-      background:#187b98 ;
-      color: #fff !important;
+      background: $bg-item;
+      color: $white !important;
       tr {
         th {
-          color: #fff;
+          color: $white;
         }
       }
   }
 }
 
 .t-custom {
-  background: white;
+  background:$white;
   position: relative;
 }
 
@@ -162,5 +163,5 @@ input[type=number] {
 
 
 .list-group-item.active {
-  background-color: #00cec9;
+  background-color: $primary-color2;
 }

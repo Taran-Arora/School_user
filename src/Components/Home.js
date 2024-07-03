@@ -15,8 +15,7 @@ import classesImg from '../assets/Images/classes.png'
 import Studentsall from '../assets/Images/students (1).png'
 import allteacher from '../assets/Images/teacher (1).png';
 import allsclasses from '../assets/Images/teacher (2).png'
-import bottomimg from '../assets/Images/portrait-girl-lying-wooden-floor-painting-yellow-star-with-paintbrush-removebg-preview.png'
-import Celendar from '../Components/Celendar'
+import bottomimg from '../assets/Images/portrait-girl-lying-wooden-floor-painting-yellow-star-with-paintbrush-removebg-preview.png';
 import management from '../assets/Images/school-management-services-4-500x500.webp'
 import Slider from '../Components/Slider';
 const Home = ({ Toggle }) => {

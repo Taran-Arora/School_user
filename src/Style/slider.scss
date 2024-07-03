@@ -6,7 +6,7 @@
 }
     .slider {
         padding: 50px;
-        border: 2px dashed #E9CFCF;
+        border: 2px dashed $border_clr;
         border-radius: 32px;
         position: relative;
         margin-top: 70px;
@@ -33,7 +33,7 @@
 
         &:hover {
             background-color: $primary-color2;
-            color: #fff !important;
+            color: $white !important;
             z-index: 99;
             filter: brightness(-2.1) !important;
             border: 2px solid transparent ;
@@ -78,8 +78,8 @@
 
             .s-btn {
                 .s-view-more {
-                    border: 1px solid #fff;
-                    color: #fff;
+                    border: 1px solid $white;
+                    color: $white;
                 }
             }
         }
@@ -135,73 +135,6 @@
 
             }
 
-            // .s-btn {
-            //     display: flex;
-            //     justify-content: center;
-            //     position: relative;
-            //     transition: 0.5s all;
-            //     font-weight: 600;
-                
-
-
-            //     .s-view-more {
-            //         position: relative;
-            //         &::before {
-            //             content: '';
-            //             position: absolute;
-            //             width: 100%;
-            //             height: 0;
-            //             background-color: $dark_yellow;
-            //             bottom: 0;
-            //             left: 0;
-            //             color: $white;
-
-            //         }
-
-            //         &:hover {
-            //             background-color: $dark_yellow;
-            //             transition: 0.5s all;
-            //             font-weight: 600;
-            //             color: $white;
-
-            //             &::before {
-            //                 height: 100%;
-            //                 transition: 0.5 all;
-            //             }
-
-                   
-            //         }
-            //     }
-
-            //     &::before {
-
-
-            //         content: "";
-            //         background-color: var(--secondcolor);
-            //         height: 300px;
-            //         width: 300px;
-            //         border-radius: 50%;
-            //         position: absolute;
-            //         top: 100%;
-            //         left: 50%;
-            //         transform: translateX(-50%);
-            //         -webkit-transition: all 0.5s ease-out 0s;
-            //         -moz-transition: all 0.5s ease-out 0s;
-            //         -ms-transition: all 0.5s ease-out 0s;
-            //         -o-transition: all 0.5s ease-out 0s;
-            //         transition: all 0.5s ease-out 0s;
-
-            //     }
-
-            //     a  {
-            //         padding-top: 10px !important;
-            //         border: 2px solid #FF9B24;
-            //         padding: 10px 40px;
-            //         border-radius: 50px;
-            //         color: $black;
-            //         margin-top: 30px;
-            //     }
-            // }
 
             .s-btn {
                 display: flex;
@@ -265,7 +198,7 @@
               
                 a {
                   padding-top: 10px !important;
-                //   border: 2px solid #FF9B24;
+        
                 border: 2px solid $bg-item;
                   padding: 10px 40px;
                   border-radius: 50px;

@@ -1,7 +1,7 @@
 .fee-counter-main {
     margin: 0 auto;
     .student-admin-form {
-        background: #fff;
+        background: $white;
         padding: 30px;
         border-radius: 8px;
         padding-top: 40px;
@@ -19,8 +19,8 @@
                     display: flex;
                     align-items: center;
                     gap: 0.2rem;
-                    background-color: #187b98;
-                    color: #000;
+                    background-color: $bg-item;
+                    color: $black;
                     border-radius: 8px;
                     padding: 8px;
                     color: $white;
@@ -30,7 +30,7 @@
                     transition: 0.2s all;
 
                     &:hover {
-                        background-color: #00CEC9;
+                        background-color: $primary-color2;
                         transition: 0.2s all;
 
                     }
@@ -47,8 +47,8 @@
                     display: flex;
                     align-items: center;
                     gap: 0.2rem;
-                    background-color: #14A44D;
-                    color: #000;
+                    background-color: $light_green;
+                    color: $black;
                     border-radius: 8px;
                     padding: 8px;
                     color: $white;
@@ -90,7 +90,7 @@
         input {
             &:focus-within {
                 box-shadow: none;
-                border-color: #dee2e6;
+                border-color: $light_clr;
 
 
             }
@@ -98,7 +98,7 @@
             select {
                 &:focus-within {
                     box-shadow: none;
-                    border-color: #dee2e6;
+                    border-color: $light_clr;
                 }
             }
         }

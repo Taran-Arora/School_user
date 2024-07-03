@@ -1,11 +1,11 @@
 
 .fee-table {
-    background-color: #fff;
+    background-color: $white;
     margin: 80px auto;
     border-radius: 10px;
     width: 50%;
     padding: 50px 25px 50px 25px;
-    border: 2px solid #000;
+    border: 2px solid $black;
 
     @media (max-width:1200px) {
         width: 80%;
@@ -66,16 +66,14 @@
         padding: 0 20px !important;
 
         .total-fees {
-            // border: 2px solid #000;
-            // font-weight: 600;
-            border: 1px solid #000;
-            // text-align: center;
+            border: 1px solid $black;
+
 
 
         }
 
         .f-panding {
-            border: 2px solid #000;
+            border: 2px solid $black;
             font-weight: 600;
 
             .for-highlight {
@@ -95,15 +93,15 @@
         }
 
         .pending-fee {
-            border: 1px solid #000;
+            border: 1px solid $black;
         }
 
         .fee-date {
-            border: 1px solid #000;
+            border: 1px solid $black;
         }
 
         .for-d-f {
-            border: 1px solid #000 !important;
+            border: 1px solid $black !important;
         }
 
         .b-none {

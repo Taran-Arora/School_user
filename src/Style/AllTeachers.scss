@@ -36,17 +36,17 @@
         position: sticky;
         top: 0;
         background-color: $bg-item;
-        color: #fff !important;
+        color: $white !important;
         tr {
           th {
-            color: #fff;
+            color: $white;
           }
         }
     }
 }
 
 .t-custom {
-    background: white;
+    background: $white;
     position: relative;
     margin-top: 30px;
 

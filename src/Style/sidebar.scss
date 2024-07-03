@@ -14,7 +14,7 @@
         // height: 120px;
         padding: 10px;
         border-radius: 44px;
-        border: 1px solid #000;
+        border: 1px solid $black;
         border-radius: 70px;
         background: transparent;
     }
@@ -39,9 +39,9 @@
             transition: 0.2s all;
 
             &:hover {
-                // background-color: #ffa901 !important;
-                background-color: #00CEC9 !important;
-                color: #fff;
+           
+                background-color: $primary-color2 !important;
+                color: $white;
                 border-radius: 8px;
                 transition: 0.2s all;
 
@@ -58,7 +58,7 @@
         }
 
         .active {
-            background-color: #00CEC9 !important;
+            background-color: $primary-color2 !important;
         }
 
     }
@@ -90,7 +90,7 @@
         justify-content: center;
 
         &:hover {
-            background-color: #00CEC9 !important;
+            background-color: $primary-color2 !important;
 
         }
     }
@@ -126,7 +126,7 @@
 
 
 .active-link {
-    background-color: #00cec9 !important;
+    background-color: $primary-color2 !important;
   }
 
 
