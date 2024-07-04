@@ -43,7 +43,7 @@ const AddTeacher = () => {
         values[index][event.target.name] = event.target.value;
         setDynamicPeriods(values);
     };
-
+    
     const handleAddField = () => {
         const newPeriodNumber = dynamicPeriods.length + 7;
         const newDynamicPeriods = [...dynamicPeriods, { period_number: newPeriodNumber, class_name: '' }];
