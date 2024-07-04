@@ -10,6 +10,7 @@ import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import BookPreloader from './Bookpreloader';
 
 const AddTeacher = () => {
     const location = useLocation();
@@ -29,6 +30,7 @@ const AddTeacher = () => {
 
     const [staticPeriods, setStaticPeriods] = useState(Array.from({ length: 6 }, (_, index) => ({ period_number: index + 1, class_name: '' })));
     const [dynamicPeriods, setDynamicPeriods] = useState([]);
+    const [loading, setLoading] = useState(true); // State for loading indicator
 
     const handleStaticChange = (index, event) => {
         const values = [...staticPeriods];
@@ -101,8 +103,11 @@ const AddTeacher = () => {
 
     return (
         <div className='px-md-3'>
-            <Nav />
-            <Container fluid>
+            <Nav /> 
+            {loading ?  (
+                <BookPreloader/>
+            ): (
+                <Container fluid>
                 <Row>
                     <Col lg={12}>
                         <div className='top-head d-flex'>
@@ -201,8 +206,13 @@ const AddTeacher = () => {
                     </Col>
                 </Row>
             </Container>
+
+            )  }
+      
         </div>
     );
 };
 
 export default AddTeacher;
+
+

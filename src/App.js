@@ -53,40 +53,42 @@ function App() {
 
   return (
     <>
-{/* 
+      {/* 
       {loading ? (
         <Bookpreloader />
       ) : ( */}
 
-        <ToggleProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/forgot" element={<Forgot />} />
+      <ToggleProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/forgot" element={<Forgot />} />
 
-              <Route element={<PrivateRoutes />}>
-                <Route element={<DashLayout />}>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/allteachers" element={<AllTeachers />} />
-                  <Route path='/allstudents' element={<AllStudents />} />
-                  <Route path='/schooldata' element={<SchoolData />} />
-                  <Route path='/aboutstudent' element={<AboutStudent />} />
-                  <Route path="/addteacher" element={<AddTeacher />} />
-                  <Route path='/addclass' element={<AddClass />} />
-                  <Route path='/aboutteacher' element={<AboutTeacher />} />
-                  <Route path='/classdetails' element={<ClassDetails />} />
-                  <Route path='/classdata' element={<ClassData />} />
-                  <Route path='/addstudent' element={<AddStudent />} />
-                  <Route path='/feecounter' element={<FeeCounter />} />
-                  <Route path='/profile' element={<Profile />} />
-                  <Route path='/feehistory' element={<FeeHistory />}></Route>
-                
-                </Route>
+            <Route element={<PrivateRoutes />}>
+              <Route element={<DashLayout />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/allteachers" element={<AllTeachers />} />
+                <Route path='/allstudents' element={<AllStudents />} />
+                <Route path='/schooldata' element={<SchoolData />} />
+                <Route path='/aboutstudent' element={<AboutStudent />} />
+                <Route path="/addteacher" element={<AddTeacher />} />
+                <Route path='/addclass' element={<AddClass />} />
+                <Route path='/aboutteacher' element={<AboutTeacher />} />
+                <Route path='/classdetails' element={<ClassDetails />} />
+                <Route path='/classdata' element={<ClassData />} />
+                <Route path='/addstudent' element={<AddStudent />} />
+                <Route path='/feecounter' element={<FeeCounter />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/feehistory' element={<FeeHistory />}></Route>
+                <Route path='/bookpreloader' element={<Bookpreloader />}></Route>
+
+
               </Route>
-              <Route path='/bookpreloader' element={<Bookpreloader />}></Route>
-            </Routes>
-          </BrowserRouter>
-        </ToggleProvider>
+            </Route>
+            {/* <Route path='/bookpreloader' element={<Bookpreloader />}></Route> */}
+          </Routes>
+        </BrowserRouter>
+      </ToggleProvider>
       {/* )} */}
 
       <ToastContainer />
