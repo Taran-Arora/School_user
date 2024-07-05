@@ -7,7 +7,6 @@ import _fetch from '../../src/config/api';
 import { api_url } from '../../src/config/config';
 import toasted from '../config/toast';
 import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp';
-import Bookpreloader from './Bookpreloader';
 
 const AllTeachers = () => {
 

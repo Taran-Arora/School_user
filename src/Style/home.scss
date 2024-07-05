@@ -1,4 +1,4 @@
-.main-home  {
+.main-home {
     margin-right: 20px;
 }
 
@@ -12,6 +12,7 @@
     padding: 25px 30px;
     color: $primary-color2;
     transition: 0.5s linear;
+
     &::after {
         content: '';
         background: $primary-color2;
@@ -33,7 +34,8 @@
     &:hover {
         .content {
             color: $white !important;
-            .d-link{
+
+            .d-link {
                 color: $white !important;
             }
         }
@@ -41,7 +43,7 @@
 
     .box-image {
         position: relative;
-        z-index: 1; 
+        z-index: 1;
     }
 }
 
@@ -49,10 +51,24 @@
     position: relative;
     z-index: 2;
     transition: all .4s ease-in;
-    .d-link{
+
+    .d-link {
         color: $primary-color2;
         font-weight: 500;
         font-size: 22px !important;
     }
 
-    }
+}
+
+
+.content.blur {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+
+
+.home-content.blur {
+    filter: blur(5px);
+    pointer-events: none;
+}

@@ -10,7 +10,7 @@ import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import BookPreloader from './Bookpreloader';
+// import BookPreloader from './BookPreloader';
 
 const AddTeacher = () => {
     const location = useLocation();
@@ -43,7 +43,7 @@ const AddTeacher = () => {
         values[index][event.target.name] = event.target.value;
         setDynamicPeriods(values);
     };
-    
+
     const handleAddField = () => {
         const newPeriodNumber = dynamicPeriods.length + 7;
         const newDynamicPeriods = [...dynamicPeriods, { period_number: newPeriodNumber, class_name: '' }];
@@ -103,11 +103,9 @@ const AddTeacher = () => {
 
     return (
         <div className='px-md-3'>
-            <Nav /> 
-            {loading ?  (
-                <BookPreloader/>
-            ): (
-                <Container fluid>
+            <Nav />
+
+            <Container fluid>
                 <Row>
                     <Col lg={12}>
                         <div className='top-head d-flex'>
@@ -207,8 +205,8 @@ const AddTeacher = () => {
                 </Row>
             </Container>
 
-            )  }
-      
+
+
         </div>
     );
 };
