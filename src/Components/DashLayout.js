@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 import { ToggleContext } from './ToggleContext';
 
 export default function DashLayout() {
-    const { toggle } = useContext(ToggleContext);
+    const { toggle , Toggle } = useContext(ToggleContext);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1200);
   
 
@@ -20,6 +20,12 @@ export default function DashLayout() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const handleClick = () => {
+        if(isMobile && toggle) {
+            Toggle(); 
+        }
+    }
 
     return (
         <>
@@ -46,7 +52,9 @@ export default function DashLayout() {
                         marginLeft: isMobile ? '0' : (toggle ? '270px' : '110px'),
                         transition: "0.5s all"
 
-                    }}>
+                    }}
+                    onClick={handleClick}
+                    >
                         <Outlet />
                     </div>
                 </div>

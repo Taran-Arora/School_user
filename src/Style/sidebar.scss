@@ -53,8 +53,9 @@
         }
 
         .logout {
-            width: 88%;
+            width: 82%;
             text-align: start;
+            transition: 0.5 all;
         }
 
         .active {
@@ -78,6 +79,7 @@
     margin-bottom: 20px;
     border: none;
     border-radius: 10px;
+    transition: 0.5s all;
 
     .list-group-item {
         border-radius: 20px;
