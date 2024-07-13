@@ -10,6 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import _fetch from '../config/api';
 import { api_url } from '../config/config';
 import toasted from '../config/toast';
+import BookPreloader from '../Components/Bookpreloader';
 
 export default function AboutTeacher({ Toggle }) {
 
@@ -19,9 +20,9 @@ export default function AboutTeacher({ Toggle }) {
     const [periods, setPeriods] = useState([]);
     const [allData, setAllData] = useState({ first_name: '', last_name: '', contact: '', email: '', gender: '', subjects: '' });
     const [allFields, setAllFields] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const location = useLocation();
-    const navigate = useNavigate();
 
     const teacher_email = location.state?.teacher_email;
     const school_email = location.state?.school_email;
@@ -35,18 +36,19 @@ export default function AboutTeacher({ Toggle }) {
     }, [token]);
 
     const viewTeacherRecord = async () => {
-
+        setLoading(true);
         const res = await _fetch(`${api_url}teacherdetail/?school_email=${school_email}&teacher_email=${teacher_email}`, 'GET', {}, {});
         const res2 = await _fetch(`${api_url}teacherperiodsdetail/?school_email=${school_email}&teacher_email=${teacher_email}`, 'GET', {}, {});
 
         if (res?.status === 200) {
             setimage(res?.data[0]);
-            setAllData(res?.data[0]?.teacher); 
-
+            setAllData(res?.data[0]?.teacher);
+            setTimeout(() => {
+                setLoading(false);
+            }, 2000);
         }
         if (res2?.status == 200) {
             setPeriods(res2?.data);
-            
         }
     };
 
@@ -67,65 +69,69 @@ export default function AboutTeacher({ Toggle }) {
             toasted.error(data?.message);
         }
     }
-    
+
     return (
-        <div>
-            <Nav />
-            <div className="about-teacher ">
-                <div className="for-image-section">
-                    <div className="teacher-school-image">
-                        <img src={schoolLogo} alt="" />
-                        <div className="teacher-school">
-                            <div className="school-about">
-                                <h2 className='school-name' >Dayanand Anglo Vedic (DAV) School </h2>
-                                <h4 className='school-address'> Hanumangarh Rd, South Evenue, <br />
-                                    Abohar , Punjab 152116
-                                </h4>
+        <>
+            {loading && <BookPreloader />}
+
+            <div>
+                <Nav />
+                <div className="about-teacher ">
+                    <div className="for-image-section">
+                        <div className="teacher-school-image">
+                            <img src={schoolLogo} alt="" />
+                            <div className="teacher-school">
+                                <div className="school-about">
+                                    <h2 className='school-name' >Dayanand Anglo Vedic (DAV) School </h2>
+                                    <h4 className='school-address'> Hanumangarh Rd, South Evenue, <br />
+                                        Abohar , Punjab 152116
+                                    </h4>
+                                </div>
                             </div>
                         </div>
+                        <div className="school-logo">
+                            <img src={`data:image/jpeg;base64,${imagedata ? imagedata?.image : ''}`} alt="" />
+                        </div>
                     </div>
-                    <div className="school-logo">
-                        <img src={`data:image/jpeg;base64,${imagedata ? imagedata?.image : ''}`} alt="" />
-                    </div>
-                </div>
-                <form action="" className='gx-5 teacher-admin-form'>
-                    <div class="form-head mb-3">
-                        <h4 class="form-heading">Teacher Details</h4>
-                    </div>
-                    <Row className=''>
-                        <Col lg={6} className="for-teacher-input"  >
-                            <label type="Name" className='labal-title'> Teacher Name </label>
-                            <input type="text" className='form-control' value={allData?.first_name + " " + allData?.last_name} readOnly />
-                        </Col>
-                        <Col lg={6}>
-                            <label type="Name" className='labal-title'> Gender </label>
-                            <input type="text" className='form-control' value={allData?.gender} readOnly />
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'> Email </label>
-                            <input type="Email" className='form-control' value={allData?.email} readOnly />
-                        </Col>
-                        <Col lg={6} className="for-teacher-input">
-                            <label className='labal-title'> Subject</label>
-                            <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />
-                        </Col>
-                        {periods?.map((item, index) => {
-                            return (
-                                <>
+                    <form action="" className='gx-5 teacher-admin-form'>
+                        <div class="form-head mb-3">
+                            <h4 class="form-heading">Teacher Details</h4>
+                        </div>
+                        <Row className=''>
+                            <Col lg={6} className="for-teacher-input"  >
+                                <label type="Name" className='labal-title'> Teacher Name </label>
+                                <input type="text" className='form-control' value={allData?.first_name + " " + allData?.last_name} readOnly />
+                            </Col>
+                            <Col lg={6}>
+                                <label type="Name" className='labal-title'> Gender </label>
+                                <input type="text" className='form-control' value={allData?.gender} readOnly />
+                            </Col>
+                            <Col lg={6} className="for-teacher-input">
+                                <label className='labal-title'> Email </label>
+                                <input type="Email" className='form-control' value={allData?.email} readOnly />
+                            </Col>
+                            <Col lg={6} className="for-teacher-input">
+                                <label className='labal-title'> Subject</label>
+                                <input type="text" className='form-control' name='subject' value={allData?.subjects} onChange={changeSubject} />
+                            </Col>
+                            {periods?.map((item, index) => {
+                                return (
+                                    <>
 
-                                    <Col lg={6} className="for-teacher-input">
-                                        <label type="Class" className='labal-title'>Period {item?.period_number}</label>
-                                        <Form.Select aria-label="Default select example" className='form-control'>
-                                            <option value={item?.class_name}>Class {item?.class_name}</option>
-                                        </Form.Select>
-                                    </Col>
-                                </>
-                            )
-                        })}
-                    </Row>
-                </form>
+                                        <Col lg={6} className="for-teacher-input">
+                                            <label type="Class" className='labal-title'>Period {item?.period_number}</label>
+                                            <Form.Select aria-label="Default select example" className='form-control'>
+                                                <option value={item?.class_name}>Class {item?.class_name}</option>
+                                            </Form.Select>
+                                        </Col>
+                                    </>
+                                )
+                            })}
+                        </Row>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

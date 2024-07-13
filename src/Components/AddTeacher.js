@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
 import { Col, Container, Row } from 'react-bootstrap';
 import AddImg from './AddImg';
@@ -10,13 +10,13 @@ import { api_url } from '../config/config';
 import toasted from '../config/toast';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { LocationOff } from '@mui/icons-material';
 // import BookPreloader from './BookPreloader';
 
 const AddTeacher = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const useremail = localStorage.getItem('useremail');
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [gender, setGender] = useState('');
@@ -30,7 +30,8 @@ const AddTeacher = () => {
 
     const [staticPeriods, setStaticPeriods] = useState(Array.from({ length: 6 }, (_, index) => ({ period_number: index + 1, class_name: '' })));
     const [dynamicPeriods, setDynamicPeriods] = useState([]);
-    const [loading, setLoading] = useState(true); // State for loading indicator
+    const [classData, setClassData] = useState([]);
+    const [token, setToken] = useState(null);
 
     const handleStaticChange = (index, event) => {
         const values = [...staticPeriods];
@@ -53,6 +54,22 @@ const AddTeacher = () => {
     const handleImageChange = (imageData) => {
         setProfileImage(imageData);
         setImageUploaded(true);
+    };
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            setToken(storedToken);
+            viewClassRecord();
+        }
+    }, [token]);
+
+    const viewClassRecord = async () => {
+        const res = await _fetch(`${api_url}class/?school_email=${useremail}`, 'GET', {}, {});
+
+        if (res?.status === 200) {
+            setClassData(res);
+        }
     };
 
     const submitTeacherData = async () => {
@@ -173,9 +190,13 @@ const AddTeacher = () => {
                                         <label>Period {field?.period_number} </label>
                                         <select className='form-control' name="class_name" onChange={(e) => handleStaticChange(index, e)} value={field?.class_name}>
                                             <option value="">Select Class </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            {classData?.data?.length > 0 ? (
+                                                Array.from({ length: classData?.total_classes }, (_, i) => (
+                                                    <option value={i + 1}>{i + 1}</option>
+                                                ))
+                                            ) : (
+                                                <option value>No Class Avaliable</option>
+                                            )}
                                         </select>
                                     </Col>
                                 ))}
@@ -185,9 +206,13 @@ const AddTeacher = () => {
                                         <label>Period {field?.period_number} </label>
                                         <select className='form-control' name="class_name" onChange={(e) => handleDynamicChange(index, e)} value={field?.class_name}>
                                             <option value="">Select Class </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            {classData?.data?.length > 0 ? (
+                                                Array.from({ length: classData?.total_classes }, (_, i) => (
+                                                    <option value={i + 1}>{i + 1}</option>
+                                                ))
+                                            ) : (
+                                                <option value>No Class Avaliable</option>
+                                            )}
                                         </select>
                                     </Col>
                                 ))}

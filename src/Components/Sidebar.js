@@ -74,54 +74,116 @@ const Sidebar = () => {
         </div>
         <hr className='text-dark' />
         <>
-
-          <div className='list-group list-group-flush'>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-              }
-            >
-              <GridViewIcon className={`fs-5 me-2 ${toggle ? '' : 'fs-4'}`}></GridViewIcon>
-              <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>DashBoard</span>
-            </NavLink>
-            <NavLink
-              to="/allteachers"
-              className={({ isActive }) =>
-                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-              }
-            >
-              <i className="fa-solid fa-chalkboard-user fs-5 me-2"></i>
-              <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Teachers</span>
-            </NavLink>
-            <NavLink
-              to="/classdata"
-              className={({ isActive }) =>
-                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-              }
-            >
-              <img src={classImg} alt="" className='fs-5 me-2' />
-              <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
-            </NavLink>
-            <NavLink
-              to="/allstudents"
-              className={({ isActive }) =>
-                `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
-              }
-            >
-              <img src={studentone} alt="" className='fs-5 me-2' />
-              <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
-            </NavLink>
-            <div className="for-logout-btn">
-              <button
-                onClick={logOut}
-                className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
+          {whoLogin === 'is_school' ? (
+            <div className='list-group list-group-flush'>
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
               >
-                <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
-                <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
-              </button>
+                <GridViewIcon className={`fs-5 me-2 ${toggle ? '' : 'fs-4'}`}></GridViewIcon>
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>DashBoard</span>
+              </NavLink>
+              <NavLink
+                to="/allteachers"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
+              >
+                <i className="fa-solid fa-chalkboard-user fs-5 me-2"></i>
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Teachers</span>
+              </NavLink>
+              <NavLink
+                to="/classdata"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
+              >
+                <img src={classImg} alt="" className='fs-5 me-2' />
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
+              </NavLink>
+              <NavLink
+                to="/allstudents"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
+              >
+                <img src={studentone} alt="" className='fs-5 me-2' />
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
+              </NavLink>
+              <div className="for-logout-btn">
+                <button
+                  onClick={logOut}
+                  className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
+                >
+                  <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
+                  <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
+                </button>
+              </div>
             </div>
-          </div>
+          ) : whoLogin === 'is_teacher' ? (
+            <div className='list-group list-group-flush'>
+              <NavLink
+                to="/classdata"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
+              >
+                <img src={classImg} alt="" className='fs-5 me-2' />
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
+              </NavLink>
+              <NavLink
+                to="/allstudents"
+                className={({ isActive }) =>
+                  `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                }
+              >
+                <img src={studentone} alt="" className='fs-5 me-2' />
+                <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
+              </NavLink>
+              <div className="for-logout-btn">
+                <button
+                  onClick={logOut}
+                  className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
+                >
+                  <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
+                  <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
+                </button>
+              </div>
+            </div>
+          ) : whoLogin === 'is_student' ? (
+            <div className='list-group list-group-flush'>
+              {/* <NavLink
+                 to="/classdata"
+                 className={({ isActive }) =>
+                   `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                 }
+               >
+                 <img src={classImg} alt="" className='fs-5 me-2' />
+                 <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Classes</span>
+               </NavLink>
+               <NavLink
+                 to="/allstudents"
+                 className={({ isActive }) =>
+                   `list-group-item py-2 d-flex align-items-center my-2 ${isActive ? 'active' : ''}`
+                 }
+               >
+                 <img src={studentone} alt="" className='fs-5 me-2' />
+                 <span className={`fs-5 ${toggle ? '' : 'fs-5-hidden'}`}>All Students</span>
+               </NavLink> */}
+              <div className="for-logout-btn">
+                <button
+                  onClick={logOut}
+                  className={`list-group-item py-2 position-absolute d-flex align-items-center ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}
+                >
+                  <LogoutIcon className={`fs-4 me-2 ${toggle ? '' : 'fs-3'}`}></LogoutIcon>
+                  <span className={`fs-5 ${toggle ? 'logout' : 'fs-5-hidden logout-collapse'}`}>Logout</span>
+                </button>
+              </div>
+            </div>
+          ) : null
+          }
         </>
       </div>
     </>

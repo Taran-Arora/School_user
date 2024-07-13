@@ -1,27 +1,23 @@
 
-
-
-
-import { Padding } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { api_url } from '../config/config';
 import _fetch from '../config/api';
 import { useLocation } from 'react-router-dom';
-import { Border } from 'react-bootstrap-icons';
+import BookPreloader from '../Components/Bookpreloader';
 
 export default function FeeHistory() {
 
     const location = useLocation();
-
     const email = location?.state?.email;
+    
+    const loginUser = localStorage.getItem('whologin');
+    const userEmail = localStorage.getItem('useremail');
 
     const [data, setData] = useState({ total_fee: '' });
     const [allData, setAllData] = useState([]);
     const [pendingFee, setPendingFee] = useState();
-    
-    const loginUser = localStorage.getItem('whologin');
-    const userEmail = localStorage.getItem('useremail');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         geFeeData();
@@ -31,29 +27,32 @@ export default function FeeHistory() {
     }, []);
 
     const geFeeData = async () => {
+        setLoading(true);
         let data = await _fetch(`${api_url}studentdata/?email=${email}`, "GET", {}, {});
         if (data?.status === 200) {
            const pendingFee = data?.data[data?.data?.length - 1];
-           
             setData(data?.data[0]);
             setAllData(data?.data);
             setPendingFee(pendingFee?.pending_fee);
+            setTimeout(() => {
+                setLoading(false);
+            }, 2000);
         }
     }
     const getStudentFeeData = async () => {
         let data = await _fetch(`${api_url}studentfeedata/?student_email=${userEmail}`, "GET", {}, {});
         if (data?.status === 200 && data?.data?.length > 0) {
-            
             const pendingFee = data?.data[data?.data?.length - 1];
             setData(data?.data[0]);
             setAllData(data?.data);
             setPendingFee(pendingFee?.pending_fee);
-            // setAllData(data?.data);
-            // setPendingFee(pendingFee?.pending_fee);
         }
     }
 
     return (
+        <>
+         {loading && <BookPreloader />}
+
         <div>
             <Container >
                 <div className="fee-table">
@@ -65,17 +64,17 @@ export default function FeeHistory() {
                     {/* <p className='f-s-name'> Recipt No : 234</p> */}
 
                         <p className='f-s-name'> Name : {data?.student?.name}</p>
-                        <p className='f-s-rollno'> Class : 12th </p>
+                        <p className='f-s-rollno'> Class : {data?.student?.student_class} </p>
                    
                     </div>
                     <div className="student-fee-info">
                
                     <p className='f-s-rollno'> Roll No : 23</p>
-                    <p className='f-s-name'> Father's Name  : Father</p>
+                    <p className='f-s-name'> Father's Name  : {data?.student?.father_name}</p>
                     </div>
                     <div className="student-fee-info">
             
-                        <p className='f-s-rollno'> Mobile no : 9465627989</p>
+                        <p className='f-s-rollno'> Mobile no : {data?.student?.contact_No}</p>
                     </div>
                     <table className="table">
                         <tbody className='f-tbody'>
@@ -97,19 +96,15 @@ export default function FeeHistory() {
                             </tr>
                             <tr>
                             <td className='col  f-panding '><p className='for-highlight '> Total Fee  <span>{data?.total_fee}</span> </p></td>
-
                                 <td className='col  f-panding '><p className='for-highlight '>  Pending Fee : <span>{pendingFee}</span> </p></td>
-
-
                             </tr>
-              
                         </tbody>
                      
                     </table>
                 </div>
             </Container>
-
         </div>
+        </>
     )
 }
 
