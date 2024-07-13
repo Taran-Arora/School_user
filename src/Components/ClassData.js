@@ -60,7 +60,7 @@ const ClassData = () => {
     return (
         <>
             {loading && <BookPreloader />}
-            <div className='class-data px-md-3'>
+            <div className={` class-data px-md-3 ${loading ? 'blur' : ''}`}>
                 <Nav />
                 <Container fluid>
                     <div className="t-custom">

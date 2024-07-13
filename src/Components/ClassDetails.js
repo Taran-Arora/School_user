@@ -54,8 +54,7 @@ export default function ClassDetails() {
     return (
         <>
             {loading && <BookPreloader />}
-
-            <div className='px-md-3'>
+            <div className={`px-md-3 ${loading ? 'blur' : ''}`}>
                 <Nav />
                 <Container fluid>
                     <div className="table-responsive">

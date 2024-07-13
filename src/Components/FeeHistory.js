@@ -52,8 +52,9 @@ export default function FeeHistory() {
     return (
         <>
          {loading && <BookPreloader />}
+         <div className={` ${loading ? 'blur' : ''}`}>
 
-        <div>
+
             <Container >
                 <div className="fee-table">
                     <div className='fee-table-custom'>

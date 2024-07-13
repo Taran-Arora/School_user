@@ -59,7 +59,7 @@ export default function FeeCounter() {
         <>
             {loading && <BookPreloader />}
 
-            <div className='px-md-3'>
+            <div className={`px-md-3 ${loading ? 'blur' : ''}`}>
                 <Nav />
                 <div className='fee-counter-main'>
 

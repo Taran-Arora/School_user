@@ -147,6 +147,7 @@ input[type=number] {
 .t-custom {
   background: $white;
   position: relative;
+  border-radius: 15px ;
 }
 
 
@@ -169,4 +170,9 @@ input[type=number] {
 
 .list-group-item.active {
   background-color: $primary-color2;
+}
+
+
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  cursor: pointer;
 }

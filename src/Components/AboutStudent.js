@@ -58,8 +58,8 @@ export default function AboutStudent() {
   return (
     <>
       {loading && <BookPreloader />}
-
-      <div>
+      <div className={` ${loading ? 'blur' : ''}`}>
+      {/* <div className={$loading ? 'blur'}> */}
         <Nav />
         <div className="about-student ">
           <div className="for-image-section">
